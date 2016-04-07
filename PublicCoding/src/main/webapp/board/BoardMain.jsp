@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR" import="com.board.dao.*,java.util.*"%>
-<jsp:useBean id="dao" class="com.board.dao.BoardDAO"></jsp:useBean>
-<%
+	pageEncoding="EUC-KR" import="com.puco.board.dao.*,java.util.*"%>
+<jsp:useBean id="dao" class="com.puco.board.dao.BoardDAO"></jsp:useBean>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%
 	List<BoardDTO> d = dao.boardListData(0);
-%>
+%> --%>
 
 <!DOCTYPE HTML>
 <!--
@@ -17,7 +18,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="../../assets/css/newboard.css" />
+<link rel="stylesheet" href="assets/css/newboard.css" />
 <!-- <link rel="stylesheet" href="../assets/css/pracc111.css" /> -->
 <!-- 		<link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=a14bb0933bd0"> -->
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -28,7 +29,7 @@
 		<!-- Header -->
 		<header id="header">
 		<h1 id="logo">
-			<a href="../main.jsp">p2</a>
+			<a href="common/main.jsp">p2</a>
 		</h1>
 		<nav id="nav">
 		<ul>
@@ -112,10 +113,11 @@
 					<div id="qlist-wrapper">
 						<div id="question-mini-list">
 
-							<%
-								for (BoardDTO list : d) {
-							%>
 
+						<c:forEach var="d" items="${ list }" >
+							
+						
+						
 							<div class="question-summary narrow">
 								<!-- 카운트,뷰,보트 영역 -->
 								<div
@@ -135,7 +137,7 @@
 									</div>
 									<div class="views">
 										<div class="mini-counts">
-											<span title="<%=list.getHit()%> views"><%=list.getHit()%></span>
+											<span title="${d.hit } views">${d.hit } </span>
 										</div>
 										<div>views</div>
 									</div>
@@ -146,7 +148,7 @@
 								<div class="summary">
 									<h3>
 										<a href="/questions/36144341/reduce-table-whit-css-if-posible"
-											class="question-hyperlink"><%=list.getSubject()%></a>
+											class="question-hyperlink">${d.subject } </a>
 									</h3>
 									<div class="tags t-태그 t-태그">
 										<a href="/questions/tagged/태그" class="post-tag"
@@ -157,17 +159,15 @@
 									<div class="started">
 										<a href="/questions/36144341/reduce-table-whit-css-if-posible"
 											class="started-link">asked <span
-											title="2016-03-22 00:50:00Z" class="relativetime"><%=list.getRegdate()%></span></a>
-										<a href="/users/6096182/<%=list.getName()%>"><%=list.getName()%></a>
+											title="2016-03-22 00:50:00Z" class="relativetime">${d.regdate }</span></a>
+										<a href="/users/6096182/${d.name } ">${d.name }</a>
 										<span class="reputation-score" title="reputation score "
 											dir="ltr">1</span>
 									</div>
 								</div>
 							</div>
 
-							<%
-								}
-							%>
+		</c:forEach>
 
 						</div>
 					</div>
@@ -369,13 +369,13 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../../assets/js/skel.min.js"></script>
-	<script src="../../assets/js/util.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="../../assets/js/main.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>

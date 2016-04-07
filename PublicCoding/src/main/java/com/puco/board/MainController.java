@@ -1,5 +1,8 @@
 package com.puco.board;
 
-public class MainController {
+import com.puco.controller.Controller;
 
+@Controller("mc")
+public class MainController {
+	
 }

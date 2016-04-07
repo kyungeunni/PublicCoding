@@ -5,12 +5,22 @@
     <servlet-class>com.puco.controller.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>C:\SpringDev\springStudy\PublicCoding\src\main\webapp\WEB-INF\applicationContext.xml</param-value>
+      <param-value>C:\Users\sist\git\PublicCoding\PublicCoding\src\main\webapp\WEB-INF\applicationContext.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>appServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DispatcherServlet</display-name>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-class>com.puco.cotroller.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>/DispatcherServlet</url-pattern>
   </servlet-mapping>
 </web-app>
