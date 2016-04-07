@@ -1,0 +1,17 @@
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic");
+
+#name{
+	color:yellow;
+	font-family: ¸¼Àº °íµñ;
+	font-size: 10pt;
+}
+
+div{
+	font-family: ¸¼Àº °íµñ;
+	font-size: 9pt;	
+}
+
+.sumain{
+ color: red;
+}

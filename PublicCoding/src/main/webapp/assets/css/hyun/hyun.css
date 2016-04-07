@@ -1,0 +1,29 @@
+.carousel-inner{
+	margin-top:50px;
+	padding: 5px;
+}
+.list-group{
+	margin-top:50px;
+	padding:5px;
+	text-align: center;
+}
+.list-group a{
+	color: rgb(230,230,230);
+	font-size: 20px;
+}
+.row{
+	padding:5px;
+}
+.list-group-item{
+	background-color: gray;
+}
+.thumbnail{
+	background-color: gray;
+}
+/* .app-container .content-container .side-menu:hover {
+    width: 250px; 
+} */
+/* .hyundiv{
+	height: 250px;
+} */
+
