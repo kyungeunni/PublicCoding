@@ -1,7 +1,7 @@
 # PublicCoding
 SIst Group3 - Second Project: PublicCoding
 
-1.이클립스에서 프로젝트import할 때, 저장 경로를 C:\Users\sist\git\PublicCoding\ 로 설정하거나
+1.이클립스에서 프로젝트import할 때, 저장 경로를 C:\Users\sist\git\PublicCoding\ 로 설정하거나<br>
 2.본인의 디렉토리에서 경로 수정해서 사용
 
 ***수정할 부분
