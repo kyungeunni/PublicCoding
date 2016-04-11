@@ -138,7 +138,7 @@
 
 								<div class="summary">
 									<h3>
-										<a href="/questions/36144341/reduce-table-whit-css-if-posible"
+										<a href="content.do?no=${d.no }"
 											class="question-hyperlink">${d.subject } </a>
 									</h3>
 									<div class="tags t-태그 t-태그">
