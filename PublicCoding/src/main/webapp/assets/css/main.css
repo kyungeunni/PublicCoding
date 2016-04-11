@@ -1612,6 +1612,16 @@
 			color: inherit;
 			border: 0;
 		}
+		
+		li{
+		color: #ffffff;
+		font-weight: 300;
+		}
+		
+		li a{
+		    color: inherit;
+			border: 0;
+		}
 
 	h2 {
 		font-size: 2em;
