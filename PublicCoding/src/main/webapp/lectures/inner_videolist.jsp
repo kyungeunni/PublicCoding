@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Shop Homepage - Start Bootstrap Template</title>
+
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/hyun/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/hyun/shop-homepage.css" rel="stylesheet">

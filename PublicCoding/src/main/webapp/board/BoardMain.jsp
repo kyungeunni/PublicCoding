@@ -10,7 +10,7 @@
 
 <html>
 <head>
-<title>PUBLIC CODING</title>
+<title>PUBLIC CODING | 모두가 즐기는 코딩</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
