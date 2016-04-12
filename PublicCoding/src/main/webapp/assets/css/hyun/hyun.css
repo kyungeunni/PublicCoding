@@ -23,7 +23,9 @@
 /* .app-container .content-container .side-menu:hover {
     width: 250px; 
 } */
-/* .hyundiv{
-	height: 250px;
-} */
+.hyundiv:HOVER{
+	outline-style: solid;
+	outline-color: rgb(166,136,155);
+	outline-width: 6px;
+}
 

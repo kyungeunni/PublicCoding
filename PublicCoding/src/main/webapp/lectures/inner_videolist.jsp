@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR" import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
-	String mode=request.getParameter("mode");
+	List<String> list=new ArrayList<String>();
+	for(int i=0;i<20;i++){
+		list.add("김현성:"+i);
+	}
+	request.setAttribute("list", list);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
@@ -10,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>PublicCode</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/hyun/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/hyun/shop-homepage.css" rel="stylesheet">
@@ -22,15 +28,15 @@
             <div class="col-md-3">
                 <p class="lead"></p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item"><b>★Programing★</b></a>
-                    <a href="#" class="list-group-item">-Java-</a>
-                    <a href="#" class="list-group-item">-C/C++-</a>
-                    <a href="#" class="list-group-item">-JSP-</a>
-                    <a href="#" class="list-group-item">-Oracle-</a>
-                    <a href="#" class="list-group-item">-Spring-</a>
-                    <a href="#" class="list-group-item">-HTML-</a>
-                    <a href="#" class="list-group-item">-CSS-</a>
-                    <a href="#" class="list-group-item">-JavaScript-</a>
+                    <a href="videolist.do?mode=1" class="list-group-item"><b>★Programing★</b></a>
+                    <a href="videolist.do?mode=2" class="list-group-item">-Java-</a>
+                    <a href="videolist.do?mode=3" class="list-group-item">-C/C++-</a>
+                    <a href="videolist.do?mode=4" class="list-group-item">-JSP-</a>
+                    <a href="videolist.do?mode=5" class="list-group-item">-Oracle-</a>
+                    <a href="videolist.do?mode=6" class="list-group-item">-Spring-</a>
+                    <a href="videolist.do?mode=7" class="list-group-item">-HTML-</a>
+                    <a href="videolist.do?mode=8" class="list-group-item">-CSS-</a>
+                    <a href="videolist.do?mode=9" class="list-group-item">-JavaScript-</a>
                 </div>
             </div>
             <div class="col-md-9">
@@ -68,15 +74,17 @@
                         </div>
                     </div>
                 </div>
+                <c:set var="celi" value="${fn:length(list)/4 }"></c:set>
+                <c:forEach var="i" begin="1" end="${celi+(1-(celi%1))%1 }" >
                 <div class="row">
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
+                 <c:forEach var="j" begin="${(i*4)-3 }" end="${i*4 }" items="${list}">
+                    <div class="col-sm-3 col-lg-3 col-md-3">
+                        <div class="thumbnail hyundiv">
                             <img src="http://placehold.it/320x150" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Java강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 Java강의 <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                                <h4 class="pull-right">YouTube</h4>
+                                <h4>출처:</h4>
+                                <p><a href="#">You Tube와 함깨하는 Java강의asdfasdf</a></p>
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -90,156 +98,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">C++/C#강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 C++/C#강의</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Html강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 Html강의</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 CSS</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">6 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">JavaScript강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 JavaScript</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Oracle강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 Oracle</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Oracle강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 Oracle</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3 col-md-3 hyundiv">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/320x150" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">무료</h4>
-                                <h4><a href="#">Oracle강의</a>
-                                </h4>
-                                <p>You Tube와 함깨하는 Oracle</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">18 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+                    </c:forEach>
+                   </div>
+                   </c:forEach>
                 </div>
             </div>
         </div>

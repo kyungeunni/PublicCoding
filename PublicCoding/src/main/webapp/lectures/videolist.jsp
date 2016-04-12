@@ -47,14 +47,12 @@
 			</nav>
 		</header>
 	</div>
-		 <%-- <div style="margin-top: 100px;"><jsp:include page="dist/html/test2.jsp"/></div> --%>
+		 
 		 <div class="container">
 		  	<div class="row">
-		  		<%-- <div style="border:1px solid gold; position: fixed;"><jsp:include page="dist/html/test2.jsp"/></div> --%>
 		 		<div><jsp:include page="inner_videolist.jsp"/></div>
 		 	</div>
 		 </div>
-         
          <!-- г╡ем -->
          <footer id="footer">
 			<ul class="icons">
