@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
-	response.sendRedirect("boardmain.do");
+	response.sendRedirect("main.do");
 %>

@@ -46,6 +46,19 @@ li{
 	border:0px;
 }
 
+#mainbar
+{
+	margin: 0 auto;
+   	width:850px;
+	float:left;
+}
+
+#sidebar{
+	margin: 0 auto;
+	float:left;
+	width:150px;
+	
+}
 
 .content{
 	    margin: 0 auto;
@@ -73,3 +86,4 @@ li{
 	font-size: 20px;
 	
 }
+

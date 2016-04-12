@@ -14,9 +14,7 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/content.css">
 
@@ -27,6 +25,7 @@
 	src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="resources/se/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
+
 <script>
 	$(function() {
 		//전역변수선언
@@ -122,7 +121,6 @@
 				<!-- Content -->
 				<div id=mainbar>
 					<section id="question">
-
 						<jsp:include page="inner_content.jsp" />
 					</section>
 
@@ -145,7 +143,11 @@
 				</div>
 				
 				<div id="sidebar">
-					
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
 				</div>
 			</div>
 		</div>

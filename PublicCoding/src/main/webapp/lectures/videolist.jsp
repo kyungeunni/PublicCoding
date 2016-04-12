@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Programming MOOC</title>
-<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body class="landing">
 	<div id="page-wrapper">
@@ -15,7 +15,7 @@
 			<!-- 메뉴바 -->	
 			<nav id="nav">
 				<ul>
-					<li><a href="main.jsp">Home</a></li>
+					<li><a href="main.do">Home</a></li>
 					<li><a href="#">Layouts</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
@@ -77,19 +77,19 @@
 		</footer>
             
 	
-	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/hyun/hyun.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/hyun/hyun.css">
 	<!-- Scripts -->
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/ie/respond.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/ie/respond.min.js"></script>
 	<!--[endif]  -->
-	<script src="../assets/js/main.js"></script>
-	<script src="../assets/js/popup.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/popup.js"></script>
 	<!--  -->
 	
 </body>
