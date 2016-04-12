@@ -21,15 +21,9 @@
 					</td>
 					
 					<td width=85%>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
-						<p>Blah BlahBlah</p>
+						<p>${d.content}</p>
 					
-						<p id="written">asked by whom <img src="../assets/vote-up.png"><p>
+						<p id="written">asked by whom <img src="assets/vote-up.png"><p>
 					</td>
 				</tr>
 				

@@ -12,8 +12,8 @@
     <meta name="author" content="">
 
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/hyun/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/hyun/shop-homepage.css" rel="stylesheet">
+    <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
     <!-- Page Content -->
@@ -245,8 +245,8 @@
         </div>
     
     <!-- jQuery -->
-    <script src="../assets/js/hyun/jquery.js"></script>
+    <script src="assets/js/hyun/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/js/hyun/bootstrap.min.js"></script>
+    <script src="assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>

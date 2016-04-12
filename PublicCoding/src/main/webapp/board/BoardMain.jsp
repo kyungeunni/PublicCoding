@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR" import="com.puco.board.dao.*,java.util.*"%>
-<jsp:useBean id="dao" class="com.puco.board.dao.BoardDAO"></jsp:useBean>
+	pageEncoding="EUC-KR" %>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- <%
 	List<BoardDTO> d = dao.boardListData(0);
@@ -20,11 +20,11 @@
 		<!-- Header -->
 		<header id="header">
 		<h1 id="logo">
-			<a href="common/main.jsp">p2</a>
+			<a href="main.do">PUBLIC CODING</a>
 		</h1>
 		<nav id="nav">
 		<ul>
-
+					<li><a href="main.do">Home</a></li>
 					<li><a href="#">강의목록</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
@@ -138,7 +138,7 @@
 
 								<div class="summary">
 									<h3>
-										<a href="/questions/36144341/reduce-table-whit-css-if-posible"
+										<a href="content.do?no=${d.no }"
 											class="question-hyperlink">${d.subject } </a>
 									</h3>
 									<div class="tags t-태그 t-태그">
@@ -368,5 +368,8 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+		
+	<!-- 회원가입/로그인 팝업창 띄우기 -->	
+	<script src="assets/js/popup.js"></script>
 </body>
 </html>

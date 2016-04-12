@@ -4351,11 +4351,13 @@ h1 {
 	width: 530px;
 	padding: 0;
 	float: left;
+	padding-top: 10px;
 }
 
 .summary {
 	float: left;
 	width: 630px;
+	padding-top: 10px;
 }
 
 #mainbar h2, .mainbar h2, #mainbar h3, .mainbar h3, #mainbar h4,
