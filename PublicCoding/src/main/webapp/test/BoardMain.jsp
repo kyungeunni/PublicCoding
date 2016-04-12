@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR" %>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE HTML>
@@ -11,17 +11,17 @@
 <title>PUBLIC CODING</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="assets/css/newboard.css" />
+<link rel="stylesheet" href="../assets/css/newboard.css" />
 </head>
 <body>
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header">
-			<h1 id="logo">
-				<a href="main.do">PUBLIC CODING</a>
-			</h1>
-			<nav id="nav">
-				<ul>
+		<h1 id="logo">
+			<a href="main.do">PUBLIC CODING</a>
+		</h1>
+		<nav id="nav">
+		<ul>
 					<li><a href="main.do">Home</a></li>
 					<li><a href="#">강의목록</a>
 						<ul>
@@ -61,9 +61,8 @@
 					<li id="pop1"><input onclick="popup_signup()" type="button"
 						class="button special" value="회원가입"></li>
 				</ul>
-
-			</nav>
-		</header>
+		
+		</nav> </header>
 
 
 		<!-- Main -->
@@ -104,60 +103,60 @@
 						<div id="question-mini-list">
 
 
-							<c:forEach var="d" items="${ list }">
-
-
-
-								<div class="question-summary narrow">
-									<!-- 카운트,뷰,보트 영역 -->
-									<div
-										onclick="window.location.href='/questions/36144341/reduce-table-whit-css-if-posible'"
-										class="cp">
-										<div class="votes">
-											<div class="mini-counts">
-												<span title="0 votes">0</span>
-											</div>
-											<div>votes</div>
+						<c:forEach var="d" items="${ list }" >
+							
+						
+						
+							<div class="question-summary narrow">
+								<!-- 카운트,뷰,보트 영역 -->
+								<div
+									onclick="window.location.href='/questions/36144341/reduce-table-whit-css-if-posible'"
+									class="cp">
+									<div class="votes">
+										<div class="mini-counts">
+											<span title="0 votes">0</span>
 										</div>
-										<div class="status unanswered">
-											<div class="mini-counts">
-												<span title="0 answers">0</span>
-											</div>
-											<div>answers</div>
-										</div>
-										<div class="views">
-											<div class="mini-counts">
-												<span title="${d.hit } views">${d.hit } </span>
-											</div>
-											<div>views</div>
-										</div>
+										<div>votes</div>
 									</div>
-
-									<!-- 질문과 시간영역 -->
-
-									<div class="summary">
-										<h3>
-											<a href="content.do?no=${d.no }" class="question-hyperlink">${d.subject }
-											</a>
-										</h3>
-										<div class="tags t-태그 t-태그">
-											<a href="/questions/tagged/태그" class="post-tag"
-												title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
-											<a href="/questions/tagged/태그" class="post-tag"
-												title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
+									<div class="status unanswered">
+										<div class="mini-counts">
+											<span title="0 answers">0</span>
 										</div>
-										<div class="started">
-											<a
-												href="/questions/36144341/reduce-table-whit-css-if-posible"
-												class="started-link">asked <span
-												title="2016-03-22 00:50:00Z" class="relativetime">${d.regdate }</span></a>
-											<a href="/users/6096182/${d.name } ">${d.name }</a> <span
-												class="reputation-score" title="reputation score " dir="ltr">1</span>
+										<div>answers</div>
+									</div>
+									<div class="views">
+										<div class="mini-counts">
+											<span title="${d.hit } views">${d.hit } </span>
 										</div>
+										<div>views</div>
 									</div>
 								</div>
 
-							</c:forEach>
+								<!-- 질문과 시간영역 -->
+
+								<div class="summary">
+									<h3>
+										<a href="content.do?no=${d.no }"
+											class="question-hyperlink">${d.subject } </a>
+									</h3>
+									<div class="tags t-태그 t-태그">
+										<a href="/questions/tagged/태그" class="post-tag"
+											title="show questions tagged &#39;태그&#39;" rel="tag">태그</a> <a
+											href="/questions/tagged/태그" class="post-tag"
+											title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
+									</div>
+									<div class="started">
+										<a href="/questions/36144341/reduce-table-whit-css-if-posible"
+											class="started-link">asked <span
+											title="2016-03-22 00:50:00Z" class="relativetime">${d.regdate }</span></a>
+										<a href="/users/6096182/${d.name } ">${d.name }</a>
+										<span class="reputation-score" title="reputation score "
+											dir="ltr">1</span>
+									</div>
+								</div>
+							</div>
+
+		</c:forEach>
 
 						</div>
 					</div>
@@ -330,26 +329,45 @@
 
 
 		</div>
-		
-<%-- 
-		<div>
-			<jsp:include page="../common/footer.jsp"></jsp:include>
-		</div> --%>
+	
 
 
+
+		<!-- Footer-->
+<!-- 		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon alt fa-twitter"><span
+						class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon alt fa-facebook"><span
+						class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon alt fa-linkedin"><span
+						class="label">LinkedIn</span></a></li>
+				<li><a href="#" class="icon alt fa-instagram"><span
+						class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon alt fa-github"><span
+						class="label">GitHub</span></a></li>
+				<li><a href="#" class="icon alt fa-envelope"><span
+						class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+	
+	</footer> -->
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
-
-	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="assets/js/popup.js"></script>
+	<script src="../assets/js/main.js"></script>
+		
+	<!-- 회원가입/로그인 팝업창 띄우기 -->	
+	<script src="../assets/js/popup.js"></script>
 </body>
 </html>

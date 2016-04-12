@@ -3728,7 +3728,7 @@ body.is-touch #banner {
 	background: #272833;
 	padding: 6em 0;
 	text-align: center;
-	float: bottom;
+	float:bottom;
 }
 
 #footer .icons .icon.alt {
@@ -4473,24 +4473,42 @@ h1 {
 
 #mainbar, .mainbar {
 	float: left;
-	width: 728px;
+	width: 750px;
 	margin: 0 0 0 0;
+	
 	padding: 0;
+	padding-bottom: 100px;
 }
 
 #sidebar, .sidebar {
-	float: right;
+	float: left;
 	overflow: hidden;
-	width: 250px;
+	width: 350px;
 	margin: 0;
-	margin: 0 0 15px 0;
+	margin: 0 0 0 0;
+	margin-left: 50px;
 }
 
-#sidebar {
-	position: relative;
+#sidebar  ul{
+	color:#ffffff;
+	 list-style-type:none;
+	 padding-left: 0
 }
+
+#sidebar  li{
+	color:#e44c65;
+	 
+}
+
+#sidebar  li a{
+	color:#ffffff;
+	border-bottom: thin;
+}
+
+
 
 .major h2 {
-	font-family:
+	padding-top: 100px;
+	
 }
 
