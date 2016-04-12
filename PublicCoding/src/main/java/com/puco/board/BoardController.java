@@ -20,7 +20,12 @@ public class BoardController {
 	
 	@RequestMapping("content.do")
 	public String boardContentData(HttpServletRequest req){
-		req.setAttribute("msg", "내용보기");
+		String no=req.getParameter("no");
+		int ino = Integer.parseInt(no);
+		BoardDAO dao = new BoardDAO();
+		BoardDTO dto = dao.boardContentData(ino);
+		req.setAttribute("d", dto);
+		
 		return "board/content.jsp";//jsp파일이름
 	}
 	

@@ -14,17 +14,18 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
-
-
-<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="../assets/css/main.css" />
-<link rel="stylesheet" href="../assets/css/content.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/content.css">
 
 <!-- 에디터 -->
-<link href="../resources/se/css/smart_editor2.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../resources/se/js/HuskyEZCreator.js" charset="utf-8"></script>
+<link href="resources/se/css/smart_editor2.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="resources/se/js/HuskyEZCreator.js"
+	charset="utf-8"></script>
+
 <script>
 	$(function() {
 		//전역변수선언
@@ -32,7 +33,7 @@
 		nhn.husky.EZCreator.createInIFrame({
 			oAppRef : editor_object,
 			elPlaceHolder : "ir1",
-			sSkinURI : "../resources/se/SmartEditor2Skin.html",
+			sSkinURI : "resources/se/SmartEditor2Skin.html",
 			htParams : {
 				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseToolbar : true,
@@ -59,7 +60,7 @@
 		<!-- Header -->
 		<header id="header">
 			<h1 id="logo">
-				<a href="../common/main.jsp">p2</a>
+				<a href="common/main.jsp">p2</a>
 			</h1>
 			<nav id="nav">
 				<ul>
@@ -111,39 +112,45 @@
 		<div id="main" class="wrapper style1">
 			<div class="container">
 				<header class="major">
-					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
+					<!-- 					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
+					<p>#태그. #태그. #태그</p> -->
+					<h2>${d.subject }</h2>
 					<p>#태그. #태그. #태그</p>
 				</header>
 
 				<!-- Content -->
-				<section id="question" >
-					
-			<jsp:include page="inner_content.jsp"/>
-			</section>
-			
-				<section id="answers">
-							<h3 class="content-h">답변</h3>
-			<jsp:include page="inner_content.jsp"/>
-				
-				<div class="content-h">
-				<h3 >당신의 답변을 적어주세요.</h3>
-				<!-- 에디터 -->
+				<div id=mainbar>
+					<section id="question">
+						<jsp:include page="inner_content.jsp" />
+					</section>
+
+					<section id="answers">
+						<h3 class="content-h">답변</h3>
+						<jsp:include page="inner_content.jsp" />
+
+						<div class="content-h">
+							<h3>당신의 답변을 적어주세요.</h3>
+							<!-- 에디터 -->
 							<textarea name="ir1" id="ir1"
-										style="width: 800px; height: 300px; display: none;"></textarea>
-								
-								<div class="col-sm-offset-8 col-sm-8">
-									<input type="button" id="sndbtn" class="btn btn-default"
-										value="답변달기">
-								</div>
-							
+								style="width: 800px; height: 300px; display: none;"></textarea>
+
+							<div class="col-sm-offset-8 col-sm-8">
+								<input type="button" id="sndbtn" class="btn btn-default"
+									value="답변달기">
+							</div>
+						</div>
+					</section>
 				</div>
-				</section>
+				
+				<div id="sidebar">
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+					<p>blar blar blar</p>
+				</div>
 			</div>
-			
-			
-
 		</div>
-
 		<!-- 	Footer -->
 		<footer id="footer">
 			<ul class="icons">
@@ -186,13 +193,13 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
+		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
+		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
+		src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
 
 </body>
 </html>
