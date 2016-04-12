@@ -2,6 +2,13 @@
     pageEncoding="EUC-KR" import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+	List<String> list=new ArrayList<String>();
+	for(int i=0;i<20;i++){
+		list.add("±èÇö¼º:"+i);
+	}
+	request.setAttribute("list", list);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
     <meta charset="utf-8">
