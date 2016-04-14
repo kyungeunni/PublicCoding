@@ -413,7 +413,15 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>      
+		
+			<!-- pretty time -->
+		<dependency>
+		<groupId>org.ocpsoft.prettytime</groupId>
+		<artifactId>prettytime</artifactId>
+		<version>3.2.7.Final</version>
+	</dependency>
+		  
 	</dependencies>
 
     <build>

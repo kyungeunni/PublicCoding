@@ -152,9 +152,9 @@
 										</div>
 										<div class="started">
 											<a
-												href="/questions/36144341/reduce-table-whit-css-if-posible"
-												class="started-link">asked <span
-												title="2016-03-22 00:50:00Z" class="relativetime">${d.regdate }</span></a>
+												href="content.do?no=${d.no }"
+												class="started-link"	><span title="${d.regdate }" class="relativetime">${rtime[d.no]}</span></a>
+												
 											<a href="/users/6096182/${d.name } ">${d.name }</a> <span
 												class="reputation-score" title="reputation score " dir="ltr">1</span>
 										</div>
