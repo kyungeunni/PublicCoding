@@ -95,7 +95,7 @@ body {
 	width: 70em;
 }
 
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 2000px) {
 	.container.\31 25\25 {
 		width: 100%;
 		max-width: 87.5em;
@@ -115,7 +115,7 @@ body {
 	}
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1670px) {
 	.container.\31 25\25 {
 		width: 100%;
 		max-width: 112.5%;
@@ -443,7 +443,7 @@ body {
 	margin-left: 8.33333%;
 }
 
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 2000px) {
 	.row>* {
 		padding: 0 0 0 2.5em;
 	}
@@ -607,7 +607,7 @@ body {
 	}
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1800px) {
 	.row>* {
 		padding: 0 0 0 2.5em;
 	}
@@ -3779,7 +3779,7 @@ body.is-touch #banner {
 }
 
 /* XLarge */
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 2000px) {
 	/* Basic */
 	body, input, select, textarea {
 		font-size: 13pt;
@@ -3787,7 +3787,7 @@ body.is-touch #banner {
 }
 
 /* Large */
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1800px) {
 	/* Basic */
 	body, input, select, textarea {
 		font-size: 11.5pt;
@@ -4507,8 +4507,19 @@ h1 {
 
 
 
-.major h2 {
-	padding-top: 100px;
-	
+
+
+#pucoof{
+	display:inline-block;
 }
 
+#btnqst{
+	float:right;
+	border-color: inherit;
+	border-bottom-style: inherit;
+}
+
+#listmajor{
+	width:750px;
+	padding-top: 100px;
+}

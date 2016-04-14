@@ -2,7 +2,7 @@ var citynames = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   prefetch: {
-    url: 'assets/citynames.json',
+    url: 'resources/bootstrap-tagsinput-master/examples/assets/citynames.json',
     filter: function(list) {
       return $.map(list, function(cityname) {
         return { name: cityname }; });
@@ -14,7 +14,7 @@ citynames.initialize();
 var cities = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'assets/cities.json'
+  prefetch: 'resources/bootstrap-tagsinput-master/examples/assets/cities.json'
 });
 cities.initialize();
 

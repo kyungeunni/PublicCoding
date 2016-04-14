@@ -85,7 +85,7 @@
 		width: 70em;
 	}
 
-	@media screen and (max-width: 1680px) {
+	@media screen and (max-width: 2000px) {
 
 		.container.\31 25\25 {
 			width: 100%;
@@ -111,7 +111,7 @@
 
 	}
 
-	@media screen and (max-width: 1280px) {
+	@media screen and (max-width: 1680px) {
 
 		.container.\31 25\25 {
 			width: 100%;
@@ -473,7 +473,7 @@
 		margin-left: 8.33333%;
 	}
 
-	@media screen and (max-width: 1680px) {
+	@media screen and (max-width: 2000px) {
 
 		.row > * {
 			padding: 0 0 0 2.5em;
@@ -688,7 +688,7 @@
 
 	}
 
-	@media screen and (max-width: 1280px) {
+	@media screen and (max-width: 1680px) {
 
 		.row > * {
 			padding: 0 0 0 2.5em;
@@ -3493,7 +3493,7 @@
 
 /* XLarge */
 
-	@media screen and (max-width: 1680px) {
+	@media screen and (max-width: 2000px) {
 
 		/* Basic */
 
@@ -3505,7 +3505,7 @@
 
 /* Large */
 
-	@media screen and (max-width: 1280px) {
+	@media screen and (max-width: 1680px) {
 
 		/* Basic */
 

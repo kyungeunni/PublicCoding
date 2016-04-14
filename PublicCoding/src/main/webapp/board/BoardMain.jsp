@@ -69,10 +69,14 @@
 		<!-- Main -->
 
 		<div class="container">
-			<div class="major">
-				<h2>PUCO Overflow</h2>
-				<p></p>
+			<div class="major" id="listmajor">
+				<div id="pucoof"><h2>PUCO Overflow</h2></div>
+				<div  id="btnqst">
+									
+										<h5 ><a href="question.do"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+								</div>
 			</div>
+			
 
 			<!-- Content -->
 			<div id="content" class="snippet-hidden">
@@ -80,7 +84,7 @@
 
 				<!-- 추가 -->
 				<div id="mainbar">
-
+					
 					<header class="subheader">
 						<h1 id="h-top-questions">Top Questions</h1>
 						<div id="tabs">

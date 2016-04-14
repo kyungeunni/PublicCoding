@@ -18,17 +18,17 @@
 
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet"	href="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
+<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-<link rel="stylesheet"	href="../resources/bootstrap-tagsinput-master/examples/assets/app.css">
+<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/examples/assets/app.css">
 
 <link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="../assets/css/newboard.css" />
+<link rel="stylesheet" href="assets/css/newboard.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript"	src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../resources/se/js/HuskyEZCreator.js"
+<script type="text/javascript" src="resources/se/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 <script>
 	$(function() {
@@ -37,7 +37,7 @@
 		nhn.husky.EZCreator.createInIFrame({
 			oAppRef : editor_object,
 			elPlaceHolder : "ir1",
-			sSkinURI : "../resources/se/SmartEditor2Skin.html",
+			sSkinURI : "resources/se/SmartEditor2Skin.html",
 			htParams : {
 				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseToolbar : true,
@@ -84,7 +84,7 @@
 		<!-- Header -->
 		<header id="header">
 			<h1 id="logo">
-				<a href="../common/main.jsp">p2</a>
+				<a href="common/main.jsp">p2</a>
 			</h1>
 			<nav id="nav">
 				<ul>
@@ -220,14 +220,14 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="../assets/js/main.js"></script>
+	<script src="assets/js/main.js"></script>
 
 	<!-- tags scripts -->
 	<script
@@ -237,12 +237,12 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
+		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
-	<script src="../resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
+		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput-angular.min.js"></script>
+	<script src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
 	<script
-		src="../resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
 
 </body>
 </html>
