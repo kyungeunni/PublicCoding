@@ -140,7 +140,7 @@
 								<input type="button" id="cancel" class="btn btn-default"
 									value="¸ñ·Ï">
 							</div>
-						
+						</div>
 					</section>
 				</div>
 				
