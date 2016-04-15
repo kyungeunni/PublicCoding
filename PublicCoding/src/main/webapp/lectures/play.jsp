@@ -72,14 +72,13 @@
 							</div>
 						</div>
 						<div class="col-xs-10 col-sm-5 col-md-5">
-						
 							<table class="table">
 								<tr>
 									<td>
 									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 									</td>
 									<td>1강 </td>
-									<td><a href="" target="_self">웹프로그래밍</a> </td>
+									<td><a href="" target="_self">웹프로그래밍</a></td>
 									<td>23:41</td>
 								</tr>
 								<tr>
@@ -87,7 +86,7 @@
 									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 									</td>
 									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a> </td>
+									<td><a href="" target="_self">개발 환경 설정</a></td>
 									<td>23:41</td>
 								</tr>
 								<tr>

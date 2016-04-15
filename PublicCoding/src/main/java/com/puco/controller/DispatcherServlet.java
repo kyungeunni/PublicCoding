@@ -21,7 +21,6 @@ public class DispatcherServlet extends HttpServlet {
 		String path = config.getInitParameter("contextConfigLocation");
 		wc = new WebApplicationContext(path);
 		list=wc.packlist;
-		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,7 +43,6 @@ public class DispatcherServlet extends HttpServlet {
 					}
 				}
 			}
-			
 		}catch(Exception ex){
 			System.out.println("Dispatcher>>" + ex.getMessage());
 		}

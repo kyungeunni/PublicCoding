@@ -24,10 +24,10 @@ public class MainController {
 		return "lectures/play.jsp";//jsp파일이름
 	}
 	
-	@RequestMapping("videolist.do")
+	/*@RequestMapping("videolist.do")
 	public String getMainVideoList(HttpServletRequest req){
 
 		return "lectures/videolist.jsp";//jsp파일이름
-	}
+	}*/
 	
 }

@@ -10,12 +10,12 @@
 	<div id="page-wrapper">
 		<header id="header">
 			<h1 id="logo">
-				<a href="main.jsp">Programming Study</a>
+				<a href="main.do">Public Coding</a>
 			</h1>
 			<!-- 메뉴바 -->	
 			<nav id="nav">
 				<ul>
-					<li><a href="main.jsp">Home</a></li>
+					<li><a href="main.do">Home</a></li>
 					<li><a href="#">강의목록</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
@@ -40,14 +40,16 @@
 									<li><a href="#">Option 2</a></li>
 									<li><a href="#">Option 3</a></li>
 									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 					<li id="pop1"><input onclick="popup()" type="button" class="button special" value="Sign Up"></li>
 				</ul>
 			</nav>
 		</header>
 	</div>
-		 
+		<!-- container -->
 		 <div class="container">
 		  	<div class="row">
 		 		<div><jsp:include page="inner_videolist.jsp"/></div>
@@ -73,8 +75,6 @@
 				<li>&copy;Copyright by SIST-C2.</li>
 			</ul>
 		</footer>
-            
-	
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/hyun/hyun.css">
 	<!-- Scripts -->

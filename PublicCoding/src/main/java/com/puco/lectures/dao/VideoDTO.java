@@ -1,11 +1,17 @@
-package hyun.puco.video.dao;
+package com.puco.lectures.dao;
 
 public class VideoDTO {
 	private int no;
 	private String title;//title
 	private String image;//image
+	private String lectureurl;//url
 	
-	
+	public String getLectureurl() {
+		return lectureurl;
+	}
+	public void setLectureurl(String lectureurl) {
+		this.lectureurl = lectureurl;
+	}
 	public int getNo() {
 		return no;
 	}
