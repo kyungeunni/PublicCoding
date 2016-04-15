@@ -145,10 +145,19 @@
 											</a>
 										</h3>
 										<div class="tags t-태그 t-태그">
-											<a href="/questions/tagged/태그" class="post-tag"
-												title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
-											<a href="/questions/tagged/태그" class="post-tag"
-												title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
+											<c:if test="${d.tag1!='none' }">
+											<a href="/questions/tagged/${d.tag1}" class="post-tag"
+												title="show questions tagged &#39;${d.tag1}&#39;" rel="tag">${d.tag1}</a>
+												</c:if>
+												<c:if test="${d.tag2!='none' }">
+											<a href="/questions/tagged/${d.tag2}" class="post-tag"
+												title="show questions tagged &#39;${d.tag2}&#39;" rel="tag">${d.tag2}</a>
+												</c:if>
+												<c:if test="${d.tag3!='none' }">
+											<a href="/questions/tagged/${d.tag3}" class="post-tag"
+												title="show questions tagged &#39;${d.tag3}&#39;" rel="tag">${d.tag3}</a>
+												</c:if>
+											
 										</div>
 
 										

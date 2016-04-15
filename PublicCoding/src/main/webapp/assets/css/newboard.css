@@ -4382,6 +4382,7 @@ h1 {
 .tags {
 	line-height: 18px;
 	float: left;
+	    margin-top: 4px;
 }
 
 .post-tag, .container .chosen-choices .search-choice, .container .chosen-container-multi .chosen-choices li.search-choice,
@@ -4396,7 +4397,7 @@ h1 {
 	border-radius: 0; */
     display: inline;
     padding: .3em .6em .3em;
-    font-size: 80%;
+    font-size: 70%;
     font-weight: 500;
     line-height: 1;
     color: #fff;
@@ -4406,6 +4407,7 @@ h1 {
     border-radius: .25em;
     background-color: #e44c65;
     margin-right: 3px;
+    margin-top:3px;
 
 }
 
