@@ -150,13 +150,15 @@
 											<a href="/questions/tagged/태그" class="post-tag"
 												title="show questions tagged &#39;태그&#39;" rel="tag">태그</a>
 										</div>
+
+										
 										<div class="started">
 											<a
 												href="content.do?no=${d.no }"
 												class="started-link"	><span title="${d.regdate }" class="relativetime">${rtime[d.no]}</span></a>
 												
-											<a href="/users/6096182/${d.name } ">${d.name }</a> <span
-												class="reputation-score" title="reputation score " dir="ltr">1</span>
+											<a href="users.do?no=&id=${d.name }">${d.name }</a> <span
+												class="reputation-score" title="reputation score " dir="ltr"></span>
 										</div>
 									</div>
 								</div>

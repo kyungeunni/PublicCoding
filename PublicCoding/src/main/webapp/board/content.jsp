@@ -137,8 +137,10 @@
 							<div class="col-sm-offset-8 col-sm-8">
 								<input type="button" id="sndbtn" class="btn btn-default"
 									value="답변달기">
+								<input type="button" id="cancel" class="btn btn-default"
+									value="목록">
 							</div>
-						</div>
+						
 					</section>
 				</div>
 				
