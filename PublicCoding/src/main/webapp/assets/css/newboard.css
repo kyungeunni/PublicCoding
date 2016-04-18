@@ -1291,7 +1291,7 @@ a {
 		ease-in-out;
 	-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-	border-bottom: dotted 1px;
+	border-bottom: none;
 	color: #e44c65;
 	text-decoration: none;
 }
@@ -4382,19 +4382,39 @@ h1 {
 .tags {
 	line-height: 18px;
 	float: left;
+	    margin-top: 4px;
 }
 
 .post-tag, .container .chosen-choices .search-choice, .container .chosen-container-multi .chosen-choices li.search-choice,
 	.geo-tag {
-	color: #39739d;
+	/* color: #39739d;
 	font-size: 12px;
 	white-space: nowrap;
 	background: #E1ECF4;
 	border: 1px solid #E1ECF4;
 	display: inline-block;
 	margin: 2px 2px 2px 0;
-	border-radius: 0;
+	border-radius: 0; */
+    display: inline;
+    padding: .3em .6em .3em;
+    font-size: 70%;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    /* text-align: center; */
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #e44c65;
+    margin-right: 3px;
+    margin-top:3px;
+
 }
+
+.post-tag, .container .chosen-choices .search-choice, .container .chosen-container-multi .chosen-choices li.search-choice,
+	.geo-tag a:hover{
+	color: #ffffff;
+	}
 
 .narrow .started {
 	width: auto;

@@ -1,11 +1,12 @@
 package com.puco.board;
 
 import javax.servlet.http.HttpServletRequest;
-
+import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.board.dao.*;
 import java.util.*;
+
 @Controller("bc")
 public class BoardController {
 
@@ -32,6 +33,8 @@ public class BoardController {
 	@RequestMapping("boardmain.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
+		PrettyTime p = new PrettyTime(new Locale("KO"));
+		Map reltmap = new HashMap();
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);
@@ -42,11 +45,17 @@ public class BoardController {
 		map.put("start", start);
 		map.put("end", end);
 		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
+		for(QnaBoardVO v:list){
+
+			reltmap.put(v.getNo(), p.format(v.getRegdate()));
+		}
+		System.out.println(reltmap.get(7));
+		System.out.println(p.format(list.get(1).getRegdate()));
 		int totalpage=QBoardDAO.BoardTotalPage();
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
 		req.setAttribute("totalpage", totalpage);
-		
+		req.setAttribute("rtime", reltmap);
 		return "board/BoardMain.jsp";
 	}
 	
