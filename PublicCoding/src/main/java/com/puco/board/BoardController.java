@@ -1,13 +1,12 @@
 package com.puco.board;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.board.dao.*;
 import java.util.*;
+
 @Controller("bc")
 public class BoardController {
 
