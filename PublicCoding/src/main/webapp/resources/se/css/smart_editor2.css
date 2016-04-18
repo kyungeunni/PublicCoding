@@ -334,3 +334,5 @@ body, #smart_editor2, #smart_editor2 p, #smart_editor2 h1, #smart_editor2 h2, #s
 #smart_editor2 .se2_text_tool .hover .se2_text_tool_more { background-position: -13px -41px; }
 
 #smart_editor2 .se2_text_tool .active .se2_text_tool_more { background-position: -26px -41px; }
+
+#smart_editor2 .se2_text_tool .se2_code { background:url("../img/code.png") no-repeat };
