@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
+		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -10,7 +11,7 @@
 		<dataSource type="POOLED">
 	
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@211.238.142.87:1521:ORCL" />
+				<property name="url" value="jdbc:oracle:thin:@211.238.142.78:1521:ORCL" />
 				<property name="username" value="scott" />
 				<property name="password" value="tiger" />
 			</dataSource>
@@ -18,5 +19,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="com/puco/board/dao/board-mapper.xml" />
+		<mapper resource="com/puco/member/dao/member-mapper.xml" />
 	</mappers>
 </configuration>
