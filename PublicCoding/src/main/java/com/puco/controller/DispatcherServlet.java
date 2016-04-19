@@ -21,7 +21,6 @@ public class DispatcherServlet extends HttpServlet {
 		String path = config.getInitParameter("contextConfigLocation");
 		wc = new WebApplicationContext(path);
 		list=wc.packlist;
-		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +47,6 @@ public class DispatcherServlet extends HttpServlet {
 				}
 				System.out.println("DispatcherServlet Work 3");
 			}
-			
 		}catch(Exception ex){
 			System.out.println("Dispatcher ERROR " + ex.getMessage());
 		}

@@ -4,7 +4,7 @@
 	<sql id="where-no">
 		WHERE no=#{no}
 	</sql>
-	
+
 	<select id="boardAllData" resultType="QBoard" parameterType="java.util.Map">
 		SELECT no,subject,name,regdate,hit,vote,tag1,tag2,tag3,num
 		FROM (SELECT no,subject,name,regdate,hit,vote,tag1,tag2,tag3,rownum as num

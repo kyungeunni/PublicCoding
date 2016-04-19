@@ -18,7 +18,6 @@ public class BoardController {
 		req.setAttribute("list", dto);
 		return "board/BoardMain.jsp";//jsp파일이름
 	}
-	
 	@RequestMapping("content.do")
 	public String boardContentData(HttpServletRequest req){
 		String no=req.getParameter("no");
