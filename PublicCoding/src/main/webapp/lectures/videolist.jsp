@@ -16,7 +16,7 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="main.do">Home</a></li>
-					<li><a href="#">강의목록</a>
+					<li><a href="videolist.do">강의목록</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
 							<li><a href="right-sidebar.html">Right Sidebar</a></li>

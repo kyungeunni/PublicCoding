@@ -33,7 +33,7 @@
 						<div class="col-xs-10 col-sm-7 col-md-7">
 					<section id="content">
 							<div class="embed-responsive embed-responsive-16by9">
-  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dWkKwWDQxio?showinfo=0" frameborder="0" allowfullscreen></iframe>
+  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${url }" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 						<div class="col-xs-10 col-sm-5 col-md-5">

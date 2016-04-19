@@ -21,7 +21,7 @@
 }
 
 .thumbnail.hthumbnail:HOVER{
-	outline-style: solid;
+	outline-style: groove;
 	outline-color: rgb(166,136,155);
 	outline-width: 6px;
 }

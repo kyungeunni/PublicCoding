@@ -12,3 +12,4 @@
 	WHERE num BETWEEN #{start} AND #{end}
 	
 </select>
+</mapper>

@@ -30,7 +30,10 @@ public class LectureController {
 	public String videoPlayData(HttpServletRequest req) throws Exception{
 		//req.setAttribute("msg", "°Ô½ÃÆÇ");
 		req.setCharacterEncoding("EUC-KR");
-		String lecture=req.getParameter("lecture");
+		String lecture=req.getParameter("lecture").substring(9);
+		String list=req.getParameter("list");
+		String url=lecture+"?list="+list; //awTiYk5aCEo?list=PLENYGEQnz1xrMzGAfcCJFBzkBNzY2ufb1
+		req.setAttribute("url", url);
 		req.setAttribute("jsp", "play.jsp");
 		return "lectures/videolist.jsp";
 	}
