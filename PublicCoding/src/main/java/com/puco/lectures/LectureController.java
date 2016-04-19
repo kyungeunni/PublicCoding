@@ -23,11 +23,15 @@ public class LectureController {
 			dto = dao.VideoAllData(mode);
 		}
 		req.setAttribute("list", dto);
-		return "lectures/videolist.jsp";//jsp파일이름
+		req.setAttribute("jsp", "inner_videolist.jsp");
+		return "lectures/videolist.jsp";
 	}
 	@RequestMapping("play.do")
-	public String videoPlayData(HttpServletRequest req){
+	public String videoPlayData(HttpServletRequest req) throws Exception{
 		//req.setAttribute("msg", "게시판");
-		return "lectures/play.jsp";//jsp파일이름
+		req.setCharacterEncoding("EUC-KR");
+		String lecture=req.getParameter("lecture");
+		req.setAttribute("jsp", "play.jsp");
+		return "lectures/videolist.jsp";
 	}
 }

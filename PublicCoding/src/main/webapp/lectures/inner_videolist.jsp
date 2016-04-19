@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
@@ -17,10 +16,13 @@
 <body>
     <!-- Page Content -->
     <div class="container">
+    		<div class="page-header" style="margin-top: 100px">
+ 				<h1 style="font: 20px 맑은 고딕">신입 SW인력을 위한 실전  동영상 과정 <small>Subtext for header</small></h1>
+			</div>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" style="padding-right: 20px">
                 <p class="lead"></p>
-                <div class="list-group">
+                <div class="list-group hlist-group">
                     <a href="videolist.do?mode=1" class="list-group-item"><b>★Programing★</b></a>
                     <a href="videolist.do?mode=2" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>Java 언어</a>
                     <a href="videolist.do?mode=3" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>C 언어</a>
@@ -32,7 +34,7 @@
                     <a href="videolist.do?mode=9" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>JavaScript</a>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 hcol-md-9">
                 <div class="row carousel-holder">
                     <div class="col-md-12">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -41,7 +43,7 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner">
+                            <div class="carousel-inner hcarousel-inner">
                                 <div class="item active">
                                  <a href="videolist.do?mode=2">
                                     <img class="slide-image" src="http://exponential.io/images/blog/headers/java_linux.jpg" alt="java">
@@ -67,13 +69,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
                 <c:set var="celi" value="${fn:length(list)/4}"></c:set>
                 <c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
                 <c:forEach var="i" begin="1" end="${celi_ok}" >
-                <div class="row">
+                <div class="row" style="margin-top: 30px ">
                  <c:forEach var="j" begin="${(i*4)-3}" end="${i*4==celi_ok*4?(fn:length(list)):i*4 }" items="${list}">
                     <div class="col-sm-3 col-lg-3 col-md-3">
-                        <div class="thumbnail hyundiv">
+                        <div class="thumbnail hthumbnail">
                             <img src="${j.image}" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">YouTube</h4>
@@ -97,8 +100,8 @@
                    </c:forEach>
                 </div>
             </div>
+            </div>
         </div>
-    
     <!-- jQuery -->
     <script src="assets/js/hyun/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->

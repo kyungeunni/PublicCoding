@@ -52,7 +52,8 @@
 		<!-- container -->
 		 <div class="container">
 		  	<div class="row">
-		 		<div><jsp:include page="inner_videolist.jsp"/></div>
+		 		<div><jsp:include page="${jsp }"/></div>
+		 		<%-- <div><jsp:include page="inner_videolist.jsp"/></div> --%>
 		 	</div>
 		 </div>
          <!-- г╡ем -->
