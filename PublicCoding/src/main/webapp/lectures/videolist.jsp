@@ -4,7 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Programming MOOC</title>
-<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/hyun/hyun.css">
 </head>
 <body class="landing">
 	<div id="page-wrapper">

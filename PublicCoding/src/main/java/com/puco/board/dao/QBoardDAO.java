@@ -27,6 +27,13 @@ public class QBoardDAO {
 		session.close();
 		return list;
 	}
+	public static List<String> getTagName(Map map){
+		SqlSession session = ssf.openSession();
+		List<String> list = session.selectList("getTagName", map);
+		
+		session.close();
+		return list;
+	}
 	public static int BoardTotalPage(){
 		SqlSession session = ssf.openSession();
 		int count=session.selectOne("boardRowCount");
@@ -43,4 +50,6 @@ public class QBoardDAO {
 		session.close();
 		return vo;
 	}
+	
+	
 }
