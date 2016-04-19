@@ -27,6 +27,6 @@ nhn.husky.SE_CodeInsert = jindo.$Class({
     },
  
     $ON_PASTE_CODE_BACK : function(){
-        this.oApp.exec("PASTE_HTML", ["<pre><code> </code></pre>"]);
+        this.oApp.exec("PASTE_HTML", ["&lt;pre&gt;&lt;code&gt;코드를 입력하세요&lt;/code&gt;&lt;/pre&gt;"]);
     }
 });
