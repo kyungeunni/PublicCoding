@@ -30,13 +30,10 @@ public class VideoDAO {
 				Element ielem=imageElem.get(i);
 				Element uelem=urlElem.get(i);
 				String url=uelem.attr("href");
-				String img=ielem.attr("src");//속성값 읽을때 사용
-				System.out.println(telem);
-				System.out.println(ielem);
-				System.out.println(uelem);
-				System.out.println(url);
-				System.out.println(img);
-				
+				String img=ielem.attr("src");
+				if(img.substring(0,5).equals("https")){
+				img=ielem.attr("data-thumb");
+				}
 				VideoDTO d=new VideoDTO();
 				d.setNo(i+1);
 				d.setTitle(telem.text());
