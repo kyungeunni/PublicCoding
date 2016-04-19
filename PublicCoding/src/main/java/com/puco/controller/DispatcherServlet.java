@@ -34,8 +34,11 @@ public class DispatcherServlet extends HttpServlet {
 					continue;
 				}
 				Object obj = clsName.newInstance();
+				System.out.println("DispatcherServlet Work 1");
 				Method[] methods =clsName.getDeclaredMethods();
+				System.out.println("DispatcherServlet Work 2");
 				for(Method m:methods){
+					System.out.println(m);
 					RequestMapping rm = m.getAnnotation(RequestMapping.class);
 					if(rm.value().equals(cmd)){
 						String jsp=(String)m.invoke(obj, request);
@@ -43,10 +46,11 @@ public class DispatcherServlet extends HttpServlet {
 						rd.forward(request, response);
 					}
 				}
+				System.out.println("DispatcherServlet Work 3");
 			}
 			
 		}catch(Exception ex){
-			System.out.println("Dispatcher>>" + ex.getMessage());
+			System.out.println("Dispatcher ERROR " + ex.getMessage());
 		}
 	}
 
