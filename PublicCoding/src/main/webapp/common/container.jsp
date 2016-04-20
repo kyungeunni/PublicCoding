@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
+<body class="landing">
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header">
