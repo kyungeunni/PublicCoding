@@ -3380,11 +3380,13 @@
 			display: inline-block;
 			margin-right: 1%;
 			max-width: 95%;
-			padding: 6em;
+			padding: 0em;
 			position: relative;
 			text-align: right;
 			vertical-align: middle;
 			z-index: 1;
+			width: 100%;
+			height: 40 em;
 		}
 
 			#banner .content header {
@@ -3442,7 +3444,7 @@
 
 	#footer {
 		background: #272833;
-		padding: 6em 0;
+		padding: 0em 0;
 		text-align: center;
 	}
 

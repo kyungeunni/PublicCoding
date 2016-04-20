@@ -7,16 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Public Coding</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
 
-<link type="text/css" rel="stylesheet" href="assets/css/test.css">
-<link type="text/css" rel="stylesheet" href="assets/css/uu.css">
-<link type="text/css" rel="stylesheet" href="assets/css/main.css">
+<!-- <link type="text/css" rel="stylesheet" href="assets/css/test.css">-->
+<!--<link type="text/css" rel="stylesheet" href="assets/css/uu.css"> -->
 <!-- <link type="text/css" rel="stylesheet" href="assets/css/main2.css"> -->
-</head>
-<body class="landing">
 
+<link type="text/css" rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body class="landing">
 
 	<div id="page-wrapper">
 
@@ -26,10 +28,55 @@
 						PUBLIC CODING
 				</a>
 			</h1>
-			<!-- 메뉴바 -->
-			<nav id="nav">
 			
+		<!-- 메뉴바 -->
+			<nav id="nav">
 				<ul>
+					<li><a href="StudySub.jsp">강의목록</a>
+						<ul>
+							<li><a href="left-sidebar.html">언어</a></li>
+							<li><a href="right-sidebar.html">데이터베이스</a></li>
+							<li><a href="no-sidebar.html">WEB/CSS</a></li>
+							<!-- <li><a href="#">Submenu</a>
+								<ul>
+									<li><a href="#">Option 1</a></li>
+									<li><a href="#">Option 2</a></li>
+									<li><a href="#">Option 3</a></li>
+									<li><a href="#">Option 4</a></li>
+								</ul>
+							</li> -->
+						</ul></li>
+
+					<li><a href="#">게시판</a>
+						<ul>
+							<li><a href="right-sidebar.html">Q&A</a></li>
+							<li><a href="no-sidebar.html">자유게시판</a></li>
+							<!-- <li><a href="#">Submenu</a>
+								<ul>
+									<li><a href="#">Option 1</a></li>
+									<li><a href="#">Option 2</a></li>
+									<li><a href="#">Option 3</a></li>
+									<li><a href="#">Option 4</a></li>
+								</ul>
+							</li> -->
+						</ul>
+					</li>
+					
+					<li><a href="#">스터디</a>
+						<ul>
+							<li><a href="right-sidebar.html">주제별</a></li>
+							<li><a href="no-sidebar.html">지역별</a></li>
+							<!-- <li><a href="#">Submenu</a>
+								<ul>
+									<li><a href="#">Option 1</a></li>
+									<li><a href="#">Option 2</a></li>
+									<li><a href="#">Option 3</a></li>
+									<li><a href="#">Option 4</a></li>
+								</ul>
+							</li> -->
+						</ul>
+					</li>
+					
 					<li>
 					<input onclick="popup_signin()" type="button" value="로그인">
 					</li>
@@ -38,75 +85,18 @@
 						class="button special" value="회원가입"></li>
 				</ul>
 			</nav>
-		
-		
-		
-		
 		</header>
 
 		<!-- 메인페이지(페이지1) -->
 		
-	<!-- 	<section id="banner">
+	<section id="banner">
 			<div class="content">				
 				<span class="image">
 					<img src="resources/images/main1.jpg" alt="" />
 				</span>
 			</div>
-		
-			<div class="content">
-				<span class="image">
-					<img src="resources/images/main2.jpg" alt="" /> 
-				</span>
-			</div>
 				
-		</section> -->
-		
-
-
-
-		<!-- src="//player.vimeo.com/external/118607115.hd.mp4?s=53f507d4e1144f6af7b8188e680c8dcb" -->
-		<section class="hero viewport-height" id="hero">
-			<div id="video" class="full-height">
-				<div class="video-wrapper">
-					<video autoplay width="100%" height="auto" preload="auto" loop>
-						<source src="resources/images/main.mp4" type="video/mp4">
-					</video>
-				</div>
-			</div>
-			<div class="options" id="department-options">
-				<div class="option">
-					<a href="videolist.do" class="wrap">
-						<h2>
-							FREE <br>& Programming Study
-						</h2>
-						<h3>무료로 프로그래밍을 공부하세요.</h3>
-							<div class="btn btn-default">프로그래밍 언어</div><br>
-							
-							<div class="btn btn-default" href="//www.naver.com">데이터베이스</div>
-							
-							<br>
-							<div class="btn btn-default">WEB</div>
-						<div class="details">
-							
-						</div>
-						
-					</a>
-				</div>
-				<div class="option">
-					<a href="boardmain.do" class="wrap">
-						<h2>
-							Share <br>& your Knowledge
-						</h2>
-								<h3>프로그래밍질문질문모르는거여기다있음</h3>
-							<div class="btn btn-default">Q&A 게시판</div><br>
-							<div class="btn btn-default">자유게시판</div><br>
-							<div class="btn btn-default">소스 공유</div>
-						<div class="details">
-					
-						</div>
-					</a>
-				</div>
-			</div>	 
+	</section> 
 
 		<!-- Footer -->
 		<footer id="footer">
