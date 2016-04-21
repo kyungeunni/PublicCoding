@@ -1,0 +1,16 @@
+[ { "value": 1 , "text": "java"   , "continent": "Language"    },
+  { "value": 2 , "text": "jsp"      , "continent": "Language"    },
+  { "value": 3 , "text": "oracle"       , "continent": "DB"    },
+  { "value": 4 , "text": "spring"  , "continent": "Web"   },
+  { "value": 5 , "text": "mvc" , "continent": "Web"   },
+  { "value": 6 , "text": "c/c++", "continent": "Language"   },
+  { "value": 7 , "text": "tomcat"      , "continent": "Web" },
+  { "value": 8 , "text": "c#"  , "continent": "Language" },
+  { "value": 9 , "text": "sql"    , "continent": "DB" },
+  { "value": 10, "text": "mysql"     , "continent": "DB"      },
+  { "value": 11, "text": "android"   , "continent": "Language"      },
+  { "value": 12, "text": "mfc"   , "continent": "Language"      },
+  { "value": 13, "text": "jquery"       , "continent": "Web"    },
+  { "value": 14, "text": "javascript"   , "continent": "Web"    },
+  { "value": 15, "text": "css"    , "continent": "Web"    }
+]

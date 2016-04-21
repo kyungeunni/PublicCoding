@@ -18,11 +18,11 @@
 
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
-<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/examples/assets/app.css">
+    <link rel="stylesheet" href="resources/input_tags/bootstrap-tagsinput.css">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link rel="stylesheet" href="resources/input_tags/app.css">
+    
 
-<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/newboard.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -44,7 +44,7 @@
 				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseVerticalResizer : true,
 				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseModeChanger : false,
+				bUseModeChanger :true,
 			}
 		});
 		//전송버튼 클릭이벤트
@@ -58,79 +58,12 @@
 	})
 </script>
 
-<!-- 태그 스크립트 -->
-<script>
-	(function(i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		i[r] = i[r] || function() {
-			(i[r].q = i[r].q || []).push(arguments)
-		}, i[r].l = 1 * new Date();
-		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-			'ga');
 
-	ga('create', 'UA-42755476-1', 'bootstrap-tagsinput.github.io');
-	ga('send', 'pageview');
-</script>
 
 
 
 </head>
 <body>
-	<div id="page-wrapper">
-		<!-- Header -->
-		<header id="header">
-			<h1 id="logo">
-				<a href="common/main.jsp">p2</a>
-			</h1>
-			<nav id="nav">
-				<ul>
-
-					<li><a href="#">강의목록</a>
-						<ul>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-							<li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
-
-					<li><a href="#">게시판</a>
-						<ul>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-							<li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
-
-
-					<li>
-						<!-- <a href="member/signin.jsp"> --> <input
-						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
-					</li>
-					<!-- <li><a href="elements.html">Elements</a></li> -->
-					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
-					<li id="pop1"><input onclick="popup_signup()" type="button"
-						class="button special" value="회원가입"></li>
-				</ul>
-
-			</nav>
-		</header>
-
 
 		<!-- Main -->
 		<div id="main" class="wrapper style1">
@@ -170,65 +103,48 @@
 								<div class="col-sm-8">
 									<div class="example example_typeahead">
 										<div class="bs-example">
-											<input type="text" value="Amsterdam,Washington" />
+											<input type="text" placeholder="태그" />
 										</div>
 									</div>
 								</div>
 							</div>
 
 							<!-- 글쓰기버튼 -->
-							<div class="form-group">
+						
 								<div class="col-sm-offset-4 col-sm-8">
-									<input type="button" id="sndbtn" class="btn btn-default"
-										value="글쓰기">
+									<input type="button" id="sndbtn"
+										value="글쓰기">								
+								  <input type="button" onclick="javascript:history.back()"
+										value="취소">
 								</div>
-							</div>
-
-
+						
+								
 
 						</form>
+<!-- 태그 스크립트 -->
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
 
+	ga('create', 'UA-42755476-1', 'bootstrap-tagsinput.github.io');
+	ga('send', 'pageview');
+</script>
 					</div>
-
 				</section>
 			</div>
 
 		</div>
 
-		<!-- 	Footer -->
-		<footer id="footer">
-			<ul class="icons">
-				<li><a href="#" class="icon alt fa-twitter"><span
-						class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon alt fa-facebook"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon alt fa-linkedin"><span
-						class="label">LinkedIn</span></a></li>
-				<li><a href="#" class="icon alt fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon alt fa-github"><span
-						class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon alt fa-envelope"><span
-						class="label">Email</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-
-		</footer>
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
-
+	
 	<!-- tags scripts -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -237,12 +153,10 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput-angular.min.js"></script>
-	<script src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput-angular.min.js"></script>
+	<script src="resources/input_tags/puco_tags.js"></script>
 
 </body>
 </html>

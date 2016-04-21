@@ -22,64 +22,28 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		
 	</head>
 	<body>
-		<div id="page-wrapper">
-
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">Web Project</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Layouts</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button special">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
-
-			<!-- Main -->
-			<div id="main">
 				<div class="container">
-					<div class="page-header">
- 					 <h1>신입 SW인력을 위한 실전 JSP Servlet 동영상 과정 <small>Subtext for header</small></h1>
+					<div class="page-header" style="margin-top: 100px">
+ 					 <h1 style="font: 20px 맑은 고딕">신입 SW인력을 위한 실전 JSP Servlet 동영상 과정 <small>Subtext for header</small></h1>
 					</div>
-		
-				<!-- Content -->				
+				<!-- Content -->
 					<div class="row">
 						<div class="col-xs-10 col-sm-7 col-md-7">
 					<section id="content">
 							<div class="embed-responsive embed-responsive-16by9">
-  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dWkKwWDQxio?showinfo=0" frameborder="0" allowfullscreen></iframe>
+  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${url }" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 						<div class="col-xs-10 col-sm-5 col-md-5">
-						
 							<table class="table">
 								<tr>
 									<td>
 									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 									</td>
 									<td>1강 </td>
-									<td><a href="" target="_self">웹프로그래밍</a> </td>
+									<td><a href="" target="_self">웹프로그래밍</a></td>
 									<td>23:41</td>
 								</tr>
 								<tr>
@@ -87,7 +51,7 @@
 									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 									</td>
 									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a> </td>
+									<td><a href="" target="_self">개발 환경 설정</a></td>
 									<td>23:41</td>
 								</tr>
 								<tr>
@@ -186,22 +150,6 @@
         	</script>
 		</div>
 	</div>
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-
 		</div>
 
 		<!-- Scripts -->

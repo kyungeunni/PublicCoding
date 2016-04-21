@@ -18,7 +18,6 @@ public class BoardController {
 		req.setAttribute("list", dto);
 		return "board/BoardMain.jsp";//jsp파일이름
 	}
-	
 	@RequestMapping("content.do")
 	public String boardContentData(HttpServletRequest req){
 		String no=req.getParameter("no");
@@ -56,7 +55,8 @@ public class BoardController {
 		req.setAttribute("list", list);
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
-		return "board/BoardMain.jsp";
+		req.setAttribute("jsp", "../board/BoardMain.jsp");
+		return "common/container.jsp";
 	}
 	
 	@RequestMapping("content.do")
@@ -68,13 +68,15 @@ public class BoardController {
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
 		req.setAttribute("d", vo);
 		
-		return "board/content.jsp";//jsp파일이름
+		req.setAttribute("jsp", "../board/content.jsp");
+		return "common/container.jsp";
 	
 	}
 	
 	@RequestMapping("question.do")
 	public static String askQuestion(HttpServletRequest req){
-		return "board/insert.jsp";
+		req.setAttribute("jsp", "../board/insert.jsp");
+		return "common/container.jsp";
 	}
 	
 }
