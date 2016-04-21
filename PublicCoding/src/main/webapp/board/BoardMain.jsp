@@ -66,19 +66,19 @@
 										class="cp">
 										<div class="votes">
 											<div class="mini-counts">
-												<span title="0 votes">0</span>
+												<span title="0 votes">${d.bvote}</span>
 											</div>
 											<div>votes</div>
 										</div>
 										<div class="status unanswered">
 											<div class="mini-counts">
-												<span title="0 answers">0</span>
+												<span title="0 answers">${d.answer }</span>
 											</div>
 											<div>answers</div>
 										</div>
 										<div class="views">
 											<div class="mini-counts">
-												<span title="${d.hit } views">${d.hit } </span>
+												<span title="${d.bhit } views">${d.bhit } </span>
 											</div>
 											<div>views</div>
 										</div>
@@ -88,19 +88,19 @@
 
 									<div class="summary">
 										<h3>
-											<a href="content.do?no=${d.no }" class="question-hyperlink">${d.subject }
+											<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
 											</a>
 										</h3>
 										<div class="tags t-태그 t-태그">
-											<c:if test="${d.tag1!='none' }">
+											<c:if test="${d.tag1!='NONE' }">
 											<a href="/questions/tagged/${d.tag1}" class="post-tag"
 												title="show questions tagged &#39;${d.tag1}&#39;" rel="tag">${d.tag1}</a>
 												</c:if>
-												<c:if test="${d.tag2!='none' }">
+												<c:if test="${d.tag2!='NONE' }">
 											<a href="/questions/tagged/${d.tag2}" class="post-tag"
 												title="show questions tagged &#39;${d.tag2}&#39;" rel="tag">${d.tag2}</a>
 												</c:if>
-												<c:if test="${d.tag3!='none' }">
+												<c:if test="${d.tag3!='NONE' }">
 											<a href="/questions/tagged/${d.tag3}" class="post-tag"
 												title="show questions tagged &#39;${d.tag3}&#39;" rel="tag">${d.tag3}</a>
 												</c:if>
@@ -110,10 +110,10 @@
 										
 										<div class="started">
 											<a
-												href="content.do?no=${d.no }"
-												class="started-link"	><span title="${d.regdate }" class="relativetime">${rtime[d.no]}</span></a>
+												href="content.do?no=${d.bno }"
+												class="started-link"	><span title="${d.bdate }" class="relativetime">${rtime[d.bno]}</span></a>
 												
-											<a href="users.do?no=&id=${d.name }">${d.name }</a> <span
+											<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
 												class="reputation-score" title="reputation score " dir="ltr"></span>
 										</div>
 									</div>

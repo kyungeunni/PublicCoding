@@ -34,8 +34,8 @@
 			<header class="major">
 				<!-- 					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
 					<p>#태그. #태그. #태그</p> -->
-				<h2>${d.subject }</h2>
-				<p>#태그. #태그. #태그</p>
+				<h2>${d.bsubject }</h2>
+				<p>#${d.tag1 }.#${d.tag2 }. #${d.tag3 }</p>
 			</header>
 
 			<!-- Content -->
@@ -48,16 +48,16 @@
 									<td width=15% align="right">
 										<ul class=vote>
 											<li><a href="#"><i class="fa fa-angle-up"></i></a></li>
-											<li>0</li>
+											<li>${d.bvote}</li>
 											<li><a href="#"><i class="fa fa-angle-down"></i></a></li>
 										</ul>
 									</td>
 
 									<td width=85%>
-										<p>${d.content}</p>
+										<p>${d.bcontent}</p>
 
 										<p id="written">
-											asked by whom <img src="assets/vote-up.png">
+											asked by ${d.mno} <img src="assets/vote-up.png">
 										<p>
 									</td>
 								</tr>
@@ -77,16 +77,16 @@
 									<td width=15% align="right">
 										<ul class=vote>
 											<li><a href="#"><i class="fa fa-angle-up"></i></a></li>
-											<li>0</li>
+											<li>${d.bvote}</li>
 											<li><a href="#"><i class="fa fa-angle-down"></i></a></li>
 										</ul>
 									</td>
 
 									<td width=85%>
-										<p>${d.content}</p>
+										<p>${d.bcontent}</p>
 
 										<p id="written">
-											asked by whom <img src="assets/vote-up.png">
+											asked by ${d.mno }<img src="assets/vote-up.png">
 										<p>
 									</td>
 								</tr>
