@@ -1,9 +1,7 @@
 package com.puco.board;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import com.puco.board.dao.BoardDAO;
 import com.puco.board.dao.BoardDTO;
 import com.puco.controller.Controller;
