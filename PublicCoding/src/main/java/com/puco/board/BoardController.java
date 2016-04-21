@@ -1,6 +1,7 @@
 package com.puco.board;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
@@ -46,10 +47,9 @@ public class BoardController {
 		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
 		for(QnaBoardVO v:list){
 
-			reltmap.put(v.getNo(), p.format(v.getRegdate()));
+			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
-		System.out.println(reltmap.get(7));
-		System.out.println(p.format(list.get(1).getRegdate()));
+
 		int totalpage=QBoardDAO.BoardTotalPage();
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);

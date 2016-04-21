@@ -2,31 +2,45 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.puco.board.dao.board-mapper">
 	<sql id="where-no">
-		WHERE no=#{no}
+		WHERE bno=#{bno}
 	</sql>
 
 	<select id="boardAllData" resultType="QBoard" parameterType="java.util.Map">
-		SELECT no,subject,name,regdate,hit,vote,tag1,tag2,tag3,num
-		FROM (SELECT no,subject,name,regdate,hit,vote,tag1,tag2,tag3,rownum as num
-		FROM (SELECT no,subject,name,regdate,hit,vote,tag1,tag2,tag3
-		FROM pcreplyBoard ORDER BY no DESC))
-		WHERE num BETWEEN #{start} AND #{end}
+		SELECT bno,bsubject,MB.Mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,
+		(SELECT COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
+		FROM mainboard MB
+		LEFT JOIN tag t1
+		 on T1.tgno = mb.tgno1
+		LEFT JOIN tag t2
+		 on T2.tgno = mb.tgno2
+		LEFT JOIN tag t3
+		 on T3.tgno = mb.tgno3
+		LEFT JOIN pucomember MT
+		 on MT.mno = mb.mno
+		WHERE MB.Bno BETWEEN 1 AND 10
+		AND BTNo =1
 	</select>
 
 	<select id="boardRowCount" resultType="int">
-		SELECT COUNT(*) FROM pcreplyBoard
+		SELECT COUNT(*) FROM mainboard WHERE btno=1
 
 	</select>
 	
 	<select id="getContentData" resultType="Qboard" parameterType="int">
-		SELECT subject,content,name,regdate,hit,vote,tag1,tag2,tag3
-		FROM pcreplyBoard
+		SELECT bsubject,Mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3
+		FROM mainboard MB
+		LEFT JOIN tag t1
+		 on T1.tgno = mb.tgno1
+		LEFT JOIN tag t2
+		 on T2.tgno = mb.tgno2
+		LEFT JOIN tag t3
+		 on T3.tgno = mb.tgno3
 		<include refid="where-no"/>
 	</select>
 	
 	<update id="incrHit">
-		UPDATE pcreplyBoard SET
-		hit=hit+1
+		UPDATE mainBoard SET
+		bhit=bhit+1
 		<include refid="where-no"/>
 	</update>
 </mapper>
