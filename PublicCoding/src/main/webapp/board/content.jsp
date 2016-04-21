@@ -61,7 +61,6 @@
 									value="목록">
 							</div>
 
-						
 <script>
 	$(function() {
 		//전역변수선언
@@ -89,6 +88,7 @@
 		})
 	})
 </script>
+
 
 					</section>
 				</div>

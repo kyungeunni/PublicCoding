@@ -1,6 +1,7 @@
 package com.puco.board;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
