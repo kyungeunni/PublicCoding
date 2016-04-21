@@ -6,7 +6,7 @@ public class FileConfig {
 	public static List<String> getFileNames(String pack){
 		List<String> list = new ArrayList<String>();
 		try{
-			String path="C:\\Users\\sist\\git\\PublicCoding\\PublicCoding\\src\\main\\java\\";
+			String path="C:\\Users\\Jungsun Stella Yoon\\git\\PublicCoding\\PublicCoding\\src\\main\\java\\";
 			path = path+pack.replace('.', '\\');
 			File dir = new File(path);
 			File[] files= dir.listFiles();

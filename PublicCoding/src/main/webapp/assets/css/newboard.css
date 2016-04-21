@@ -4543,3 +4543,39 @@ h1 {
 	width:750px;
 	padding-top: 100px;
 }
+
+
+/* Á¤¼±  freeboard css*/
+@charset "utf-8";
+
+#freeboard {
+	border-collapse:collapse;
+	margin:0px;
+	padding:0px;
+	box-shadow:3px 3px 10px #C8C8C8;
+	border-spacing:0;
+	font-family:"¸¼Àº °íµñ";
+	color:white;
+	
+}
+#freeboard .menubar {
+border:0px;
+border-color:white;
+color:black;
+
+background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+
+}
+
+#freeboard .listData {
+	border-bottom:1px solid #CCCCCC;
+	height:30px;
+}
+
+#freeboard .listData .tdcenter {
+	text-align:center;
+}
+#freeboard .listData .tdleft {
+	text-align:left;
+}
