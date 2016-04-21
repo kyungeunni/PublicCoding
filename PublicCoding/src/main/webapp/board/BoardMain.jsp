@@ -8,64 +8,11 @@
 
 <html>
 <head>
-<title>PUBLIC CODING | 모두가 즐기는 코딩</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
 </head>
 <body>
-	<div id="page-wrapper">
-		<!-- Header -->
-		<header id="header">
-			<h1 id="logo">
-				<a href="main.do">PUBLIC CODING</a>
-			</h1>
-			<nav id="nav">
-				<ul>
-					<li><a href="main.do">Home</a></li>
-					<li><a href="#">강의목록</a>
-						<ul>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-							<li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
-
-					<li><a href="#">게시판</a>
-						<ul>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
-							<li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul></li>
-						</ul></li>
-
-
-					<li>
-						<!-- <a href="member/signin.jsp"> --> <input
-						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
-					</li>
-					<!-- <li><a href="elements.html">Elements</a></li> -->
-					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
-					<li id="pop1"><input onclick="popup_signup()" type="button"
-						class="button special" value="회원가입"></li>
-				</ul>
-
-			</nav>
-		</header>
-
-
 		<!-- Main -->
 
 		<div class="container">
@@ -352,7 +299,6 @@
 		</div> --%>
 
 
-	</div>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

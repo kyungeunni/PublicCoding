@@ -1,17 +1,15 @@
-.carousel-inner{
-	margin-top:50px;
-	padding: 5px;
-}
-.list-group{
+.list-group.hlist-group{
 	margin-top:50px;
 	padding:5px;
 	text-align: center;
 }
-.list-group a{
+.list-group.hlist-group a{
 	color: rgb(230,230,230);
 	font-size: 20px;
+	font-family: ¸¼Àº °íµñ;
 }
-.row{
+.col-md-9.hcol-md-9{
+	margin-top:50px;
 	padding:5px;
 }
 .list-group-item{
@@ -20,10 +18,15 @@
 .thumbnail{
 	background-color: gray;
 }
-/* .app-container .content-container .side-menu:hover {
-    width: 250px; 
-} */
-/* .hyundiv{
-	height: 250px;
-} */
 
+.thumbnail.hthumbnail:HOVER{
+	outline-style: groove;
+	outline-color: rgb(166,136,155);
+	outline-width: 6px;
+}
+.hyuna1{
+	background-color: rgb(180,180,180);
+}
+.ratings{
+	color: rgb(217,217,217);
+}
