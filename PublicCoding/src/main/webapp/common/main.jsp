@@ -7,14 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Public Coding</title>
 
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
-
-<!-- <link type="text/css" rel="stylesheet" href="assets/css/test.css">-->
-<!--<link type="text/css" rel="stylesheet" href="assets/css/uu.css"> -->
-<!-- <link type="text/css" rel="stylesheet" href="assets/css/main2.css"> -->
-
-<link type="text/css" rel="stylesheet" href="assets/css/main.css">
+<link type="text/css" rel="stylesheet" href="../assets/css/main.css">
 
 </head>
 
@@ -90,16 +83,41 @@
 		<!-- 메인페이지(페이지1) -->
 		
 	<section id="banner">
-			<div class="content">				
-				<span class="image">
-					<img src="resources/images/main1.jpg" alt="" />
-				</span>
-			</div>
+			<article class="content">
+				<li>
+					보드1
+					보드2
+				</li>
+			</article>
+			
+			<article class="boardq">
+				<li>
+					보드1
+					보드2
+				</li>
+			</article>
+			
+			<article class="boardf">
+			<li>
+					보드1
+					보드2
+				</li>
+			</article>
+			
+			<article class="boards">
+			<li>
+					보드1
+					보드2
+				</li>
+			</article>
+			
+			<article>
+			</article>
 				
 	</section> 
 
 		<!-- Footer -->
-		<footer id="footer">
+		<!-- <footer id="footer">
 			<ul class="icons">
 				<li><a href="#" class="icon alt fa-twitter"><span
 						class="label">Twitter</span></a></li>
@@ -122,7 +140,7 @@
 			</ul>
 			
 			
-		</footer>
+		</footer> -->
 
 	</div>
 
@@ -137,10 +155,8 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/modal.js"></script>
-	
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.onvisible.min.js"></script>
-	<script src="assets/js/main2.js"></script>
 	
 	<!-- 회원가입/로그인 팝업창 띄우기 -->	
 	<script src="assets/js/popup.js"></script>

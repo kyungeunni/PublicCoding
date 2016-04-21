@@ -15,6 +15,6 @@ public class MainController {
 	@RequestMapping("main.do")
 	public String Main(HttpServletRequest req){
 
-		return "common/main.jsp";//jsp파일이름
+		return "commons/main.jsp";//jsp파일이름
 	}
 }
