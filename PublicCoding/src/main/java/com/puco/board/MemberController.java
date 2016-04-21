@@ -33,4 +33,12 @@ public class MemberController {
 		System.out.println("MemberController -> login.jsp");
 		return "member/login.jsp";
 	}
+	
+	@RequestMapping("signin_ok.do")
+	public String signin_ok(HttpServletRequest req){
+		
+		
+		return "common/main.jsp";
+		
+	}
 }
