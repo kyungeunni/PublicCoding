@@ -10,7 +10,9 @@ public class VideoChange {
     <a href="videolist.do?mode=8" class="list-group-item">-CSS-</a>
     <a href="videolist.do?mode=9" class="list-group-item">-JavaScript-</a>*/
 	private static String[] url={
-			 "https://www.youtube.com/results?q=%EC%9E%90%EB%B0%94+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&sp=EgIQAw%253D%253D",//홈
+			 //"https://www.youtube.com/watch?v=qR90tdW0Hbo&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck" // 생활코딩 자바,
+			 "https://www.youtube.com/watch?v=PZIPsKgWJiw&list=PLuHgQVnccGMA4uSig3hCjl7wTDeyIeZVU" // 생활코딩 자바스크립트
+/*			 "https://www.youtube.com/results?q=%EC%9E%90%EB%B0%94+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&sp=EgIQAw%253D%253D",//홈
 			 "https://www.youtube.com/results?q=%EC%9E%90%EB%B0%94+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&sp=EgIQAw%253D%253D", //자바강의
 			 "https://www.youtube.com/results?q=c+%EC%96%B8%EC%96%B4&sp=EgIQAw%253D%253D",//C/C++
 			 "https://www.youtube.com/results?sp=EgIQAw%253D%253D&q=JSP+%EA%B0%95%EC%A2%8C",//JSP
@@ -19,7 +21,7 @@ public class VideoChange {
 			 "https://www.youtube.com/results?q=html5+%EA%B0%95%EC%A2%8C&sp=EgIQAw%253D%253D",//Html
 			 "https://www.youtube.com/results?sp=EgIQAw%253D%253D&q=css3+%EA%B0%95%EC%A2%8C",//CSS
 			 "https://www.youtube.com/results?sp=EgIQAw%253D%253D&q=%EC%9E%90%EB%B0%94+%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8"//JavaScript
-	   };
+*/	   };
 	   public static String change(int no){
 		   return url[no];
 	   }
