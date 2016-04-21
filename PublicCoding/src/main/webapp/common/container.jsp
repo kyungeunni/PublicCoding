@@ -1,23 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE HTML>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Programming MOOC</title>
-<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
-<link rel="stylesheet" type="text/css" href="../assets/css/hyun/hyun.css">
+<title>PUBLIC CODING | 모두가 즐기는 코딩</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body class="landing">
+<body>
 	<div id="page-wrapper">
+		<!-- Header -->
 		<header id="header">
 			<h1 id="logo">
-				<a href="main.do">Public Coding</a>
+				<a href="main.do">PUBLIC CODING</a>
 			</h1>
-			<!-- 메뉴바 -->	
 			<nav id="nav">
 				<ul>
 					<li><a href="main.do">Home</a></li>
-					<li><a href="videolist.do">강의목록</a>
+					<li><a href="#">강의목록</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
 							<li><a href="right-sidebar.html">Right Sidebar</a></li>
@@ -30,6 +36,7 @@
 									<li><a href="#">Option 4</a></li>
 								</ul></li>
 						</ul></li>
+
 					<li><a href="#">게시판</a>
 						<ul>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
@@ -41,24 +48,29 @@
 									<li><a href="#">Option 2</a></li>
 									<li><a href="#">Option 3</a></li>
 									<li><a href="#">Option 4</a></li>
-								</ul>
-							</li>
-						</ul>
+								</ul></li>
+						</ul></li>
+
+
+					<li>
+						<!-- <a href="member/signin.jsp"> --> <input
+						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
 					</li>
-					<li id="pop1"><input onclick="popup()" type="button" class="button special" value="Sign Up"></li>
+					<!-- <li><a href="elements.html">Elements</a></li> -->
+					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
+					<li id="pop1"><input onclick="popup_signup()" type="button"
+						class="button special" value="회원가입"></li>
 				</ul>
+
 			</nav>
 		</header>
-	</div>
-		<!-- container -->
-		 <div class="container">
-		  	<div class="row">
-		 		<div><jsp:include page="${jsp }"/></div>
-		 		<%-- <div><jsp:include page="inner_videolist.jsp"/></div> --%>
-		 	</div>
-		 </div>
-         <!-- 풋터 -->
-         <footer id="footer">
+		
+		<!-- 컨텐츠  -->
+		<jsp:include page="${jsp }"></jsp:include>
+		
+
+		
+		<footer id="footer">
 			<ul class="icons">
 				<li><a href="#" class="icon alt fa-twitter"><span
 						class="label">Twitter</span></a></li>
@@ -74,23 +86,22 @@
 						class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
-				<li>&copy;Copyright by SIST-C2.</li>
+				<li>&copy; Untitled. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 			</ul>
-		</footer>
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/hyun/hyun.css">
-	<!-- Scripts -->
+	
+	</footer> 
+<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<script src="assets/js/ie/respond.min.js"></script>
-	<!--[endif]  -->
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+
+	<!-- 회원가입/로그인 팝업창 띄우기 -->
 	<script src="assets/js/popup.js"></script>
-	<!--  -->
-	
 </body>
 </html>

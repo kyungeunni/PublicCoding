@@ -17,17 +17,4 @@ public class MainController {
 
 		return "common/main.jsp";//jsp파일이름
 	}
-	
-	@RequestMapping("play.do")
-	public String showVideo(HttpServletRequest req){
-
-		return "lectures/play.jsp";//jsp파일이름
-	}
-	
-	@RequestMapping("videolist.do")
-	public String getMainVideoList(HttpServletRequest req){
-
-		return "lectures/videolist.jsp";//jsp파일이름
-	}
-	
 }
