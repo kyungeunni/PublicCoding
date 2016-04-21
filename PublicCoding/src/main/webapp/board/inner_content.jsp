@@ -18,19 +18,16 @@
 							<li>0</li>
 							<li><a href="#"><i class="fa fa-angle-down"></i></a></li>
 						</ul>
-					</td>
-					
+					</td>					
 					<td width=85%>
-						<p>${d.content}</p>
-					
-						<p id="written">asked by whom <img src="assets/vote-up.png"><p>
+						<p>${d.content}</p>					
+						<p id="written">asked by whom <img src="assets/vote-up.png"></p>
 					</td>
-				</tr>
-				
+				</tr>				
 			</table>
 		</div>
 
-		<div id="anawers" class="isanswerd"></div>
+		<div id="anawers" ></div>
 	</center>
 </body>
 </html>
