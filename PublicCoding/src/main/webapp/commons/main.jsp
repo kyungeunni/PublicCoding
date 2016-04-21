@@ -17,32 +17,11 @@
 			<a href="main.do">PUBLIC CODING</a>
 		</h1>
 		
-		<div class="menu">
-			<button class="menu-btn">
-				<a href="#"><i class="fa fa-book"></i>온라인 강의</a>
-			</button>
-				<div class="menu-content">
-					<a href="#">언어</a>
-					<a href="#">DB</a>
-					<a href="#">WEB/CSS</a>
-				</div>
-		</div>
-		
-		<div class="menu">
-			<a href="#"><button class="menu-btn"><i class="fa fa-retweet"></i>오프라인 스터디</button></a>
-				<div id="menu-content">
-					<a href="#">주제별</a>
-					<a href="#">지역별</a>
-				</div>
-		</div>
-		
-		<div id="menu">
-			<a href="#"><button class="menu-btn"><i class="fa fa-file-text-o"></i>게시판</button></a>
-				<div id="menu-content">
-					<a href="#">Q&A 게시판</a>
-					<a href="#">자유 게시판</a>
-				</div>
-		</div>
+		<ul id="gnb">
+			<li><a href="#"><i class="fa fa-book"></i>온라인 강의</a></li>
+			<li><a href="#"><i class="fa-retweet"></i>오프라인 스터디</a></li>
+			<li><a href="#"><i class="fa-file-text-o"></i>게시판</a></li>
+		</ul>		
 
 	</header>
 	
@@ -54,19 +33,25 @@
 	<section>
 		<article>			
 			<div class="bg" id="content">		
-				<span>동영상 넣을꺼임</span>
+				<span>사이트소개</span>
+			</div>			
+		</article>
+		
+			<article>			
+			<div class="bg" id="content">		
+				<span>자유게시판</span>
 			</div>			
 		</article>
 		
 		<article>		
 			<div class="board">
-				<span>자유게시판임</span>
+				<span>q&a게시판</span>
 			</div>	
 		</article>
-		
+		 
 		<article>			
 			<div class="board">	
-				<span>큐엔에이</span>
+				<span>동영상 carousel</span>
 			</div>	
 		</article>
 		
@@ -81,22 +66,12 @@
 				<ul class="icons">
 					<li>
 						<a href="#" class="icon alt fa-envelope">
-							<span class="label">Email</span>
+							<span class="label">about us</span>
 						</a>
-					</li>
-					
-					<li>
 						<a href="#" class="icon alt fa-envelope">
 							<span class="label">Email</span>
 						</a>
 					</li>
-					
-					<li>
-						<a href="#" class="icon alt fa-envelope">
-							<span class="label">Email</span>
-						</a>
-					</li>
-					
 				</ul>
 				
 				<ul class="copyright">
