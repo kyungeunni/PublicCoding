@@ -73,7 +73,7 @@
 .label-info {
     background-color: #e44c65;
 }
-.post-tag .label {
+.label {
     display: inline;
     padding: .3em .6em .3em;
     font-size: 70%;
@@ -96,4 +96,22 @@
     
    
 }
+.twitter-typeahead{
+	vertical-align: top;
+	text-align: left;
+	
+}
+.twitter-typeahead input[type="text"]{
+	height:2em;
+	border-width: 0px;
+		text-align: left;
+}
+.twitter-typeahead input:focus{
+	border-width: 0px;
+		text-align: left;
+}
 
+#sndbtn{
+	display: inline-block;
+	
+}

@@ -92,4 +92,5 @@ elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia" 
 elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
 
 // HACK: overrule hardcoded display inline-block of typeahead.js
+$(".twitter-typeahead").css('position', 'absolute');
 $(".twitter-typeahead").css('display', 'inline');
