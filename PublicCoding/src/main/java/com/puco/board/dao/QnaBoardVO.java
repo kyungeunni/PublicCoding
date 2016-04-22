@@ -3,30 +3,35 @@ package com.puco.board.dao;
 import java.util.Date;
 
 public class QnaBoardVO {
-	private int no;
-	private String name;
-	private String subject;
-	private String content;
-	private String pwd;
-	private Date regdate;
-	private int hit;
-	private int vote;
+	private int bno;
+	private int mno;
+	private String bsubject;
+	private String bcontent;
+	private Date bdate;
+	private int bhit;
+	private int bvote;
+	private int tgno1;
+	private int tgno2;
+	private int tgno3;
+	private int btno;
+	private int bdel;
 	private String tag1;
 	private String tag2;
 	private String tag3;
-	private int group_id;
-	private int group_step;
-	private int group_tab;
-	private int root;
-	private int depth;
+	private String userid;
+	private int answer;
 	
-	
-	
-	public int getVote() {
-		return vote;
+	public int getAnswer() {
+		return answer;
 	}
-	public void setVote(int vote) {
-		this.vote = vote;
+	public void setAnswer(int answer) {
+		this.answer = answer;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getTag1() {
 		return tag1;
@@ -46,77 +51,79 @@ public class QnaBoardVO {
 	public void setTag3(String tag3) {
 		this.tag3 = tag3;
 	}
-	public int getNo() {
-		return no;
+	public int getBno() {
+		return bno;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
-	public String getName() {
-		return name;
+	public int getMno() {
+		return mno;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
-	public String getSubject() {
-		return subject;
+	public String getBsubject() {
+		return bsubject;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setBsubject(String bsubject) {
+		this.bsubject = bsubject;
 	}
-	public String getContent() {
-		return content;
+	public String getBcontent() {
+		return bcontent;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setBcontent(String bcontent) {
+		this.bcontent = bcontent;
 	}
-	public String getPwd() {
-		return pwd;
+	public Date getBdate() {
+		return bdate;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public int getBhit() {
+		return bhit;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setBhit(int bhit) {
+		this.bhit = bhit;
 	}
-	public int getHit() {
-		return hit;
+	public int getBvote() {
+		return bvote;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setBvote(int bvote) {
+		this.bvote = bvote;
 	}
-	public int getGroup_id() {
-		return group_id;
+	public int getTgno1() {
+		return tgno1;
 	}
-	public void setGroup_id(int group_id) {
-		this.group_id = group_id;
+	public void setTgno1(int tgno1) {
+		this.tgno1 = tgno1;
 	}
-	public int getGroup_step() {
-		return group_step;
+	public int getTgno2() {
+		return tgno2;
 	}
-	public void setGroup_step(int group_step) {
-		this.group_step = group_step;
+	public void setTgno2(int tgno2) {
+		this.tgno2 = tgno2;
 	}
-	public int getGroup_tab() {
-		return group_tab;
+	public int getTgno3() {
+		return tgno3;
 	}
-	public void setGroup_tab(int group_tab) {
-		this.group_tab = group_tab;
+	public void setTgno3(int tgno3) {
+		this.tgno3 = tgno3;
 	}
-	public int getRoot() {
-		return root;
+	public int getBtno() {
+		return btno;
 	}
-	public void setRoot(int root) {
-		this.root = root;
+	public void setBtno(int btno) {
+		this.btno = btno;
 	}
-	public int getDepth() {
-		return depth;
+	public int getBdel() {
+		return bdel;
 	}
-	public void setDepth(int depth) {
-		this.depth = depth;
+	public void setBdel(int bdel) {
+		this.bdel = bdel;
 	}
+
+	
 	
 }

@@ -1,22 +1,22 @@
-var citynames = new Bloodhound({
+var puconames = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   prefetch: {
-    url: 'resources/bootstrap-tagsinput-master/examples/assets/citynames.json',
+    url: 'resources/input_tags/programmingnames.json',
     filter: function(list) {
-      return $.map(list, function(cityname) {
-        return { name: cityname }; });
+      return $.map(list, function(puconame) {
+        return { name: puconame }; });
     }
   }
 });
-citynames.initialize();
+puconames.initialize();
 
-var cities = new Bloodhound({
+var pgtag = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'resources/bootstrap-tagsinput-master/examples/assets/cities.json'
+  prefetch: 'resources/input_tags/programming.json'
 });
-cities.initialize();
+pgtag.initialize();
 
 /**
  * Typeahead
@@ -24,10 +24,10 @@ cities.initialize();
 var elt = $('.example_typeahead > > input');
 elt.tagsinput({
   typeaheadjs: {
-    name: 'citynames',
+    name: 'programmingnames',
     displayKey: 'name',
     valueKey: 'name',
-    source: citynames.ttAdapter()
+    source: puconames.ttAdapter()
   }
 });
 
@@ -39,17 +39,17 @@ elt.tagsinput({
   itemValue: 'value',
   itemText: 'text',
   typeaheadjs: {
-    name: 'cities',
+    name: 'programming',
     displayKey: 'text',
-    source: cities.ttAdapter()
+    source: pgtag.ttAdapter()
   }
 });
 
-elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
+/*elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
 elt.tagsinput('add', { "value": 4 , "text": "Washington"  , "continent": "America"   });
 elt.tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
 elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });
-elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
+elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });*/
 
 /**
  * Categorizing tags
@@ -68,9 +68,9 @@ elt.tagsinput({
   itemValue: 'value',
   itemText: 'text',
   // typeaheadjs: {
-  //   name: 'cities',
+  //   name: 'pgtag',
   //   displayKey: 'text',
-  //   source: cities.ttAdapter()
+  //   source: pgtag.ttAdapter()
   // }
   typeaheadjs: [
   {
@@ -79,9 +79,9 @@ elt.tagsinput({
      minLength: 2
   },
    {
-      name: 'cities',
+      name: 'pgtag',
        displayKey: 'text',
-       source: cities.ttAdapter()
+       source: pgtag.ttAdapter()
    }
   ]
 });
@@ -92,4 +92,5 @@ elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia" 
 elt.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
 
 // HACK: overrule hardcoded display inline-block of typeahead.js
+$(".twitter-typeahead").css('position', 'absolute');
 $(".twitter-typeahead").css('display', 'inline');
