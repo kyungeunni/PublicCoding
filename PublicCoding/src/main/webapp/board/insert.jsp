@@ -18,11 +18,11 @@
 
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
-<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/examples/assets/app.css">
+    <link rel="stylesheet" href="resources/input_tags/bootstrap-tagsinput.css">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link rel="stylesheet" href="resources/input_tags/app.css">
+    
 
-<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/newboard.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -44,7 +44,8 @@
 				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseVerticalResizer : true,
 				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseModeChanger : false,
+				bUseModeChanger :true,
+
 			}
 		});
 		//전송버튼 클릭이벤트
@@ -103,21 +104,22 @@
 								<div class="col-sm-8">
 									<div class="example example_typeahead">
 										<div class="bs-example">
-											<input type="text" value="Amsterdam,Washington" />
+											<input type="text" placeholder="태그" />
 										</div>
 									</div>
 								</div>
 							</div>
 
 							<!-- 글쓰기버튼 -->
-							<div class="form-group">
+						
 								<div class="col-sm-offset-4 col-sm-8">
-									<input type="button" id="sndbtn" class="btn btn-default"
-										value="글쓰기">
+									<input type="button" id="sndbtn"
+										value="글쓰기">								
+								  <input type="button" onclick="javascript:history.back()"
+										value="취소">
 								</div>
-							</div>
-
-
+						
+								
 
 						</form>
 <!-- 태그 스크립트 -->
@@ -138,7 +140,6 @@
 	ga('send', 'pageview');
 </script>
 					</div>
-
 				</section>
 			</div>
 
@@ -153,12 +154,10 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput-angular.min.js"></script>
-	<script src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput-angular.min.js"></script>
+	<script src="resources/input_tags/puco_tags.js"></script>
 
 </body>
 </html>

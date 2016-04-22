@@ -4,7 +4,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE HTML>
-
 <html>
 <head>
 <title>PUBLIC CODING | 모두가 즐기는 코딩</title>
@@ -13,7 +12,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
+<body class="landing">
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header">
@@ -51,7 +50,7 @@
 								</ul></li>
 						</ul></li>
 
-
+					<c:if test="${sessionScope.id==null }">
 					<li>
 						<!-- <a href="member/signin.jsp"> --> <input
 						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
@@ -60,6 +59,29 @@
 					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
 					<li id="pop1"><input onclick="popup_signup()" type="button"
 						class="button special" value="회원가입"></li>
+					</c:if>
+					<c:if test="${sessionScope.id!=null }">
+						<%-- <li><input type="button" value="${sessionScope.id}"></li> --%>
+						<div class="btn-group open">
+							<a class="btn btn-default" href="#"><i
+								class="fa fa-user fa-fw"></i> ${sessionScope.id}</a> <a
+								class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+								href="#"> <span class="fa fa-caret-down"
+								title="Toggle dropdown menu"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-pencil fa-fw"
+										aria-hidden="true"></i> Edit</a></li>
+								<li><a href="#"><i class="fa fa-trash-o fa-fw"
+										aria-hidden="true"></i> Delete</a></li>
+								<li><a href="#"><i class="fa fa-ban fa-fw"
+										aria-hidden="true"></i> Ban</a></li>
+								<li class="divider"></li>
+								<li><a href="#"><i class="fa fa-unlock"
+										aria-hidden="true"></i> Make admin</a></li>
+							</ul>
+						</div>
+					</c:if>
 				</ul>
 
 			</nav>
@@ -91,6 +113,8 @@
 			</ul>
 	
 	</footer> 
+	</div>
+
 <!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

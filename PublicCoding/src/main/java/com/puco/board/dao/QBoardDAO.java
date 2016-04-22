@@ -23,17 +23,13 @@ public class QBoardDAO {
 	}
 	public static List<QnaBoardVO> boardAllData(Map map){
 		SqlSession session=ssf.openSession();
+		System.out.println(1);
 		List<QnaBoardVO> list = session.selectList("boardAllData",map);
+		System.out.println(2);
 		session.close();
 		return list;
 	}
-	public static List<String> getTagName(Map map){
-		SqlSession session = ssf.openSession();
-		List<String> list = session.selectList("getTagName", map);
-		
-		session.close();
-		return list;
-	}
+	
 	public static int BoardTotalPage(){
 		SqlSession session = ssf.openSession();
 		int count=session.selectOne("boardRowCount");
@@ -41,12 +37,16 @@ public class QBoardDAO {
 		return (int)(Math.ceil(count/10.0));	
 	}
 	
-	public static QnaBoardVO getContentData(int ino){
+	public static QnaBoardVO getContentData(int bno){
 		SqlSession session = ssf.openSession(true);
-		session.update("incrHit",ino);
+		System.out.println(1);
+		session.update("incrHit",bno);
+		System.out.println(2);
 		session.close();
 		session=ssf.openSession();
-		QnaBoardVO vo = session.selectOne("getContentData",ino);
+		System.out.println(1);
+		QnaBoardVO vo = session.selectOne("getContentData",bno);
+		System.out.println(2);
 		session.close();
 		return vo;
 	}
