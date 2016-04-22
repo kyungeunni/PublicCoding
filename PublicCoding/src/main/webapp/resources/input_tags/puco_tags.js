@@ -2,7 +2,7 @@ var puconames = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   prefetch: {
-    url: 'assets/programmingnames.json',
+    url: 'resources/input_tags/programmingnames.json',
     filter: function(list) {
       return $.map(list, function(puconame) {
         return { name: puconame }; });
@@ -14,7 +14,7 @@ puconames.initialize();
 var pgtag = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'assets/programming.json'
+  prefetch: 'resources/input_tags/programming.json'
 });
 pgtag.initialize();
 
