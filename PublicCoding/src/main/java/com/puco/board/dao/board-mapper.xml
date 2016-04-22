@@ -29,4 +29,37 @@
 		hit=hit+1
 		<include refid="where-no"/>
 	</update>
+	
+	<!-- 정선 freeboard 추가 -->
+	<select id="FreeboardAllData" resultType="Board" parameterType="java.util.Map">
+	  SELECT no,subject,name,regdate,hit,num
+	  FROM (SELECT no,subject,name,regdate,hit,rownum as num
+	  FROM replyBoard ORDER BY no DESC))
+	  WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<select id="freeboardRowCount" resultType="int">
+	  SELECT COUNT(*) FROM replyBoard
+	</select>
+	<update id="freeboardHitIncrement" parameterType="int">
+	  UPDATE replyBoard SET
+	  hit=hit+1
+	  WHERE no=#{no}
+	</update>
+	<select id="freeboardContentData" resultType="Board" parameterType="int">
+	  SELECT no,name,subject,content,regdate,hit
+	  FROM replyBoard
+	  WHERE no=#{no}
+	</select>
+	<insert id="freeboardInsert" parameterType="Board">
+	  INSERT INTO replyBoard(no,name,subject,content,pwd)
+	  VALUES((SELECT NVL(MAX(no)+1,1) FROM replyBoard),
+	  #{name},#{subject},#{content},#{pwd})
+	</insert>
+	<select id="freeboardGetPwd" resultType="String" parameterType="int">
+	  SELECT pwd FROM replyBoard
+	  WHERE no=#{no}
+	</select>
+	<update id="freeboardUpdate" parameterType="Board">
+	  UPDATE
+	</update>
 </mapper>

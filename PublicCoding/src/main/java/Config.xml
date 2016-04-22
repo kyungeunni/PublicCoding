@@ -4,6 +4,7 @@
 	<typeAliases>
 		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
 		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
+		<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
