@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 
 <!DOCTYPE HTML>
 
@@ -11,6 +9,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
+<script type="text/javascript">
+
+
+</script>
 </head>
 <body>
 		<!-- Main -->
@@ -19,8 +21,13 @@
 			<div class="major" id="listmajor">
 				<div id="pucoof"><h2>PUCO Overflow</h2></div>
 				<div  id="btnqst">
-									
-										<h5 ><a href="question.do"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+										<c:if test="${sessionScope.id!=null }">
+										<h5 ><a href="question.do" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+										</c:if>
+										
+										<c:if test="${sessionScope.id==null }">
+										<h5 ><a href="#" onclick="popup_signin()" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+										</c:if>
 								</div>
 			</div>
 			
