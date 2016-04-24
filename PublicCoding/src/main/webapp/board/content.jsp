@@ -106,7 +106,7 @@
 						<div class="col-sm-offset-8 col-sm-8">
 							<input type="button" id="sndbtn" class="btn btn-default"
 								value="답변달기"> <input type="button"
-								class="btn btn-default" onclick="javascript:history.back()"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
 								value="목록">
 						</div>
 

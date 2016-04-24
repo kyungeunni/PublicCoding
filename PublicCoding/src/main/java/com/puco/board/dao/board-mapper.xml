@@ -43,4 +43,9 @@
 		bhit=bhit+1
 		<include refid="where-no"/>
 	</update>
+	
+	<insert id="boardInsert" parameterType="Qboard">
+	INSERT INTO MainBoard(Bno,Mno,Bsubject,Bcontent,BTno,TGno1,Tgno2,Tgno3)
+	VALUES((SELECT NVL(MAX(bno)+1,1) FROM MainBoard), #{mno},#{bsubject},#{bcontent}, 1, #{tgno1},#{tgno2},#{tgno3})
+	</insert>
 </mapper>
