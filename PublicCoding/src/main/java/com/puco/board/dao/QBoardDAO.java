@@ -65,6 +65,49 @@ public class QBoardDAO {
     	session.close();
 		
 	}
+
+
+	public static List<AnswerVO> getAnswerData(int bno) {
+		List<AnswerVO> list ;
+		SqlSession session = ssf.openSession();
+		list = session.selectList("getAnswerData",bno);
+		session.close();
+		return list;
+	}
+
+	public static void incrBVote(int bno) {
+		SqlSession session = ssf.openSession(true);
+		session.update("bVoteUp",bno);
+		session.close();
+		
+	}
+
+	public static void incrAvote(String bno, String rno) {
+		SqlSession session = ssf.openSession(true);
+		Map map = new HashMap();
+		map.put("bno", bno);
+		map.put("rno", rno);
+		session.update("aVoteUp",map);
+		session.close();
+		
+	}
+
+	public static void decrBVote(int bno) {
+		SqlSession session = ssf.openSession(true);
+		session.update("bVoteDown",bno);
+		session.close();
+	}
+
+	public static void decrAvote(String bno, String rno) {
+		SqlSession session = ssf.openSession(true);
+		Map map = new HashMap();
+		map.put("bno", bno);
+		map.put("rno", rno);
+		session.update("aVoteDown",map);
+		session.close();
+		
+		
+	}
 	
 	
 }

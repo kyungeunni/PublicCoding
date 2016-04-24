@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -47,9 +48,9 @@
 								<tr>
 									<td width=15% align="right">
 										<ul class=vote>
-											<li><a href="#"><i class="fa fa-angle-up"></i></a></li>
+											<li><a href="bvoteup.do?bno=${no }&page=${page}&type=1"><i class="fa fa-angle-up"></i></a></li>
 											<li>${d.bvote}</li>
-											<li><a href="#"><i class="fa fa-angle-down"></i></a></li>
+											<li><a href="bvotedown.do?bno=${no }&page=${page}&type=1"><i class="fa fa-angle-down"></i></a></li>
 										</ul>
 									</td>
 
@@ -57,7 +58,7 @@
 										<p>${d.bcontent}</p>
 
 										<p id="written">
-											asked by ${d.mno} <img src="assets/vote-up.png">
+											<a href="#"> <img src="assets/vote-up.png"> ${d.userid} </a> 님이 질문
 										<p>
 									</td>
 								</tr>
@@ -67,34 +68,37 @@
 				</section>
 
 				<section id="answers">
-					<h3 class="content-h">답변</h3>
+					<h3 class="content-h">답변 ${d.answer } </h3>
 					<%-- 			<jsp:include page="inner_content.jsp" /> --%>
-					
-						<div id="answer<%-- ${답변번호}  --%>" class="qnacontent" >
+				
+						<c:forEach var="as" items="${alist}">
+						<div id="answer_${d.bno }${as.rno}" class="qnacontent" >
 
 							<table border=0>
+								
 								<tr>
 									<td width=15% align="right">
 										<ul class=vote>
-											<li><a href="#"><i class="fa fa-angle-up"></i></a></li>
-											<li>${d.bvote}</li>
-											<li><a href="#"><i class="fa fa-angle-down"></i></a></li>
+											<li><a href="bvoteup.do?bno=${no }&page=${page}&type=0&rno=${as.rno}"><i class="fa fa-angle-up"></i></a></li>
+											<li>${as.rhit}</li>
+											<li><a href="bvotedown.do?bno=${no }&page=${page}&type=0&rno=${as.rno}"><i class="fa fa-angle-down"></i></a></li>
 										</ul>
 									</td>
 
 									<td width=85%>
-										<p>${d.bcontent}</p>
+										<p>${as.rcontent}</p>
 
 										<p id="written">
-											asked by ${d.mno }<img src="assets/vote-up.png">
+											<a href="#"> <img src="assets/vote-up.png"> ${as.userid }</a> 님의 답변
 										<p>
 									</td>
 								</tr>
 
 							</table>
 						</div>
-
-						<div id="anawers" class="isanswerd"></div>
+						</c:forEach>
+					
+						
 					
 
 					<div class="content-h">
