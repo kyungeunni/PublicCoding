@@ -48,10 +48,24 @@
 
 			}
 		});
+		
 		//전송버튼 클릭이벤트
 		$("#sndbtn").click(function() {
+			
+			//태그 값 저장
+			$('#taglist').val($("#tags").val());
+			alert("taglist>>"+$('#taglist').val());
+			var title=$('#title').val();
+			if(title.trim()=="")
+			{
+				$('#title').focus();
+				alert("2");
+				return;
+			}
+			alert(1);
 			//id가 smarteditor인 textarea에 에디터에서 대입
 			editor_object.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+			alert(2);
 			// 이부분에 에디터 validation 검증
 			//폼 submit
 			$("#frm").submit();
@@ -78,14 +92,14 @@
 				<section id="content">
 					<div id="mbar" align="center">
 						<!-- 컨텐츠 -->
-						<form class="form-horizontal" role="form" action="view.jsp"
+						<form class="form-horizontal" role="form" action="question_ok.do" 
 							method="post" id="frm">
 
 							<!-- 제목 -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="title">Title:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="title"
+									<input type="text" class="form-control" id="title"  name="title"
 										placeholder="Enter title">
 								</div>
 							</div>
@@ -95,6 +109,7 @@
 								<div class="col-sm-9">
 									<textarea name="ir1" id="ir1"
 										style="width: 775px; height: 300px; display: none;"></textarea>
+									<input type="hidden" id="taglist" name="taglist">
 								</div>
 							</div>
 
@@ -102,9 +117,10 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="tags">Tags:</label>
 								<div class="col-sm-8">
-									<div class="example example_typeahead">
+									<div class="example example_objects_as_tags">
 										<div class="bs-example">
-											<input type="text" placeholder="태그" />
+											<input type="text" id="tags" name="tags"placeholder="태그" />
+
 										</div>
 									</div>
 								</div>

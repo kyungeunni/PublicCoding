@@ -95,7 +95,7 @@
 
 									<div class="summary">
 										<h3>
-											<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
+											<a href="content.do?no=${d.bno }&page=${curpage}" class="question-hyperlink">${d.bsubject }
 											</a>
 										</h3>
 										<div class="tags t-태그 t-태그">

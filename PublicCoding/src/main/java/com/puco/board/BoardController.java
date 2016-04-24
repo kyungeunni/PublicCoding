@@ -1,35 +1,19 @@
 package com.puco.board;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.puco.board.dao.*;
 import java.util.*;
 
 @Controller("bc")
 public class BoardController {
 
-/*	@RequestMapping("boardmain.do")
-	public String boardListData(HttpServletRequest req){
-		req.setAttribute("msg", "게시판");
-		BoardDAO dao = new BoardDAO();
-		List<BoardDTO> dto = dao.boardListData(0);
-		req.setAttribute("list", dto);
-		return "board/BoardMain.jsp";//jsp파일이름
-	}
-	@RequestMapping("content.do")
-	public String boardContentData(HttpServletRequest req){
-		String no=req.getParameter("no");
-		int ino = Integer.parseInt(no);
-		BoardDAO dao = new BoardDAO();
-		BoardDTO dto = dao.boardContentData(ino);
-		req.setAttribute("d", dto);
-		
-		return "board/content.jsp";//jsp파일이름
-	}*/
-	
 	@RequestMapping("boardmain.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
@@ -62,12 +46,13 @@ public class BoardController {
 	@RequestMapping("content.do")
 	public String boardContentData(HttpServletRequest req){
 		String no=req.getParameter("no");
+		String page = req.getParameter("page");
 		int ino = Integer.parseInt(no);
 		/*BoardDAO dao = new BoardDAO();
 		BoardDTO dto = dao.boardContentData(ino);*/
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
 		req.setAttribute("d", vo);
-		
+		req.setAttribute("page", page);
 		req.setAttribute("jsp", "../board/content.jsp");
 		return "common/container.jsp";
 	
@@ -77,6 +62,36 @@ public class BoardController {
 	public static String askQuestion(HttpServletRequest req){
 		req.setAttribute("jsp", "../board/insert.jsp");
 		return "common/container.jsp";
+	}
+	
+	@RequestMapping("question_ok.do")
+	public static String question_ok(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		HttpSession hs =req.getSession();
+		String no = (String)hs.getAttribute("mno");
+		int mno = Integer.parseInt(no);
+		   String subject=req.getParameter("title");
+		   String content=req.getParameter("ir1");
+		   String taglist = req.getParameter("taglist");
+		   StringTokenizer st=new StringTokenizer(taglist, ",");
+		  String[] arrlist=new String[3];
+		   for(int i=0;i<3;i++){
+			   if(st.hasMoreTokens()){
+			   arrlist[i]=st.nextToken();}
+			   else arrlist[i]="1";
+		   }
+		   QnaBoardVO vo = new QnaBoardVO();
+		   vo.setMno(mno);
+		   vo.setBsubject(subject);
+		   vo.setBcontent(content);
+		   vo.setTgno1(Integer.parseInt(arrlist[0]));
+		   vo.setTgno2(Integer.parseInt(arrlist[1]));
+		   vo.setTgno3(Integer.parseInt(arrlist[2]));
+		   System.out.println("boardinsert>>1");
+		   QBoardDAO.boardInsert(vo);
+		   System.out.println("boardinsert>>2");
+		return "board/insert_ok.jsp";
+		
 	}
 	
 }

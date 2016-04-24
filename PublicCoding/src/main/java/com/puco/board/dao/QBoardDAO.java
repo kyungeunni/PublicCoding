@@ -50,6 +50,21 @@ public class QBoardDAO {
 		session.close();
 		return vo;
 	}
+
+	public static void boardInsert(QnaBoardVO vo) {
+		SqlSession session=ssf.openSession(true);
+		 System.out.println("DAO>>boardinsert>>1");
+		 System.out.println(vo.getBsubject());
+		 System.out.println(vo.getMno());
+		 System.out.println(vo.getBcontent());
+		 System.out.println(vo.getTgno1());
+		 System.out.println(vo.getTgno2());
+		 System.out.println(vo.getTgno3());
+		session.insert("boardInsert",vo);
+		 System.out.println("DAO>>boardinsert>>2");
+    	session.close();
+		
+	}
 	
 	
 }

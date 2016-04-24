@@ -1,6 +1,5 @@
-[ { "value": 1 , "text": "java"   , "continent": "Language"    },
-  { "value": 2 , "text": "jsp"      , "continent": "Language"    },
-  { "value": 3 , "text": "oracle"       , "continent": "DB"    },
+[ { "value": 2 , "text": "JAVA"   , "continent": "Language"    },
+  { "value": 3 , "text": "HTML"      , "continent": "Language"    },
   { "value": 4 , "text": "spring"  , "continent": "Web"   },
   { "value": 5 , "text": "mvc" , "continent": "Web"   },
   { "value": 6 , "text": "c/c++", "continent": "Language"   },
@@ -12,5 +11,8 @@
   { "value": 12, "text": "mfc"   , "continent": "Language"      },
   { "value": 13, "text": "jquery"       , "continent": "Web"    },
   { "value": 14, "text": "javascript"   , "continent": "Web"    },
-  { "value": 15, "text": "css"    , "continent": "Web"    }
+  { "value": 15, "text": "css"    , "continent": "Web"    },
+    { "value": 16 , "text": "jsp"      , "continent": "Language"    },
+    { "value": 17 , "text": "oracle"       , "continent": "DB"    },
+    { "value": 18 , "text": "xml"       , "continent": "Language"    }
 ]
