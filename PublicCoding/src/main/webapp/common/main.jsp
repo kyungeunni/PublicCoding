@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -25,57 +26,38 @@
 		<!-- 메뉴바 -->
 			<nav id="nav">
 				<ul>
-					<li><a href="StudySub.jsp">강의목록</a>
-						<ul>
-							<li><a href="left-sidebar.html">언어</a></li>
-							<li><a href="right-sidebar.html">데이터베이스</a></li>
-							<li><a href="no-sidebar.html">WEB/CSS</a></li>
-							<!-- <li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul>
-							</li> -->
-						</ul></li>
-
-					<li><a href="#">게시판</a>
-						<ul>
-							<li><a href="right-sidebar.html">Q&A</a></li>
-							<li><a href="no-sidebar.html">자유게시판</a></li>
-							<!-- <li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul>
-							</li> -->
-						</ul>
-					</li>
-					
-					<li><a href="#">스터디</a>
-						<ul>
-							<li><a href="right-sidebar.html">주제별</a></li>
-							<li><a href="no-sidebar.html">지역별</a></li>
-							<!-- <li><a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option 1</a></li>
-									<li><a href="#">Option 2</a></li>
-									<li><a href="#">Option 3</a></li>
-									<li><a href="#">Option 4</a></li>
-								</ul>
-							</li> -->
-						</ul>
-					</li>
-					
+					<c:if test="${sessionScope.id==null }">
 					<li>
-					<input onclick="popup_signin()" type="button" value="로그인">
+						<!-- <a href="member/signin.jsp"> --> <input
+						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
 					</li>
-					
+					<!-- <li><a href="elements.html">Elements</a></li> -->
+					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
 					<li id="pop1"><input onclick="popup_signup()" type="button"
 						class="button special" value="회원가입"></li>
+					</c:if>
+					<c:if test="${sessionScope.id!=null }">
+						<%-- <li><input type="button" value="${sessionScope.id}"></li> --%>
+						<div class="btn-group open">
+							<a class="btn btn-default" href="#"><i
+								class="fa fa-user fa-fw"></i> ${sessionScope.id}</a> <a
+								class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+								href="#"> <span class="fa fa-caret-down"
+								title="Toggle dropdown menu"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-pencil fa-fw"
+										aria-hidden="true"></i> Edit</a></li>
+								<li><a href="#"><i class="fa fa-trash-o fa-fw"
+										aria-hidden="true"></i> Delete</a></li>
+								<li><a href="#"><i class="fa fa-ban fa-fw"
+										aria-hidden="true"></i> Ban</a></li>
+								<li class="divider"></li>
+								<li><a href="#"><i class="fa fa-unlock"
+										aria-hidden="true"></i> Make admin</a></li>
+							</ul>
+						</div>
+					</c:if>
 				</ul>
 			</nav>
 		</header>

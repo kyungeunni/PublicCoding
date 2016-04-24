@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -28,95 +29,149 @@
 </head>
 <body>
 
-		<!-- Main -->
-		<div id="main" class="wrapper style1">
-			<div class="container">
-				<header class="major">
-					<!-- 					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
+	<!-- Main -->
+	<div id="main" class="wrapper style1">
+		<div class="container">
+			<header class="major">
+				<!-- 					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
 					<p>#태그. #태그. #태그</p> -->
-					<h2>${d.subject }</h2>
-					<p>#태그. #태그. #태그</p>
-				</header>
+				<h2>${d.bsubject }</h2>
+				<p>#${d.tag1 }.#${d.tag2 }. #${d.tag3 }</p>
+			</header>
 
-				<!-- Content -->
-				<div id=mainbar>
-					<section id="question">
-						<jsp:include page="inner_content.jsp" />
-					</section>
+			<!-- Content -->
+			<div id=mainbar>
+				<section id="question">
+					<div id="question" class="noanswerd qnacontent">
 
-					<section id="answers">
-						<h3 class="content-h">답변</h3>
-						<jsp:include page="inner_content.jsp" />
+							<table border=0>
+								<tr>
+									<td width=15% align="right">
+										<ul class=vote>
+											<li><a href="bvoteup.do?bno=${no }&page=${page}&type=1"><i class="fa fa-angle-up"></i></a></li>
+											<li>${d.bvote}</li>
+											<li><a href="bvotedown.do?bno=${no }&page=${page}&type=1"><i class="fa fa-angle-down"></i></a></li>
+										</ul>
+									</td>
 
-						<div class="content-h">
-							<h3>당신의 답변을 적어주세요.</h3>
-							<!-- 에디터 -->
-							<textarea name="ir1" id="ir1"
-								style="width: 800px; height: 300px; display: none;"></textarea>
+									<td width=85%>
+										<p>${d.bcontent}</p>
 
-							<div class="col-sm-offset-8 col-sm-8">
-								<input type="button" id="sndbtn" class="btn btn-default"
-									value="답변달기">
-								<input type="button" id="cancel" class="btn btn-default"
-									value="목록">
-							</div>
-						
-<script>
-	$(function() {
-		//전역변수선언
-		var editor_object = [];
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef : editor_object,
-			elPlaceHolder : "ir1",
-			sSkinURI : "resources/se/SmartEditor2Skin.html",
-			htParams : {
-				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseToolbar : true,
-				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseVerticalResizer : true,
-				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseModeChanger : false,
-			}
-		});
-		//전송버튼 클릭이벤트
-		$("#sndbtn").click(function() {
-			//id가 smarteditor인 textarea에 에디터에서 대입
-			editor_object.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-			// 이부분에 에디터 validation 검증
-			//폼 submit
-			$("#frm").submit();
-		})
-	})
-</script>
-					</section>
-				</div>
+										<p id="written">
+											<a href="#"> <img src="assets/vote-up.png"> ${d.userid} </a> 님이 질문
+										<p>
+									</td>
+								</tr>
+
+							</table>
+						</div>
+				</section>
+
+				<section id="answers">
+					<h3 class="content-h">답변 ${d.answer } </h3>
+					<%-- 			<jsp:include page="inner_content.jsp" /> --%>
 				
-				<div id="sidebar">
-					<p>blar blar blar</p>
-					<p>blar blar blar</p>
-					<p>blar blar blar</p>
-					<p>blar blar blar</p>
-					<p>blar blar blar</p>
-				</div>
+						<c:forEach var="as" items="${alist}">
+						<div id="answer_${d.bno }${as.rno}" class="qnacontent" >
+
+							<table border=0>
+								
+								<tr>
+									<td width=15% align="right">
+										<ul class=vote>
+											<li><a href="bvoteup.do?bno=${no }&page=${page}&type=0&rno=${as.rno}"><i class="fa fa-angle-up"></i></a></li>
+											<li>${as.rhit}</li>
+											<li><a href="bvotedown.do?bno=${no }&page=${page}&type=0&rno=${as.rno}"><i class="fa fa-angle-down"></i></a></li>
+										</ul>
+									</td>
+
+									<td width=85%>
+										<p>${as.rcontent}</p>
+
+										<p id="written">
+											<a href="#"> <img src="assets/vote-up.png"> ${as.userid }</a> 님의 답변
+										<p>
+									</td>
+								</tr>
+
+							</table>
+						</div>
+						</c:forEach>
+					
+						
+					
+
+					<div class="content-h">
+						<h3>당신의 답변을 적어주세요.</h3>
+						<!-- 에디터 -->
+						<form action="answer.do" id="frm">
+						<textarea name="ir1" id="ir1"
+							style="width: 800px; height: 300px; display: none;"></textarea>
+							<input type="hidden" id="no" name="no" value="${no }">
+							<input type="hidden" id="page" name="page" value="${page }">
+							</form>
+						<div class="col-sm-offset-8 col-sm-8">
+							<c:if test="${sessionScope.id==null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" onclick="popup_signin()"></c:if>
+							 <c:if test="${sessionScope.id!=null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" ></c:if>
+							
+								<input type="button"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
+								value="목록">
+						</div>
+
+						<script>
+							$(function() {
+								//전역변수선언
+								var editor_object = [];
+								nhn.husky.EZCreator
+										.createInIFrame({
+											oAppRef : editor_object,
+											elPlaceHolder : "ir1",
+											sSkinURI : "resources/se/SmartEditor2Skin.html",
+											htParams : {
+												// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+												bUseToolbar : true,
+												// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+												bUseVerticalResizer : true,
+												// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+												bUseModeChanger : false,
+											}
+										});
+								//전송버튼 클릭이벤트
+								$("#sndbtn")
+										.click(function() {
+											
+											//id가 smarteditor인 textarea에 에디터에서 대입
+													editor_object.getById["ir1"]
+															.exec(
+																	"UPDATE_CONTENTS_FIELD",
+																	[]);
+													// 이부분에 에디터 validation 검증
+													//폼 submit
+													$("#frm").submit();
+												})
+							})
+						</script>
+
+					</div>
+
+				</section>
+			</div>
+
+			<div id="sidebar">
+				<p>blar blar blar</p>
+				<p>blar blar blar</p>
+				<p>blar blar blar</p>
+				<p>blar blar blar</p>
+				<p>blar blar blar</p>
 			</div>
 		</div>
+	</div>
 
 
-	<!-- tags scripts -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+
 
 </body>
 </html>

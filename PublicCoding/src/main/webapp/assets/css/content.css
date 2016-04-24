@@ -61,7 +61,7 @@ li{
 }
 
 .content{
-	    margin: 0 auto;
+	 margin: 0 auto;
 	width:500px;
 	float:left;
 	
@@ -87,4 +87,8 @@ li{
 	
 }
 
+.qnacontent{
+	    margin: 0 auto;
+   	width:800px;
+}
 
