@@ -15,11 +15,11 @@ header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; le
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto; transition:all 0.5s; animation:scale 1s 1;}
 
-article:nth-child(1) { width:70%; height:60vh; background:#ff0000;}
-article:nth-child(2) { width:30%; height:30vh; background:#ccc;}
-article:nth-child(3) { width:30%; height:30vh; background:#ccc;}
-article:nth-child(4) { width:70%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:30%; height:30vh; background:#999;}
+article:nth-child(1) { width:33.333333%; height:60vh; background:#ff0000;}
+article:nth-child(2) { width:66.666666%; height:60vh; background:#ccc;}
+article:nth-child(3) { width:33.333333%; height:30vh; background:#ffff00;}
+article:nth-child(4) { width:33.333333%; height:30vh; background:#000080;}
+article:nth-child(5) { width:33.333333%; height:30vh; background:#000040;}
 article:nth-child(6) { width:100%; height:5vh; background:#888;}
 
 @keyframes scale {

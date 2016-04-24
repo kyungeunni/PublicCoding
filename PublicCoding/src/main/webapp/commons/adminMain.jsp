@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@page import="org.json.simple.*"%>
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,16 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="../assets/css/userMain.css">
+<link type="text/css" rel="stylesheet" href="../assets/js/cal/fullcalendar.css">
+<link type="text/css" rel="stylesheet" href="../assets/js/cal/fullcalendar.print.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.min.js">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.min.css">
+<link rel="stylesheet" href=//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.print.css>
+
+
+
 </head>
 <body>
 
@@ -176,31 +186,31 @@
 	<section>
 		<article>
 			<div class="text" id="content">
-				<span>사이트소개</span>
+				<span>유저프로필</span>
+			</div>
+		</article>
+
+		<article>
+			<div id='calendar'>
+				<!-- <span>나의 강의 일정표</span> -->
 			</div>
 		</article>
 
 		<article>
 			<div class="text">
-				<span>자유게시판</span>
+				<span>내가 쓴 글</span>
 			</div>
 		</article>
 
 		<article>
 			<div class="text">
-				<span>q&a게시판</span>
+				<span>나의 통계</span>
 			</div>
 		</article>
 
 		<article>
 			<div class="text">
-				<span>동영상 carousel</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="text">
-				<span>스터디</span>
+				<span>개설 스터디 내역</span>
 			</div>
 		</article>
 
@@ -219,14 +229,84 @@
 
 	</section>
 
-
+	
 	<!-- Scripts -->
 
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous"></script>
+	<script src="../assets/js/cal/fullcalendar.min.js"></script>
+	<script src="../assets/js/cal/jquery-1.5.2.min.js"></script>
+	<script src="../assets/js/cal/jquery-ui-1.8.11.custom.min.js"></script>
+	<script type='text/javascript'>
 
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			editable: true,
+			events: [
+				{
+					title: 'All Day Event',
+					start: new Date(y, m, 1)
+				},
+				{
+					title: 'Long Event',
+					start: new Date(y, m, d-5),
+					end: new Date(y, m, d-2)
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: new Date(y, m, d-3, 16, 0),
+					allDay: false
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: new Date(y, m, d+4, 16, 0),
+					allDay: false
+				},
+				{
+					title: 'Meeting',
+					start: new Date(y, m, d, 10, 30),
+					allDay: false
+				},
+				{
+					title: 'Lunch',
+					start: new Date(y, m, d, 12, 0),
+					end: new Date(y, m, d, 14, 0),
+					allDay: false
+				},
+				{
+					title: 'Birthday Party',
+					start: new Date(y, m, d+1, 19, 0),
+					end: new Date(y, m, d+1, 22, 30),
+					allDay: false
+				},
+				{
+					title: 'Click for Google',
+					start: new Date(y, m, 28),
+					end: new Date(y, m, 29),
+					url: 'http://google.com/'
+				}
+			]
+		});
+		
+	});
+
+</script>
+	
+	
+	
+	
+	
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/jquery.scrolly.min.js"></script>
 	<script src="../assets/js/jquery.dropotron.min.js"></script>
@@ -234,13 +314,9 @@
 	<script src="../assets/js/skel.min.js"></script>
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/modal.js"></script>
-
-
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
 	<script src="../assets/js/popup.js"></script>
-	<!-- 메인페이지에서 동영상/이미지 겹치는 스크립트 -->
-	<script type="text/javascript"
-		src="//cdn.jsdelivr.net/g/modernizr@2.7,respond@1.4,bootstrap@3.1,fittext@1.2"></script>
+
 
 
 	<script type="text/javascript">
@@ -256,7 +332,8 @@
 			});
 		});
 	</script>
-
+	
+	
 
 </body>
 </html>
