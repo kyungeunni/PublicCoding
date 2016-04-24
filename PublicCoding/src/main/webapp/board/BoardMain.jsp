@@ -73,13 +73,14 @@
 										class="cp">
 										<div class="votes">
 											<div class="mini-counts">
-												<span title="0 votes">${d.bvote}</span>
+												<span title="${d.bvote} votes">${d.bvote}</span>
 											</div>
 											<div>votes</div>
 										</div>
-										<div class="status unanswered">
+										
+										<div class="status  unanswered">
 											<div class="mini-counts">
-												<span title="0 answers">${d.answer }</span>
+												<span title="${d.answer } answers">${d.answer }</span>
 											</div>
 											<div>answers</div>
 										</div>

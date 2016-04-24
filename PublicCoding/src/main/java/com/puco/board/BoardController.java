@@ -48,11 +48,18 @@ public class BoardController {
 		String no=req.getParameter("no");
 		String page = req.getParameter("page");
 		int ino = Integer.parseInt(no);
-		/*BoardDAO dao = new BoardDAO();
-		BoardDTO dto = dao.boardContentData(ino);*/
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
+		System.out.println("content>>1");
+		System.out.println(vo.getAnswer());
+
+		System.out.println("content>>2");
+		List<AnswerVO> alist = QBoardDAO.getAnswerData(ino);
+		System.out.println("content>>3");
+		req.setAttribute("alist", alist);
+		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
+		req.setAttribute("no", no);
 		req.setAttribute("jsp", "../board/content.jsp");
 		return "common/container.jsp";
 	
@@ -92,6 +99,49 @@ public class BoardController {
 		   System.out.println("boardinsert>>2");
 		return "board/insert_ok.jsp";
 		
+	}
+	
+	@RequestMapping("bvoteup.do")
+	public static String bvoteup(HttpServletRequest req){
+		String bno=req.getParameter("bno");
+		System.out.println("bno>>>"+bno);
+		String page=req.getParameter("page");
+		String type=req.getParameter("type");
+		System.out.println(type);
+		int ino = Integer.parseInt(bno);
+		//질문업
+		System.out.println("뭐지");
+		if(type.equals("1")){
+			System.out.println("실행");
+						QBoardDAO.incrBVote(ino);
+		}else{
+			System.out.println("설마");
+			String rno=req.getParameter("rno");
+			QBoardDAO.incrAvote(bno,  rno);
+		}
+		req.setAttribute("no", bno);
+		req.setAttribute("page", page);
+		return "board/vote_ok.jsp";
+	}
+	
+	@RequestMapping("bvotedown.do")
+	public static String bvotedown(HttpServletRequest req){
+		String bno=req.getParameter("bno");
+		System.out.println("bno>>>"+bno);
+		String page=req.getParameter("page");
+		String type=req.getParameter("type");
+		System.out.println(type);
+		int ino = Integer.parseInt(bno);
+		//질문업
+		if(type.equals("1")){
+						QBoardDAO.decrBVote(ino);
+		}else{
+			String rno=req.getParameter("rno");
+			QBoardDAO.decrAvote(bno,  rno);
+		}
+		req.setAttribute("no", bno);
+		req.setAttribute("page", page);
+		return "board/vote_ok.jsp";
 	}
 	
 }
