@@ -10,17 +10,16 @@ body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; }
 
 
 /*레이아웃*/
-header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px; transition:all 0.5s;}
-/* nav { position:relative; width:85%; height:20px; background:#ee4b66; margin-left:15%; transition:all 0.5s;} */
+header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
-article { float:left; height:auto; transition:all 0.5s; animation:scale 1s 1;}
+article { float:left; height:auto;}
 
-article:nth-child(1) { width:70%; height:60vh; background:#ff0000;}
-article:nth-child(2) { width:30%; height:30vh; background:#ccc;}
-article:nth-child(3) { width:30%; height:30vh; background:#ccc;}
-article:nth-child(4) { width:70%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:30%; height:30vh; background:#999;}
-article:nth-child(6) { width:100%; height:5vh; background:#888;}
+article:nth-child(1) { width:65%; height:54vh; background:#ff0000;}
+article:nth-child(2) { width:35%; height:27vh; background:#ffff00;}
+article:nth-child(3) { width:35%; height:27vh; background:#ff0080;}
+article:nth-child(4) { width:65%; height:27vh; background:#ccc;}
+article:nth-child(5) { width:35%; height:27vh; background:#0000ff;}
+article:nth-child(6) { width:100%; height:7.1vh; background:#888;}
 
 @keyframes scale {
 	0% { transform:scale(0); }	
@@ -51,39 +50,6 @@ nav a:nth-child(1) {	position:absolute; right:150px;}
 nav a:nth-child(2) {	position:absolute; right:10px;}
 
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
-
-/* 배경이미지 삽입*/
-article .bg1 { background-image:url(../img/pic1.jpg);}
-article .bg2 { background-image:url(../img/pic2.jpg);}
-article .bg3 { background-image:url(../img/pic3.jpg);}
-article .bg4 { background-image:url(../img/pic4.jpg);}
-article .bg5 { background-image:url(../img/pic5.jpg);}
-article .bg6 { background-image:url(../img/pic6.jpg);}
-article .bg7 { background-image:url(../img/pic7.jpg);}
-
-/* 이미지박스 */
-article .bg { background-size:cover; background-position:center center; }
-article .bg span { font-size:60px; color:#fff;	position:absolute; bottom:0px; right:20px; transform:scale(10); opacity:0;	transition:all 0.6s;}
-article .bg1 span { font-size:170px; bottom:-76px;	right:-6px; opacity:1; transform:scale(1); transition:all 0.5s;}
-
-/*이미지박스 호버효과*/
-article:hover .bg span { opacity:1; transform:scale(1);}
-article .bg1:hover span { transform:rotateY(360deg); color:#222; }
-
-/* 텍스트박스 */
-article .txt { color:#666; background:#fff; box-sizing:border-box; padding:40px 30px; transition:all 1s;}
-article:nth-child(3) .txt { background:#bff7fa;}
-article:nth-child(11) .txt { background:#e3f1fb;}
-article .txt i { font-size:300px; color:#b2effc; opacity:0; position:absolute; bottom:-70px; right:-200px; transition:all 0.7s;}
-article:nth-child(3) .txt i {	position:absolute; bottom:-20px; right:-15px; font-size:200px; color:#fff; opacity:0.7;}
-article .txt strong { font-size:30px;	font-weight:normal; line-height:1.6;	color:#444; margin-bottom:20px; transition:all 1s;}
-
-/*텍스트박스 호버효과*/
-article:hover .txt { background:#6ce2fb;	color:#fff;}
-article:hover .txt i { right:0px; opacity:0.5;}
-article:hover .txt strong { color:#fff;}
-
-	
 
 	
 
