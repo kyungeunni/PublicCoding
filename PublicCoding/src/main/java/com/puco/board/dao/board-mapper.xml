@@ -86,5 +86,9 @@
 		<include refid="where-no"/>
 		AND rno=#{rno}
 	</update>
+		<insert id="insertAnswer" parameterType="Answer">
+	INSERT INTO Answer(Rno, Rcontent,Bno,Mno)
+	VALUES((SELECT NVL(MAX(Rno)+1,1) FROM Answer), #{rcontent},#{bno}, #{mno})
+		</insert>
 	
 </mapper>

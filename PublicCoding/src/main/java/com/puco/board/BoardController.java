@@ -102,7 +102,27 @@ public class BoardController {
 		return "board/insert_ok.jsp";
 		
 	}
-	
+	@RequestMapping("answer.do")
+	public static String answer(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		HttpSession hs =req.getSession();
+		String no = (String)hs.getAttribute("mno");
+		int mno = Integer.parseInt(no);
+	   String content=req.getParameter("ir1");
+	   String bnum = req.getParameter("no");
+	   int bno = Integer.parseInt(bnum);
+	   String page =req.getParameter("page"); 
+	   AnswerVO vo = new AnswerVO();
+	   vo.setBno(bno);
+	   vo.setMno(mno);
+	   vo.setRcontent(content);
+	   QBoardDAO.insertAnswer(vo);
+	   
+	   req.setAttribute("no", bno);
+	   req.setAttribute("page", page);
+	   
+	   return "board/vote_ok.jsp";
+	}
 
 	@RequestMapping("bvoteup.do")
 	public static String bvoteup(HttpServletRequest req){

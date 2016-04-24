@@ -104,12 +104,19 @@
 					<div class="content-h">
 						<h3>당신의 답변을 적어주세요.</h3>
 						<!-- 에디터 -->
+						<form action="answer.do" id="frm">
 						<textarea name="ir1" id="ir1"
 							style="width: 800px; height: 300px; display: none;"></textarea>
-
+							<input type="hidden" id="no" name="no" value="${no }">
+							<input type="hidden" id="page" name="page" value="${page }">
+							</form>
 						<div class="col-sm-offset-8 col-sm-8">
-							<input type="button" id="sndbtn" class="btn btn-default"
-								value="답변달기"> <input type="button"
+							<c:if test="${sessionScope.id==null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" onclick="popup_signin()"></c:if>
+							 <c:if test="${sessionScope.id!=null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" ></c:if>
+							
+								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
 								value="목록">
 						</div>
@@ -134,9 +141,9 @@
 										});
 								//전송버튼 클릭이벤트
 								$("#sndbtn")
-										.click(
-												function() {
-													//id가 smarteditor인 textarea에 에디터에서 대입
+										.click(function() {
+											
+											//id가 smarteditor인 textarea에 에디터에서 대입
 													editor_object.getById["ir1"]
 															.exec(
 																	"UPDATE_CONTENTS_FIELD",
@@ -164,21 +171,7 @@
 	</div>
 
 
-	<!-- tags scripts -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+
 
 </body>
 </html>

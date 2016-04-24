@@ -108,6 +108,13 @@ public class QBoardDAO {
 		
 		
 	}
+
+	public static void insertAnswer(AnswerVO vo) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("insertAnswer", vo);
+		session.close();
+		
+	}
 	
 	
 }
