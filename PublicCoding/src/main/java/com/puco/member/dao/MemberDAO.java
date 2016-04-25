@@ -40,7 +40,8 @@ public class MemberDAO {
 			System.out.println("memberGetpwd " + d.getMpwd());
 			if(pwd.equals(d.getMpwd())) {
 				System.out.println("memberGetpwd Work1");
-				result = d.getMemail();
+				result = d.getMemail()+"|"+d.getMno();
+				System.out.println(result);
 			}
 			else {
 				System.out.println("memberGetpwd Wrong PWD");

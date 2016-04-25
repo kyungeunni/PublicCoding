@@ -6,8 +6,9 @@
 	</sql>
 
 	<select id="boardAllData" resultType="QBoard" parameterType="java.util.Map">
-		SELECT bno,bsubject,MB.Mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,
-		(SELECT COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
+		SELECT bno,bsubject,mno,bdate,bhit,bvote,tag1, tag2, tag3, userid,answer,num
+		FROM (SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,
+		(SELECT COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer,rownum as num
 		FROM mainboard MB
 		LEFT JOIN tag t1
 		 on T1.tgno = mb.tgno1
@@ -17,8 +18,9 @@
 		 on T3.tgno = mb.tgno3
 		LEFT JOIN pucomember MT
 		 on MT.mno = mb.mno
-		WHERE MB.Bno BETWEEN 1 AND 10
-		AND BTNo =1
+		WHERE BTno=1
+		ORDER BY MB.Bno DESC)
+		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="boardRowCount" resultType="int">
@@ -27,7 +29,8 @@
 	</select>
 	
 	<select id="getContentData" resultType="Qboard" parameterType="int">
-		SELECT bsubject,Mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3
+		SELECT bsubject,MB.Mno,bdate,bhit,bcontent,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,
+		(SELECT COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
 		FROM mainboard MB
 		LEFT JOIN tag t1
 		 on T1.tgno = mb.tgno1
@@ -35,6 +38,8 @@
 		 on T2.tgno = mb.tgno2
 		LEFT JOIN tag t3
 		 on T3.tgno = mb.tgno3
+		 LEFT JOIN pucomember MT
+		 on MT.mno = mb.mno
 		<include refid="where-no"/>
 	</select>
 	
@@ -76,4 +81,47 @@
 	<update id="freeboardUpdate" parameterType="Board">
 	  UPDATE
 	</update>
+
+	<insert id="boardInsert" parameterType="Qboard">
+	INSERT INTO MainBoard(Bno,Mno,Bsubject,Bcontent,BTno,TGno1,Tgno2,Tgno3)
+	VALUES((SELECT NVL(MAX(bno)+1,1) FROM MainBoard), #{mno},#{bsubject},#{bcontent}, 1, #{tgno1},#{tgno2},#{tgno3})
+	</insert>
+
+	
+	<select id="getAnswerData" resultType="Answer" parameterType="int">
+		SELECT answer.Mno,rno,rdate,rhit,rcontent,MT.mid as userid
+		FROM Answer
+		LEFT JOIN pucomember MT
+		 on MT.mno = answer.mno
+		<include refid="where-no"/>
+	</select>
+	
+	<update id="bVoteUp"  parameterType="int">
+		UPDATE MainBoard SET
+		bvote = bvote+1
+		<include refid="where-no"/>
+	</update>
+	<update id="aVoteUp"  parameterType="java.util.Map">
+		UPDATE answer SET
+		rhit = rhit+1
+		<include refid="where-no"/>
+		AND rno=#{rno}
+	</update>
+	
+		<update id="bVoteDown"  parameterType="int">
+		UPDATE MainBoard SET
+		bvote = bvote-1
+		<include refid="where-no"/>
+	</update>
+	<update id="aVoteDown"  parameterType="java.util.Map">
+		UPDATE answer SET
+		rhit = rhit-1
+		<include refid="where-no"/>
+		AND rno=#{rno}
+	</update>
+		<insert id="insertAnswer" parameterType="Answer">
+	INSERT INTO Answer(Rno, Rcontent,Bno,Mno)
+	VALUES((SELECT NVL(MAX(Rno)+1,1) FROM Answer), #{rcontent},#{bno}, #{mno})
+		</insert>
+
 </mapper>
