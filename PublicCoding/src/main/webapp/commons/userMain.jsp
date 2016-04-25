@@ -13,14 +13,13 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="../assets/css/userMain.css">
-<link type="text/css" rel="stylesheet" href="../assets/js/cal/fullcalendar.css">
-<link type="text/css" rel="stylesheet" href="../assets/js/cal/fullcalendar.print.css">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.min.js">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.min.css">
-<link rel="stylesheet" href=//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.7.0/fullcalendar.print.css>
-
-
+<link rel='stylesheet' href='fullc/lib/cupertino/jquery-ui.min.css' />
+<link href='fullc/fullcalendar.css' rel='stylesheet' />
+<link href='fullc/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='fullc/lib/moment.min.js'></script>
+<script src='fullc/lib/jquery.min.js'></script>
+<script src='fullc/fullcalendar.min.js'></script>
 
 </head>
 <body>
@@ -191,9 +190,7 @@
 		</article>
 
 		<article>
-			<div id='calendar'>
-				<!-- <span>나의 강의 일정표</span> -->
-			</div>
+			<div id='calendar'></div>
 		</article>
 
 		<article>
@@ -231,77 +228,80 @@
 
 	
 	<!-- Scripts -->
-
-	<script src="../assets/js/cal/fullcalendar.min.js"></script>
-	<script src="../assets/js/cal/jquery-1.5.2.min.js"></script>
-	<script src="../assets/js/cal/jquery-ui-1.8.11.custom.min.js"></script>
-	<script type='text/javascript'>
-
-	$(document).ready(function() {
 	
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-		
+	<script type='text/javascript'>
+	$(document).ready(function() {
+
 		$('#calendar').fullCalendar({
+			theme: true,
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,basicWeek,basicDay'
+				right: 'month,agendaWeek,agendaDay'
 			},
+			defaultDate: '2016-01-12',
 			editable: true,
+			eventLimit: true, // allow "more" link when too many events
 			events: [
 				{
 					title: 'All Day Event',
-					start: new Date(y, m, 1)
+					start: '2016-01-01'
 				},
 				{
 					title: 'Long Event',
-					start: new Date(y, m, d-5),
-					end: new Date(y, m, d-2)
+					start: '2016-01-07',
+					end: '2016-01-10'
 				},
 				{
 					id: 999,
 					title: 'Repeating Event',
-					start: new Date(y, m, d-3, 16, 0),
-					allDay: false
+					start: '2016-01-09T16:00:00'
 				},
 				{
 					id: 999,
 					title: 'Repeating Event',
-					start: new Date(y, m, d+4, 16, 0),
-					allDay: false
+					start: '2016-01-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-01-11',
+					end: '2016-01-13'
 				},
 				{
 					title: 'Meeting',
-					start: new Date(y, m, d, 10, 30),
-					allDay: false
+					start: '2016-01-12T10:30:00',
+					end: '2016-01-12T12:30:00'
 				},
 				{
 					title: 'Lunch',
-					start: new Date(y, m, d, 12, 0),
-					end: new Date(y, m, d, 14, 0),
-					allDay: false
+					start: '2016-01-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-01-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-01-12T20:00:00'
 				},
 				{
 					title: 'Birthday Party',
-					start: new Date(y, m, d+1, 19, 0),
-					end: new Date(y, m, d+1, 22, 30),
-					allDay: false
+					start: '2016-01-13T07:00:00'
 				},
 				{
 					title: 'Click for Google',
-					start: new Date(y, m, 28),
-					end: new Date(y, m, 29),
-					url: 'http://google.com/'
+					url: 'http://google.com/',
+					start: '2016-01-28'
 				}
 			]
 		});
 		
 	});
-
-</script>
+	</script>
 	
 	
 	

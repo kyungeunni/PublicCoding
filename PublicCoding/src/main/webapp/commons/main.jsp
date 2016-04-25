@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="assets/css/main2.css">
 </head>
 <body>
 
@@ -170,9 +171,6 @@
 
 	</header>
 
-	<!-- <nav id="nav-main">
-	</nav> -->
-
 	<section>
 		<article>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -217,22 +215,48 @@
 		</article>
 
 		<article>
-			<div>
-				<center>
-					<span>자유게시판</span>
-				</center>
+		<div>
+			<center><h3>Q&A게시판</h3></center>
+				
+			<table class="table table-hover">
+				
+				<c:forEach var="d" items="${ qlist }">
+<%-- 
+						<div class="mainQna">
+							<div class="summary">
+								<h3>
+									<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
+									</a>
+								</h3>
+							</div>
+
+							<div class="started">
+								<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
+									class="reputation-score" title="reputation score " dir="ltr"></span>
+							</div>
+						</div> --%>
+			
+				
+				<tbody>
+					<tr width="10px">
+						<td width="10px">${d.mno }</td>
+						<td width="10px">${d.bsubject }</td>
+						<td width="10px">${d.userid }</td>
+					</tr>
+				
+				</tbody>
+						</c:forEach>
+			</table>
 			</div>
 		</article>
 
-		<article>
-			<div>
-				<center>
-					<span>q&a게시판</span>
-				</center>
-		</article>
+
+
+
+		<article></article>
 
 		<article>
-			<center> 
+			<center>
 				<span>자유게시판</span>
 			</center>
 		</article>
@@ -268,13 +292,13 @@
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/modal.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/modal.js"></script>
 
 
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
