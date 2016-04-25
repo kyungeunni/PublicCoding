@@ -3,67 +3,83 @@ package com.puco.board.dao;
 import java.util.Date;
 
 public class FreeBoardVO {
-	private int no;
-	private String name;
-	private String subject;
-	private String content;
-	private String pwd;
-	private Date regdate;
-	private int hit;
-	private int replyCount;
-	private String drbday;
-	public int getNo() {
-		return no;
+	private int bno;
+	private int mno;
+	private String bsubject;
+	private String bcontent;
+	private int bhit;
+	private Date bdate;
+	private int bdel;
+	private int btno;
+	private String mpwd;
+	private String userid;
+	private String answer;
+	public String getAnswer() {
+		return answer;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
-	public String getName() {
-		return name;
+	public String getUserid() {
+		return userid;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	public String getSubject() {
-		return subject;
+	public String getMpwd() {
+		return mpwd;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setMpwd(String mpwd) {
+		this.mpwd = mpwd;
 	}
-	public String getContent() {
-		return content;
+	public int getBno() {
+		return bno;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
-	public String getPwd() {
-		return pwd;
+	public int getMno() {
+		return mno;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public String getBsubject() {
+		return bsubject;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setBsubject(String bsubject) {
+		this.bsubject = bsubject;
 	}
-	public int getHit() {
-		return hit;
+	public String getBcontent() {
+		return bcontent;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setBcontent(String bcontent) {
+		this.bcontent = bcontent;
 	}
-	public int getReplyCount() {
-		return replyCount;
+	public int getBhit() {
+		return bhit;
 	}
-	public void setReplyCount(int replyCount) {
-		this.replyCount = replyCount;
+	public void setBhit(int bhit) {
+		this.bhit = bhit;
 	}
-	public String getDrbday() {
-		return drbday;
+	public Date getBdate() {
+		return bdate;
 	}
-	public void setDrbday(String drbday) {
-		this.drbday = drbday;
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
 	}
+	public int getBdel() {
+		return bdel;
+	}
+	public void setBdel(int bdel) {
+		this.bdel = bdel;
+	}
+	public int getBtno() {
+		return btno;
+	}
+	public void setBtno(int btno) {
+		this.btno = btno;
+	}
+	
+	
 }

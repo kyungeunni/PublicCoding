@@ -4579,3 +4579,17 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 #freeboard .listData .tdleft {
 	text-align:left;
 }
+#freeboard .writeBt {
+	background-color: #1c1d26;
+	border:0;
+	border-color: transparent;
+}
+#freeboard .button {
+	background-color: transparent;
+	border: #e44c65;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display:inline-block;
+	font-size:18px;
+}
