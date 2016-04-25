@@ -8,7 +8,7 @@
 		WHERE mid=#{id}
 	</select>
 	<select id="memberGetpwd" resultType="Member" parameterType="String">
-		SELECT mid,mpwd,memail FROM pucoMember
+		SELECT mid,mpwd,memail,mno FROM pucoMember
 		WHERE mid=#{id}
 	</select>
 </mapper>

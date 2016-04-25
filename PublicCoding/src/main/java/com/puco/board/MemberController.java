@@ -20,17 +20,29 @@ public class MemberController {
 		// DB연동
 		String res = MemberDAO.memberLogin(id, pwd);
 		String email="";
+		String mno="";
 		if(!(res.equals("NOID")||res.equals("NOPWD"))) {
 			// 로그인 결과로 MemberDAO에서 email만 받아오기 때문에 따로 잘라내지 않았다.
 			StringTokenizer st = new StringTokenizer(res, "|");
 			email=st.nextToken();
+			mno=st.nextToken();
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("pwd", pwd);
 			session.setAttribute("email", email);
+			session.setAttribute("mno", mno);
+			
 		}
 		req.setAttribute("res", res);
 		System.out.println("MemberController -> login.jsp");
 		return "member/login.jsp";
+	}
+	
+	@RequestMapping("signin_ok.do")
+	public String signin_ok(HttpServletRequest req){
+		
+		
+		return "common/main.jsp";
+		
 	}
 }

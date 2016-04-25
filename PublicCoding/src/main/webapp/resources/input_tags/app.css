@@ -65,3 +65,53 @@
   outline: 0;
   background-color: #428bca;
 }
+
+.bootstrap-tagsinput .tag {
+    margin-right: 3px;
+    color: white;
+}
+.label-info {
+    background-color: #e44c65;
+}
+.label {
+    display: inline;
+    padding: .3em .6em .3em;
+    font-size: 70%;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.post-tag, .container .chosen-choices .search-choice, .container .chosen-container-multi .chosen-choices li.search-choice, .geo-tag {
+    
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    
+    
+   
+}
+.twitter-typeahead{
+	vertical-align: top;
+	text-align: left;
+	
+}
+.twitter-typeahead input[type="text"]{
+	height:2em;
+	border-width: 0px;
+		text-align: left;
+}
+.twitter-typeahead input:focus{
+	border-width: 0px;
+		text-align: left;
+}
+
+#sndbtn{
+	display: inline-block;
+	
+}

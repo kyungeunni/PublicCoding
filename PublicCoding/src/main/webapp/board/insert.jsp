@@ -18,11 +18,11 @@
 
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
-<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-<link rel="stylesheet"	href="resources/bootstrap-tagsinput-master/examples/assets/app.css">
+    <link rel="stylesheet" href="resources/input_tags/bootstrap-tagsinput.css">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link rel="stylesheet" href="resources/input_tags/app.css">
+    
 
-<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/newboard.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -44,13 +44,28 @@
 				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
 				bUseVerticalResizer : true,
 				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-				bUseModeChanger : true,
+				bUseModeChanger :true,
+
 			}
 		});
+		
 		//전송버튼 클릭이벤트
 		$("#sndbtn").click(function() {
+			
+			//태그 값 저장
+			$('#taglist').val($("#tags").val());
+			alert("taglist>>"+$('#taglist').val());
+			var title=$('#title').val();
+			if(title.trim()=="")
+			{
+				$('#title').focus();
+				alert("2");
+				return;
+			}
+			alert(1);
 			//id가 smarteditor인 textarea에 에디터에서 대입
 			editor_object.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+			alert(2);
 			// 이부분에 에디터 validation 검증
 			//폼 submit
 			$("#frm").submit();
@@ -77,14 +92,14 @@
 				<section id="content">
 					<div id="mbar" align="center">
 						<!-- 컨텐츠 -->
-						<form class="form-horizontal" role="form" action="view.jsp"
+						<form class="form-horizontal" role="form" action="question_ok.do" 
 							method="post" id="frm">
 
 							<!-- 제목 -->
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="title">Title:</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="title"
+									<input type="text" class="form-control" id="title"  name="title"
 										placeholder="Enter title">
 								</div>
 							</div>
@@ -94,6 +109,7 @@
 								<div class="col-sm-9">
 									<textarea name="ir1" id="ir1"
 										style="width: 775px; height: 300px; display: none;"></textarea>
+									<input type="hidden" id="taglist" name="taglist">
 								</div>
 							</div>
 
@@ -101,23 +117,25 @@
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="tags">Tags:</label>
 								<div class="col-sm-8">
-									<div class="example example_typeahead">
+									<div class="example example_objects_as_tags">
 										<div class="bs-example">
-											<input type="text" value="Amsterdam,Washington" />
+											<input type="text" id="tags" name="tags"placeholder="태그" />
+
 										</div>
 									</div>
 								</div>
 							</div>
 
 							<!-- 글쓰기버튼 -->
-							<div class="form-group">
+						
 								<div class="col-sm-offset-4 col-sm-8">
-									<input type="button" id="sndbtn" class="btn btn-default"
-										value="글쓰기">
+									<input type="button" id="sndbtn"
+										value="글쓰기">								
+								  <input type="button" onclick="javascript:history.back()"
+										value="취소">
 								</div>
-							</div>
-
-
+						
+								
 
 						</form>
 <!-- 태그 스크립트 -->
@@ -138,7 +156,6 @@
 	ga('send', 'pageview');
 </script>
 					</div>
-
 				</section>
 			</div>
 
@@ -153,12 +170,10 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.min.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput.min.js"></script>
 	<script
-		src="resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput-angular.min.js"></script>
-	<script src="resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
-	<script
-		src="resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
+		src="resources/input_tags/bootstrap-tagsinput-angular.min.js"></script>
+	<script src="resources/input_tags/puco_tags.js"></script>
 
 </body>
 </html>

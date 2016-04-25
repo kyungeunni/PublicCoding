@@ -16,7 +16,13 @@
    </script>
   </c:when>
   <c:otherwise>
-    <c:redirect url="signin.do"/>
+    <%-- <c:redirect url="main.do"/> --%>
+   <script type="text/javascript">
+window.opener.parent.location.reload();
+window.opener.document.location.reload();
+
+window.self.close();
+</script>
   </c:otherwise>
 </c:choose>
 <!-- ////////////////////////////////////////////////////// -->
