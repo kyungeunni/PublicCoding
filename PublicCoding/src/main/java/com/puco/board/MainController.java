@@ -15,6 +15,8 @@ import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.category.dao.DcategoryDAO;
+import com.puco.category.dao.DcategoryDTO;
 
 @Controller("mc")
 public class MainController {
@@ -28,6 +30,12 @@ public class MainController {
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
+		System.out.println("dlist "+dlist);
+		
 		return "common/main.jsp";// jsp파일이름
 	}
 	@RequestMapping("boardmain.do")
@@ -35,6 +43,7 @@ public class MainController {
 		String page=req.getParameter("page");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		Map reltmap = new HashMap();
+		
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);
