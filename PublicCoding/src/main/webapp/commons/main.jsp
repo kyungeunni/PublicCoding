@@ -178,8 +178,6 @@
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
 				</ol>
 
 				<!-- Wrapper for slides -->
@@ -221,21 +219,6 @@
 			<table class="table table-hover">
 				
 				<c:forEach var="d" items="${ qlist }">
-<%-- 
-						<div class="mainQna">
-							<div class="summary">
-								<h3>
-									<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
-									</a>
-								</h3>
-							</div>
-
-							<div class="started">
-								<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
-									class="reputation-score" title="reputation score " dir="ltr"></span>
-							</div>
-						</div> --%>
-			
 				
 				<tbody>
 					<tr width="10px">

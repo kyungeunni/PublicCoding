@@ -15,12 +15,14 @@ table td{width:10px;}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:65%; height:60vh; background:#ff0000;}
-article:nth-child(2) { width:35%; height:30vh; background:#ffff00;}
-article:nth-child(3) { width:35%; height:30vh; background:#ff0080;}
-article:nth-child(4) { width:65%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:35%; height:30vh; background:#0000ff;}
+article:nth-child(1) { width:55%; height:60vh; background:#ff0000;}
+article:nth-child(2) { width:45%; height:30vh; background:#ffffff}
+article:nth-child(3) { width:45%; height:30vh; background:#ff0080;}
+article:nth-child(4) { width:55%; height:30vh; background:#ccc;}
+article:nth-child(5) { width:45%; height:30vh; background:#0000ff;}
 article:nth-child(6) { width:100%; height:8vh; background:#888;}
+
+#qnaboard {width:80%;}
 
 @keyframes scale {
 	0% { transform:scale(0); }	
