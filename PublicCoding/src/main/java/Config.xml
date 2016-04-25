@@ -3,9 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
+		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard"/>
 		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply"/>
-		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard"/>
+		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
