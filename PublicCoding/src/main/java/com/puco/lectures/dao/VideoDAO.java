@@ -12,7 +12,7 @@ import java.net.*;
 public class VideoDAO {
 	public static void main(String[] arg){
 		VideoDAO m=new VideoDAO();
-		m.VideoAllData(1);
+		m.VideoAllData(2);
 	}
 	public List<VideoDTO> VideoAllData(int mode){
 		VideoChange vc=new VideoChange();
@@ -36,8 +36,10 @@ public class VideoDAO {
 				String img=ielem.attr("src");
 				if(img.substring(0,5).equals("https")){
 				img=ielem.attr("data-thumb");
-				System.out.println((i+1)+"번째 title "+telem.text()+" Image "+img+" 강의URL "+url);
 				}
+				/*String sql="INSERT INTO content(cno,cname,cmediaurl,ctime,csiteurl,cstep,gno)"
+						+ "VALUES((SELECT NVL(MAX(cno)+1,1) FROM content), '"+telem.text()+"', '"+url+"'";*/
+				//System.out.println((i+1)+"번째 title "+telem.text()+" Image "+img+" 강의URL "+url);
 				VideoDTO d=new VideoDTO();
 				d.setNo(i+1);
 				d.setTitle(telem.text());
