@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="org.json.simple.*"%>
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +12,15 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="../assets/css/userMain.css">
+
+<link rel='stylesheet' href='fullc/lib/cupertino/jquery-ui.min.css' />
+<link href='fullc/fullcalendar.css' rel='stylesheet' />
+<link href='fullc/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='fullc/lib/moment.min.js'></script>
+<script src='fullc/lib/jquery.min.js'></script>
+<script src='fullc/fullcalendar.min.js'></script>
+
 </head>
 <body>
 
@@ -108,9 +116,9 @@
 							<br>
 
 							<p class="col-xs-6 col-xs-offset-3 bold text-center">
-								이미 가입 하셨나요? <br> <br> <input type="button"
-									class="btn btn-block btn-primary" data-toggle="modal"
-									data-target="#login" data-dismiss="modal" value="로그인">
+								이미 가입 하셨나요? <br>
+								<br> <input type="button" class="btn btn-block btn-primary"
+									data-toggle="modal" data-target="#login" data-dismiss="modal" value="로그인">
 
 							</p>
 						</div>
@@ -132,7 +140,7 @@
 							<span aria-hidden="true"></span><span class="sr-only">Close</span>
 						</button>
 						<h4 class="modal-title" id="lineModalLabel">
-							<center>안녕하세요. PUCO 입니다.</center>
+							<center>안녕하세요 PUCO 입니다.</center>
 						</h4>
 					</div>
 					<div class="modal-body">
@@ -158,28 +166,147 @@
 							<p>
 							<p>
 
-								<input type="button" class="btn btn-block btn-primary"
-									data-target="#login" data-dismiss="modal" value="로그인">
+								<input type="button" class="btn btn-block btn-primary" data-target="#login"
+									 data-dismiss="modal" value="로그인">
 						</form>
 
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+
 	</header>
-		
-		<!-- 컨텐츠  -->
-		<jsp:include page="${jsp }"></jsp:include>
-		
 
+	<!-- <nav id="nav-main">
+	</nav> -->
+
+	<section>
+		<article>
+			<div class="text" id="content">
+				<span>유저프로필</span>
+			</div>
+		</article>
+
+		<article>
+			<div id='calendar'></div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>내가 쓴 글</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>나의 통계</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>개설 스터디 내역</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="footer">
+				<ul class="icons">
+					<li><a href="#">about us</a></li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy;Copyright by SIST-C3.</li>
+				</ul>
+
+			</div>
+		</article>
+
+	</section>
+
+	
+	<!-- Scripts -->
+	
+	<script type='text/javascript'>
+	$(document).ready(function() {
+
+		$('#calendar').fullCalendar({
+			theme: true,
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2016-01-12',
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2016-01-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2016-01-07',
+					end: '2016-01-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-01-11',
+					end: '2016-01-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T10:30:00',
+					end: '2016-01-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2016-01-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-01-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-01-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2016-01-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-01-28'
+				}
+			]
+		});
 		
-
-<!-- Scripts -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous"></script>
-
+	});
+	</script>
+	
+	
+	
+	
+	
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/jquery.scrolly.min.js"></script>
 	<script src="../assets/js/jquery.dropotron.min.js"></script>
@@ -187,13 +314,9 @@
 	<script src="../assets/js/skel.min.js"></script>
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/modal.js"></script>
-
-
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
 	<script src="../assets/js/popup.js"></script>
-	<!-- 메인페이지에서 동영상/이미지 겹치는 스크립트 -->
-	<script type="text/javascript"
-		src="//cdn.jsdelivr.net/g/modernizr@2.7,respond@1.4,bootstrap@3.1,fittext@1.2"></script>
+
 
 
 	<script type="text/javascript">
@@ -208,7 +331,9 @@
 				$('b', this).toggleClass("caret caret-up");
 			});
 		});
-		
 	</script>
+	
+	
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html>
@@ -108,9 +107,9 @@
 							<br>
 
 							<p class="col-xs-6 col-xs-offset-3 bold text-center">
-								이미 가입 하셨나요? <br> <br> <input type="button"
-									class="btn btn-block btn-primary" data-toggle="modal"
-									data-target="#login" data-dismiss="modal" value="로그인">
+								이미 가입 하셨나요? <br>
+								<br> <input type="button" class="btn btn-block btn-primary"
+									data-toggle="modal" data-target="#login" data-dismiss="modal" value="로그인">
 
 							</p>
 						</div>
@@ -132,7 +131,7 @@
 							<span aria-hidden="true"></span><span class="sr-only">Close</span>
 						</button>
 						<h4 class="modal-title" id="lineModalLabel">
-							<center>안녕하세요. PUCO 입니다.</center>
+							<center>안녕하세요 PUCO 입니다.</center>
 						</h4>
 					</div>
 					<div class="modal-body">
@@ -158,23 +157,71 @@
 							<p>
 							<p>
 
-								<input type="button" class="btn btn-block btn-primary"
-									data-target="#login" data-dismiss="modal" value="로그인">
+								<input type="button" class="btn btn-block btn-primary" data-target="#login"
+									 data-dismiss="modal" value="로그인">
 						</form>
 
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+
 	</header>
-		
-		<!-- 컨텐츠  -->
-		<jsp:include page="${jsp }"></jsp:include>
-		
 
-		
+	<!-- <nav id="nav-main">
+	</nav> -->
 
-<!-- Scripts -->
+	<section>
+		<article>
+			<div class="text" id="content">
+				<span>사이트소개</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>자유게시판</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>q&a게시판</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>동영상 carousel</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="text">
+				<span>스터디</span>
+			</div>
+		</article>
+
+		<article>
+			<div class="footer">
+				<ul class="icons">
+					<li><a href="#">about us</a></li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy;Copyright by SIST-C3.</li>
+				</ul>
+
+			</div>
+		</article>
+
+	</section>
+
+
+	<!-- Scripts -->
+
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -208,7 +255,8 @@
 				$('b', this).toggleClass("caret caret-up");
 			});
 		});
-		
 	</script>
+
+
 </body>
 </html>
