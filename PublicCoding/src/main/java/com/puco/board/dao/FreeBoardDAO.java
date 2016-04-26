@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.*;
 import java.util.*;
@@ -17,6 +18,7 @@ public class FreeBoardDAO {
 		try
 		{
 			Reader reader=Resources.getResourceAsReader("Config.xml");
+			ssf=new SqlSessionFactoryBuilder().build(reader);
 		}catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
@@ -26,9 +28,9 @@ public class FreeBoardDAO {
 	public static List<FreeBoardVO> FreeboardAllData(Map map)
 	{
 		
-		System.out.println(123);
+		//System.out.println(123);
 		SqlSession session=ssf.openSession();
-		System.out.println(456);
+		//System.out.println(456);
 		List<FreeBoardVO> list=session.selectList("FreeboardAllData",map);
 		
 		session.close();

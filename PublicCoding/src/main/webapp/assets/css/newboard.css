@@ -4593,3 +4593,44 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 	display:inline-block;
 	font-size:18px;
 }
+#freeboard .tdcenter {
+	text-align: center;
+}
+#freeboard .tdleft {
+	text-align: left;
+}
+
+#freelistmajor {
+	padding-top: 150px;
+}
+
+/* freeboard_content */
+#freeboardNav {
+	border-collapse: collapse;
+}
+#freeboardNav td {
+	
+	color:white;
+	font-family: "¸¼Àº °íµñ";
+	font-size: 16px;
+}
+#checkpwd {
+	border-collapse: collapse;
+	border-top-width: 2px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-color: #333;
+	border-top-color: #333;
+	
+}
+#checkpwd th,td {
+	margin: 0px;
+	paddng: 8px;
+	font-size: 9pt;
+}
+#checkpwd td {
+	border-bottom-width: 1px;
+	border-bottom-color: #666;
+	border-bottom-style: dotted;
+}

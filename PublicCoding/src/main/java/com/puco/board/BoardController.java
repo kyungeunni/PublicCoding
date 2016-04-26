@@ -76,16 +76,20 @@ public class BoardController {
 	}
 	
 	// Freeboard(Á¤¼±)
-	@RequestMapping("freeboard.do")
+	@RequestMapping("free.do")
 	public String freeboard_list(HttpServletRequest req)
 	{
 		
-		String page=req.getParameter("page1");
+		String page=req.getParameter("page");
+		System.out.println("page:"+page);
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		Map reltmap = new HashMap();
+		System.out.println("time:"+reltmap);
 		if(page==null)
 			page="1";
+		System.out.println("if page:"+page);
 		int curpage=Integer.parseInt(page);
+		System.out.println("curpage:"+curpage);
 		int rowSize=10;
 		int start=(curpage*rowSize) - (rowSize-1);
 		int end = curpage*rowSize;
@@ -101,11 +105,12 @@ public class BoardController {
 		}
 
 		int totalpage=FreeBoardDAO.freeboardTotalpage();
+		System.out.println("totalpage:"+totalpage);
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
-		req.setAttribute("jsp", "../board/BoardMain.jsp");
+		req.setAttribute("jsp", "../board/free.jsp");
 		return "common/container.jsp";
 	}
 	@RequestMapping("freeboard_content.do")
