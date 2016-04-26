@@ -14,7 +14,7 @@
 		FROM mainboard 
 		WHERE BTno=1
 		ORDER BY rownum DESC))
-		WHERE num BETWEEN 11 AND 20) MB
+		WHERE num BETWEEN #{start} AND #{end}) MB
 		LEFT JOIN
 		tag t1
 		on T1.tgno = mb.tgno1
