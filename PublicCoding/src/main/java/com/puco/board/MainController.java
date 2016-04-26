@@ -21,13 +21,14 @@ public class MainController {
 
 	@RequestMapping("main.do")
 		public String Main(HttpServletRequest req) {
+		System.out.println("어노테이션");
 		Map map=new HashMap();
 		map.put("start", 1);
 		map.put("end", 5);
-		
+		System.out.println(1);
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
-		
+		System.out.println("되니?");
 		return "common/main.jsp";// jsp파일이름
 	}
 	@RequestMapping("boardmain.do")
