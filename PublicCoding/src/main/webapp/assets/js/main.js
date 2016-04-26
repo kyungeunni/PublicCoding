@@ -4,6 +4,8 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+	
+
 (function($) {
 
 	var settings = {
@@ -24,7 +26,11 @@
 		narrower: '(max-width: 840px)',
 		mobile: '(max-width: 736px)'
 	});
-
+	
+	$(function(){
+       
+        });
+	
 	$(function() {
 
 		var	$window = $(window),
@@ -51,6 +57,18 @@
 					skel.breakpoint('mobile').active
 				);
 			});
+			
+			$(".dropdown").hover(            
+		                function() {
+		                    $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+		                    $(this).toggleClass('open');
+		                    $('b', this).toggleClass("caret caret-up");                
+		                },
+		                function() {
+		                    $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+		                    $(this).toggleClass('open');
+		                    $('b', this).toggleClass("caret caret-up");                
+		                });	
 
 		// Dropdowns.
 			$('#nav > ul').dropotron({

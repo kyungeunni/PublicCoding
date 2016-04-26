@@ -10,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Bootstrap Core CSS -->
-    <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
+    <link href="../assets/css/hyun/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
     <!-- Page Content -->
@@ -74,6 +74,7 @@
                 <c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
                 <c:forEach var="i" begin="1" end="${celi_ok}" >
                 <div class="row" style="margin-top: 30px ">
+                 
                  <c:forEach var="j" begin="${(i*4)-3}" end="${i*4==celi_ok*4?(fn:length(list)):i*4 }" items="${list}">
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail hthumbnail">
@@ -95,7 +96,8 @@
                             </div>
                         </div>
                     </div>
-                    </c:forEach>
+                 </c:forEach>
+                   
                    </div>
                    </c:forEach>
                 </div>
@@ -103,8 +105,8 @@
             </div>
         </div>
     <!-- jQuery -->
-    <script src="assets/js/hyun/jquery.js"></script>
+    <script src="../assets/js/hyun/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="assets/js/hyun/bootstrap.min.js"></script>
+    <script src="../assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>
