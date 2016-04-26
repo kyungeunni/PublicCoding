@@ -5,6 +5,8 @@
 		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
 		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
+		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
+		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -21,5 +23,6 @@
 	<mappers>
 		<mapper resource="com/puco/board/dao/board-mapper.xml" />
 		<mapper resource="com/puco/member/dao/member-mapper.xml" />
+		<mapper resource="com/puco/category/dao/category-mapper.xml" />
 	</mappers>
 </configuration>

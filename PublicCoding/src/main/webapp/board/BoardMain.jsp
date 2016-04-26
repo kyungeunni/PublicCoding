@@ -8,11 +8,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="assets/css/newboard.css" />
-<script type="text/javascript">
-
-
-</script>
+<link rel="stylesheet" href="../assets/css/newboard.css" />
 </head>
 <body>
 		<!-- Main -->
