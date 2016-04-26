@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="resources/input_tags/app.css">
     
 
-<link rel="stylesheet" href="assets/css/newboard.css" />
+<link rel="stylesheet" href="../assets/css/newboard.css" />
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

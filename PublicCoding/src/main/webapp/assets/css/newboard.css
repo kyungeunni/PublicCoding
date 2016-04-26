@@ -4660,4 +4660,11 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 	border-bottom-color: #666;
 	border-bottom-style: dotted;
 }
+#freetable_content th {
+	border: 0px;
+}
+
+#replyBtn {
+	float: right;
+}
 

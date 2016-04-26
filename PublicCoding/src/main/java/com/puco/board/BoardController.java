@@ -117,17 +117,23 @@ public class BoardController {
 	public String freeboard_content(HttpServletRequest req)
 	{
 		String no=req.getParameter("no");
+		System.out.println("no1");
 		String page=req.getParameter("page");
+		System.out.println("page1");
 		FreeBoardVO vo=FreeBoardDAO.freeboardContentData(Integer.parseInt(no));
+		System.out.println("dao.freeboard");
 		req.setAttribute("page", page);
+		System.out.println("setpage");
 		req.setAttribute("vo", vo);
-		req.setAttribute("jsp", "board/freeboard_content.jsp");
+		System.out.println("setvo");
+		req.setAttribute("jsp", "../board/free_content.jsp");
+		System.out.println("setjsp");
 		return "common/container.jsp";
 	}
 	@RequestMapping("freeboard_insert.do")
 	public String freeboard_insert(HttpServletRequest req)
 	{
-		req.setAttribute("jsp", "board/freeboard_insert.jsp");
+		req.setAttribute("jsp", "../board/freeboard_insert.jsp");
 		return "common/container.jsp";
 	}
 	@RequestMapping("freeboard_insert_ok.do")

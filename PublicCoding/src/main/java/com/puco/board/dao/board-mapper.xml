@@ -71,21 +71,28 @@
 		AND BTNo =2
 	</select>
 	<select id="freeboardRowCount" resultType="int">
-	  SELECT COUNT(*) FROM mainboard WHERE btno=1
+	  SELECT COUNT(*) FROM mainboard 
+	  WHERE btno=1
 	</select>
 	<update id="freeboardHitIncrement" parameterType="int">
 	  UPDATE mainBoard SET
 		bhit=bhit+1
+		<include refid="where-no" />
 	</update>
 	<select id="freeboardContentData" resultType="FBoard" parameterType="int">
-	  SELECT no,name,subject,content,regdate,hit
-	  FROM replyBoard
-	  WHERE no=#{no}
+	  SELECT bsubject,MB.Mno,bdate,bhit,bcontent,MT.mid as userid,
+		(SELECT
+		COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
+		FROM mainboard
+		MB
+		LEFT JOIN pucomember MT
+		on MT.mno = mb.mno
+		<include refid="where-no" />
 	</select>
 	<insert id="freeboardInsert" parameterType="FBoard">
-	  INSERT INTO replyBoard(no,name,subject,content,pwd)
-	  VALUES((SELECT NVL(MAX(no)+1,1) FROM replyBoard),
-	  #{name},#{subject},#{content},#{pwd})
+	  INSERT INTO mainboard(bsubject,bno,bcontent,MT.mpwd)
+	  VALUES(#{subject},(SELECT NVL(MAX(bno)+1,1) FROM mainboard),
+	  #{bcontent},#{mpwd})
 	</insert>
 	<select id="freeboardGetPwd" resultType="String" parameterType="int">
 	  SELECT pwd FROM replyBoard

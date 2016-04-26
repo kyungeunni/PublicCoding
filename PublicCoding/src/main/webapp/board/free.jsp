@@ -27,7 +27,7 @@
     <div id="content">
         <table id="freeboard" border="0px" bordercolor="#CCCCCC" width="700">
      <td align="left" class="writeBt">
-       <a href="board_insert.do">
+       <a href="freeboard_insert.do">
        <button class="button">±Û¾²±â&nbsp;&nbsp;&nbsp;&nbsp;
        <i class="fa fa-pencil" aria-hidden="true"></i>
        </button></a>
@@ -43,7 +43,7 @@
         <tr class="dataList">
           <td width=10% class="tdcenter">${vo.bno }</td>
           <td width=45% class="tdleft">
-          <a href="board_content.do?no=${vo.bno }&page=${curpage}">
+          <a href="freeboard_content.do?no=${vo.bno }&page=${curpage}">
           ${vo.bsubject }</a>
           &nbsp;
           <c:if test="${today==vo.bdate }">

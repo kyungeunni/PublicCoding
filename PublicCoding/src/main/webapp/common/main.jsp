@@ -43,7 +43,7 @@
 				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
 				<ul class="dropdown-menu">
 					<li><a href="qnaboard.do">Q&A 게시판</a></li>
-					<li><a href="#">자유 게시판</a></li>
+					<li><a href="free.do">자유 게시판</a></li>
 				</ul></li>
 
 			<!-- 회원가입-->

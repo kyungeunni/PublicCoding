@@ -31,7 +31,7 @@ $(function(){
         i=0;
       }
    });
-   $('.reply_write').click(function(){
+   /* $('.reply_write').click(function(){
       var id=$(this).attr('id');
       var no=id.substring(1);// w1 w2 w3
       if(w==0)
@@ -91,7 +91,7 @@ $(function(){
 	   }
 	   $('#rfrm'+no).submit();
    });
-});
+}); */
 </script>
 </head>
 <body>
@@ -102,25 +102,25 @@ $(function(){
     <table id=freeboardNav border=1 bordercolor="black" cellpadding="0" cellspacing="0">
       <tr height=27>
         <td width=20% align=center bgcolor=#2988b1>번호</td>
-        <td width=30% align=center>${vo.no }</td>
+        <td width=30% align=center>${vo.bno }</td>
         <td width=20% align=center bgcolor=#2988b1>작성일</td>
         <td width=30% align=center>
-        <fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"></fmt:formatDate>
+        <fmt:formatDate value="${vo.bdate }" pattern="yyyy-MM-dd"></fmt:formatDate>
         </td>
       </tr>
       <tr height=27>
         <td width=20% align=center bgcolor=#24c2c8>이름</td>
-        <td width=30% align=center>${vo.name }</td>
+        <td width=30% align=center>${vo.userid }</td>
         <td width=20% align=center bgcolor=#24c2c8>조회수</td>
-        <td width=30% align=center>${vo.hit }</td>
+        <td width=30% align=center>${vo.bhit }</td>
       </tr>
       <tr height=27>
         <td width=20% align=center bgcolor=#2988b1>제목</td>
-        <td width=30% align=left colspan="3">${vo.subject }</td>
+        <td width=30% align=left colspan="3">${vo.bsubject }</td>
       </tr>
       <tr>
         <td colspan="4" align="left" valign="top" height=100>
-          <pre>${vo.content }</pre>
+          <pre>${vo.bcontent }</pre>
         </td>
       </tr>
     </table>
@@ -128,7 +128,7 @@ $(function(){
       <tr>
         <td align="right">
           
-          <a href="board_update.do?no=${vo.no }&page=${page }">
+          <a href="board_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
           	수정</button></a>
@@ -137,7 +137,7 @@ $(function(){
          	삭제
          </button>
           
-          <a href="board_list.do?page=${page }">
+          <a href="free.do?page=${page }">
           <button class="button"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;&nbsp;
           	목록</button></a>
         </td>
@@ -145,7 +145,7 @@ $(function(){
       <tr>
         <td align="right">
         <form method=post action="freeboard_delete.do">
-          <input type=hidden name=no value="${vo.no }">
+          <input type=hidden name=no value="${vo.bno }">
           <input type=hidden name=page value="${page }">
           비밀번호:<input type="password" name=pwd size=10>
           <button>삭제</button>
@@ -154,9 +154,9 @@ $(function(){
       </tr>
     </table>
     <div>
-    <a href="#" id="reply_show" style="color:white">댓글보기</a>
+    <a href="#" id="reply_show" style="color:#e44c65">댓글보기</a>
     </div>
-    <table id="freetable_content" class="reply_table" style="display:none">
+<%--     <table id="freetable_content" class="reply_table" style="display:none">
      <tr>
       <th colspan=2>댓글</th>
      </tr>
@@ -175,36 +175,36 @@ $(function(){
             &nbsp;&nbsp;
            </c:forEach>
           </c:if>
-          <font color=blue>${rvo.name }</font>
-          (${rvo.dbday })
+          <font color=blue>${rvo.userid }</font>
+          (${rvo.bdate })
          </td>
          <td width="25%" class="tdcenter" style="background-color: transparent;">
-           <img src="user/board/image/btn_reply.gif" id="w${rvo.no }" class="reply_write">
-           <c:if test="${sessionScope.id==rvo.id }">
-             <img src="user/board/image/btn_modify.gif" id="m${rvo.no }" class="reply_modify">
-             <a href="reply_delete.do?no=${rvo.no }&bno=${vo.no}&page=${page}">
+           <img src="user/board/image/btn_reply.gif" id="w${rvo.bno }" class="reply_write">
+           <c:if test="${sessionScope.id==rvo.userid }">
+             <img src="user/board/image/btn_modify.gif" id="m${rvo.bno }" class="reply_modify">
+             <a href="reply_delete.do?no=${rvo.bno }&bno=${vo.bno}&page=${page}">
              <img src="user/board/image/btn_delete.gif"></a>
            </c:if>
          </td>
        </tr>
-     <tr id="ww${rvo.no }" style="display:none">
+     <tr id="ww${rvo.bno }" style="display:none">
       <td colspan="2">
-       <form method="post" action="reply_re_insert.do" id="rfrm${rvo.no }">
-        <input type="hidden" name="bno" value="${vo.no }">
+       <form method="post" action="reply_re_insert.do" id="rfrm${rvo.bno }">
+        <input type="hidden" name="bno" value="${vo.bno }">
         <input type="hidden" name="page" value="${page}">
-        <input type="hidden" name="no" value="${rvo.no }">
+        <input type="hidden" name="no" value="${rvo.bno }">
         <textarea rows="4" cols="85" name="reply_data" style="float: left" id="d${rvo.no }"></textarea>
-        <input type=button value="댓글달기" style="height:60px" id="rBtn${rvo.no }" class="riBtn">
+        <input type=button value="댓글달기" style="height:60px" id="rBtn${rvo.bno }" class="riBtn">
        </form>
       </td>
      </tr>
      <tr id="mm${rvo.no }" style="display:none">
       <td colspan="2">
       
-       <form method="post" action="reply_update.do" id="frm${rvo.no }">
-       	 <input type="hidden" name="bno" value="${vo.no }">
+       <form method="post" action="reply_update.do" id="frm${rvo.bno }">
+       	 <input type="hidden" name="bno" value="${vo.bno }">
          <input type="hidden" name="page" value="${page}">
-         <input type="hidden" name="no" value="${rvo.no }">
+         <input type="hidden" name="no" value="${rvo.bno }">
         <textarea rows="4" cols="85" name="reply_data" style="float: left" id="rd${rvo.no }" >${rvo.msg }</textarea>
         <input type=button value="댓글수정" style="height:60px" id="btn${rvo.no }" class="ruBtn">
       	</form>
@@ -216,13 +216,13 @@ $(function(){
         <form method="post" action="reply_insert.do" id="rifrm">
          <input type="hidden" name="bno" value="${vo.no }">
          <input type="hidden" name="page" value="${page}">
-         <%-- <input type="hidden" name="no" value="${rvo.no }"> --%>
+         <input type="hidden" name="no" value="${rvo.no }">
          <textarea rows="4" cols="50" name="reply_data" style="float: left" id="reply_data"></textarea>
          <input type=button value="댓글" style="height:50px" id="replyBtn">
         </form>
       </td>
      </tr>
-    </table>
+    </table> --%>
   
     </div>
   </center>
