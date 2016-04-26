@@ -130,6 +130,14 @@
 							</c:forEach>
 
 						</div>
+						<div class="col-sm-offset-3 col-sm-8">
+						
+							<a href="boardmain.do?page=${curpage>1?curpage-1:curpage }"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
+			          ${curpage } page / ${totalpage } pages<a href="boardmain.do?page=${curpage<totalpage?curpage+1:curpage }">
+			          <i class="fa fa-chevron-circle-right" aria-hidden="true">다음페이지</i></a><br>
+			          
+							
+						</div>
 					</div>
 				</div>
 				<div id="sidebar">
@@ -301,10 +309,7 @@
 
 		</div>
 		
-<%-- 
-		<div>
-			<jsp:include page="../common/footer.jsp"></jsp:include>
-		</div> --%>
+
 
 
 
