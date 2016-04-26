@@ -11,10 +11,10 @@
 		FROM (SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,num FROM
 		(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,rownum as num
 		FROM(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3
-		FROM mainboard MB	
+		FROM mainboard 
 		WHERE BTno=1
 		ORDER BY rownum DESC))
-		WHERE num BETWEEN #{start} AND #{end}) MB
+		WHERE num BETWEEN 11 AND 20) MB
 		LEFT JOIN
 		tag t1
 		on T1.tgno = mb.tgno1
@@ -107,14 +107,18 @@
 
 	<!-- main -->
 	<select id="getMainQnaData" resultType="Qboard" parameterType="java.util.Map">
-		SELECT bsubject,mno,userid,num,bno
-		FROM (SELECT bno,bsubject,MB.Mno as mno, MT.mid as userid,rownum as num
-		FROM mainboard MB
-		LEFT JOIN pucomember MT
-		on MT.mno = mb.mno
+		SELECT bsubject,MB.Mno as mno, MT.mid as userid,bno
+		FROM (SELECT bno,bsubject,mno,num FROM
+		(SELECT bno,bsubject,mno,rownum as num
+		FROM(SELECT bno,bsubject,mno
+		FROM mainboard
 		WHERE BTno=1
-		ORDER BY MB.Bno DESC)
-		WHERE num BETWEEN #{start} AND #{end}
+		ORDER BY rownum DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
+		LEFT JOIN pucomember MT
+		on MT.mno =mb.mno
+		order by bno desc
+		
 	</select>
 
 </mapper>
