@@ -56,7 +56,6 @@
 							</div>
 						</div>
 
-
 						<div class="row onboarding-form-group">
 							<div class="col-sm-12 col-xs-12">
 								<div>
