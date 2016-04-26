@@ -42,7 +42,7 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Q&A 게시판</a></li>
+					<li><a href="qnaboard.do">Q&A 게시판</a></li>
 					<li><a href="#">자유 게시판</a></li>
 				</ul></li>
 
@@ -218,9 +218,7 @@
 			
 			<table class="table table-hover table-striped table-bordered table-condensed">
 				
-				<c:forEach var="d" items="${q
-				
-				list }">
+				<c:forEach var="d" items="${qlist }">
 					<%-- 
 						<div class="mainQna">
 							<div class="summary">
@@ -300,7 +298,7 @@
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<script src="assets/js/modal.js"></script>
+
 
 
 	<!-- 회원가입/로그인 팝업창 띄우기 -->

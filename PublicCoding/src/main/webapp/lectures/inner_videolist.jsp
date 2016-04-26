@@ -10,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/css/hyun/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/hyun/shop-homepage.css" rel="stylesheet">
+    <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
     <!-- Page Content -->
@@ -24,14 +24,9 @@
                 <p class="lead"></p>
                 <div class="list-group hlist-group">
                     <a href="videolist.do?mode=1" class="list-group-item"><b>★Programing★</b></a>
-                    <a href="videolist.do?mode=2" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>Java 언어</a>
-                    <a href="videolist.do?mode=3" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>C 언어</a>
-                    <a href="videolist.do?mode=4" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>JSP</a>
-                    <a href="videolist.do?mode=5" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>Oracle Database</a>
-                    <a href="videolist.do?mode=6" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>Spring</a>
-                    <a href="videolist.do?mode=7" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>HTML</a>
-                    <a href="videolist.do?mode=8" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>CSS</a>
-                    <a href="videolist.do?mode=9" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>JavaScript</a>
+                    <c:forEach var="s" items="${slist}">
+                    	<a href="courseGroup.do?sno=${s.sno }" class="list-group-item hyuna1"><i class="glyphicon glyphicon-tint"></i>${s.sname }</a>
+                    </c:forEach>
                 </div>
             </div>
             <div class="col-md-9 hcol-md-9">
@@ -70,19 +65,43 @@
                     </div>
                 </div>
                 <div class="row">
-                <c:set var="celi" value="${fn:length(list)/4}"></c:set>
+	                <c:forEach var="g" begin="1" end="${fn:length(glist)}" items="${glist}">
+	                	
+	                    <div class="col-sm-3 col-lg-3 col-md-3">
+	                        <div class="thumbnail hthumbnail">
+	                            <img src="${g.gimageurl}">
+	                            <div class="caption">
+	                                <h4 class="pull-right">강의명:${g.gname }</h4>
+	                                <p><a href="play.do?gno=${g.gno }" style="color: red;">${g.gintro }<br>
+	                               	 총강의수:${g.totalcno }강</a></p><!-- rgb(171,164,234) -->
+	                            </div>
+	                            <div class="ratings">
+	                                <p class="pull-right">15 reviews</p>
+	                                <p>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                 </c:forEach>
+               <%--  <c:set var="celi" value="${fn:length(list)/4}"></c:set>
                 <c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
                 <c:forEach var="i" begin="1" end="${celi_ok}" >
                 <div class="row" style="margin-top: 30px ">
                  
-                 <c:forEach var="j" begin="${(i*4)-3}" end="${i*4==celi_ok*4?(fn:length(list)):i*4 }" items="${list}">
+                 <c:forEach var="g" begin="${(i*4)-3}" end="${i*4==celi_ok*4?(fn:length(glist)):i*4 }" items="${glist}">
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail hthumbnail">
-                            <img src="${j.image}" alt="">
+                            <img src="${g.gimageurl}">
                             <div class="caption">
-                                <h4 class="pull-right">YouTube</h4>
-                                <h4>출처:</h4>
-                                <p><a href="play.do?lecture=${j.lectureurl }" style="color: red;">${j.title }</a></p><!-- rgb(171,164,234) -->
+                                <h4 class="pull-right">강의명:${g.gname }</h4>
+                                <p><a href="play.do?gno=${g.gno }" style="color: red;">${g.gintro }<br>
+                               	 총강의수:${g.totalcno }강</a></p><!-- rgb(171,164,234) -->
                             </div>
                             <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
@@ -99,14 +118,14 @@
                  </c:forEach>
                    
                    </div>
-                   </c:forEach>
+                   </c:forEach> --%>
                 </div>
             </div>
             </div>
         </div>
     <!-- jQuery -->
-    <script src="../assets/js/hyun/jquery.js"></script>
+    <script src="assets/js/hyun/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/js/hyun/bootstrap.min.js"></script>
+    <script src="assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>

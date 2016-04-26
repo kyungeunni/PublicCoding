@@ -12,7 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="assets/css/main2.css">
 </head>
 <body>
 
@@ -180,17 +180,17 @@
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/modal.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+
 
 
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="../assets/js/popup.js"></script>
+	<script src="assets/js/popup.js"></script>
 	<!-- 메인페이지에서 동영상/이미지 겹치는 스크립트 -->
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/g/modernizr@2.7,respond@1.4,bootstrap@3.1,fittext@1.2"></script>

@@ -1292,7 +1292,7 @@ a {
 	-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	border-bottom: none;
-	color: #e44c65;
+	/* color: #e44c65; */
 	text-decoration: none;
 }
 
@@ -2861,7 +2861,7 @@ ol li {
 }
 
 ul {
-	list-style: disc;
+	list-style:none;
 	margin: 0 0 2em 0;
 	padding-left: 1em;
 }
@@ -4544,6 +4544,31 @@ h1 {
 	padding-top: 100px;
 }
 
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    color: black;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    font-size: 18px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+
 
 /* Á¤¼±  freeboard css*/
 @charset "utf-8";
@@ -4578,4 +4603,3 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 }
 #freeboard .listData .tdleft {
 	text-align:left;
-}
