@@ -7,6 +7,7 @@
 		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
 		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
 		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
+		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -24,5 +25,6 @@
 		<mapper resource="com/puco/board/dao/board-mapper.xml" />
 		<mapper resource="com/puco/member/dao/member-mapper.xml" />
 		<mapper resource="com/puco/category/dao/category-mapper.xml" />
+		<mapper resource="com/puco/lectures/dao/lecture-mapper.xml" />
 	</mappers>
 </configuration>

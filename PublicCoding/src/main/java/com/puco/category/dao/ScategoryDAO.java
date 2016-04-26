@@ -27,7 +27,6 @@ public class ScategoryDAO {
 		System.out.println("ScategoryAllData selectList Work");
 		session.close();
 		System.out.println("ScategoryAllData session close Work");
-		System.out.println("slist " + slist);
 		return slist;
 	}
 

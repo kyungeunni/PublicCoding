@@ -41,7 +41,9 @@ public class MainController {
 		
 		return "common/main.jsp";// jsp파일이름
 	}
-	/*@RequestMapping("scategory.do")
+	
+	// 대분류 선택시, 소분류 출력 기능부
+	@RequestMapping("scategory.do")
 	public String ScategoryAllData(HttpServletRequest req){
 		System.out.println("MainController Scategory Work");
 		String dno=req.getParameter("dno");
@@ -51,15 +53,16 @@ public class MainController {
 		if(dno==null)
 			dno="1";
 		
-		List<ScategoryDTO> subList=ScategoryDAO.ScategoryAllData(no);
+		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
 		System.out.println("MainController ScategoryDTO Work");
-		req.setAttribute("subList", subList);
+		req.setAttribute("slist", slist);
 		System.out.println("MainController scategory req.set Work");
-		System.out.println("MainController subList " + subList);
+		System.out.println("MainController slist " + slist);
 		
 		req.setAttribute("jsp", "inner_videolist.jsp");
 		return "lectures/videolist.jsp";
-	}*/
+	}
+	// 대분류 선택시, 소분류 출력 기능부 끝
 	
 	@RequestMapping("boardmain.do")
 	public String boardListData(HttpServletRequest req){
