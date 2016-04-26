@@ -298,7 +298,7 @@
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<script src="assets/js/modal.js"></script>
+
 
 
 	<!-- 회원가입/로그인 팝업창 띄우기 -->

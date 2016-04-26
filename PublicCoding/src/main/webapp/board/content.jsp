@@ -14,8 +14,8 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
-
-<link rel="stylesheet" href="assets/css/content.css">
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/content.css">¤¤
 
 <!-- ¿¡µðÅÍ -->
 <link href="resources/se/css/smart_editor2.css" rel="stylesheet"
@@ -40,13 +40,14 @@
 			</header>
 
 			<!-- Content -->
+			<div id=content>
 			<div id=mainbar>
 				<section id="question">
 					<div id="question" class="noanswerd qnacontent">
 
 							<table border=0>
 								<tr>
-									<td width=15% align="right">
+									<td width=15% align="right" >
 										<ul class=vote>
 											<li><a href="bvoteup.do?bno=${no }&page=${page}&type=1"><i class="fa fa-angle-up"></i></a></li>
 											<li>${d.bvote}</li>
@@ -167,6 +168,7 @@
 				<p>blar blar blar</p>
 				<p>blar blar blar</p>
 				<p>blar blar blar</p>
+			</div>
 			</div>
 		</div>
 	</div>
