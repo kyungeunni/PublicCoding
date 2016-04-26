@@ -120,6 +120,7 @@
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
 								value="¸ñ·Ï">
 						</div>
+						
 
 						<script>
 							$(function() {

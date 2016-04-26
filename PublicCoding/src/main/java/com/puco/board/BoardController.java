@@ -14,7 +14,7 @@ import java.util.*;
 @Controller("bc")
 public class BoardController {
 
-	@RequestMapping("boardmain.do")
+	@RequestMapping("qnaboard.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
