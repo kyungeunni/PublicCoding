@@ -5,4 +5,10 @@
 		SELECT dno,dname
 		FROM dcategory
 	</select>
+	
+	<select id="ScategoryAllData" resultType="Scategory" parameterType="int">
+		SELECT sno,sname
+		FROM Scategory
+		WHERE dno=#{no}
+	</select>
 </mapper>

@@ -6,6 +6,7 @@
 		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
 		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
 		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
+		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

@@ -26,9 +26,9 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
-					<c:forEach var="d" items="${ dlist }">
+					<%-- <c:forEach var="d" items="${ dlist }">
 						<li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li>
-					</c:forEach>
+					</c:forEach> --%>
 				</ul></li>
 
 			<li class="dropdown"><a class="dropdown-toggle"

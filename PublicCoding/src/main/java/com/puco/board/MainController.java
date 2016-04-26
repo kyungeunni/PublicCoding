@@ -17,6 +17,9 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
+import com.puco.category.dao.ScategoryDAO;
+import com.puco.category.dao.ScategoryDTO;
+
 
 @Controller("mc")
 public class MainController {
@@ -38,6 +41,26 @@ public class MainController {
 		
 		return "common/main.jsp";// jsp파일이름
 	}
+	/*@RequestMapping("scategory.do")
+	public String ScategoryAllData(HttpServletRequest req){
+		System.out.println("MainController Scategory Work");
+		String dno=req.getParameter("dno");
+		System.out.println("getParameter from main.do " + dno);
+		int no = Integer.parseInt(dno);
+		
+		if(dno==null)
+			dno="1";
+		
+		List<ScategoryDTO> subList=ScategoryDAO.ScategoryAllData(no);
+		System.out.println("MainController ScategoryDTO Work");
+		req.setAttribute("subList", subList);
+		System.out.println("MainController scategory req.set Work");
+		System.out.println("MainController subList " + subList);
+		
+		req.setAttribute("jsp", "inner_videolist.jsp");
+		return "lectures/videolist.jsp";
+	}*/
+	
 	@RequestMapping("boardmain.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
