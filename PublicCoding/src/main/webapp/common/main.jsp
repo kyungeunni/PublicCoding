@@ -166,9 +166,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
 	</header>
 
 	<section>
@@ -221,8 +218,8 @@
 			
 			<table class="table table-hover table-striped table-bordered table-condensed">
 				
-				<c:forEach var="d" items="${ qlist }">
-<%-- 
+				<c:forEach var="d" items="${qlist }">
+					<%-- 
 						<div class="mainQna">
 							<div class="summary">
 								<h3>
@@ -239,14 +236,14 @@
 			
 				
 				<tbody>
-					<tr width="10px">
-						<td width="10px">${d.mno }</td>
-						<td width="10px">${d.bsubject }</td>
-						<td width="10px">${d.userid }</td>
+					<tr>
+						<td>${d.mno }</td>
+						<td>${d.bsubject }</td>
+						<td>${d.userid }</td>
 					</tr>
-				
+				</c:forEach>
 				</tbody>
-						</c:forEach>
+						
 			</table>
 			</div>
 				</center>
