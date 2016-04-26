@@ -6,15 +6,15 @@
 	</sql>
 
 	<select id="boardAllData" resultType="QBoard" parameterType="java.util.Map">
-		SELECT bno,bsubject,mno,bdate,bhit,bvote,tag1, tag2, tag3,
-		userid,answer,num
-		FROM (SELECT bno,bsubject,MB.Mno as
-		mno,bdate,bhit,bvote,T1.tgName as
-		tag1, T2.tgName as tag2, T3.tgName as
-		tag3, MT.mid as userid,
-		(SELECT COUNT(*) FROM answer WHERE
-		MB.bno=answer.bno) as answer,rownum as num
-		FROM mainboard MB
+		SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
+		MB.bno=answer.bno) as answer
+		FROM (SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,num FROM
+		(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,rownum as num
+		FROM(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3
+		FROM mainboard MB	
+		WHERE BTno=1
+		ORDER BY rownum DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
 		LEFT JOIN
 		tag t1
 		on T1.tgno = mb.tgno1
@@ -24,12 +24,9 @@
 		JOIN tag t3
 		on T3.tgno = mb.tgno3
 		LEFT JOIN pucomember MT
-		on MT.mno =
-		mb.mno
-		WHERE BTno=1
-		ORDER BY MB.Bno DESC)
-		WHERE num BETWEEN #{start} AND
-		#{end}
+		on MT.mno =mb.mno
+		order by bno desc
+		
 	</select>
 
 	<select id="boardRowCount" resultType="int">

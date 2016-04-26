@@ -110,6 +110,16 @@
 							<input type="hidden" id="no" name="no" value="${no }">
 							<input type="hidden" id="page" name="page" value="${page }">
 							</form>
+						<div class="col-sm-offset-8 col-sm-8">
+							<c:if test="${sessionScope.id==null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" onclick="popup_signin()"></c:if>
+							 <c:if test="${sessionScope.id!=null }">
+							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" ></c:if>
+							
+								<input type="button"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
+								value="목록">
+						</div>
 						
 
 						<script>
