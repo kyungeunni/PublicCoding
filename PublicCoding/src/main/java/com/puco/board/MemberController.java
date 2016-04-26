@@ -37,12 +37,18 @@ public class MemberController {
 		System.out.println("MemberController -> login.jsp");
 		return "member/login.jsp";
 	}
-	
+	   
 	@RequestMapping("signin_ok.do")
-	public String signin_ok(HttpServletRequest req){
-		
+	public String signin_ok(HttpServletRequest req){		
 		
 		return "common/main.jsp";
 		
 	}
+	
+	@RequestMapping("join.do")
+	   public String memberJoin(HttpServletRequest req){
+		   
+		   req.setAttribute("jsp", "member/join.jsp");
+		   return "common/main.jsp";
+	   }
 }
