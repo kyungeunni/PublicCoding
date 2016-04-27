@@ -85,23 +85,24 @@ $(function(){
 					<li><a href="#">자유 게시판</a></li>
 				</ul></li>
 
+
 			<!-- 회원가입-->
 			
 			<c:if test="${sessionScope.id==null }">
-				<li class="joinok" data-toggle="modal" data-target="#join"><a
-				href="#"><i class="fa fa-user"></i>회원가입</a></li>
+				<li class="joinok" data-toggle="modal" data-target="#join">
+					<a href="#"><i class="fa fa-user"></i>회원가입</a>
+				</li>
 
 				<li class="logininok" data-toggle="modal" data-target="#login"><a
 				href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
 			</c:if>
 			
 			<c:if test="${sessionScope.id!=null }">
-				<%-- <li><input type="button" value="${sessionScope.id}"></li> --%>
 				<li class="dropdown" id="loginok">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-user fa-fw"></i> ${sessionScope.id}</a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
+						<li><a href="userMain.do"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
 						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
 						<li>
 							<a href="#signout.do" data-target="#logout" id="logoutBtn">
@@ -315,125 +316,10 @@ $(function(){
 	<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 끝 -->
 	
 	
-	
 	</header>
 
-	<section>
-		<article>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
-				</ol>
-
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img src="#" alt="#">
-					</div>
-
-					<div class="item">
-						<img src="#" alt="#">
-					</div>
-
-					<div class="item">
-						<img src="#" alt="#">
-					</div>
-
-					<div class="item">
-						<img src="#" alt="#">
-					</div>
-				</div>
-
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" role="button"
-					data-slide="prev"> <span
-					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a> <a class="right carousel-control" href="#myCarousel" role="button"
-					data-slide="next"> <span
-					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		</article>
-
-		<article>
-		<center>
-		<div id="qnaboard">
-			<h3>Q&A게시판</h3>
-			
-			<table class="table table-hover table-striped table-bordered table-condensed">
-				
-				<c:forEach var="d" items="${qlist }">
-					<%-- 
-						<div class="mainQna">
-							<div class="summary">
-								<h3>
-									<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
-									</a>
-								</h3>
-							</div>
-
-							<div class="started">
-								<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
-									class="reputation-score" title="reputation score " dir="ltr"></span>
-							</div>
-						</div> --%>
-			
-				
-				<tbody>
-					<tr>
-						<td>${d.mno }</td>
-						<td>${d.bsubject }</td>
-						<td>${d.userid }</td>
-					</tr>
-				</c:forEach>
-				</tbody>
-						
-			</table>
-			</div>
-				</center>
-		</article>
-	
-
-
-
-		<article>
-		</article>
-
-		<article>
-			<center>
-				<span>자유게시판</span>
-			</center>
-		</article>
-
-		<article>
-			<div>
-				<center>
-					<span>스터디 게시판</span>
-				</center>
-			</div>
-		</article>
-
-		<article>
-			<div>
-				<ul class="icons">
-					<li><a href="#">about us</a></li>
-				</ul>
-
-				<ul class="copyright">
-					<li>&copy;Copyright by SIST-C3.</li>
-				</ul>
-
-			</div>
-		</article>
-
-	</section>
-
+	<!-- content -->
+				<jsp:include page="${jsp }"></jsp:include>
 
 	<!-- Scripts -->
 
