@@ -44,29 +44,48 @@ INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT 
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C언어 강좌', '//i.ytimg.com/vi/0ghmyjP-QRc/mqdefault.jpg', 11,'C언어 강좌', '2');
 
 --PYTHON 강의그룹 CourseGroup 3
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '초절정 Python 강좌', '//i.ytimg.com/vi/1Hc4OZLQIYA/mqdefault.jpg', 34,'초절정 Python 강좌', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '빠르게 활용하는 파이썬 3.2 프로그래밍', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 15,'빠르게 활용하는 파이썬 3.2 프로그래밍', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python & Ruby', '//i.ytimg.com/vi/YuC__aN-v04/mqdefault.jpg', 108,'Python & Ruby', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python 강의-김규태(고대 교수)', '//i.ytimg.com/vi/jACeA9Ps22s/mqdefault.jpg', 5,'Python 강의-김규태(고대 교수)', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/Cd-afk5Yo0s/mqdefault.jpg', 10,'파이썬 강좌', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/mJ2msJ5d5Ec/mqdefault.jpg', 9,'파이썬 강좌', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/HYlr-6u_0Uw/mqdefault.jpg', 3,'파이썬 강좌', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '테란강의', '//i.ytimg.com/vi/PAGBDdgP8WM/mqdefault.jpg', 17,'테란강의', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '씐나는 파이썬(Python) 게임 만들기', '//i.ytimg.com/vi/Z7ivi9mg-d0/mqdefault.jpg', 17,'씐나는 파이썬(Python) 게임 만들기', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/y9v7FA_frig/mqdefault.jpg', 37,'python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '스타 플토vs저그전 플토 빌드', '//i.ytimg.com/vi/R3ctePLfZaU/mqdefault.jpg', 8,'스타 플토vs저그전 플토 빌드', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 및 PyCharm', '//i.ytimg.com/vi/R4hQkcjDbDw/mqdefault.jpg', 167,'파이썬 및 PyCharm', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/bzdTDrbddmU/mqdefault.jpg', 10,'python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '생활 프로그래밍 강좌', '//i.ytimg.com/vi/7Ix-beG4FM0/mqdefault.jpg', 41,'생활 프로그래밍 강좌', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 12,'파이썬', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 언어', '//i.ytimg.com/vi/Sd5YgPrYPnE/mqdefault.jpg', 3,'파이썬 언어', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python', '//i.ytimg.com/vi/Igvf5C7qwO0/mqdefault.jpg', 3,'Python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/Iqjy9UqKKuo/mqdefault.jpg', 40,'python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python 3.4 Programming Tutorials', '//i.ytimg.com/vi/HBxCHonP6Ro/mqdefault.jpg', 56,'Python 3.4 Programming Tutorials', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'AngularJS', '//i.ytimg.com/vi/iX9_Hejp9zE/mqdefault.jpg', 19,'AngularJS', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '초절정 Python 강좌', '//i.ytimg.com/vi/1Hc4OZLQIYA/mqdefault.jpg', 34,'초절정 Python 강좌', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '빠르게 활용하는 파이썬 3.2 프로그래밍', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 15,'빠르게 활용하는 파이썬 3.2 프로그래밍', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python & Ruby', '//i.ytimg.com/vi/YuC__aN-v04/mqdefault.jpg', 108,'Python & Ruby', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python 강의-김규태(고대 교수)', '//i.ytimg.com/vi/jACeA9Ps22s/mqdefault.jpg', 5,'Python 강의-김규태(고대 교수)', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/Cd-afk5Yo0s/mqdefault.jpg', 10,'파이썬 강좌', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/mJ2msJ5d5Ec/mqdefault.jpg', 9,'파이썬 강좌', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 강좌', '//i.ytimg.com/vi/HYlr-6u_0Uw/mqdefault.jpg', 3,'파이썬 강좌', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '테란강의', '//i.ytimg.com/vi/PAGBDdgP8WM/mqdefault.jpg', 17,'테란강의', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '씐나는 파이썬(Python) 게임 만들기', '//i.ytimg.com/vi/Z7ivi9mg-d0/mqdefault.jpg', 17,'씐나는 파이썬(Python) 게임 만들기', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/y9v7FA_frig/mqdefault.jpg', 37,'python', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '스타 플토vs저그전 플토 빌드', '//i.ytimg.com/vi/R3ctePLfZaU/mqdefault.jpg', 8,'스타 플토vs저그전 플토 빌드', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 및 PyCharm', '//i.ytimg.com/vi/R4hQkcjDbDw/mqdefault.jpg', 167,'파이썬 및 PyCharm', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/bzdTDrbddmU/mqdefault.jpg', 10,'python', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '생활 프로그래밍 강좌', '//i.ytimg.com/vi/7Ix-beG4FM0/mqdefault.jpg', 41,'생활 프로그래밍 강좌', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 12,'파이썬', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '파이썬 언어', '//i.ytimg.com/vi/Sd5YgPrYPnE/mqdefault.jpg', 3,'파이썬 언어', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python', '//i.ytimg.com/vi/Igvf5C7qwO0/mqdefault.jpg', 3,'Python', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/Iqjy9UqKKuo/mqdefault.jpg', 40,'python', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python 3.4 Programming Tutorials', '//i.ytimg.com/vi/HBxCHonP6Ro/mqdefault.jpg', 56,'Python 3.4 Programming Tutorials', '3');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'AngularJS', '//i.ytimg.com/vi/iX9_Hejp9zE/mqdefault.jpg', 19,'AngularJS', '3');
 
 --ORACLE 강의그룹 CourseGroup 4
-
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '오라클 기초 과정', '//i.ytimg.com/vi/CRIcqz77H_w/mqdefault.jpg', 21,'오라클 기초 과정', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - 오라클 데이터베이스 및 강의', '//i.ytimg.com/vi/dvpeTXM9jjs/mqdefault.jpg', 200,'인기 동영상 - 오라클 데이터베이스 및 강의', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Oracle PL/SQL Programming in Hindi', '//i.ytimg.com/vi/-LGYPtidSmw/mqdefault.jpg', 39,'Oracle PL/SQL Programming in Hindi', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Oracle 11g/12c By Expert Faculty Mr.Dinesh', '//i.ytimg.com/vi/pX5WJctn3Kw/mqdefault.jpg', 50,'Oracle 11g/12c By Expert Faculty Mr.Dinesh', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'SQL tutorials for beginners/ Oracle Database tutorials.', '//i.ytimg.com/vi/0NLsJQCvKXY/mqdefault.jpg', 77,'SQL tutorials for beginners/ Oracle Database tutorials.', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - Oracle RAC 및 강의', '//i.ytimg.com/vi/-zx7L6UHcDc/mqdefault.jpg', 37,'인기 동영상 - Oracle RAC 및 강의', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - 오라클 데이터베이스', '//i.ytimg.com/vi/dvpeTXM9jjs/mqdefault.jpg', 200,'인기 동영상 - 오라클 데이터베이스', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '이것이 리눅스다', '//i.ytimg.com/vi/o_E9Wo97SHk/mqdefault.jpg', 57,'이것이 리눅스다', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'MySQL Database Tutorial', '//i.ytimg.com/vi/KgiCxe-ZW8o/mqdefault.jpg', 33,'MySQL Database Tutorial', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Popular PL/SQL & Oracle Database videos', '//i.ytimg.com/vi/wc0s1tgkN7M/mqdefault.jpg', 187,'Popular PL/SQL & Oracle Database videos', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '하둡', '//i.ytimg.com/vi/HCR1ILMROfI/mqdefault.jpg', 49,'하둡', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - Oracle Forms 및 오라클 데이터베이스', '//i.ytimg.com/vi/RkczSNd2vrY/mqdefault.jpg', 143,'인기 동영상 - Oracle Forms 및 오라클 데이터베이스', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - 오라클 데이터베이스 및 자바', '//i.ytimg.com/vi/niBz_I58nTk/mqdefault.jpg', 200,'인기 동영상 - 오라클 데이터베이스 및 자바', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - VIEW 및 강의', '//i.ytimg.com/vi/mDL7W5jbj-0/mqdefault.jpg', 11,'인기 동영상 - VIEW 및 강의', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Oracle DBA', '//i.ytimg.com/vi/ki2M0KMREE0/mqdefault.jpg', 25,'Oracle DBA', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '데이터베이스', '//i.ytimg.com/vi/vOWqGCWKg2I/mqdefault.jpg', 46,'데이터베이스', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Popular Lock & Database videos', '//i.ytimg.com/vi/dMkwFzRgxZY/mqdefault.jpg', 40,'Popular Lock & Database videos', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - 오라클 RAC', '//i.ytimg.com/vi/HiPNDQQtgOo/mqdefault.jpg', 200,'인기 동영상 - 오라클 RAC', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Oracle Database 11g R2 Installation', '//i.ytimg.com/vi/AV45XgPZ0CU/mqdefault.jpg', 90,'Oracle Database 11g R2 Installation', '4');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '인기 동영상 - PostgreSQL 및 강의', '//i.ytimg.com/vi/1Ug3aCkBRfg/mqdefault.jpg', 200,'인기 동영상 - PostgreSQL 및 강의', '4');
 
 --SQL 강의그룹 CourseGroup 5
 
