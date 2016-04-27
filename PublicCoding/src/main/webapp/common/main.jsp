@@ -166,9 +166,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
 	</header>
 
 	<section>
@@ -221,7 +218,9 @@
 			
 			<table class="table table-hover table-striped table-bordered table-condensed">
 				
-				<c:forEach var="d" items="${qlist }">
+				<c:forEach var="d" items="${q
+				
+				list }">
 					<%-- 
 						<div class="mainQna">
 							<div class="summary">
