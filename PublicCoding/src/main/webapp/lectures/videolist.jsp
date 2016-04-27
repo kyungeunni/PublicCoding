@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Programming MOOC</title>
-<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
-<link rel="stylesheet" type="text/css" href="../assets/css/hyun/hyun.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="assets/css/hyun/hyun.css">
 </head>
 <body class="landing">
 	<div id="page-wrapper">
@@ -77,8 +77,6 @@
 				<li>&copy;Copyright by SIST-C2.</li>
 			</ul>
 		</footer>
-	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/hyun/hyun.css">
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

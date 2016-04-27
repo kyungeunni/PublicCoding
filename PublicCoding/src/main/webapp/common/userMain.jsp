@@ -185,12 +185,16 @@
 	<section>
 		<article>
 			<div class="text" id="content">
-				<span>유저프로필</span>
+				<div class="userPic">
+					
+				</div>
 			</div>
 		</article>
 
 		<article>
-			<div id='calendar'></div>
+			<div id='calendar'>
+				calendar
+			</div>
 		</article>
 
 		<article>
