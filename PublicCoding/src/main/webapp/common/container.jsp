@@ -26,9 +26,9 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">언어</a></li>
-					<li><a href="#">데이터베이스</a></li>
-					<li><a href="#"> WEB/HTML/CSS</a></li>
+					<c:forEach var="d" items="${ dlist }">
+						<li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li>
+					</c:forEach>
 				</ul></li>
 
 			<li class="dropdown"><a class="dropdown-toggle"
