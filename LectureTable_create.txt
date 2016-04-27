@@ -1,0 +1,64 @@
+DROP TABLE Content;
+DROP TABLE CourseGroup;
+DROP TABLE Scategory;
+DROP TABLE Dcategory;
+
+--대분류
+CREATE TABLE Dcategory(
+   Dno Number CONSTRAINT dc_dno_nn NOT NULL,
+   Dname VARCHAR2(50) CONSTRAINT dc_dn_nn NOT NULL,
+   CONSTRAINT dc_dn_pk PRIMARY KEY(Dno)
+);
+
+--소분류
+CREATE TABLE Scategory(
+   Sno Number CONSTRAINT sc_sno_nn NOT NULL,
+   Sname VARCHAR2(50) CONSTRAINT sc_sn_nn NOT NULL,
+   Dno Number CONSTRAINT sc_dno_nn NOT NULL,
+   CONSTRAINT sc_sn_pk PRIMARY KEY(sno),
+   CONSTRAINT sc_sn_fk FOREIGN KEY(dno)
+   REFERENCES dcategory(dno)
+);
+
+--강의그룹
+CREATE TABLE CourseGroup(
+   Gno NUMBER CONSTRAINT cg_gno_nn NOT NULL, 
+   Gname VARCHAR2(100) CONSTRAINT sg_sno_nn NOT NULL,
+   GimageURL VARCHAR2(500),
+   TotalCno NUMBER,
+   Gintro VARCHAR2(800) CONSTRAINT sg_gi_nn NOT NULL,
+   Sno NUMBER CONSTRAINT cg_sno_nn NOT NULL,
+   CONSTRAINT cg_gn_pk PRIMARY KEY(Gno),
+   CONSTRAINT cg_sn_fk FOREIGN KEY(Sno)
+   REFERENCES scategory(sno)
+);
+
+--개별동영상
+CREATE TABLE Content(
+   Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
+   Cname VARCHAR2(100) CONSTRAINT ct_cnm_nn NOT NULL, 
+   CmediaURL VARCHAR2(500) CONSTRAINT ct_mu_nn NOT NULL, 
+   Ctime VARCHAR2(28),
+   CsiteURL VARCHAR2(500),
+   Cstep NUMBER CONSTRAINT ct_cs_nn NOT NULL, 
+   Gno NUMBER CONSTRAINT ct_gno_nn NOT NULL,
+   CONSTRAINT ct_cno_pk PRIMARY KEY(Cno),
+   CONSTRAINT ct_gn_fk FOREIGN KEY(Gno)
+   REFERENCES CourseGroup(gno)
+);
+
+--대분류
+INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'Language');
+INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'DataBase');
+INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'Web');
+
+--소분류
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'JAVA', 1);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'C/C++', 1);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'PYTHON', 1);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'ORACLE', 2);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'SQL', 2);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'HTML', 3);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'JAVASCRIPT', 3);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'PHP', 3);
+INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'CSS', 3);
