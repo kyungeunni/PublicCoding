@@ -63,12 +63,20 @@ $(function(){
 					</c:forEach>
 				</ul></li>
 
+
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인 스터디</a>
+				
+				<center>
 				<ul class="dropdown-menu">
+				
 					<li><a href="#">지역별</a></li>
 					<li><a href="#">주제별</a></li>
-				</ul></li>
+					
+				</ul>
+				</center>
+				</li>
+				
 
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
@@ -89,32 +97,18 @@ $(function(){
 			
 			<c:if test="${sessionScope.id!=null }">
 				<%-- <li><input type="button" value="${sessionScope.id}"></li> --%>
-				<div class="btn-group open">
-					<a class="btn btn-default" href="#"><i class="fa fa-user fa-fw"></i> ${sessionScope.id}</a>
-					
-					<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-						<span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-					</a>
-					
+				<li class="dropdown" id="loginok">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-user fa-fw"></i> ${sessionScope.id}</a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><i class="fa fa-pencil fa-fw"
-								aria-hidden="true"></i> Edit</a></li>
-						<li><a href="#"><i class="fa fa-trash-o fa-fw"
-								aria-hidden="true"></i> Delete</a></li>
-						<li><a href="#"><i class="fa fa-ban fa-fw"
-								aria-hidden="true"></i> Ban</a></li>
-						<li class="divider"></li>
-						<li><a href="#"><i class="fa fa-unlock"
-								aria-hidden="true"></i> Make admin</a></li>
-						<li><form method="post" action="signout.do" id="logoutForm">
-							<a href="#">
-							${sessionScope.id }님 환영합니다!!&nbsp;
-								<button type="button" class="btn btn-block btn-primary"
-								data-target="#logout" data-dismiss="modal" id="logoutBtn">로그아웃</button>
-							</a>
-							</form></li>
+						<li><a href="#"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
+						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
+						<li>
+							<a href="#signout.do" data-target="#logout" id="logoutBtn">
+							<i class="fa fa-sign-out fa-fw"></i>로그아웃</a>
+						</li>
 					</ul>
-				</div>
+			   </li>
 			</c:if>
 			
 			<!-- 과거 로그인시, 로그인 한 사람에 대해 나오는 메뉴 시작 -->
