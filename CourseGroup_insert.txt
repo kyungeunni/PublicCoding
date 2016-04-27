@@ -1,82 +1,84 @@
---ÀÚ¹Ù °­ÀÇ±×·ì CourseGroup 1
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö ±âÃÊ', '//i.ytimg.com/vi/awTiYk5aCEo/mqdefault.jpg', 36,'ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö ±âÃÊ', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[¿­Ç÷°­ÀÇ] ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/xTfCkSlwF1Q/mqdefault.jpg', 120,'[¿­Ç÷°­ÀÇ] ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[ÀÚ¹ÙÇÁ·Î±×·¡¹Ö]', '//i.ytimg.com/vi/aMCmvMjuk0Y/mqdefault.jpg', 91,'[ÀÚ¹ÙÇÁ·Î±×·¡¹Ö]', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÚ¹ÙÇÁ·Î±×·¡¹Ö2015', '//i.ytimg.com/vi/X3plxsef1dA/mqdefault.jpg', 53,'ÀÚ¹ÙÇÁ·Î±×·¡¹Ö2015', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 10Àå ÇØ¼³', '//i.ytimg.com/vi/18iTlwPCC1c/mqdefault.jpg', 27,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 10Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[Jell] ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/3L50-KqXRyw/mqdefault.jpg', 8,'[Jell] ÀÚ¹Ù ÇÁ·Î±×·¡¹Ö', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 8Àå ÇØ¼³', '//i.ytimg.com/vi/9ZM7yScDq5g/mqdefault.jpg', 12,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 8Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 3Àå ÇØ¼³', '//i.ytimg.com/vi/Afn5E6Jef9g/mqdefault.jpg', 21,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 3Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 4Àå ÇØ¼³', '//i.ytimg.com/vi/4CTLYK3eNWI/mqdefault.jpg', 8,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 4Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 9Àå ÇØ¼³', '//i.ytimg.com/vi/VxC4Hfwbev0/mqdefault.jpg', 24,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 9Àå ÇØ¼³', '1');
+--ìë°” ê°•ì˜ê·¸ë£¹ CourseGroup 1
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìë°” í”„ë¡œê·¸ë˜ë° ê¸°ì´ˆ', '//i.ytimg.com/vi/awTiYk5aCEo/mqdefault.jpg', 36,'ìë°” í”„ë¡œê·¸ë˜ë° ê¸°ì´ˆ', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[ì—´í˜ˆê°•ì˜] ìë°” í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/xTfCkSlwF1Q/mqdefault.jpg', 120,'[ì—´í˜ˆê°•ì˜] ìë°” í”„ë¡œê·¸ë˜ë°', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[ìë°”í”„ë¡œê·¸ë˜ë°]', '//i.ytimg.com/vi/aMCmvMjuk0Y/mqdefault.jpg', 91,'[ìë°”í”„ë¡œê·¸ë˜ë°]', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìë°”í”„ë¡œê·¸ë˜ë°2015', '//i.ytimg.com/vi/X3plxsef1dA/mqdefault.jpg', 53,'ìë°”í”„ë¡œê·¸ë˜ë°2015', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 10ì¥ í•´ì„¤', '//i.ytimg.com/vi/18iTlwPCC1c/mqdefault.jpg', 27,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 10ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[Jell] ìë°” í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/3L50-KqXRyw/mqdefault.jpg', 8,'[Jell] ìë°” í”„ë¡œê·¸ë˜ë°', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 8ì¥ í•´ì„¤', '//i.ytimg.com/vi/9ZM7yScDq5g/mqdefault.jpg', 12,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 8ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 3ì¥ í•´ì„¤', '//i.ytimg.com/vi/Afn5E6Jef9g/mqdefault.jpg', 21,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 3ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 4ì¥ í•´ì„¤', '//i.ytimg.com/vi/4CTLYK3eNWI/mqdefault.jpg', 8,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 4ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 9ì¥ í•´ì„¤', '//i.ytimg.com/vi/VxC4Hfwbev0/mqdefault.jpg', 24,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 9ì¥ í•´ì„¤', '1');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Java (Beginner) Programming Tutorials', '//i.ytimg.com/vi/Hl-zzrqQoSE/mqdefault.jpg', 87,'Java (Beginner) Programming Tutorials', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 11Àå ÇØ¼³', '//i.ytimg.com/vi/Jr6XqkFckXM/mqdefault.jpg', 25,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 11Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÚ¹Ù-JSP-Spring °­ÁÂ', '//i.ytimg.com/vi/MD3YGrofnDY/mqdefault.jpg', 93,'ÀÚ¹Ù-JSP-Spring °­ÁÂ', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 12Àå ÇØ¼³', '//i.ytimg.com/vi/n_WCDzdGdag/mqdefault.jpg', 24,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 12Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÎ±â µ¿¿µ»ó - ÇÔ¼öÇü ÇÁ·Î±×·¡¹Ö ¹× ÀÚ¹Ù', '//i.ytimg.com/vi/__dDAD0Y_WU/mqdefault.jpg', 105,'ÀÎ±â µ¿¿µ»ó - ÇÔ¼öÇü ÇÁ·Î±×·¡¹Ö ¹× ÀÚ¹Ù', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 7Àå ÇØ¼³', '//i.ytimg.com/vi/3HJgnXKzf0Y/mqdefault.jpg', 20,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 7Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀáÀÚ¸® ÀÚ¹Ù 8 ÇÁ·Î±×·¡¹Ö 2016 java programming tutorial', '//i.ytimg.com/vi/tkW-nJNBW-Y/mqdefault.jpg', 39,'ÀáÀÚ¸® ÀÚ¹Ù 8 ÇÁ·Î±×·¡¹Ö 2016 java programming tutorial', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 5Àå ÇØ¼³', '//i.ytimg.com/vi/GjrrlDFagGM/mqdefault.jpg', 16,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 5Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 1Àå ÇØ¼³', '//i.ytimg.com/vi/aeHIrn7SYSM/mqdefault.jpg', 12,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 1Àå ÇØ¼³', '1');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 2Àå ÇØ¼³', '//i.ytimg.com/vi/WebtnSp-YUM/mqdefault.jpg', 9,'Ã³À½ ½ÃÀÛÇÏ´Â JAVA ÇÁ·Î±×·¡¹Ö 2Àå ÇØ¼³', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 11ì¥ í•´ì„¤', '//i.ytimg.com/vi/Jr6XqkFckXM/mqdefault.jpg', 25,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 11ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìë°”-JSP-Spring ê°•ì¢Œ', '//i.ytimg.com/vi/MD3YGrofnDY/mqdefault.jpg', 93,'ìë°”-JSP-Spring ê°•ì¢Œ', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 12ì¥ í•´ì„¤', '//i.ytimg.com/vi/n_WCDzdGdag/mqdefault.jpg', 24,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 12ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì¸ê¸° ë™ì˜ìƒ - í•¨ìˆ˜í˜• í”„ë¡œê·¸ë˜ë° ë° ìë°”', '//i.ytimg.com/vi/__dDAD0Y_WU/mqdefault.jpg', 105,'ì¸ê¸° ë™ì˜ìƒ - í•¨ìˆ˜í˜• í”„ë¡œê·¸ë˜ë° ë° ìë°”', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 7ì¥ í•´ì„¤', '//i.ytimg.com/vi/3HJgnXKzf0Y/mqdefault.jpg', 20,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 7ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì ìë¦¬ ìë°” 8 í”„ë¡œê·¸ë˜ë° 2016 java programming tutorial', '//i.ytimg.com/vi/tkW-nJNBW-Y/mqdefault.jpg', 39,'ì ìë¦¬ ìë°” 8 í”„ë¡œê·¸ë˜ë° 2016 java programming tutorial', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 5ì¥ í•´ì„¤', '//i.ytimg.com/vi/GjrrlDFagGM/mqdefault.jpg', 16,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 5ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 1ì¥ í•´ì„¤', '//i.ytimg.com/vi/aeHIrn7SYSM/mqdefault.jpg', 12,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 1ì¥ í•´ì„¤', '1');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 2ì¥ í•´ì„¤', '//i.ytimg.com/vi/WebtnSp-YUM/mqdefault.jpg', 9,'ì²˜ìŒ ì‹œì‘í•˜ëŠ” JAVA í”„ë¡œê·¸ë˜ë° 2ì¥ í•´ì„¤', '1');
 
---C¾ğ¾î °­ÀÇ±×·ì CourseGroup 2
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C¾ğ¾î ¹®¹ı', '//i.ytimg.com/vi/8E2B16-VEhU/mqdefault.jpg', 121,'C¾ğ¾î ¹®¹ı', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÌ°ÍÀÌ C¾ğ¾î´Ù', '//i.ytimg.com/vi/wWJ3koUPPG4/mqdefault.jpg', 38,'ÀÌ°ÍÀÌ C¾ğ¾î´Ù', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[¿­Ç÷°­ÀÇ] ¹ÚÁ¤¹ÎÀÇ C ¾ğ¾î º»»ö', '//i.ytimg.com/vi/HNcOOzo2oU4/mqdefault.jpg', 99,'[¿­Ç÷°­ÀÇ] ¹ÚÁ¤¹ÎÀÇ C ¾ğ¾î º»»ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÄÄ¸ÍÀ» À§ÇÑ C¾ğ¾î °­ÁÂ (¿Ï°á¾ÈµÊ)', '//i.ytimg.com/vi/XjsGn30jl60/mqdefault.jpg', 14,'ÄÄ¸ÍÀ» À§ÇÑ C¾ğ¾î °­ÁÂ (¿Ï°á¾ÈµÊ)', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Á¦´ë·Î ¹è¿ì´Â C¾ğ¾î ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/DEQRCMlg-Zw/mqdefault.jpg', 15,'Á¦´ë·Î ¹è¿ì´Â C¾ğ¾î ÇÁ·Î±×·¡¹Ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-±âº» ÀÌ·Ğ', '//i.ytimg.com/vi/4PI085gvz6o/mqdefault.jpg', 159,'¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-±âº» ÀÌ·Ğ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C °­ÁÂ', '//i.ytimg.com/vi/hdmcgugNKY4/mqdefault.jpg', 117,'C °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÃÖÈ£¼ºÀÇ C ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/RRDZQpuRYpg/mqdefault.jpg', 77,'ÃÖÈ£¼ºÀÇ C ÇÁ·Î±×·¡¹Ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÀÌ°ÍÀÌ C¾ğ¾î´Ù', '//i.ytimg.com/vi/wWJ3koUPPG4/mqdefault.jpg', 38,'ÀÌ°ÍÀÌ C¾ğ¾î´Ù', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'µ¶ÇÏ°Ô ½ÃÀÛÇÏ´Â C ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/I5jmg6uUTbQ/mqdefault.jpg', 33,'µ¶ÇÏ°Ô ½ÃÀÛÇÏ´Â C ÇÁ·Î±×·¡¹Ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[¿­Ç÷°­ÀÇ] C ¾ğ¾î Á¤º¹ ¸®¾ó ±³°ú¼­', '//i.ytimg.com/vi/2faeakw05-E/mqdefault.jpg', 54,'[¿­Ç÷°­ÀÇ] C ¾ğ¾î Á¤º¹ ¸®¾ó ±³°ú¼­', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/8f9zJ5T2CHY/mqdefault.jpg', 103,'ÇÁ·Î±×·¡¹Ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-±âº» ½Ç½À', '//i.ytimg.com/vi/U96lLAIvKjg/mqdefault.jpg', 68,'¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-±âº» ½Ç½À', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-Áß±Ş ÀÌ·Ğ', '//i.ytimg.com/vi/kzC-IpCSSTY/mqdefault.jpg', 138,'¾Æºü¿Í ÇÔ²² °øºÎÇÑ C¾ğ¾î-Áß±Ş ÀÌ·Ğ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[C ¾ğ¾î ÇÁ·ÎÁ§Æ®] Å×Æ®¸®½º', '//i.ytimg.com/vi/6YmKSgWPkeY/mqdefault.jpg', 9,'[C ¾ğ¾î ÇÁ·ÎÁ§Æ®] Å×Æ®¸®½º', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '¾Æºü¿Í ÇÔ²² °øºÎÇÑ C ¾ğ¾î ³ªÇÁÀß ¿¹½À [1´Ü°è] Á¦¾î±¸Á¶ ¹®Á¦ Ç®ÀÌ', '//i.ytimg.com/vi/ERRwfnGw8uw/mqdefault.jpg', 4,'¾Æºü¿Í ÇÔ²² °øºÎÇÑ C ¾ğ¾î ³ªÇÁÀß ¿¹½À [1´Ü°è] Á¦¾î±¸Á¶ ¹®Á¦ Ç®ÀÌ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÃÖÈ£¼ºÀÇ C ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/I5jmg6uUTbQ/mqdefault.jpg', 101,'ÃÖÈ£¼ºÀÇ C ÇÁ·Î±×·¡¹Ö', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C¾ğ¾î ¶óÀÌºê·¯¸®', '//i.ytimg.com/vi/Nf-o3Lt9iKc/mqdefault.jpg', 40,'C¾ğ¾î ¶óÀÌºê·¯¸®', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C¾ğ¾î°­ÀÇ', '//i.ytimg.com/vi/2gD0_-NT1XQ/mqdefault.jpg', 85,'C¾ğ¾î°­ÀÇ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C¾ğ¾î °­ÁÂ', '//i.ytimg.com/vi/0ghmyjP-QRc/mqdefault.jpg', 11,'C¾ğ¾î °­ÁÂ', '2');
+--Cì–¸ì–´ ê°•ì˜ê·¸ë£¹ CourseGroup 2
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Cì–¸ì–´ ë¬¸ë²•', '//i.ytimg.com/vi/8E2B16-VEhU/mqdefault.jpg', 121,'Cì–¸ì–´ ë¬¸ë²•', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì´ê²ƒì´ Cì–¸ì–´ë‹¤', '//i.ytimg.com/vi/wWJ3koUPPG4/mqdefault.jpg', 38,'ì´ê²ƒì´ Cì–¸ì–´ë‹¤', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[ì—´í˜ˆê°•ì˜] ë°•ì •ë¯¼ì˜ C ì–¸ì–´ ë³¸ìƒ‰', '//i.ytimg.com/vi/HNcOOzo2oU4/mqdefault.jpg', 99,'[ì—´í˜ˆê°•ì˜] ë°•ì •ë¯¼ì˜ C ì–¸ì–´ ë³¸ìƒ‰', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì»´ë§¹ì„ ìœ„í•œ Cì–¸ì–´ ê°•ì¢Œ (ì™„ê²°ì•ˆë¨)', '//i.ytimg.com/vi/XjsGn30jl60/mqdefault.jpg', 14,'ì»´ë§¹ì„ ìœ„í•œ Cì–¸ì–´ ê°•ì¢Œ (ì™„ê²°ì•ˆë¨)', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì œëŒ€ë¡œ ë°°ìš°ëŠ” Cì–¸ì–´ í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/DEQRCMlg-Zw/mqdefault.jpg', 15,'ì œëŒ€ë¡œ ë°°ìš°ëŠ” Cì–¸ì–´ í”„ë¡œê·¸ë˜ë°', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ê¸°ë³¸ ì´ë¡ ', '//i.ytimg.com/vi/4PI085gvz6o/mqdefault.jpg', 159,'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ê¸°ë³¸ ì´ë¡ ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'C ê°•ì¢Œ', '//i.ytimg.com/vi/hdmcgugNKY4/mqdefault.jpg', 117,'C ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìµœí˜¸ì„±ì˜ C í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/RRDZQpuRYpg/mqdefault.jpg', 77,'ìµœí˜¸ì„±ì˜ C í”„ë¡œê·¸ë˜ë°', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì´ê²ƒì´ Cì–¸ì–´ë‹¤', '//i.ytimg.com/vi/wWJ3koUPPG4/mqdefault.jpg', 38,'ì´ê²ƒì´ Cì–¸ì–´ë‹¤', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ë…í•˜ê²Œ ì‹œì‘í•˜ëŠ” C í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/I5jmg6uUTbQ/mqdefault.jpg', 33,'ë…í•˜ê²Œ ì‹œì‘í•˜ëŠ” C í”„ë¡œê·¸ë˜ë°', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[ì—´í˜ˆê°•ì˜] C ì–¸ì–´ ì •ë³µ ë¦¬ì–¼ êµê³¼ì„œ', '//i.ytimg.com/vi/2faeakw05-E/mqdefault.jpg', 54,'[ì—´í˜ˆê°•ì˜] C ì–¸ì–´ ì •ë³µ ë¦¬ì–¼ êµê³¼ì„œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/8f9zJ5T2CHY/mqdefault.jpg', 103,'í”„ë¡œê·¸ë˜ë°', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ê¸°ë³¸ ì‹¤ìŠµ', '//i.ytimg.com/vi/U96lLAIvKjg/mqdefault.jpg', 68,'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ê¸°ë³¸ ì‹¤ìŠµ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ì¤‘ê¸‰ ì´ë¡ ', '//i.ytimg.com/vi/kzC-IpCSSTY/mqdefault.jpg', 138,'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ Cì–¸ì–´-ì¤‘ê¸‰ ì´ë¡ ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '[C ì–¸ì–´ í”„ë¡œì íŠ¸] í…ŒíŠ¸ë¦¬ìŠ¤', '//i.ytimg.com/vi/6YmKSgWPkeY/mqdefault.jpg', 9,'[C ì–¸ì–´ í”„ë¡œì íŠ¸] í…ŒíŠ¸ë¦¬ìŠ¤', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ C ì–¸ì–´ ë‚˜í”„ì˜ ì˜ˆìŠµ [1ë‹¨ê³„] ì œì–´êµ¬ì¡° ë¬¸ì œ í’€ì´', '//i.ytimg.com/vi/ERRwfnGw8uw/mqdefault.jpg', 4,'ì•„ë¹ ì™€ í•¨ê»˜ ê³µë¶€í•œ C ì–¸ì–´ ë‚˜í”„ì˜ ì˜ˆìŠµ [1ë‹¨ê³„] ì œì–´êµ¬ì¡° ë¬¸ì œ í’€ì´', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìµœí˜¸ì„±ì˜ C í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/I5jmg6uUTbQ/mqdefault.jpg', 101,'ìµœí˜¸ì„±ì˜ C í”„ë¡œê·¸ë˜ë°', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Cì–¸ì–´ ë¼ì´ë¸ŒëŸ¬ë¦¬', '//i.ytimg.com/vi/Nf-o3Lt9iKc/mqdefault.jpg', 40,'Cì–¸ì–´ ë¼ì´ë¸ŒëŸ¬ë¦¬', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Cì–¸ì–´ê°•ì˜', '//i.ytimg.com/vi/2gD0_-NT1XQ/mqdefault.jpg', 85,'Cì–¸ì–´ê°•ì˜', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Cì–¸ì–´ ê°•ì¢Œ', '//i.ytimg.com/vi/0ghmyjP-QRc/mqdefault.jpg', 11,'Cì–¸ì–´ ê°•ì¢Œ', '2');
 
---PYTHON °­ÀÇ±×·ì CourseGroup 3
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÃÊÀıÁ¤ Python °­ÁÂ', '//i.ytimg.com/vi/1Hc4OZLQIYA/mqdefault.jpg', 34,'ÃÊÀıÁ¤ Python °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ºü¸£°Ô È°¿ëÇÏ´Â ÆÄÀÌ½ã 3.2 ÇÁ·Î±×·¡¹Ö', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 15,'ºü¸£°Ô È°¿ëÇÏ´Â ÆÄÀÌ½ã 3.2 ÇÁ·Î±×·¡¹Ö', '2');
+--PYTHON ê°•ì˜ê·¸ë£¹ CourseGroup 3
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì´ˆì ˆì • Python ê°•ì¢Œ', '//i.ytimg.com/vi/1Hc4OZLQIYA/mqdefault.jpg', 34,'ì´ˆì ˆì • Python ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ë¹ ë¥´ê²Œ í™œìš©í•˜ëŠ” íŒŒì´ì¬ 3.2 í”„ë¡œê·¸ë˜ë°', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 15,'ë¹ ë¥´ê²Œ í™œìš©í•˜ëŠ” íŒŒì´ì¬ 3.2 í”„ë¡œê·¸ë˜ë°', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python & Ruby', '//i.ytimg.com/vi/YuC__aN-v04/mqdefault.jpg', 108,'Python & Ruby', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python °­ÀÇ-±è±ÔÅÂ(°í´ë ±³¼ö)', '//i.ytimg.com/vi/jACeA9Ps22s/mqdefault.jpg', 5,'Python °­ÀÇ-±è±ÔÅÂ(°í´ë ±³¼ö)', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã °­ÁÂ', '//i.ytimg.com/vi/Cd-afk5Yo0s/mqdefault.jpg', 10,'ÆÄÀÌ½ã °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã °­ÁÂ', '//i.ytimg.com/vi/mJ2msJ5d5Ec/mqdefault.jpg', 9,'ÆÄÀÌ½ã °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã °­ÁÂ', '//i.ytimg.com/vi/HYlr-6u_0Uw/mqdefault.jpg', 3,'ÆÄÀÌ½ã °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Å×¶õ°­ÀÇ', '//i.ytimg.com/vi/PAGBDdgP8WM/mqdefault.jpg', 17,'Å×¶õ°­ÀÇ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '¾»³ª´Â ÆÄÀÌ½ã(Python) °ÔÀÓ ¸¸µé±â', '//i.ytimg.com/vi/Z7ivi9mg-d0/mqdefault.jpg', 17,'¾»³ª´Â ÆÄÀÌ½ã(Python) °ÔÀÓ ¸¸µé±â', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python ê°•ì˜-ê¹€ê·œíƒœ(ê³ ëŒ€ êµìˆ˜)', '//i.ytimg.com/vi/jACeA9Ps22s/mqdefault.jpg', 5,'Python ê°•ì˜-ê¹€ê·œíƒœ(ê³ ëŒ€ êµìˆ˜)', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬ ê°•ì¢Œ', '//i.ytimg.com/vi/Cd-afk5Yo0s/mqdefault.jpg', 10,'íŒŒì´ì¬ ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬ ê°•ì¢Œ', '//i.ytimg.com/vi/mJ2msJ5d5Ec/mqdefault.jpg', 9,'íŒŒì´ì¬ ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬ ê°•ì¢Œ', '//i.ytimg.com/vi/HYlr-6u_0Uw/mqdefault.jpg', 3,'íŒŒì´ì¬ ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'í…Œë€ê°•ì˜', '//i.ytimg.com/vi/PAGBDdgP8WM/mqdefault.jpg', 17,'í…Œë€ê°•ì˜', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ì”ë‚˜ëŠ” íŒŒì´ì¬(Python) ê²Œì„ ë§Œë“¤ê¸°', '//i.ytimg.com/vi/Z7ivi9mg-d0/mqdefault.jpg', 17,'ì”ë‚˜ëŠ” íŒŒì´ì¬(Python) ê²Œì„ ë§Œë“¤ê¸°', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/y9v7FA_frig/mqdefault.jpg', 37,'python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '½ºÅ¸ ÇÃÅävsÀú±×Àü ÇÃÅä ºôµå', '//i.ytimg.com/vi/R3ctePLfZaU/mqdefault.jpg', 8,'½ºÅ¸ ÇÃÅävsÀú±×Àü ÇÃÅä ºôµå', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã ¹× PyCharm', '//i.ytimg.com/vi/R4hQkcjDbDw/mqdefault.jpg', 167,'ÆÄÀÌ½ã ¹× PyCharm', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìŠ¤íƒ€ í”Œí† vsì €ê·¸ì „ í”Œí†  ë¹Œë“œ', '//i.ytimg.com/vi/R3ctePLfZaU/mqdefault.jpg', 8,'ìŠ¤íƒ€ í”Œí† vsì €ê·¸ì „ í”Œí†  ë¹Œë“œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬ ë° PyCharm', '//i.ytimg.com/vi/R4hQkcjDbDw/mqdefault.jpg', 167,'íŒŒì´ì¬ ë° PyCharm', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/bzdTDrbddmU/mqdefault.jpg', 10,'python', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '»ıÈ° ÇÁ·Î±×·¡¹Ö °­ÁÂ', '//i.ytimg.com/vi/7Ix-beG4FM0/mqdefault.jpg', 41,'»ıÈ° ÇÁ·Î±×·¡¹Ö °­ÁÂ', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 12,'ÆÄÀÌ½ã', '2');
-INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ÆÄÀÌ½ã ¾ğ¾î', '//i.ytimg.com/vi/Sd5YgPrYPnE/mqdefault.jpg', 3,'ÆÄÀÌ½ã ¾ğ¾î', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'ìƒí™œ í”„ë¡œê·¸ë˜ë° ê°•ì¢Œ', '//i.ytimg.com/vi/7Ix-beG4FM0/mqdefault.jpg', 41,'ìƒí™œ í”„ë¡œê·¸ë˜ë° ê°•ì¢Œ', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬', '//i.ytimg.com/vi/obO1oUu8AK8/mqdefault.jpg', 12,'íŒŒì´ì¬', '2');
+INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'íŒŒì´ì¬ ì–¸ì–´', '//i.ytimg.com/vi/Sd5YgPrYPnE/mqdefault.jpg', 3,'íŒŒì´ì¬ ì–¸ì–´', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python', '//i.ytimg.com/vi/Igvf5C7qwO0/mqdefault.jpg', 3,'Python', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'python', '//i.ytimg.com/vi/Iqjy9UqKKuo/mqdefault.jpg', 40,'python', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Python 3.4 Programming Tutorials', '//i.ytimg.com/vi/HBxCHonP6Ro/mqdefault.jpg', 56,'Python 3.4 Programming Tutorials', '2');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'AngularJS', '//i.ytimg.com/vi/iX9_Hejp9zE/mqdefault.jpg', 19,'AngularJS', '2');
 
---ORACLE °­ÀÇ±×·ì CourseGroup 4
+--ORACLE ê°•ì˜ê·¸ë£¹ CourseGroup 4
 
 
---SQL °­ÀÇ±×·ì CourseGroup 5
+--SQL ê°•ì˜ê·¸ë£¹ CourseGroup 5
 
 
---HTML °­ÀÇ±×·ì CourseGroup 6
+--HTML ê°•ì˜ê·¸ë£¹ CourseGroup 6
 
 
---JAVASCRIPT °­ÀÇ±×·ì 7
+--JAVASCRIPT ê°•ì˜ê·¸ë£¹ 7
 
 
---PHP °­ÀÇ±×·ì 8
+--PHP ê°•ì˜ê·¸ë£¹ 8
 
 
---CSS °­ÀÇ±×·ì 9
+--CSS ê°•ì˜ê·¸ë£¹ 9
+
+COMMIT;
