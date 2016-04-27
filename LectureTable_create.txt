@@ -3,14 +3,14 @@ DROP TABLE CourseGroup;
 DROP TABLE Scategory;
 DROP TABLE Dcategory;
 
---¥Î∫–∑˘
+--ÎåÄÎ∂ÑÎ•ò
 CREATE TABLE Dcategory(
    Dno Number CONSTRAINT dc_dno_nn NOT NULL,
    Dname VARCHAR2(50) CONSTRAINT dc_dn_nn NOT NULL,
    CONSTRAINT dc_dn_pk PRIMARY KEY(Dno)
 );
 
---º“∫–∑˘
+--ÏÜåÎ∂ÑÎ•ò
 CREATE TABLE Scategory(
    Sno Number CONSTRAINT sc_sno_nn NOT NULL,
    Sname VARCHAR2(50) CONSTRAINT sc_sn_nn NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE Scategory(
    REFERENCES dcategory(dno)
 );
 
---∞≠¿«±◊∑Ï
+--Í∞ïÏùòÍ∑∏Î£π
 CREATE TABLE CourseGroup(
    Gno NUMBER CONSTRAINT cg_gno_nn NOT NULL, 
    Gname VARCHAR2(100) CONSTRAINT sg_sno_nn NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE CourseGroup(
    REFERENCES scategory(sno)
 );
 
---∞≥∫∞µøøµªÛ
+--Í∞úÎ≥ÑÎèôÏòÅÏÉÅ
 CREATE TABLE Content(
    Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
    Cname VARCHAR2(100) CONSTRAINT ct_cnm_nn NOT NULL, 
@@ -47,12 +47,12 @@ CREATE TABLE Content(
    REFERENCES CourseGroup(gno)
 );
 
---¥Î∫–∑˘
+--ÎåÄÎ∂ÑÎ•ò
 INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'Language');
 INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'DataBase');
 INSERT INTO Dcategory(Dno,Dname) VALUES((SELECT NVL(MAX(Dno)+1,1) FROM Dcategory), 'Web');
 
---º“∫–∑˘
+--ÏÜåÎ∂ÑÎ•ò
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'JAVA', 1);
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'C/C++', 1);
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'PYTHON', 1);
@@ -62,3 +62,5 @@ INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scate
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'JAVASCRIPT', 3);
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'PHP', 3);
 INSERT INTO Scategory(Sno,Sname,Dno) VALUES((SELECT NVL(MAX(Sno)+1,1) FROM Scategory), 'CSS', 3);
+
+COMMIT;
