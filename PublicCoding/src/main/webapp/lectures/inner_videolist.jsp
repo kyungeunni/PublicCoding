@@ -74,6 +74,7 @@
                 <c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
                 <c:forEach var="i" begin="1" end="${celi_ok}" >
                 <div class="row" style="margin-top: 30px ">
+                 
                  <c:forEach var="j" begin="${(i*4)-3}" end="${i*4==celi_ok*4?(fn:length(list)):i*4 }" items="${list}">
                     <div class="col-sm-3 col-lg-3 col-md-3">
                         <div class="thumbnail hthumbnail">
@@ -95,7 +96,8 @@
                             </div>
                         </div>
                     </div>
-                    </c:forEach>
+                 </c:forEach>
+                   
                    </div>
                    </c:forEach>
                 </div>

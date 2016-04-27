@@ -15,6 +15,11 @@ import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.category.dao.DcategoryDAO;
+import com.puco.category.dao.DcategoryDTO;
+import com.puco.category.dao.ScategoryDAO;
+import com.puco.category.dao.ScategoryDTO;
+
 
 @Controller("mc")
 public class MainController {
@@ -29,13 +34,39 @@ public class MainController {
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		System.out.println("되니?");
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
+		System.out.println("dlist "+dlist);
+		
 		return "common/main.jsp";// jsp파일이름
 	}
+	/*@RequestMapping("scategory.do")
+	public String ScategoryAllData(HttpServletRequest req){
+		System.out.println("MainController Scategory Work");
+		String dno=req.getParameter("dno");
+		System.out.println("getParameter from main.do " + dno);
+		int no = Integer.parseInt(dno);
+		
+		if(dno==null)
+			dno="1";
+		
+		List<ScategoryDTO> subList=ScategoryDAO.ScategoryAllData(no);
+		System.out.println("MainController ScategoryDTO Work");
+		req.setAttribute("subList", subList);
+		System.out.println("MainController scategory req.set Work");
+		System.out.println("MainController subList " + subList);
+		
+		req.setAttribute("jsp", "inner_videolist.jsp");
+		return "lectures/videolist.jsp";
+	}*/
 	@RequestMapping("boardmain.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		Map reltmap = new HashMap();
+		
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);
