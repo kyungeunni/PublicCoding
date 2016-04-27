@@ -14,6 +14,7 @@
     <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
+<!-- git test -->
     <!-- Page Content -->
     <div class="container">
     		<div class="page-header" style="margin-top: 100px">
