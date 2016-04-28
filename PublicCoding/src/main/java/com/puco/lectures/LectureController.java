@@ -11,7 +11,7 @@ import com.puco.lectures.dao.*;
 @Controller("vc")
 public class LectureController {
 	/*@RequestMapping("videolist.do")
-	public String videoListData(HttpServletRequest req){
+	public String lectureMainData(HttpServletRequest req){
 		//req.setAttribute("msg", "°Ô½ÃÆÇ");
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
@@ -26,7 +26,7 @@ public class LectureController {
 		}
 		req.setAttribute("list", dto);
 		req.setAttribute("jsp", "inner_videolist.jsp");
-		return "lectures/videolist.jsp";
+		return "lectures/lectureMain.jsp";
 	}*/
 	
 	@RequestMapping("courseGroup.do")

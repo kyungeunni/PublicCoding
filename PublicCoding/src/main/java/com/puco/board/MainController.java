@@ -58,9 +58,8 @@ public class MainController {
 		req.setAttribute("slist", slist);
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
-		
-		req.setAttribute("jsp", "inner_videolist.jsp");
-		return "lectures/videolist.jsp";
+		req.setAttribute("jsp", "../lectures/inner_videolist.jsp");
+		return "common/container.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝
 	
