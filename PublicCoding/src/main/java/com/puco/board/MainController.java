@@ -4,17 +4,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.puco.board.dao.BoardDAO;
 import com.puco.board.dao.BoardDTO;
 import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.member.dao.MemberDAO;
+import com.puco.member.dao.MemberDTO;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
@@ -29,17 +32,16 @@ public class MainController {
 		Map map=new HashMap();
 		map.put("start", 1);
 		map.put("end", 5);
-		
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
-		
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);
 		// Dcategory 메뉴 끝
-		System.out.println("dlist "+dlist);
+		req.setAttribute("jsp", "default.jsp");
 		
 		return "common/main.jsp";// jsp파일이름
+		
 	}
 	
 	// 대분류 선택시, 소분류 출력 기능부
@@ -59,6 +61,7 @@ public class MainController {
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
 		req.setAttribute("jsp", "../lectures/inner_videolist.jsp");
+		
 		return "common/container.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝
@@ -92,5 +95,25 @@ public class MainController {
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
 		return "common/container.jsp";
 	}
+	
+	
+	@RequestMapping("userMain.do")
+	
+	public String userMain(HttpServletRequest req){
+		Map map=new HashMap();
+		map.put("start", 1);
+		map.put("end", 5);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		req.setAttribute("qlist", list);
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		
+		
+		req.setAttribute("jsp", "userMain.jsp");
+		
+		return "common/main.jsp";
+	}
+	
 
 }
