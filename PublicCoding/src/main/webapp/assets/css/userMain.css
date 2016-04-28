@@ -236,4 +236,14 @@ span.tags
 	article:nth-child(1) span { display:none;}
 }
 
+.profilepic{
+	margin-top: 20px;
+}
 
+#modifybtn{
+	
+    margin: auto;
+    padding-top: 20px;
+    
+    
+}

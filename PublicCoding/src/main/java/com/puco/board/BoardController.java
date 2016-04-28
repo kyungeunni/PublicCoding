@@ -40,7 +40,7 @@ public class BoardController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("content.do")
@@ -51,7 +51,6 @@ public class BoardController {
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
 		System.out.println("content>>1");
 		System.out.println(vo.getAnswer());
-
 		System.out.println("content>>2");
 		List<AnswerVO> alist = QBoardDAO.getAnswerData(ino);
 		System.out.println("content>>3");
@@ -59,18 +58,17 @@ public class BoardController {
 		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
-
 		req.setAttribute("no", no);
 
 		req.setAttribute("jsp", "../board/content.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	
 	}
 	
 	@RequestMapping("question.do")
 	public static String askQuestion(HttpServletRequest req){
 		req.setAttribute("jsp", "../board/insert.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("question_ok.do")

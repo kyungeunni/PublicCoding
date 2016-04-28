@@ -102,7 +102,7 @@ $(function(){
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<i class="fa fa-user fa-fw"></i> ${sessionScope.id}</a>
 					<ul class="dropdown-menu">
-						<li><a href="userMain.do"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
+						<li><a href="userMain.do?mno=${sessionScope.mno }"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
 						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
 						<li>
 							<a href="#signout.do" data-target="#logout" id="logoutBtn">

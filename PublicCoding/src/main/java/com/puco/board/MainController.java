@@ -101,27 +101,11 @@ public class MainController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/container.jsp";
-	}
-	
-	
-	@RequestMapping("userMain.do")
-	
-	public String userMain(HttpServletRequest req){
-		Map map=new HashMap();
-		map.put("start", 1);
-		map.put("end", 5);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		req.setAttribute("qlist", list);
-		// Dcategory ¸Þ´º
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
-		
-		
-		req.setAttribute("jsp", "userMain.jsp");
-		
 		return "common/main.jsp";
 	}
+	
+	
+	
 	
 
 }

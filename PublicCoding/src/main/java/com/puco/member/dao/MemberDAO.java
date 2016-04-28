@@ -1,9 +1,13 @@
 package com.puco.member.dao;
 
 import java.io.Reader;
+import java.util.Locale;
+import java.util.Map;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.apache.ibatis.session.SqlSession;
 
 public class MemberDAO {
@@ -49,5 +53,27 @@ public class MemberDAO {
 		session.close();
 		System.out.println("MemberDAO 4");
 		return result;
+	}
+	public static void profileupdate(MemberDTO d) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("profileupdate","d");
+		session.close();
+		
+	}
+	public static MemberDTO userdata(int mno) {
+		SqlSession session = ssf.openSession();
+		System.out.println("userdata>>1");
+		MemberDTO vo=session.selectOne("getUserData", mno);
+		
+		session.close();
+		
+		return vo;
+	}
+	public static void userUpdate(MemberDTO d) {
+		
+		SqlSession session = ssf.openSession(true);
+		session.update("userUpdate", d);
+		session.close();
+		
 	}
 }

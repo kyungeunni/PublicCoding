@@ -119,7 +119,7 @@
 							
 								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
-								value="목록">
+								value="목록" size=50>
 						</div>
 						
 
