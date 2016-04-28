@@ -22,7 +22,7 @@ a:HOVER {
     margin-bottom: 2px;
 }
 .votecontainer{
-	    margin: 0 auto;
+	margin: 0 auto;
 	width:100px ;
 	float:left;
 }
@@ -42,15 +42,19 @@ li{
 
 .fa {
 
-	font-size:50px;
+	/* font-size:50px; */
 	border:0px;
 }
 
+#content{
+	padding-top: 50px;
+}
 #mainbar
 {
 	margin: 0 auto;
    	width: 950px;
 	float:left;
+	
 }
 
 #sidebar{
@@ -92,3 +96,12 @@ li{
    	width:800px;
 }
 
+.fa-angle-up, .fa-angle-down{
+	font-size:50px;
+	border:0px;
+}
+
+#tdvote{
+	width: 15%;
+	
+}

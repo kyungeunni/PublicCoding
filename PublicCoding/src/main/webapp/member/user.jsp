@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+	
 <!DOCTYPE html >
 <html>
 <head>
@@ -24,11 +26,12 @@
 				<div id="score">
 					<span id="grade" title="뱃지"></span>100 점
 				</div>
-
 			</div>
 			<div id="profile_wrapper">
 				<div id="description">
-					<h2>loveyk.eun</h2>
+					<c:forEach var="m" items="${ mlist}">
+						<li>${m.id }</li>
+					</c:forEach>
 					<ul id="descr">
 						<li>직장: 쌍용교육센터</li>
 						<li>관심사: JAVA</li>
