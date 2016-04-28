@@ -59,7 +59,8 @@
 
 				<ul class="dropdown-menu">
 					<c:forEach var="d" items="${ dlist }">
-						<li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li>
+						<li><a href="lectureMain.do">${d.dname }</a></li>
+						<%-- <li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li> --%>
 					</c:forEach>
 				</ul></li>
 

@@ -17,14 +17,13 @@ private static SqlSessionFactory ssf;
 		try{
 			Reader reader =Resources.getResourceAsReader("Config.xml");
 			ssf=new SqlSessionFactoryBuilder().build(reader);
-			
 		}catch(Exception ex){
 			System.out.println("QBDaoInit>>"+ex.getMessage());
 		}
 	}
 	public static List<VideoDTO> CourseGroupAllData(int Sno){
 		SqlSession session=ssf.openSession();
-		List<VideoDTO> list = session.selectList("CourseGroupAllData",Sno);
+		List<VideoDTO> list = session.selectList("VideoAllData",Sno);
 		session.close();
 		return list;
 	}
