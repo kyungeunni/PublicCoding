@@ -7,7 +7,7 @@
 	</select>
 	
 	<select id="ScategoryAllData" resultType="Scategory" parameterType="int">
-		SELECT sno,sname
+		SELECT sno,sname,scategory.dno
 		FROM Scategory
 		WHERE dno=#{no}
 	</select>
