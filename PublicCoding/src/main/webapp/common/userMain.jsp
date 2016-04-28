@@ -26,7 +26,7 @@
 									class="img-rounded" />
 							</div>
 							<div class="col-sm-6 col-md-8">
-								<h4>User Id</h4>
+								<h4>${sessionScope.id }</h4>
 								<p>
 									<i class="glyphicon glyphicon-envelope"></i> email@email. <br />
 									<i class="glyphicon glyphicon-globe"></i> www.jquery2dotnet.com <br /> 
@@ -98,7 +98,7 @@
 
 		<article>
 			<div class="text">
-				<span>나의 통계</span>
+				<span>방문횟수</span>
 			</div>
 		</article>
 

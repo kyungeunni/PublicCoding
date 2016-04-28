@@ -93,7 +93,7 @@ public class MainController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	
@@ -108,6 +108,8 @@ public class MainController {
 		// Dcategory ¸Þ´º
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);
+		
+		
 		
 		
 		req.setAttribute("jsp", "userMain.jsp");
