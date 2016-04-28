@@ -1,7 +1,10 @@
 package com.puco.board;
 
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.io.*;
 import javax.servlet.ServletContext;
@@ -13,6 +16,10 @@ import org.ocpsoft.prettytime.PrettyTime;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.puco.board.dao.BoardDTO;
+import com.puco.board.dao.QBoardDAO;
+import com.puco.board.dao.QnaBoardVO;
+import com.puco.category.dao.DcategoryDAO;
+import com.puco.category.dao.DcategoryDTO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
@@ -54,8 +61,19 @@ public class MemberController {
 		   return "common/main.jsp";
 	   }
 	
-	@RequestMapping("user.do")
-	public String userInfo(HttpServletRequest req){
+
+	
+@RequestMapping("userMain.do")
+	
+	public String userMain(HttpServletRequest req){
+		Map map=new HashMap();
+		map.put("start", 1);
+		map.put("end", 5);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		req.setAttribute("qlist", list);
+		// Dcategory ¸Þ´º
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
 		String no =req.getParameter("mno");
 		MemberDTO vo = MemberDAO.userdata(Integer.parseInt(no));
 		PrettyTime p = new PrettyTime(new Locale("KO"));
@@ -63,8 +81,9 @@ public class MemberController {
 		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("mno", no);
 		req.setAttribute("vo", vo);
+		req.setAttribute("jsp", "userMain.jsp");
 		
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("user_update.do")

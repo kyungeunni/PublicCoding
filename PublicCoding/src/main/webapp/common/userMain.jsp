@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
@@ -83,19 +83,29 @@
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 						<div class="well profile">
-							<div class="col-sm-6 col-md-4">
-								<img src="http://img.visualdive.co.kr/sites/2/2015/10/gisa2.jpg"
+							<div class="col-sm-6 col-md-4 profilepic" >
+							<c:if test="${vo.filesize==0 }">
+							<img src="resources/userprofiles/defaultprofile.jpg"
+								alt="" width="160" height="140" class="img-rounded">
+								<div id="modifybtn">
+								<input type="button"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
+								value="수정" size=50></div>
+								</c:if>
+<!-- 								<img src="http://img.visualdive.co.kr/sites/2/2015/10/gisa2.jpg"
 									alt="" width="160" height="140"
 									class="img-rounded" />
-							</div>
+ -->							</div>
 							<div class="col-sm-6 col-md-8">
-								<h4>User Id</h4>
+								<h3>${vo.mid }</h3>
 								<p>
-									<i class="glyphicon glyphicon-envelope"></i> email@email. <br />
-									<i class="glyphicon glyphicon-globe"></i> www.jquery2dotnet.com <br /> 
-									<i class="glyphicon glyphicon-gift"></i>June 02, 1988
+									<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;${vo.memail } <br />
+									<i class="glyphicon glyphicon-gift"></i>&nbsp;가입일: <fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일"/><br /> 
+									<i class="glyphicon glyphicon-globe"></i> &nbsp;www.jquery2dotnet.com <br /> 
+									<i class="fa fa-eye" aria-hidden="true">&nbsp;포스트 뷰:</i><br /> 
+									<i class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간: ${login }</i><br /> 
 									
-									<p><strong>Skills: </strong>
+									<p><strong><font color="red"><i class="fa fa-heart" aria-hidden="true"></i></font>&nbsp;favorite: </strong>
                         <span class="tags">html5</span> 
                         <span class="tags">css3</span>
                         <span class="tags">jquery</span>
@@ -108,10 +118,10 @@
 							<div class="col-xs-12 divider text-center">
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong> 20 </strong>
+										<strong> ${vo.mpoint }  </strong>
 									</h2>
 									<p>
-										<small>답변수</small>
+										<small>PUCO점수</small>
 									</p>
 									<button class="btn btn-success btn-block">
 										<span class="fa fa-plus-circle"></span> 답변 보기
