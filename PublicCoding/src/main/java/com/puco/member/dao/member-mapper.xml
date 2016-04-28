@@ -15,29 +15,43 @@
 		<include refid="midcheck" />
 
 	</select>
+
 	<!-- Userpage 데이터 -->
 	<select id="getUserData" resultType="Member" parameterType="int">
 		SELECT mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate
-		FROM pucoMember
+		FROM
+		pucoMember
 		WHERE mno=#{mno}
 	</select>
 	<!-- 수강정보 -->
 	<select id="getUserCourse" resultType="String" parameterType="int">
-	select gname FROM CourseGroup cg
-	LEFT join infoattendant ia
-	On cg.gno=ia.gno
-	WHERE ia.mno=#{mno}
+		select gname FROM CourseGroup cg
+		LEFT join infoattendant ia
+		On cg.gno=ia.gno
+		WHERE ia.mno=#{mno}
 	</select>
-	<!-- 로그인시  -->
+	<!-- 로그인시 -->
 	<update id="loginUpdate" parameterType="int">
-	UPDATE pucomember SET
-	logindate = SYSDATE
-	WHERE mno=#{mno}
+		UPDATE pucomember SET
+		logindate = SYSDATE
+		WHERE mno=#{mno}
 	</update>
-		<!-- 득점  -->
+	<!-- 득점 -->
 	<update id="getPoint" parameterType="int">
-	UPDATE pucomember SET
-	mpoint = mpoint+#{point}
-	WHERE mno=#{mno}
+		UPDATE pucomember SET
+		mpoint = mpoint+#{point}
+		WHERE mno=#{mno}
 	</update>
+
+	<update id="userUpdate" parameterType="Member">
+<!-- 		UPDATE pucomember SET
+		MimageURL=#{mimageURL},filesize=#{filesize}, mtags=#{tags}
+		WHERE no=#{mno} -->
+		UPDATE pucomember SET
+		MimageURL=#{mimageURL},filesize=#{filesize}
+		WHERE mno=#{mno}		
+		
+
+	</update>
+
 </mapper>

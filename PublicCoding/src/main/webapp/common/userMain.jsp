@@ -23,7 +23,7 @@
 							<img src="resources/userprofiles/defaultprofile.jpg"
 								alt="" width="160" height="160" class="img-rounded"></c:if>
 								<c:if test="${vo.filesize!=0 }">
-							<img src="resources/userprofiles/${sessionScope.id }.jpg"
+							<img src="resources/userprofiles/${vo.mimageURL }"
 								alt="" width="160" height="160" class="img-rounded"></c:if>
 								<div id="modifybtn">
 								<input type="button"
