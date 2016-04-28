@@ -96,31 +96,31 @@ $(function(){
 </head>
 <body>
   <center>
-  <div class="freemajor" id="freelistmajor">
+  <div class="major" id="freelistmajor">
   <h3>자유게시판(FreeBoaerd)</h3>
     <p>
     <table id=freeboardNav border=1 bordercolor="black" cellpadding="0" cellspacing="0">
       <tr height=27>
         <td width=20% align=center bgcolor=#2988b1>번호</td>
-        <td width=30% align=center>${vo.no }</td>
+        <td width=30% align=center>${vo.bno }</td>
         <td width=20% align=center bgcolor=#2988b1>작성일</td>
         <td width=30% align=center>
-        <fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"></fmt:formatDate>
+        <fmt:formatDate value="${vo.bdate }" pattern="yyyy-MM-dd"></fmt:formatDate>
         </td>
       </tr>
       <tr height=27>
         <td width=20% align=center bgcolor=#24c2c8>이름</td>
-        <td width=30% align=center>${vo.name }</td>
+        <td width=30% align=center>${vo.userid }</td>
         <td width=20% align=center bgcolor=#24c2c8>조회수</td>
-        <td width=30% align=center>${vo.hit }</td>
+        <td width=30% align=center>${vo.bhit }</td>
       </tr>
       <tr height=27>
         <td width=20% align=center bgcolor=#2988b1>제목</td>
-        <td width=30% align=left colspan="3">${vo.subject }</td>
+        <td width=30% align=left colspan="3">${vo.bsubject }</td>
       </tr>
       <tr>
         <td colspan="4" align="left" valign="top" height=100>
-          <pre>${vo.content }</pre>
+          <pre>${vo.bcontent }</pre>
         </td>
       </tr>
     </table>
@@ -128,7 +128,7 @@ $(function(){
       <tr>
         <td align="right">
           
-          <a href="board_update.do?no=${vo.no }&page=${page }">
+          <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
           	수정</button></a>
@@ -137,7 +137,7 @@ $(function(){
          	삭제
          </button>
           
-          <a href="board_list.do?page=${page }">
+          <a href="freeboard_list.do?page=${page }">
           <button class="button"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;&nbsp;
           	목록</button></a>
         </td>
@@ -145,7 +145,7 @@ $(function(){
       <tr>
         <td align="right">
         <form method=post action="freeboard_delete.do">
-          <input type=hidden name=no value="${vo.no }">
+          <input type=hidden name=no value="${vo.bno }">
           <input type=hidden name=page value="${page }">
           비밀번호:<input type="password" name=pwd size=10>
           <button>삭제</button>
@@ -156,7 +156,7 @@ $(function(){
     <div>
     <a href="#" id="reply_show" style="color:white">댓글보기</a>
     </div>
-    <table id="freetable_content" class="reply_table" style="display:none">
+    <%-- <table id="freetable_content" class="reply_table" style="display:none">
      <tr>
       <th colspan=2>댓글</th>
      </tr>
@@ -216,14 +216,13 @@ $(function(){
         <form method="post" action="reply_insert.do" id="rifrm">
          <input type="hidden" name="bno" value="${vo.no }">
          <input type="hidden" name="page" value="${page}">
-         <%-- <input type="hidden" name="no" value="${rvo.no }"> --%>
+         <input type="hidden" name="no" value="${rvo.no }">
          <textarea rows="4" cols="50" name="reply_data" style="float: left" id="reply_data"></textarea>
          <input type=button value="댓글" style="height:50px" id="replyBtn">
         </form>
       </td>
      </tr>
-    </table>
-  
+    </table> --%>  
     </div>
   </center>
 </body>

@@ -14,7 +14,7 @@
 <body>
 <div class="container">
   <center>
-  <div class="freemajor" id="freelistmajor"> 
+  <div class="major" id="freelistmajor"> 
     <h3>자유게시판 (FreeBoard)</h3></div>
    <!--  <table border="0" width="700" id="frBtn">
      <td align="left" class="writeBt">

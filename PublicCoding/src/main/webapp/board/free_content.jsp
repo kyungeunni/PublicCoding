@@ -95,6 +95,7 @@ $(function(){
 </script>
 </head>
 <body>
+<div class="container">
   <center>
   <div class="freemajor" id="freelistmajor">
   <h3>자유게시판(FreeBoaerd)</h3>
@@ -119,8 +120,8 @@ $(function(){
         <td width=30% align=left colspan="3">${vo.bsubject }</td>
       </tr>
       <tr>
-        <td colspan="4" align="left" valign="top" height=100>
-          <pre>${vo.bcontent }</pre>
+        <td colspan="4" align="left" valign="top" height=100 style="background-color: white">
+          <pre style="background-color: white;">${vo.bcontent }</pre>
         </td>
       </tr>
     </table>
@@ -128,7 +129,7 @@ $(function(){
       <tr>
         <td align="right">
           
-          <a href="board_update.do?no=${vo.bno }&page=${page }">
+          <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
           	수정</button></a>
@@ -148,7 +149,7 @@ $(function(){
           <input type=hidden name=no value="${vo.bno }">
           <input type=hidden name=page value="${page }">
           비밀번호:<input type="password" name=pwd size=10>
-          <button>삭제</button>
+          <button style="color: black;">삭제</button>
           </form>
         </td>
       </tr>
@@ -224,6 +225,7 @@ $(function(){
      </tr>
     </table> --%>
   
+    </div>
     </div>
   </center>
 </body>

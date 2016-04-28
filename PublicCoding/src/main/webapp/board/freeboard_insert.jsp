@@ -51,9 +51,9 @@
 
 		//전송버튼 클릭이벤트
 		$("#sndbtn").click(function() {
-			var title = $('#title').val();
+			var title = $('#bsubject').val();
 			if (title.trim() == "") {
-				$('#title').focus();
+				$('#bsubject').focus();
 				alert("2");
 				return;
 			}
@@ -89,7 +89,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="title">Title:</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" id="title" name="title"
+								<input type="text" class="form-control" id="bsubject" name="bsubject"
 									placeholder="Enter title">
 							</div>
 						</div>
