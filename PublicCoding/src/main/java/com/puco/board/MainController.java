@@ -30,17 +30,14 @@ public class MainController {
 	@RequestMapping("main.do")
 		
 		public String Main(HttpServletRequest req) {
-		System.out.println("123123132");
 		Map map=new HashMap();
 		map.put("start", 1);
 		map.put("end", 5);
 		System.out.println("5밑");
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		System.out.println("1234");
 		req.setAttribute("qlist", list);
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		System.out.println(1234);
 		req.setAttribute("dlist", dlist);
 		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");

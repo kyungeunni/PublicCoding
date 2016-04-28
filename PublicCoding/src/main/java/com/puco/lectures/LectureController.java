@@ -12,6 +12,7 @@ import com.puco.lectures.dao.*;
 public class LectureController {
 	@RequestMapping("lectureMain.do")
 	public String lectureMainData(HttpServletRequest req){
+		System.out.println("왔냐");
 		//req.setAttribute("msg", "게시판");
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
