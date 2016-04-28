@@ -1,23 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@page import="org.json.simple.*"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
 <html>
 <head>
+<<<<<<< HEAD
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
-<link rel="stylesheet" href="member/user.css">
 </head>
+
 <body>
-
-		<!-- <nav id="nav-main">
-	</nav> -->
-
 	<section>
 		<article>
+<%-- <<<<<<< HEAD
 			<div class="text" id="content">
 						<div class="avatar-card">
 				<div class="avatar">
@@ -82,11 +78,80 @@
 					</div>
 				</div>
 			</div>
+======= --%>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+						<div class="well profile">
+							<div class="col-sm-6 col-md-4">
+								<img src="http://img.visualdive.co.kr/sites/2/2015/10/gisa2.jpg"
+									alt="" width="160" height="140"
+									class="img-rounded" />
+							</div>
+							<div class="col-sm-6 col-md-8">
+								<h4>User Id</h4>
+								<p>
+									<i class="glyphicon glyphicon-envelope"></i> email@email. <br />
+									<i class="glyphicon glyphicon-globe"></i> www.jquery2dotnet.com <br /> 
+									<i class="glyphicon glyphicon-gift"></i>June 02, 1988
+									
+									<p><strong>Skills: </strong>
+                        <span class="tags">html5</span> 
+                        <span class="tags">css3</span>
+                        <span class="tags">jquery</span>
+                        <span class="tags">bootstrap3</span>
+                    </p>
+									
+									
+								<br /><br /><br />
+							</div>
+							<div class="col-xs-12 divider text-center">
+								<div class="col-xs-12 col-sm-4 emphasis">
+									<h2>
+										<strong> 20 </strong>
+									</h2>
+									<p>
+										<small>답변수</small>
+									</p>
+									<button class="btn btn-success btn-block">
+										<span class="fa fa-plus-circle"></span> 답변 보기
+									</button>
+								</div>
+
+								<div class="col-xs-12 col-sm-4 emphasis">
+									<h2>
+										<strong>245</strong>
+									</h2>
+									<p>
+										<small>질문수</small>
+									</p>
+									<button class="btn btn-info btn-block">
+										<span class="fa fa-user"></span> 질문 보기
+									</button>
+								</div>
+
+								<div class="col-xs-12 col-sm-4 emphasis">
+									<h2>
+										<strong>245</strong>
+									</h2>
+									<p>
+										<small>수강강의</small>
+									</p>
+									<button class="btn btn-info btn-block">
+										<span class="fa fa-user"></span> 수강강의 보기
+									</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 
 		<article>
-			<div id='calendar'></div>
+			<div id='calendar'>calendar</div>
 		</article>
 
 		<article>
@@ -135,9 +200,9 @@
 
 	</section>
 
-	
+
 	<!-- Scripts -->
-	
+
 	<script type='text/javascript'>
 	$(document).ready(function() {
 
@@ -211,7 +276,7 @@
 		
 	});
 	</script>
-	
+
 
 </body>
 </html>

@@ -13,9 +13,7 @@ public class MemberDAO {
 	private static SqlSessionFactory ssf;
 	static {
 		try {
-			System.out.println("111111111111");
 			Reader reader = Resources.getResourceAsReader("Config.xml");
-			System.out.println("222222222222");
 			ssf = new SqlSessionFactoryBuilder().build(reader);
 			System.out.println("MemberDAO WORKING~~~~");
 		} catch (Exception ex) {

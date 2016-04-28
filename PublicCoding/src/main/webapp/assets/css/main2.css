@@ -31,11 +31,11 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 /* header 컨텐츠 */
 header h1 { width:400px; height:136px; background-size:contain; position:absolute; top:5px;	left:20px; font-size:20pt;}
 header h1 a:hover{color:#e44b66; text-decoration: none}
-#gnb { position:absolute; top:300px; right:57px;}
-#gnb a {padding:8px 30px;	font-size:17px; font-weight:bold;text-align:left; line-height:1.8; transition:all .5s;}
+#gnb { position:absolute; top:300px; right:65px;}
+#gnb a {padding:8px 30px;	font-size:17px; font-weight:bold;text-align:left; line-height:1.8; transition:all .5s; width: 100%;}
 #gnb a:hover{color:#e44b66; text-decoration:none;}
-#gnb .dropdown a{color:#ffffff; text-decoration: none}
-#gnb .dropdown a:hover { color:#e44b66; text-decoration: none}
+#gnb .dropdown a{color:#ffffff; text-decoration: none;  width: 100%;}
+#gnb .dropdown a:hover { color:#e44b66; text-decoration: none;}
 #gnb .dropdown-menu a{color:#1c1d26;}
 #gnb .dropdown-menu a:hover{color:#e44b66;}
 #gnb a i { margin-right:13px;}
@@ -50,6 +50,8 @@ nav a:nth-child(1) {	position:absolute; right:150px;}
 nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
+/* login css */
+
 @media screen and (min-width:1280px) {  
 	
 	/*레이아웃*/
@@ -60,7 +62,7 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 	/* header 컨텐츠 */
 	header h1 { width:400px; height:40px; left:20px; margin-left:0px;}
 	header h1 a {color:#ffffff}
-	#gnb { top:20px; right:20px;}	
+	#gnb { top:20px; right:60px;}	
 	#gnb li { float:left;}
 	.snsSet { bottom:20px; right:80px;}
 	
