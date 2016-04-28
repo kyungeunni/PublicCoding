@@ -83,7 +83,6 @@ public class MainController {
 		map.put("end", end);
 		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
 		for(QnaBoardVO v:list){
-
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
 
