@@ -60,57 +60,6 @@
 		<include refid="where-no" />
 	</update>
 	
-	<!-- 정선 freeboard 추가 -->
-	<select id="FreeboardAllData" resultType="FBoard" parameterType="java.util.Map">
-	  SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
-		MB.bno=answer.bno) as answer
-		FROM (SELECT bno,bsubject,mno,bdate,bhit,num FROM
-		(SELECT bno,bsubject,mno,bdate,bhit,rownum as num
-		FROM(SELECT bno,bsubject,mno,bdate,bhit
-		FROM mainboard 
-		WHERE BTno=2
-		ORDER BY rownum DESC))
-		WHERE num BETWEEN #{start} AND #{end}) MB
-		LEFT JOIN pucomember MT
-		on MT.mno =mb.mno
-		order by bno desc
-	</select>
-	<select id="freeboardRowCount" resultType="int">
-	  SELECT COUNT(*) FROM mainboard 
-	  WHERE btno=1
-	</select>
-	<update id="freeboardHitIncrement" parameterType="int">
-	  UPDATE mainBoard SET
-		bhit=bhit+1
-		<include refid="where-no" />
-	</update>
-	<select id="freeboardContentData" resultType="FBoard" parameterType="int">
-	  SELECT bno,bsubject,MB.Mno,bdate,bhit,bcontent,MT.mid as userid,
-		(SELECT
-		COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
-		FROM mainboard
-		MB
-		LEFT JOIN pucomember MT
-		on MT.mno = mb.mno
-		<include refid="where-no" />
-	</select>
-	<insert id="freeboardInsert" parameterType="FBoard">
-	INSERT INTO
-		MainBoard(Bno,Mno,Bsubject,Bcontent,BTno)
-		VALUES((SELECT NVL(MAX(bno)+1,1) FROM MainBoard),
-		#{mno},#{bsubject},#{bcontent}, 2)
-	</insert>
-	<select id="freeboardGetPwd" resultType="String" parameterType="int">
-	  SELECT pwd FROM replyBoard
-	  WHERE no=#{no}
-	</select>
-	<update id="freeboardUpdate" parameterType="FBoard">
-	  UPDATE mainboard SET
-     mno=#{mno},bsubject=#{bsubject},bcontent=#{bcontent}
-     WHERE no=#{no}
-	</update>
-
-
 	<insert id="boardInsert" parameterType="Qboard">
 		INSERT INTO
 		MainBoard(Bno,Mno,Bsubject,Bcontent,BTno,TGno1,Tgno2,Tgno3)
@@ -172,6 +121,59 @@
 		order by bno desc
 		
 	</select>
+	
+	<!-- 정선 freeboard 추가 -->
+	<select id="FreeboardAllData" resultType="FBoard" parameterType="java.util.Map">
+	  SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
+		MB.bno=answer.bno) as answer
+		FROM (SELECT bno,bsubject,mno,bdate,bhit,num FROM
+		(SELECT bno,bsubject,mno,bdate,bhit,rownum as num
+		FROM(SELECT bno,bsubject,mno,bdate,bhit
+		FROM mainboard 
+		WHERE BTno=2
+		ORDER BY rownum DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
+		LEFT JOIN pucomember MT
+		on MT.mno =mb.mno
+		order by bno desc
+	</select>
+	<select id="freeboardRowCount" resultType="int">
+	  SELECT COUNT(*) FROM mainboard 
+	  WHERE btno=1
+	</select>
+	<update id="freeboardHitIncrement" parameterType="int">
+	  UPDATE mainBoard SET
+		bhit=bhit+1
+		<include refid="where-no" />
+	</update>
+	<select id="freeboardContentData" resultType="FBoard" parameterType="int">
+	  SELECT bno,bsubject,MB.Mno,bdate,bhit,bcontent,MT.mid as userid,
+		(SELECT
+		COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
+		FROM mainboard
+		MB
+		LEFT JOIN pucomember MT
+		on MT.mno = mb.mno
+		<include refid="where-no" />
+	</select>
+	<insert id="freeboardInsert" parameterType="FBoard">
+	INSERT INTO
+		MainBoard(Bno,Mno,Bsubject,Bcontent,BTno)
+		VALUES((SELECT NVL(MAX(bno)+1,1) FROM MainBoard),
+		#{mno},#{bsubject},#{bcontent}, 2)
+	</insert>
+	<select id="freeboardGetPwd" resultType="String" parameterType="int">
+	  SELECT pwd FROM replyBoard
+	  WHERE no=#{no}
+	</select>
+	<update id="freeboardUpdate" parameterType="FBoard">
+	  UPDATE mainboard SET
+     mno=#{mno},bsubject=#{bsubject},bcontent=#{bcontent}
+     WHERE no=#{no}
+	</update>
+
+
+	
 
 </mapper>
 
