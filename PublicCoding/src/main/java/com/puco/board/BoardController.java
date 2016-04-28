@@ -9,6 +9,9 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.puco.board.dao.*;
+import com.puco.category.dao.DcategoryDAO;
+import com.puco.category.dao.DcategoryDTO;
+
 import java.util.*;
 
 @Controller("bc")
@@ -28,19 +31,25 @@ public class BoardController {
 		Map map=new HashMap();
 		map.put("start", start);
 		map.put("end", end);
+		
 		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
 		for(QnaBoardVO v:list){
 
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
+		
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		
 
 		int totalpage=QBoardDAO.BoardTotalPage();
+		
+		req.setAttribute("dlist", dlist);
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("content.do")
@@ -51,26 +60,25 @@ public class BoardController {
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
 		System.out.println("content>>1");
 		System.out.println(vo.getAnswer());
-
 		System.out.println("content>>2");
 		List<AnswerVO> alist = QBoardDAO.getAnswerData(ino);
 		System.out.println("content>>3");
 		req.setAttribute("alist", alist);
+		System.out.println(alist.get(1).getRcontent());
 		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
-
 		req.setAttribute("no", no);
 
 		req.setAttribute("jsp", "../board/content.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	
 	}
 	
 	@RequestMapping("question.do")
 	public static String askQuestion(HttpServletRequest req){
 		req.setAttribute("jsp", "../board/insert.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("question_ok.do")

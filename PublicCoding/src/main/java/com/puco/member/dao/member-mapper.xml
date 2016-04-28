@@ -2,13 +2,42 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.puco.member.dao.member-mapper">
+	<sql id="midcheck">
+		WHERE mid=#{id}
+	</sql>
 	<!-- ID check -->
 	<select id="memberIdCount" resultType="int" parameterType="String">
 		SELECT COUNT(*) FROM pucoMember
-		WHERE mid=#{id}
+		<include refid="midcheck" />
 	</select>
 	<select id="memberGetpwd" resultType="Member" parameterType="String">
 		SELECT mid,mpwd,memail,mno FROM pucoMember
-		WHERE mid=#{id}
+		<include refid="midcheck" />
+
 	</select>
+	<!-- Userpage 데이터 -->
+	<select id="getUserData" resultType="Member" parameterType="int">
+		SELECT mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate
+		FROM pucoMember
+		WHERE mno=#{mno}
+	</select>
+	<!-- 수강정보 -->
+	<select id="getUserCourse" resultType="String" parameterType="int">
+	select gname FROM CourseGroup cg
+	LEFT join infoattendant ia
+	On cg.gno=ia.gno
+	WHERE ia.mno=#{mno}
+	</select>
+	<!-- 로그인시  -->
+	<update id="loginUpdate" parameterType="int">
+	UPDATE pucomember SET
+	logindate = SYSDATE
+	WHERE mno=#{mno}
+	</update>
+		<!-- 득점  -->
+	<update id="getPoint" parameterType="int">
+	UPDATE pucomember SET
+	mpoint = mpoint+#{point}
+	WHERE mno=#{mno}
+	</update>
 </mapper>

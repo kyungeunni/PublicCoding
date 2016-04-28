@@ -21,7 +21,7 @@
 <sql:setDataSource
     var="dataSource"
     driver="oracle.jdbc.driver.OracleDriver"    
-    url="jdbc:oracle:thin:@211.238.142.78:1521:ORCL"
+    url="jdbc:oracle:thin:@localhost:1521:ORCL"
     user="scott"
     password="tiger"/> 
 

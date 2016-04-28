@@ -62,7 +62,7 @@ public class MainController {
 		System.out.println("MainController slist " + slist);
 		
 		req.setAttribute("jsp", "lectureMain.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝
 	
@@ -93,7 +93,7 @@ public class MainController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	
@@ -110,10 +110,15 @@ public class MainController {
 		req.setAttribute("dlist", dlist);
 		
 		
+		
+		
 		req.setAttribute("jsp", "userMain.jsp");
 		
 		return "common/main.jsp";
 	}
+	
+	
+	
 	
 
 }
