@@ -1,191 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@page import="org.json.simple.*"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>PUBLIC CODING | 모두가 즐기는 코딩</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/userMain.css">
-
-<link rel='stylesheet' href='fullc/lib/cupertino/jquery-ui.min.css' />
-<link href='fullc/fullcalendar.css' rel='stylesheet' />
-<link href='fullc/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='fullc/lib/moment.min.js'></script>
-<script src='fullc/lib/jquery.min.js'></script>
-<script src='fullc/fullcalendar.min.js'></script>
-
+<link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
+<link rel="stylesheet" href="member/user.css">
 </head>
 <body>
 
-	<header>
-		<h1>
-			<a href="main.do"> PUBLIC CODING</a>
-		</h1>
-
-		<ul id="gnb">
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">언어</a></li>
-					<li><a href="#">데이터베이스</a></li>
-					<li><a href="#"> WEB/HTML/CSS</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
-					스터디</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">지역별</a></li>
-					<li><a href="#">주제별</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Q&A 게시판</a></li>
-					<li><a href="#">자유 게시판</a></li>
-				</ul></li>
-
-			<!-- 회원가입-->
-			<li class="joinok" data-toggle="modal" data-target="#join"><a
-				href="#"><i class="fa fa-user"></i>회원가입</a></li>
-
-			<li class="logininok" data-toggle="modal" data-target="#login"><a
-				href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
-		</ul>
-
-		<div class="modal fade" id="join" tabindex="-1" role="dialog"
-			aria-labelledby="modalLabel" aria-hidden="true">
-
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true"></span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="lineModalLabel">
-							<center>PUCO의 회원이 되어 주세요</center>
-						</h4>
-					</div>
-					<div class="modal-body">
-
-						<!-- content goes here -->
-						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
-							role="form">
-
-							<div class="row">
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="firstname">아이디</label> <input type="text"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="firstName" placeholder="아이디">
-								</div>
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="lastName">비밀번호</label> <input type="password"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="password" placeholder="비밀번호">
-								</div>
-							</div>
-
-							<div class="row onboarding-form-group">
-								<div class="col-sm-12 col-xs-12">
-									<div>
-										<label for="email">E-mail</label> <input type="text"
-											class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
-											id="email" placeholder="E-mail">
-									</div>
-								</div>
-							</div>
-							<p>
-							<p>
-							<div class="row">
-								<div class="col-mm-6 col-xs-12">
-									<button type="submit" class="btn btn-block btn-primary">회원가입</button>
-								</div>
-							</div>
-						</form>
-
-						<div class="row row-gap-medium ng-scope">
-							<br>
-
-							<p class="col-xs-6 col-xs-offset-3 bold text-center">
-								이미 가입 하셨나요? <br>
-								<br> <input type="button" class="btn btn-block btn-primary"
-									data-toggle="modal" data-target="#login" data-dismiss="modal" value="로그인">
-
-							</p>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-		<div class="modal fade" id="login" tabindex="-1" role="dialog"
-			aria-labelledby="modalLabel" aria-hidden="true">
-
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true"></span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="lineModalLabel">
-							<center>안녕하세요 PUCO 입니다.</center>
-						</h4>
-					</div>
-					<div class="modal-body">
-
-						<!-- content goes here -->
-						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
-							role="form">
-
-							<div class="row">
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="firstname">아이디</label> <input type="text"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="firstName" placeholder="아이디">
-								</div>
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="lastName">비밀번호</label> <input type="password"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="password" placeholder="비밀번호">
-								</div>
-							</div>
-
-
-							<p>
-							<p>
-
-								<input type="button" class="btn btn-block btn-primary" data-target="#login"
-									 data-dismiss="modal" value="로그인">
-						</form>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-	</header>
-
-	<!-- <nav id="nav-main">
+		<!-- <nav id="nav-main">
 	</nav> -->
 
 	<section>
 		<article>
 			<div class="text" id="content">
-				<span>유저프로필</span>
+						<div class="avatar-card">
+				<div class="avatar">
+					<a href="#">
+						<div class="gravatar-wrapper-164">
+							<c:if test="${vo.filesize==0 }">
+							<img src="resources/userprofiles/defaultprofile.jpg"
+								alt width="300" height="300" class="avatar-user">
+								</c:if>
+						</div>
+					</a>
+				</div>
+				<div id="score">
+					<span id="grade" title="뱃지"></span>${vo.mpoint } 점
+				</div>
+		<input type="button"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
+								value="수정" size=50>
+			</div>
+				<div id="profile_wrapper">
+				<!-- <div id="description">
+					<h2>loveyk.eun</h2>
+					<ul id="descr">
+						<li>직장: 쌍용교육센터</li>
+						<li>관심사: JAVA</li>
+						<li>하고싶은 말: 어떻게 하면 자바 고수가 될 수 있나요?</li>
+					</ul>
+				</div> -->
+				<div id="info-summary">
+				<h2>${vo.mid }</h2>
+					<div class="u_num">
+						<div class="u_num_answers">
+							<div class="mini-counts">
+								<span title="답변 갯수">0</span>
+							</div>
+							<div>답변수</div>
+						</div>
+						<div class="u_num_question">
+							<div class="mini-counts">
+								<span title="질문수">0</span>
+							</div>
+							<div>질문수</div>
+						</div>
+
+						<div class="u_num_lectures">
+							<div class="mini-counts">
+								<span title="수강강의 수">0</span>
+							</div>
+							<div>수강수</div>
+						</div>
+
+					</div>
+					<div>
+						<ul>
+							<li><i class="fa fa-sign-in" aria-hidden="true">&nbsp;가입일: 
+							<fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일"/>
+							</i></li>
+							<li><i class="fa fa-github" aria-hidden="true">&nbsp;Github:</i></li>
+							<li><i class="fa fa-eye" aria-hidden="true">&nbsp;포스트 뷰</i></li>
+							<li><i class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간 ${login }</i></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 			</div>
 		</article>
 
@@ -196,6 +92,19 @@
 		<article>
 			<div class="text">
 				<span>내가 쓴 글</span>
+				<div id="u_qalist">
+				<h3>질문과 답변</h3>
+				<table>
+					<tr><td>How can I make an instance of a block of Blockly with
+						Javascript?</td></tr>
+					<tr>	<td>Grocery CRUD Join tabl</td></tr>
+					<tr><td>Apache folder not showing up</td></tr>
+					<tr><td>How can I make an instance of a block of Blockly with
+						Javascript?</td></tr>
+					<tr><td>Grocery CRUD Join table</td></tr>
+					<tr><td>Apache folder not showing up</td></tr>
+				</table>
+			</div>
 			</div>
 		</article>
 
@@ -302,37 +211,6 @@
 		
 	});
 	</script>
-	
-	
-	
-	
-	
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/modal.js"></script>
-	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="../assets/js/popup.js"></script>
-
-
-
-	<script type="text/javascript">
-		$(function() {
-			$(".dropdown").hover(function() {
-				$('.dropdown-menu', this).stop(true, true).fadeIn("fast");
-				$(this).toggleClass('open');
-				$('b', this).toggleClass("caret caret-up");
-			}, function() {
-				$('.dropdown-menu', this).stop(true, true).fadeOut("fast");
-				$(this).toggleClass('open');
-				$('b', this).toggleClass("caret caret-up");
-			});
-		});
-	</script>
-	
 	
 
 </body>
