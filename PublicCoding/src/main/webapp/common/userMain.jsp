@@ -13,72 +13,7 @@
 <body>
 	<section>
 		<article>
-<%-- <<<<<<< HEAD
-			<div class="text" id="content">
-						<div class="avatar-card">
-				<div class="avatar">
-					<a href="#">
-						<div class="gravatar-wrapper-164">
-							<c:if test="${vo.filesize==0 }">
-							<img src="resources/userprofiles/defaultprofile.jpg"
-								alt width="300" height="300" class="avatar-user">
-								</c:if>
-						</div>
-					</a>
-				</div>
-				<div id="score">
-					<span id="grade" title="뱃지"></span>${vo.mpoint } 점
-				</div>
-		<input type="button"
-								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
-								value="수정" size=50>
-			</div>
-				<div id="profile_wrapper">
-				<!-- <div id="description">
-					<h2>loveyk.eun</h2>
-					<ul id="descr">
-						<li>직장: 쌍용교육센터</li>
-						<li>관심사: JAVA</li>
-						<li>하고싶은 말: 어떻게 하면 자바 고수가 될 수 있나요?</li>
-					</ul>
-				</div> -->
-				<div id="info-summary">
-				<h2>${vo.mid }</h2>
-					<div class="u_num">
-						<div class="u_num_answers">
-							<div class="mini-counts">
-								<span title="답변 갯수">0</span>
-							</div>
-							<div>답변수</div>
-						</div>
-						<div class="u_num_question">
-							<div class="mini-counts">
-								<span title="질문수">0</span>
-							</div>
-							<div>질문수</div>
-						</div>
 
-						<div class="u_num_lectures">
-							<div class="mini-counts">
-								<span title="수강강의 수">0</span>
-							</div>
-							<div>수강수</div>
-						</div>
-
-					</div>
-					<div>
-						<ul>
-							<li><i class="fa fa-sign-in" aria-hidden="true">&nbsp;가입일: 
-							<fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일"/>
-							</i></li>
-							<li><i class="fa fa-github" aria-hidden="true">&nbsp;Github:</i></li>
-							<li><i class="fa fa-eye" aria-hidden="true">&nbsp;포스트 뷰</i></li>
-							<li><i class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간 ${login }</i></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-======= --%>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
@@ -86,16 +21,16 @@
 							<div class="col-sm-6 col-md-4 profilepic" >
 							<c:if test="${vo.filesize==0 }">
 							<img src="resources/userprofiles/defaultprofile.jpg"
-								alt="" width="160" height="140" class="img-rounded">
+								alt="" width="160" height="160" class="img-rounded"></c:if>
+								<c:if test="${vo.filesize!=0 }">
+							<img src="resources/userprofiles/${sessionScope.id }.jpg"
+								alt="" width="160" height="160" class="img-rounded"></c:if>
 								<div id="modifybtn">
 								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
 								value="수정" size=50></div>
-								</c:if>
-<!-- 								<img src="http://img.visualdive.co.kr/sites/2/2015/10/gisa2.jpg"
-									alt="" width="160" height="140"
-									class="img-rounded" />
- -->							</div>
+								
+					</div>
 							<div class="col-sm-6 col-md-8">
 								<h3>${vo.mid }</h3>
 								<p>

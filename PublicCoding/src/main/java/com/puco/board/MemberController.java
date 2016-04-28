@@ -88,6 +88,7 @@ public class MemberController {
 	
 	@RequestMapping("user_update.do")
 	public String user_update(HttpServletRequest req){
+		
 		req.setAttribute("jsp", "user_edit.jsp");
 		return "common/container.jsp";
 	}
