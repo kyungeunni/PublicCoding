@@ -113,8 +113,10 @@ public class MemberController {
 	    d.setMno(Integer.parseInt(mno));
 	    if(filename==null)
 	    {
-	    	d.setMimageURL(info.getMimageURL());
-	    	d.setFilesize(info.getFilesize());
+	    	File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
+	    	   f.delete();
+	    	d.setMimageURL("defaultprofile.jpg");
+	    	d.setFilesize(0);
 	    }
 	    else
 	    {
