@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 
 <html>
@@ -23,29 +24,6 @@
 					<div class="col-sm-3 col-md-3">
 						<div class="panel-group" id="accordion">
 						
-							<%-- <c:forEach var="d" items="${dlist }">
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseOne">
-												<i class="fa fa-code"></i>${d.dname }</a>
-										</h4>
-									</div>
-									
-									<div id="collapseOne" class="panel-collapse collapse in">
-										<div class="panel-body">
-											<table class="table">
-												<c:forEach var="s" items="${slist }">
-													<tr>
-														<td><a href="#">${s.sname }</a></td>
-													</tr>
-												</c:forEach>
-											</table>
-										</div>
-									</div>
-								</div>
-							</c:forEach> --%>
 							<c:forEach var="d" items="${dlist }">
 								<div class="panel panel-default">
 									<div class="panel-heading">
@@ -63,7 +41,7 @@
 											<c:forEach var="s" items="${slist }">
 												<c:if test="${d.dno == s.dno }">
 													<tr>
-														<td><a href="#">${s.sname }</a></td>
+														<td><a href="courseGroup.do?sno=${s.sno }">${s.sname }</a></td>
 													</tr>
 												</c:if>
 											</c:forEach>	
@@ -214,6 +192,32 @@
 		<article>
 			<div class="text">
 				<span>동영상들~~~</span>
+				<div class="row">
+	                <c:forEach var="g" begin="1" end="${fn:length(glist)}" items="${glist}">
+	                	
+	                    <div class="col-sm-3 col-lg-3 col-md-3">
+	                        <div class="thumbnail hthumbnail">
+	                            <img src="${g.gimageurl}">
+	                            <div class="caption">
+	                                <h4 class="pull-right">강의명:${g.gname }</h4>
+	                                <p><a href="play.do?gno=${g.gno }" style="color: red;">${g.gintro }<br>
+	                               	 총강의수:${g.totalcno }강</a></p><!-- rgb(171,164,234) -->
+	                            </div>
+	                            <div class="ratings">
+	                                <p class="pull-right">15 reviews</p>
+	                                <p>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                 </c:forEach>
+	            </div>
 			</div>
 		</article>
 
