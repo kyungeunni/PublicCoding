@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
-
+<!-- 썸네일 -->
+<link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 
 <body>
@@ -158,11 +161,46 @@
 		</article>
 		<article>
 			<div class="text">
-				<span>동영상들~~~</span>
+				<span>
+				<!-- 썸내일 시작 -->
+				<c:set var="celi" value="${fn:length(list)/4}"></c:set>
+                <c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
+                <c:forEach var="i" begin="1" end="${celi_ok}" >
+                <div class="row" style="margin-top: 30px ">
+                 <c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }" items="${list}">
+                    <div class="col-sm-3 col-lg-3 col-md-3">
+                        <div class="thumbnail hthumbnail">
+                            <img src="${g.GimageURL}">
+                            <div class="caption">
+                                <h4 class="pull-right">강의명:${g.Gname }</h4>
+                                <p><a href="play.do?So=${g.Sno }" style="color: red;">${g.Gintro }<br>
+                               	 총강의수:${g.TotalCno }강</a></p><!-- rgb(171,164,234) -->
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                 </c:forEach>
+                 </div>
+                 </c:forEach>
+                 </span>
+                 <!-- 썸내일 끝 -->
 			</div>
 		</article>
-
 	</section>
-
+	
+	<!-- 썸네일 -->
+	<!-- jQuery -->
+    <script src="assets/js/hyun/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,34 +1,48 @@
 package com.puco.lectures.dao;
 
 public class VideoDTO {
-	private int no;
-	private String title;//title
-	private String image;//image
-	private String lectureurl;//url
+	private int Gno;
+	private String Gname;//title
+	private String GimageURL;//image
+	private int TotalCno;
+	private int Gintro;
+	private int Sno;
 	
-	public String getLectureurl() {
-		return lectureurl;
+	public int getTotalCno() {
+		return TotalCno;
 	}
-	public void setLectureurl(String lectureurl) {
-		this.lectureurl = lectureurl;
+	public void setTotalCno(int totalCno) {
+		TotalCno = totalCno;
 	}
-	public int getNo() {
-		return no;
+	public int getGno() {
+		return Gno;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setGno(int gno) {
+		Gno = gno;
 	}
-	public String getTitle() {
-		return title;
+	public String getGname() {
+		return Gname;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setGname(String gname) {
+		Gname = gname;
 	}
-	public String getImage() {
-		return image;
+	public String getGimageURL() {
+		return GimageURL;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setGimageURL(String gimageURL) {
+		GimageURL = gimageURL;
+	}
+	public int getGintro() {
+		return Gintro;
+	}
+	public void setGintro(int gintro) {
+		Gintro = gintro;
+	}
+	public int getSno() {
+		return Sno;
+	}
+	public void setSno(int sno) {
+		Sno = sno;
 	}
 	
 	

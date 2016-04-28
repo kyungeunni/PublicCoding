@@ -7,6 +7,7 @@
 		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
 		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
 		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
+		<typeAlias type="com.puco.lectures.dao.VideoDTO" alias="Video"/>
 		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup"/>
 	</typeAliases>
 	<environments default="development">
@@ -15,7 +16,7 @@
 		<dataSource type="POOLED">
 	
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@211.238.142.87:1521:ORCL" />
+				<property name="url" value="jdbc:oracle:thin:@211.238.142.75:1521:ORCL" />
 				<property name="username" value="scott" />
 				<property name="password" value="tiger" />
 			</dataSource>

@@ -2,13 +2,13 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.puco.category.dao.category-mapper">
 	<select id="DcategoryAllData" resultType="Dcategory">
-		SELECT dno,dname
-		FROM dcategory
+		SELECT Dno,Dname
+		FROM Dcategory
 	</select>
 	
 	<select id="ScategoryAllData" resultType="Scategory" parameterType="int">
-		SELECT sno,sname
+		SELECT Sno,Sname
 		FROM Scategory
-		WHERE dno=#{no}
+		WHERE Dno=#{no}
 	</select>
 </mapper>

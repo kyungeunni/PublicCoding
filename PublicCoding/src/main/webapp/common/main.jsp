@@ -54,7 +54,7 @@
 		<ul id="gnb">
 
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="videolist.do"><i class="fa fa-book"></i>온라인 강의</a>
+				data-toggle="dropdown" href="lectureMain.do"><i class="fa fa-book"></i>온라인 강의</a>
 
 
 				<ul class="dropdown-menu">

@@ -25,7 +25,7 @@ public class CourseGroupDAO {
 		System.out.println("CourseGroupAllData method Work");
 		SqlSession session = ssf.openSession();
 		System.out.println("CourseGroupAllData SqlSession Work");
-		List<CourseGroupDTO> glist = session.selectList("CourseGroupAllData", no);
+		List<CourseGroupDTO> glist = session.selectList("CourseGroupAllData1", no);
 		System.out.println("CourseGroupAllData selectList Work");
 		session.close();
 		System.out.println("CourseGroupAllData session close Work");
