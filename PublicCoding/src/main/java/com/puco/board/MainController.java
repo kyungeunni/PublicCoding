@@ -67,9 +67,7 @@ public class MainController {
 		
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
-		System.out.println("MainController dlist " + dlist);
-		
-		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
+		req.setAttribute("jsp", "lectureMain.jsp");
 		return "common/main.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝
@@ -101,6 +99,27 @@ public class MainController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
+		return "common/main.jsp";
+	}
+	
+	
+	@RequestMapping("userMain.do")
+	
+	public String userMain(HttpServletRequest req){
+		Map map=new HashMap();
+		map.put("start", 1);
+		map.put("end", 5);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		req.setAttribute("qlist", list);
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		
+		
+		
+		
+		req.setAttribute("jsp", "userMain.jsp");
+		
 		return "common/main.jsp";
 	}
 	

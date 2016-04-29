@@ -51,6 +51,8 @@ nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
 /* login css */
+.joinok a{color:#ffffff;}
+.logininok a{color:#ffffff;}
 
 @media screen and (min-width:1280px) {  
 	

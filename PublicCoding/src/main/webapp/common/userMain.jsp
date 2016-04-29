@@ -91,7 +91,6 @@
 						</div>
 					</div>
 				</div>
-<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 
@@ -120,7 +119,7 @@
 
 		<article>
 			<div class="text">
-				<span>나의 통계</span>
+				<span>방문횟수</span>
 			</div>
 		</article>
 

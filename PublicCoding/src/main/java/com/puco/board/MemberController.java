@@ -25,7 +25,6 @@ import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
 
-
 @Controller("mc")
 public class MemberController {
 	@RequestMapping("signin.do")
@@ -89,7 +88,6 @@ public class MemberController {
 	
 	@RequestMapping("user_update.do")
 	public String user_update(HttpServletRequest req){
-		
 		req.setAttribute("jsp", "user_edit.jsp");
 		return "common/main.jsp";
 	}
