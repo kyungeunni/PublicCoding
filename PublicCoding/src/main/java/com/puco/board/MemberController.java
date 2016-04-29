@@ -1,6 +1,6 @@
 package com.puco.board;
 
-import java.util.Enumeration;
+import java.util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -77,19 +77,40 @@ public class MemberController {
 		req.setAttribute("dlist", dlist);
 		String no =req.getParameter("mno");
 		MemberDTO vo = MemberDAO.userdata(Integer.parseInt(no));
+		StringTokenizer st = new StringTokenizer(vo.getMtags(), ",");
+		List<String> tags = new ArrayList<String>();
+		while(st.hasMoreTokens()){
+			String t = st.nextToken();
+			String tag = MemberDAO.getTagName(Integer.parseInt(t));
+			tags.add(tag);
+		}
+		
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		req.setAttribute("login",p.format(vo.getLogindate()));
 		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("mno", no);
 		req.setAttribute("vo", vo);
 		req.setAttribute("jsp", "userMain.jsp");
-		
+		req.setAttribute("tags", tags);
 		return "common/main.jsp";
 	}
 	
 	@RequestMapping("user_update.do")
 	public String user_update(HttpServletRequest req){
-		
+		String mno=req.getParameter("mno");
+		System.out.println("userupdate.do>>>1");
+		String mtags=MemberDAO.getTaglist(Integer.parseInt(mno));
+		StringTokenizer st = new StringTokenizer(mtags, ",");
+		String tags = "";
+		while(st.hasMoreTokens()){
+			String t = st.nextToken();
+			String tag = MemberDAO.getTagName(Integer.parseInt(t));
+			tags+=tag+",";
+		}
+		System.out.println("userupdate.do>>>1");
+		tags=tags.substring(0, tags.length()-1);
+		System.out.println(tags);
+		req.setAttribute("tags", tags);
 		req.setAttribute("jsp", "user_edit.jsp");
 		return "common/main.jsp";
 	}
@@ -174,5 +195,6 @@ public class MemberController {
 		session.invalidate();
 		return "member/signout.jsp";
 	}
+	
 
 }
