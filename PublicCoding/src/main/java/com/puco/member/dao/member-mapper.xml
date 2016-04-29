@@ -18,7 +18,7 @@
 
 	<!-- Userpage 데이터 -->
 	<select id="getUserData" resultType="Member" parameterType="int">
-		SELECT mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate
+		SELECT mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate,mtags
 		FROM
 		pucoMember
 		WHERE mno=#{mno}
@@ -27,7 +27,8 @@
 	<select id="getUserCourse" resultType="String" parameterType="int">
 		select gname FROM CourseGroup cg
 		LEFT join infoattendant ia
-		On cg.gno=ia.gno
+		On
+		cg.gno=ia.gno
 		WHERE ia.mno=#{mno}
 	</select>
 	<!-- 로그인시 -->
@@ -39,19 +40,47 @@
 	<!-- 득점 -->
 	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
-		mpoint = mpoint+#{point}
+		mpoint
+		= mpoint+#{point}
 		WHERE mno=#{mno}
 	</update>
 
 	<update id="userUpdate" parameterType="Member">
-<!-- 		UPDATE pucomember SET
-		MimageURL=#{mimageURL},filesize=#{filesize}, mtags=#{tags}
-		WHERE no=#{mno} -->
+		<!-- UPDATE pucomember SET MimageURL=#{mimageURL},filesize=#{filesize}, 
+			mtags=#{tags} WHERE no=#{mno} -->
 		UPDATE pucomember SET
 		MimageURL=#{mimageURL},filesize=#{filesize}
-		WHERE mno=#{mno}		
-		
+		WHERE
+		mno=#{mno}
+
 
 	</update>
+	<select id="getTagName" resultType="String" parameterType="int">
+		SELECT tgname
+		FROM tag
+		WHERE tgno=#{tgno}
+	</select>
 
+
+	<select id="getTagList" resultType="String" parameterType="int">
+		SELECT mtags
+		FROM pucomember
+		WHERE mno=#{mno}
+	</select>
+	<!-- 포스트 갯수 찾아오기 -->
+	<select id="getPostNum"  resultType ="int" parameterType="int">
+	
+	
+	</select>
+	
+<!-- 쓴 글 & 답변단 글 가져오기 -->
+<!-- 		<select id ="getUserPost" resultType="java.io.Map" parameterType="int">
+	SELECT bsubject,bno,AT.bno, MT.bsubject
+	 FROM  mainboard MT
+	 LEFT JOIN answer AT
+	 ON AT.mno=#{mno}
+	 WHERE mno=#{mno}
+	</select> -->
+	
+	<!-- 통계  -->
 </mapper>

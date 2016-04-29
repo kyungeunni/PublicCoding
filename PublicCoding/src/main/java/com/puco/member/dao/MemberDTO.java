@@ -24,8 +24,15 @@ public class MemberDTO {
 	private int mpoint;
 	private int lno;
 	private Date logindate;
+	private String mtags;
 	
 	
+	public String getMtags() {
+		return mtags;
+	}
+	public void setMtags(String mtags) {
+		this.mtags = mtags;
+	}
 	public Date getLogindate() {
 		return logindate;
 	}

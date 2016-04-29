@@ -41,10 +41,9 @@
 									<i class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간: ${login }</i><br /> 
 									
 									<p><strong><font color="red"><i class="fa fa-heart" aria-hidden="true"></i></font>&nbsp;favorite: </strong>
-                        <span class="tags">html5</span> 
-                        <span class="tags">css3</span>
-                        <span class="tags">jquery</span>
-                        <span class="tags">bootstrap3</span>
+                        <c:forEach var="tag" items="${tags }">
+                        <span class="tags">${tag }</span></c:forEach> 
+   
                     </p>
 									
 									
