@@ -16,6 +16,8 @@ import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.lectures.dao.CourseGroupDAO;
+import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
 import com.puco.category.dao.DcategoryDAO;
@@ -50,14 +52,14 @@ public class MainController {
 	// 대분류 선택시, 소분류 출력 기능부
 	@RequestMapping("scategory.do")
 	public String ScategoryAllData(HttpServletRequest req){
-		System.out.println("MainController Scategory Work");
 		String dno=req.getParameter("dno");
-		System.out.println("getParameter from main.do " + dno);
-		int no = Integer.parseInt(dno);
-		
+		String sno=req.getParameter("sno");
 		if(dno==null)
 			dno="1";
-		
+		int no = Integer.parseInt(dno);
+		if(sno==null)
+			sno="1";
+		int no1 = Integer.parseInt(sno);
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);
@@ -67,8 +69,15 @@ public class MainController {
 		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
 		req.setAttribute("slist", slist);
 		// Scategory 메뉴 끝
-		System.out.println("MainController slist " + slist);
-		System.out.println("MainController dlist " + dlist);	
+		
+		//////////////////////////////////////////////////////
+		List<CourseGroupDTO> dto;
+		if(no1==1){
+			dto = CourseGroupDAO.CourseGroupAllData(no1);
+		}else{
+			dto = CourseGroupDAO.CourseGroupAllData(no1);
+		}
+		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}

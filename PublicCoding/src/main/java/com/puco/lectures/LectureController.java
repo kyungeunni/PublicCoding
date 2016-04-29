@@ -10,7 +10,7 @@ import com.puco.lectures.dao.*;
 
 @Controller("vc")
 public class LectureController {
-	@RequestMapping("lectureMain.do")
+	/*@RequestMapping("lectureMain.do")
 	public String lectureMainData(HttpServletRequest req){
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
@@ -25,7 +25,7 @@ public class LectureController {
 		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
-	}
+	}*/
 	
 	@RequestMapping("courseGroup.do")
 	public String videoListData(HttpServletRequest req){
@@ -42,7 +42,7 @@ public class LectureController {
 		return "lectures/videolist.jsp";
 	}
 	@RequestMapping("play.do")
-	public String videoPlayData(HttpServletRequest req) throws Exception{
+	public String videoPlayData(HttpServletRequest req){
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}
