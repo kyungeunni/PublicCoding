@@ -11,14 +11,14 @@
 		<include refid="midcheck" />
 	</select>
 	<select id="memberGetpwd" resultType="Member" parameterType="String">
-		SELECT mid,mpwd,memail,mno FROM pucoMember
+		SELECT mid,mpwd,memail,mno,mimageurl FROM pucoMember
 		<include refid="midcheck" />
 
 	</select>
 
 	<!-- Userpage 데이터 -->
 	<select id="getUserData" resultType="Member" parameterType="int">
-		SELECT mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate,mtags
+		SELECT mno,mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate,mtags
 		FROM
 		pucoMember
 		WHERE mno=#{mno}
@@ -67,20 +67,24 @@
 		FROM pucomember
 		WHERE mno=#{mno}
 	</select>
-	<!-- 포스트 갯수 찾아오기 -->
-	<select id="getPostNum"  resultType ="int" parameterType="int">
-	
-	
-	</select>
 	
 <!-- 쓴 글 & 답변단 글 가져오기 -->
-<!-- 		<select id ="getUserPost" resultType="java.io.Map" parameterType="int">
-	SELECT bsubject,bno,AT.bno, MT.bsubject
+		<select id ="getUserPost" resultType="QBoard" parameterType="int">
+	SELECT bsubject,bno
 	 FROM  mainboard MT
-	 LEFT JOIN answer AT
-	 ON AT.mno=#{mno}
 	 WHERE mno=#{mno}
-	</select> -->
+	 Order by bhit DESC
+	</select>
+	
+	<!-- 쓴 글 & 답변단 글 가져오기 -->
+		<select id ="getUserAnswerPost" resultType="QBoard" parameterType="int">
+	SELECT AT.bno, MT.bsubject as bsubject
+	 FROM  answer AT
+	 LEFT JOIN mainboard MT
+	 on AT.bno=MT.bno
+	 WHERE AT.mno=#{mno}
+	 Order by rhit DESC
+	</select>
 	
 	<!-- 통계  -->
 </mapper>

@@ -3,7 +3,8 @@
 
 /* reset */
 * { margin:0;  padding:0;}
-ol,ul { list-style: none; }
+ol,ul { list-style: none;  }
+li{color:black; }
 a { outline:0; text-decoration:none; color:#ffffff; }
 img { border:0;}
 body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; } 
