@@ -52,25 +52,13 @@
 		</h1>
 
 		<ul id="gnb">
-
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="lectureMain.do"><i class="fa fa-book"></i>온라인 강의</a>
-
-
 				<ul class="dropdown-menu">
-<<<<<<< HEAD
-					<c:forEach var="d" items="${ dlist }">
-						<li><a href="lectureMain.do">${d.dname }</a></li>
-						<%-- <li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li> --%>
-					</c:forEach>
-=======
-					<li><a href="scategory.do?dno=1">Language</a></li>
+					<li><a href="lectureMain.do">Language</a></li>
 					<li><a href="scategory.do?dno=2">Database</a></li>
 					<li><a href="scategory.do?dno=3">Web</a></li>
->>>>>>> refs/remotes/origin/master
 				</ul></li>
-
-
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
 					스터디</a>
@@ -109,16 +97,6 @@
 						${sessionScope.id}
 				</a>
 					<ul class="dropdown-menu">
-<<<<<<< HEAD
-						<li><a href="userMain.do"><i
-								class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
-						<li><a href="#"><i class="fa fa-pencil fa-fw"
-								aria-hidden="true"></i>개인정보수정</a></li>
-						<li><a href="#signout.do" data-target="#logout"
-							id="logoutBtn"> <i class="fa fa-sign-out fa-fw"></i>로그아웃
-						</a></li>
-					</ul></li>
-=======
 						<li><a href="userMain.do?mno=${sessionScope.mno }"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
 						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
 						<li>
@@ -127,7 +105,6 @@
 						</li>
 					</ul>
 			   </li>
->>>>>>> refs/remotes/origin/master
 			</c:if>
 		</ul>
 

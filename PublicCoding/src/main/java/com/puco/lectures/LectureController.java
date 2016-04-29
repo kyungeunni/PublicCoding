@@ -12,19 +12,17 @@ import com.puco.lectures.dao.*;
 public class LectureController {
 	@RequestMapping("lectureMain.do")
 	public String lectureMainData(HttpServletRequest req){
-		System.out.println("왔냐");
-		//req.setAttribute("msg", "게시판");
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
 			strmode="1";
 		int mode=Integer.parseInt(strmode);
-		List<VideoDTO> dto;
+		List<CourseGroupDTO> dto;
 		if(mode==1){
-			dto = VideoDAO.CourseGroupAllData(mode);
+			dto = CourseGroupDAO.CourseGroupAllData(mode);
 		}else{
-			dto = VideoDAO.CourseGroupAllData(mode);
+			dto = CourseGroupDAO.CourseGroupAllData(mode);
 		}
-		req.setAttribute("list", dto);
+		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}
@@ -35,7 +33,6 @@ public class LectureController {
 		int no = Integer.parseInt(sno);
 		if(sno==null)
 			sno="1";
-		
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
 		System.out.println("LectureController CourseGroupDTO Work");
 		req.setAttribute("glist", glist);
@@ -44,16 +41,9 @@ public class LectureController {
 		req.setAttribute("gjsp", "inner_videolist.jsp");
 		return "lectures/videolist.jsp";
 	}
-	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
-		//req.setAttribute("msg", "게시판");
-		req.setCharacterEncoding("EUC-KR");
-		String lecture=req.getParameter("lecture").substring(9);
-		String list=req.getParameter("list");
-		String url=lecture+"?list="+list; //awTiYk5aCEo?list=PLENYGEQnz1xrMzGAfcCJFBzkBNzY2ufb1
-		req.setAttribute("url", url);
-		req.setAttribute("jsp", "play.jsp");
-		return "lectures/videolist.jsp";
+		req.setAttribute("jsp", "../lectures/play.jsp");
+		return "common/main.jsp";
 	}
 }
