@@ -37,8 +37,8 @@ public class MainController {
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		// Dcategory 메뉴
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
+		/*List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);*/
 		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
 		
@@ -57,14 +57,19 @@ public class MainController {
 		if(dno==null)
 			dno="1";
 		
-		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
-		System.out.println("MainController ScategoryDTO Work");
-		req.setAttribute("slist", slist);
-		System.out.println("MainController scategory req.set Work");
-		System.out.println("MainController slist " + slist);
-		req.setAttribute("jsp", "../lectures/inner_videolist.jsp");
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
 		
-		return "common/container.jsp";
+		// Scategory 메뉴
+		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
+		req.setAttribute("slist", slist);
+		// Scategory 메뉴 끝
+		System.out.println("MainController slist " + slist);
+		System.out.println("MainController dlist " + dlist);	
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
+		return "common/main.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝
 	
@@ -87,7 +92,6 @@ public class MainController {
 		for(QnaBoardVO v:list){
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
-
 		int totalpage=QBoardDAO.BoardTotalPage();
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
@@ -96,27 +100,4 @@ public class MainController {
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
 		return "common/main.jsp";
 	}
-	
-	
-	@RequestMapping("userMain.do")
-	
-	public String userMain(HttpServletRequest req){
-		Map map=new HashMap();
-		map.put("start", 1);
-		map.put("end", 5);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		req.setAttribute("qlist", list);
-		// Dcategory 메뉴
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
-		
-		
-		
-		
-		req.setAttribute("jsp", "userMain.jsp");
-		
-		return "common/main.jsp";
-	}
-	
-
 }
