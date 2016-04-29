@@ -51,7 +51,6 @@ public class BoardController {
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
 		System.out.println("content>>1");
 		System.out.println(vo.getAnswer());
-
 		System.out.println("content>>2");
 		List<AnswerVO> alist = QBoardDAO.getAnswerData(ino);
 		System.out.println("content>>3");
@@ -59,7 +58,6 @@ public class BoardController {
 		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
-
 		req.setAttribute("no", no);
 
 		req.setAttribute("jsp", "../board/content.jsp");

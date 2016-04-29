@@ -19,9 +19,25 @@ public class MemberDTO {
 	private String mpwd;
 	private String memail;
 	private String mimageURL;
+	private int filesize;
 	private Date mdate;
 	private int mpoint;
 	private int lno;
+	private Date logindate;
+	
+	
+	public Date getLogindate() {
+		return logindate;
+	}
+	public void setLogindate(Date logindate) {
+		this.logindate = logindate;
+	}
+	public int getFilesize() {
+		return filesize;
+	}
+	public void setFilesize(int filesize) {
+		this.filesize = filesize;
+	}
 	public int getMno() {
 		return mno;
 	}

@@ -29,5 +29,4 @@ public class ScategoryDAO {
 		System.out.println("ScategoryAllData session close Work");
 		return slist;
 	}
-
 }

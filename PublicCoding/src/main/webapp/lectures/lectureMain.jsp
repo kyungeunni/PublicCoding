@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+=======
+>>>>>>> refs/remotes/origin/master
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +18,68 @@
 <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet">
 </head>
 
+<<<<<<< HEAD
 <body>
+=======
+>>>>>>> refs/remotes/origin/master
 	<section>
 		<article>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 col-md-3">
 						<div class="panel-group" id="accordion">
-							<div class="panel panel-default">
-							
+						
+							<%-- <c:forEach var="d" items="${dlist }">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapseOne">
+												<i class="fa fa-code"></i>${d.dname }</a>
+										</h4>
+									</div>
+									
+									<div id="collapseOne" class="panel-collapse collapse in">
+										<div class="panel-body">
+											<table class="table">
+												<c:forEach var="s" items="${slist }">
+													<tr>
+														<td><a href="#">${s.sname }</a></td>
+													</tr>
+												</c:forEach>
+											</table>
+										</div>
+									</div>
+								</div>
+							</c:forEach> --%>
+							<c:forEach var="d" items="${dlist }">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapseOne">
+												<i class="fa fa-code"></i>${d.dname }</a>
+										</h4>
+									</div>
+									
+									
+									<div id="collapseOne" class="panel-collapse collapse in">
+										<div class="panel-body">
+											<table class="table">
+											<c:forEach var="s" items="${slist }">
+												<c:if test="${d.dno == s.dno }">
+													<tr>
+														<td><a href="#">${s.sname }</a></td>
+													</tr>
+												</c:if>
+											</c:forEach>	
+											</table>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						
+							<!-- <div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion"
@@ -110,7 +166,7 @@
 										</table>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							
 						</div>
 					</div>
