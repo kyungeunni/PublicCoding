@@ -76,4 +76,9 @@ public class MemberDAO {
 		session.close();
 		
 	}
+	public static void loginUpdate(int mno){
+		SqlSession session = ssf.openSession(true);
+		session.update("loginUpdate",mno);
+		session.close();
+	}
 }

@@ -19,16 +19,16 @@
 					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 						<div class="well profile">
 							<div class="col-sm-6 col-md-4 profilepic" >
-							<c:if test="${vo.filesize==0 }">
-							<img src="resources/userprofiles/defaultprofile.jpg"
-								alt="" width="160" height="160" class="img-rounded"></c:if>
-								<c:if test="${vo.filesize!=0 }">
+													
 							<img src="resources/userprofiles/${vo.mimageURL }"
-								alt="" width="160" height="160" class="img-rounded"></c:if>
+								alt="" width="160" height="160" class="img-rounded">
 								<div id="modifybtn">
 								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
-								value="수정" size=50></div>
+								value="수정" size=50>
+								
+								
+								</div>
 								
 					</div>
 							<div class="col-sm-6 col-md-8">

@@ -59,7 +59,8 @@
 										<p>${d.bcontent}</p>
 
 										<p id="written">
-											<a href="#"> <img src="assets/vote-up.png"> ${d.userid} </a> ¥‘¿Ã ¡˙πÆ
+											<a href="#"><img src="resources/userprofiles/${wimg }"
+								alt="" width="40" height="40" class="img-rounded"> ${d.userid} </a> ¥‘¿Ã ¡˙πÆ
 										<p>
 									</td>
 								</tr>
@@ -90,7 +91,8 @@
 										<p>${as.rcontent}</p>
 
 										<p id="written">
-											<a href="#"> <img src="assets/vote-up.png"> ${as.userid }</a> ¥‘¿« ¥‰∫Ø
+											<a href="#"> <img src="resources/userprofiles/${as.mimageurl }"
+								alt="" width="40" height="40" class="img-rounded"> ${as.userid }</a> ¥‘¿« ¥‰∫Ø
 										<p>
 									</td>
 								</tr>

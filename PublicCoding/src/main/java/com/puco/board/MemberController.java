@@ -42,9 +42,9 @@ public class MemberController {
 			StringTokenizer st = new StringTokenizer(res, "|");
 			email=st.nextToken();
 			mno=st.nextToken();
+			MemberDAO.loginUpdate(Integer.parseInt(mno));
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
-			session.setAttribute("pwd", pwd);
 			session.setAttribute("email", email);
 			session.setAttribute("mno", mno);
 			
@@ -113,8 +113,11 @@ public class MemberController {
 	    d.setMno(Integer.parseInt(mno));
 	    if(filename==null)
 	    {
+	    	if(!(info.getMimageURL().equals("defaultprofile.jpg"))){
 	    	File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
-	    	   f.delete();
+	    	f.delete();
+	    	}
+	
 	    	d.setMimageURL("defaultprofile.jpg");
 	    	d.setFilesize(0);
 	    }

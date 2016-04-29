@@ -33,7 +33,7 @@
 	<!-- 로그인시 -->
 	<update id="loginUpdate" parameterType="int">
 		UPDATE pucomember SET
-		logindate = SYSDATE
+		logindate = SYSDATE,mpoint=mpoint+5
 		WHERE mno=#{mno}
 	</update>
 	<!-- 득점 -->
