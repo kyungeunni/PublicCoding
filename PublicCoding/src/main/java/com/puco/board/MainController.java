@@ -35,8 +35,8 @@ public class MainController {
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		// Dcategory 메뉴
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
+		/*List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);*/
 		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
 		
@@ -55,13 +55,21 @@ public class MainController {
 		if(dno==null)
 			dno="1";
 		
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
+		
+		// Scategory 메뉴
 		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
-		System.out.println("MainController ScategoryDTO Work");
 		req.setAttribute("slist", slist);
+		// Scategory 메뉴 끝
+		
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
+		System.out.println("MainController dlist " + dlist);
 		
-		req.setAttribute("jsp", "lectureMain.jsp");
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝

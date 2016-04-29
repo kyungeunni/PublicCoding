@@ -58,9 +58,9 @@ $(function(){
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
-					<c:forEach var="d" items="${ dlist }">
-						<li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li>
-					</c:forEach>
+					<li><a href="scategory.do?dno=1">Language</a></li>
+					<li><a href="scategory.do?dno=2">Database</a></li>
+					<li><a href="scategory.do?dno=3">Web</a></li>
 				</ul></li>
 
 

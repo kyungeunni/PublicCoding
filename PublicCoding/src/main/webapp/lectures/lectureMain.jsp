@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 
 <html>
@@ -15,169 +17,41 @@
 </head>
 <body>
 
-	<header>
-		<h1>
-			<a href="main.do"> PUBLIC CODING</a>
-		</h1>
-
-		<ul id="gnb">
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">언어</a></li>
-					<li><a href="#">데이터베이스</a></li>
-					<li><a href="#"> WEB/HTML/CSS</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
-					스터디</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">지역별</a></li>
-					<li><a href="#">주제별</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Q&A 게시판</a></li>
-					<li><a href="#">자유 게시판</a></li>
-				</ul></li>
-
-			<!-- 회원가입-->
-			<li class="joinok" data-toggle="modal" data-target="#join"><a
-				href="#"><i class="fa fa-user"></i>회원가입</a></li>
-
-			<li class="logininok" data-toggle="modal" data-target="#login"><a
-				href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
-		</ul>
-
-		<div class="modal fade" id="join" tabindex="-1" role="dialog"
-			aria-labelledby="modalLabel" aria-hidden="true">
-
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true"></span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="lineModalLabel">
-							<center>PUCO의 회원이 되어 주세요</center>
-						</h4>
-					</div>
-					<div class="modal-body">
-
-						<!-- content goes here -->
-						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
-							role="form">
-
-							<div class="row">
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="firstname">아이디</label> <input type="text"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="firstName" placeholder="아이디">
-								</div>
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="lastName">비밀번호</label> <input type="password"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="password" placeholder="비밀번호">
-								</div>
-							</div>
-
-							<div class="row onboarding-form-group">
-								<div class="col-sm-12 col-xs-12">
-									<div>
-										<label for="email">E-mail</label> <input type="text"
-											class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
-											id="email" placeholder="E-mail">
-									</div>
-								</div>
-							</div>
-							<p>
-							<p>
-							<div class="row">
-								<div class="col-mm-6 col-xs-12">
-									<button type="submit" class="btn btn-block btn-primary">회원가입</button>
-								</div>
-							</div>
-						</form>
-
-						<div class="row row-gap-medium ng-scope">
-							<br>
-
-							<p class="col-xs-6 col-xs-offset-3 bold text-center">
-								이미 가입 하셨나요? <br> <br> <input type="button"
-									class="btn btn-block btn-primary" data-toggle="modal"
-									data-target="#login" data-dismiss="modal" value="로그인">
-
-							</p>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-		<div class="modal fade" id="login" tabindex="-1" role="dialog"
-			aria-labelledby="modalLabel" aria-hidden="true">
-
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true"></span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="lineModalLabel">
-							<center>안녕하세요 PUCO 입니다.</center>
-						</h4>
-					</div>
-					<div class="modal-body">
-
-						<!-- content goes here -->
-						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
-							role="form">
-
-							<div class="row">
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="firstname">아이디</label> <input type="text"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="firstName" placeholder="아이디">
-								</div>
-								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-									<label for="lastName">비밀번호</label> <input type="password"
-										class="form-control ng-pristine ng-untouched ng-valid"
-										id="password" placeholder="비밀번호">
-								</div>
-							</div>
-
-
-							<p>
-							<p>
-
-								<input type="button" class="btn btn-block btn-primary"
-									data-target="#login" data-dismiss="modal" value="로그인">
-						</form>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-	</header>
-
 	<section>
 		<article>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 col-md-3">
 						<div class="panel-group" id="accordion">
-							<div class="panel panel-default">
-							
+						
+							<c:forEach var="d" items="${dlist }">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapseOne">
+												<i class="fa fa-code"></i>${d.dname }</a>
+										</h4>
+									</div>
+									
+									
+									<div id="collapseOne" class="panel-collapse collapse in">
+										<div class="panel-body">
+											<table class="table">
+											<c:forEach var="s" items="${slist }">
+												<c:if test="${d.dno == s.dno }">
+													<tr>
+														<td><a href="courseGroup.do?sno=${s.sno }">${s.sname }</a></td>
+													</tr>
+												</c:if>
+											</c:forEach>	
+											</table>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						
+							<!-- <div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordion"
@@ -264,7 +138,7 @@
 										</table>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							
 						</div>
 					</div>
@@ -318,6 +192,32 @@
 		<article>
 			<div class="text">
 				<span>동영상들~~~</span>
+				<div class="row">
+	                <c:forEach var="g" begin="1" end="${fn:length(glist)}" items="${glist}">
+	                	
+	                    <div class="col-sm-3 col-lg-3 col-md-3">
+	                        <div class="thumbnail hthumbnail">
+	                            <img src="${g.gimageurl}">
+	                            <div class="caption">
+	                                <h4 class="pull-right">강의명:${g.gname }</h4>
+	                                <p><a href="play.do?gno=${g.gno }" style="color: red;">${g.gintro }<br>
+	                               	 총강의수:${g.totalcno }강</a></p><!-- rgb(171,164,234) -->
+	                            </div>
+	                            <div class="ratings">
+	                                <p class="pull-right">15 reviews</p>
+	                                <p>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                    <span class="glyphicon glyphicon-star"></span>
+	                                </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                 </c:forEach>
+	            </div>
 			</div>
 		</article>
 
