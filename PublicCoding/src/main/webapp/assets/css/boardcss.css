@@ -13,14 +13,18 @@ table { table-layout: fixed}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:55%; height:60vh; background:#ff0000;}
-article:nth-child(2) { width:45%; height:30vh; background:#ffffff}
-article:nth-child(3) { width:45%; height:30vh; background:#ff0080;}
-article:nth-child(4) { width:55%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:45%; height:30vh; background:#0000ff;}
-article:nth-child(6) { width:100%; height:8vh; background:#888;}
+article:nth-child(1) { width:100%; height:40%; background:#ff0000;}
+article:nth-child(2) { width:60%; height:60%; background:#ffffff}
+article:nth-child(3) { width:40%; height:60%; background:#ffffff}
 
 #qnaboard {width:80%;}
+
+#mainbar h2, .mainbar h2, #mainbar h3, .mainbar h3, #mainbar h4,
+	.mainbar h4 {
+	font-weight: 400;
+	font-family: "맑은 고딕";
+}
+
 
 @keyframes scale {
 	0% { transform:scale(0); }	
@@ -50,9 +54,85 @@ nav a:nth-child(1) {	position:absolute; right:150px;}
 nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
-/* login css */
-.joinok a{color:#ffffff;}
-.logininok a{color:#ffffff;}
+
+#mainbar, .mainbar {
+	float: left;
+	width: 750px;
+	margin: 0 0 0 0;
+	
+	padding: 0;
+	padding-bottom: 100px;
+}
+
+#sidebar, .sidebar {
+	float: left;
+	overflow: hidden;
+	width: 350px;
+	margin: 0;
+	margin: 0 0 0 0;
+	margin-left: 50px;
+}
+
+#sidebar  ul{
+	color:#ffffff;
+	 list-style-type:none;
+	 padding-left: 0
+}
+
+#sidebar  li{
+	color:#e44c65;
+	 
+}
+
+#sidebar  li a{
+	color:#ffffff;
+	border-bottom: thin;
+}
+
+
+
+
+
+#pucoof{
+	display:inline-block;
+}
+
+#btnqst{
+	float:right;
+	border-color: inherit;
+	border-bottom-style: inherit;
+}
+
+#listmajor{
+	width:750px;
+	padding-top: 100px;
+}
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    color: black;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    font-size: 18px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
 
 @media screen and (min-width:1280px) {  
 	
