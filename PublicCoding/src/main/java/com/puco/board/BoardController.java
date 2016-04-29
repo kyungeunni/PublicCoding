@@ -57,12 +57,17 @@ public class BoardController {
 		String no=req.getParameter("no");
 		String page = req.getParameter("page");
 		int ino = Integer.parseInt(no);
+		System.out.println("content>>-1");
 		QnaBoardVO vo= QBoardDAO.getContentData(ino);
+		System.out.println("content>>0");
+		String wimg=QBoardDAO.getimageUrl(vo.getMno());
 		System.out.println("content>>1");
 		System.out.println(vo.getAnswer());
 		System.out.println("content>>2");
 		List<AnswerVO> alist = QBoardDAO.getAnswerData(ino);
 		System.out.println("content>>3");
+		req.setAttribute("wimg",wimg);
+		System.out.println("content>wimg:"+wimg);
 		req.setAttribute("alist", alist);
 		System.out.println(alist.get(1).getRcontent());
 		System.out.println(alist.size());

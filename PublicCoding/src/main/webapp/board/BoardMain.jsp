@@ -67,7 +67,7 @@
 								<div class="question-summary narrow">
 									<!-- 카운트,뷰,보트 영역 -->
 									<div
-										onclick="window.location.href='/questions/36144341/reduce-table-whit-css-if-posible'"
+										onclick="window.location.href='content.do?no=${d.bno }&page=${curpage}'"
 										class="cp">
 										<div class="votes">
 											<div class="mini-counts">
@@ -119,7 +119,7 @@
 												href="content.do?no=${d.bno }"
 												class="started-link"	><span title="${d.bdate }" class="relativetime">${rtime[d.bno]}</span></a>
 												
-											<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
+											<a href="userMain.do?mno=${d.mno }">${d.userid }</a> <span
 												class="reputation-score" title="reputation score " dir="ltr"></span>
 										</div>
 									</div>

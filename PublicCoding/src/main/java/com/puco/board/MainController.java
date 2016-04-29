@@ -1,14 +1,13 @@
 package com.puco.board;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.board.dao.BoardDAO;
 import com.puco.board.dao.BoardDTO;
@@ -23,7 +22,6 @@ import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
 import com.puco.category.dao.ScategoryDTO;
 
-
 @Controller("mc")
 public class MainController {
 
@@ -35,8 +33,8 @@ public class MainController {
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		// Dcategory 메뉴
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
+		/*List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);*/
 		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
 		
@@ -55,13 +53,25 @@ public class MainController {
 		if(dno==null)
 			dno="1";
 		
-		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
-		System.out.println("MainController ScategoryDTO Work");
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
+		
+		// Scategory 메뉴
+		List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+		for(int i=0;i<dlist.size();i++){
+			slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+		}
 		req.setAttribute("slist", slist);
+		// Scategory 메뉴 끝
+		System.out.println(slist.get(0).size());
+		System.out.println(slist.get(1).size());
+		System.out.println(slist.get(2).size());
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
-		
-		req.setAttribute("jsp", "lectureMain.jsp");
+		System.out.println("MainController dlist " + dlist);
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}
 	// 대분류 선택시, 소분류 출력 기능부 끝

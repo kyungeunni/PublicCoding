@@ -10,9 +10,7 @@ import java.io.*;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.puco.board.dao.BoardDTO;
@@ -41,9 +39,9 @@ public class MemberController {
 			StringTokenizer st = new StringTokenizer(res, "|");
 			email=st.nextToken();
 			mno=st.nextToken();
+			MemberDAO.loginUpdate(Integer.parseInt(mno));
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
-			session.setAttribute("pwd", pwd);
 			session.setAttribute("email", email);
 			session.setAttribute("mno", mno);
 			
@@ -88,43 +86,57 @@ public class MemberController {
 	
 	@RequestMapping("user_update.do")
 	public String user_update(HttpServletRequest req){
+		
 		req.setAttribute("jsp", "user_edit.jsp");
-		return "common/container.jsp";
+		return "common/main.jsp";
 	}
 	
 	@RequestMapping("user_update_ok.do")
 	public String user_update_ok(HttpServletRequest req) throws IOException{
-	    String path="c://download";
+		
+		String path="c://SpringDev//springStudy//.metadata//.plugins//org.eclipse.wst.server.core//tmp1//wtpwebapps//PublicCoding//resources//userprofiles";
 	    String enctype="EUC-KR";
 	    int size=1024*1024*100;
 	    MultipartRequest mr=
 	    		new MultipartRequest(req,path,size,enctype,
 	    				new DefaultFileRenamePolicy());
 	    String mno=mr.getParameter("mno");
-	      
+	    System.out.println(mno);
 	    String filename=mr.getOriginalFileName("upload");
+	    System.out.println(">>>>>>>>filename"+filename);
 	    MemberDTO info=MemberDAO.userdata(Integer.parseInt(mno));
+	    System.out.println(">>>>>>>>filename1");
 	    MemberDTO d=new MemberDTO();
+	    d.setMno(Integer.parseInt(mno));
 	    if(filename==null)
 	    {
-	    	d.setMimageURL(info.getMimageURL());
-	    	d.setFilesize(info.getFilesize());
+	    	if(!(info.getMimageURL().equals("defaultprofile.jpg"))){
+	    	File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
+	    	f.delete();
+	    	}
+	
+	    	d.setMimageURL("defaultprofile.jpg");
+	    	d.setFilesize(0);
 	    }
 	    else
 	    {
-	    	File f=new File("c:\\download\\"+filename);
+	    	File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+filename);
 	    	d.setMimageURL(filename);
 	    	d.setFilesize((int)f.length());
+	    	
 	    }
 
 	    // DB연동 
-	    boolean bCheck=MemberDAO.userUpdate(d);
+	    System.out.println(">>>>>>>>filename2");
+	    System.out.println(d.getMno());
+	    System.out.println(d.getFilesize());
+	    System.out.println(d.getMimageURL());
+	    MemberDAO.userUpdate(d);
 	    // 이동 
-	    if(bCheck==true)
-	    {
+	    System.out.println(">>>>>>>>filename3");
 	       if(filename!=null && info.getFilesize()>0)
 	       {
-	    	   File f=new File("c:\\download\\"+info.getMimageURL());
+	    	   File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
 	    	   f.delete();
 	    	   
 	/*     	   
@@ -146,7 +158,7 @@ public class MemberController {
 	     }
 	}
 	    	   */ 
-	       }
+	      
 	    }
 		return "common/user_update_ok.jsp";
 	}

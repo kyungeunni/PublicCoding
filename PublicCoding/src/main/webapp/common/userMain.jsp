@@ -13,24 +13,26 @@
 <body>
 	<section>
 		<article>
+
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 						<div class="well profile">
 							<div class="col-sm-6 col-md-4 profilepic" >
-							<c:if test="${vo.filesize==0 }">
-							<img src="resources/userprofiles/defaultprofile.jpg"
-								alt="" width="160" height="140" class="img-rounded">
+													
+							<img src="resources/userprofiles/${vo.mimageURL }"
+								alt="" width="160" height="160" class="img-rounded">
 								<div id="modifybtn">
 								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
-								value="수정" size=50></div>
-								</c:if>
- 							</div>
+								value="수정" size=50>
+								
+								
+								</div>
+								
+					</div>
 							<div class="col-sm-6 col-md-8">
-								<h4>${sessionScope.id }</h4>
 								<h3>${vo.mid }</h3>
-								<h4>${sessionScope.id }</h4>
 								<p>
 									<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;${vo.memail } <br />
 									<i class="glyphicon glyphicon-gift"></i>&nbsp;가입일: <fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일"/><br /> 

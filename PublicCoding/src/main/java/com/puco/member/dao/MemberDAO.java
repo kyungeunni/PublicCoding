@@ -2,6 +2,7 @@ package com.puco.member.dao;
 
 import java.io.Reader;
 import java.util.Locale;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -68,8 +69,16 @@ public class MemberDAO {
 		
 		return vo;
 	}
-	public static boolean userUpdate(MemberDTO d) {
-		// TODO Auto-generated method stub
-		return false;
+	public static void userUpdate(MemberDTO d) {
+		
+		SqlSession session = ssf.openSession(true);
+		session.update("userUpdate", d);
+		session.close();
+		
+	}
+	public static void loginUpdate(int mno){
+		SqlSession session = ssf.openSession(true);
+		session.update("loginUpdate",mno);
+		session.close();
 	}
 }

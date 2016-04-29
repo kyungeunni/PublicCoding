@@ -57,9 +57,9 @@
 				data-toggle="dropdown" href="boardmain.do"><i class="fa fa-book"></i>온라인
 					강의</a>
 				<ul class="dropdown-menu">
-					<c:forEach var="d" items="${ dlist }">
-						<li><a href="scategory.do?dno=${d.dno }">${d.dname }</a></li>
-					</c:forEach>
+					<li><a href="scategory.do?dno=1">Language</a></li>
+					<li><a href="scategory.do?dno=2">Database</a></li>
+					<li><a href="scategory.do?dno=3">Web</a></li>
 				</ul></li>
 
 
@@ -101,14 +101,14 @@
 						${sessionScope.id}
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="userMain.do"><i
-								class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
-						<li><a href="#"><i class="fa fa-pencil fa-fw"
-								aria-hidden="true"></i>개인정보수정</a></li>
-						<li><a href="#signout.do" data-target="#logout"
-							id="logoutBtn"> <i class="fa fa-sign-out fa-fw"></i>로그아웃
-						</a></li>
-					</ul></li>
+						<li><a href="userMain.do?mno=${sessionScope.mno }"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
+						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
+						<li>
+							<a href="#signout.do" data-target="#logout" id="logoutBtn">
+							<i class="fa fa-sign-out fa-fw"></i>로그아웃</a>
+						</li>
+					</ul>
+			   </li>
 			</c:if>
 		</ul>
 

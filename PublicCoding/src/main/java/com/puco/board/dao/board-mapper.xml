@@ -68,10 +68,12 @@
 	</insert>
 
 	<select id="getAnswerData" resultType="Answer" parameterType="int">
-		SELECT answer.Mno,rno,rdate,rhit,rcontent,MT.mid as userid
+		SELECT answer.Mno,rno,rdate,rhit,rcontent,MT.mid as userid,  NVL(MT2.mimageURL,'defaultprofile.jpg') as mimageurl
 		FROM Answer
 		LEFT JOIN pucomember MT
 		on MT.mno = answer.mno
+		LEFT JOIN pucomember MT2
+		on MT2.mno = answer.mno
 		<include refid="where-no" />
 	</select>
 
@@ -119,6 +121,11 @@
 		on MT.mno =mb.mno
 		order by bno desc
 		
+	</select>
+	
+	<select id="getimageUrl" resultType="String" parameterType="int">
+		SELECT NVL(mimageURL,'defaultprofile.jpg') FROM pucomember
+		WHERE mno=#{mno}
 	</select>
 
 </mapper>

@@ -1,8 +1,12 @@
 package com.puco.lectures;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
+import com.puco.category.dao.DcategoryDAO;
+import com.puco.category.dao.DcategoryDTO;
+import com.puco.category.dao.ScategoryDAO;
 import com.puco.category.dao.ScategoryDTO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
@@ -29,6 +33,7 @@ public class LectureController {
 		return "lectures/videolist.jsp";
 	}*/
 	
+	// 강의그룹 기능 생성부
 	@RequestMapping("courseGroup.do")
 	public String videoListData(HttpServletRequest req){
 		String sno=req.getParameter("sno");
@@ -37,14 +42,28 @@ public class LectureController {
 		if(sno==null)
 			sno="1";
 		
+		// Dcategory 메뉴
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		// Dcategory 메뉴 끝
+		
+		// Scategory 메뉴
+		List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+		for(int i=0;i<dlist.size();i++){
+			slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+		}
+		req.setAttribute("slist", slist);
+		// Scategory 메뉴 끝
+		
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
 		System.out.println("LectureController CourseGroupDTO Work");
 		req.setAttribute("glist", glist);
 		System.out.println("LectureController CourseGroup req.set Work");
 		System.out.println("LectureController glist " + glist);
-		req.setAttribute("gjsp", "inner_videolist.jsp");
-		return "lectures/videolist.jsp";
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
+		return "common/main.jsp";
 	}
+	// 강의그룹 기능 생성부 끝
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{

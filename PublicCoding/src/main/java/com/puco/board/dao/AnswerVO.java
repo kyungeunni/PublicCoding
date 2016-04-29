@@ -17,8 +17,16 @@ private int Rhit;
 private int Bno;
 private int Mno;
 private String userid;
+private String mimageurl;
 
 
+
+public String getMimageurl() {
+	return mimageurl;
+}
+public void setMimageurl(String mimageurl) {
+	this.mimageurl = mimageurl;
+}
 public String getUserid() {
 	return userid;
 }

@@ -125,6 +125,14 @@ public class QBoardDAO {
 		return list;
 	}
 	
+	public static String getimageUrl(int mno){
+		SqlSession session = ssf.openSession();
+		String list = session.selectOne("getimageUrl", mno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
+	
 	
 }
 
