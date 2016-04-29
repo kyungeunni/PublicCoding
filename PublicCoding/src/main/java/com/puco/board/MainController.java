@@ -1,5 +1,6 @@
 package com.puco.board;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -61,10 +62,15 @@ public class MainController {
 		// Dcategory 메뉴 끝
 		
 		// Scategory 메뉴
-		List<ScategoryDTO> slist=ScategoryDAO.ScategoryAllData(no);
+		List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+		for(int i=0;i<dlist.size();i++){
+			slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+		}
 		req.setAttribute("slist", slist);
 		// Scategory 메뉴 끝
-		
+		System.out.println(slist.get(0).size());
+		System.out.println(slist.get(1).size());
+		System.out.println(slist.get(2).size());
 		System.out.println("MainController scategory req.set Work");
 		System.out.println("MainController slist " + slist);
 		System.out.println("MainController dlist " + dlist);

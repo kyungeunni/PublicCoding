@@ -29,21 +29,23 @@
 									<div class="panel-heading">
 										<h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseOne">
+												href="#collapse${d.dno}">
 												<i class="fa fa-code"></i>${d.dname }</a>
 										</h4>
 									</div>
 									
 									
-									<div id="collapseOne" class="panel-collapse collapse in">
+									<div id="collapse${d.dno}" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<table class="table">
-											<c:forEach var="s" items="${slist }">
+											<c:forEach var="sl" items="${slist }">
+											<c:forEach var="s" items="${sl }">
 												<c:if test="${d.dno == s.dno }">
 													<tr>
 														<td><a href="courseGroup.do?sno=${s.sno }">${s.sname }</a></td>
 													</tr>
 												</c:if>
+												</c:forEach>
 											</c:forEach>	
 											</table>
 										</div>
