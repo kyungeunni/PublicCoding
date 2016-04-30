@@ -336,11 +336,20 @@ public class BoardController {
 		   
 		   req.setAttribute("no", Rno);
 		   req.setAttribute("page", page);
-		   return "";
+		   return "board/FBreply_ok.jsp";
+	   }
+	   @RequestMapping("FBreply_re_insert.do")
+	   public String FBreply_re_insert(HttpServletRequest req) throws Exception
+	   {
+		   req.setCharacterEncoding("EUC-KR");
+		   String bno=req.getParameter("bno");
+		   String page=req.getParameter("page");
+		   String Rno=req.getParameter("Rno");
+		   String Rcontent=req.getParameter("Rcontent");
 		   
+		   AnswerVO rvo= FreeBoardDAO.FBreplyParentData(Integer.parseInt(bno));
 		   
-		   
-		   
+		   return "board/FBreply_ok.jsp";
 	   }
 	
 	
