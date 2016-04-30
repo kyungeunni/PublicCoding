@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+	pageEncoding="EUC-KR" import="com.puco.board.dao.*,java.util.*"%>
+<jsp:useBean id="dao" class="com.puco.board.dao.BoardDAO"></jsp:useBean>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%
+	List<BoardDTO> d = dao.boardListData(0);
+%> --%>
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet" href="assets/css/newboard.css">
-
+<title>PUBLIC CODING</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/newboard.css" />
 </head>
 
 <body>

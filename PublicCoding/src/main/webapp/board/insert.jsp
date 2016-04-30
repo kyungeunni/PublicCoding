@@ -18,10 +18,9 @@
 
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="resources/input_tags/bootstrap-tagsinput.css">
-    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-    <link rel="stylesheet" href="resources/input_tags/app.css">
-    
+<link rel="stylesheet"	href="../resources/bootstrap-tagsinput-master/dist/bootstrap-tagsinput.css">
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+<link rel="stylesheet"	href="../resources/bootstrap-tagsinput-master/examples/assets/app.css">
 
 <link rel="stylesheet" href="assets/css/newboard.css" />
 

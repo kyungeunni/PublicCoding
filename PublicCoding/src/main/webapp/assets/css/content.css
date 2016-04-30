@@ -33,7 +33,7 @@ a:HOVER {
      text-align: center; 
     font-size:30px;
     margin:0px;
-   	
+	
 }
 
 li{
@@ -42,30 +42,13 @@ li{
 
 .fa {
 
-	/* font-size:50px; */
+	font-size:50px;
 	border:0px;
 }
 
-#content{
-	padding-top: 50px;
-}
-#mainbar
-{
-	margin: 0 auto;
-   	width: 950px;
-	float:left;
-	
-}
-
-#sidebar{
-	margin: 0 auto;
-	float:left;
-	width:150px;
-	
-}
 
 .content{
-	 margin: 0 auto;
+	    margin: 0 auto;
 	width:500px;
 	float:left;
 	
@@ -90,18 +73,4 @@ li{
 	font-size: 20px;
 	
 }
-
-.qnacontent{
-	    margin: 0 auto;
-   	width:800px;
-}
-
-.fa-angle-up, .fa-angle-down{
-	font-size:50px;
-	border:0px;
-}
-
-#tdvote{
-	width: 15%;
-	
-}
+>>>>>>> refs/remotes/origin/kyung-eun
