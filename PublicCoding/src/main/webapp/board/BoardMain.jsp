@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="EUC-KR" import="com.puco.board.dao.*,java.util.*"%>
+<jsp:useBean id="dao" class="com.puco.board.dao.BoardDAO"></jsp:useBean>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%
+	List<BoardDTO> d = dao.boardListData(0);
+%> --%>
 
 <!DOCTYPE HTML>
-
 <html>
 <head>
+<title>PUBLIC CODING</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
 </head>
+
 <body>
 		<!-- Main -->
 
@@ -309,17 +314,33 @@
 
 
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
-
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/modal.js"></script>
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="assets/js/popup.js"></script>
+	<script src="../assets/js/popup.js"></script>
+
+
+
+	<script type="text/javascript">
+		$(function() {
+			$(".dropdown").hover(function() {
+				$('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+				$(this).toggleClass('open');
+				$('b', this).toggleClass("caret caret-up");
+			}, function() {
+				$('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+				$(this).toggleClass('open');
+				$('b', this).toggleClass("caret caret-up");
+			});
+		});
+	</script>
+
+
+
 </body>
 </html>

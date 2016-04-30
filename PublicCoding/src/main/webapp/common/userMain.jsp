@@ -91,7 +91,6 @@
 						</div>
 					</div>
 				</div>
-<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 
@@ -113,6 +112,7 @@
 			</div>
 		</article>
 
+
 		<article>
 			<div class="text" >
 				
@@ -125,7 +125,7 @@
 					</c:forEach>
 				</ul>
 			
-			</div>
+				</div>
 			</div>
 		</article>
 
