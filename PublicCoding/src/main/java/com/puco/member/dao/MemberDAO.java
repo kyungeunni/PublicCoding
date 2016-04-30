@@ -81,4 +81,19 @@ public class MemberDAO {
 		session.update("loginUpdate",mno);
 		session.close();
 	}
+	
+	public static String getTagName(int tgno){
+		SqlSession session = ssf.openSession();
+		String tag = session.selectOne("getTagName",tgno);
+		session.close();
+		return tag;
+	}
+	public static String getTaglist(int mno) {
+		SqlSession session = ssf.openSession();
+		String tag = session.selectOne("getTagList",mno);
+		session.close();
+		return tag;
+		
+	}
+	
 }

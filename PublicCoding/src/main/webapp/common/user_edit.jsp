@@ -56,24 +56,35 @@ $(function(){
 				</div>
 				</div>
 				
-				
-				
+						
 		<input type="file" onchange="readURL(this);"
 								class="btn btn-default" name="upload" id="upload" 
 								value="파일선택" size=50>
 								</td>
 			</tr>
 		</table>
-		<div class="form-group"  style="width:300">
+			<div class="form-group"  style="width:300">
 								<label class="control-label col-sm-2" for="tags">Tags:</label>
 								<div class="col-sm-8">
 									<div class="example example_objects_as_tags">
 										<div class="bs-example">
-											<input type="text" id="tags" name="tags" placeholder="태그" />
+											<input type="text" id="tags" name="tags" value="${tags }" />
 										</div>
 									</div>
 								</div>
 							</div>						
+							
+<%-- 							<div class="form-group"  style="width:300">
+								<label class="control-label col-sm-2" for="tags">Tags:</label>
+								<div class="col-sm-8">
+									<div class="example example_typeahead">
+										<div class="bs-example">
+											<input type="text" id="tags" name="tags" value="${tags }" />
+										</div>
+									</div>
+								</div>
+							</div>	 --%>
+							
 									<!-- 글쓰기버튼 -->
 						<input type="hidden" id="taglist" name="taglist">
 						<input type="hidden" id="mno" name="mno" value="${sessionScope.mno }">

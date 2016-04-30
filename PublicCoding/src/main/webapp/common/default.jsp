@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -56,60 +56,45 @@
 		</article>
 
 		<article>
-		<center>
-		<div id="qnaboard">
-			<h3>Q&A게시판</h3>
-			
-			<table class="table table-hover table-striped table-bordered table-condensed">
-				
-				<c:forEach var="d" items="${qlist }">
-					<%-- 
-						<div class="mainQna">
-							<div class="summary">
-								<h3>
-									<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
-									</a>
-								</h3>
-							</div>
-
-							<div class="started">
-								<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
-									class="reputation-score" title="reputation score " dir="ltr"></span>
-							</div>
-						</div> --%>
-			
-				
-				<tbody>
-					<tr>
-						<td>${d.mno }</td>
-						<td>${d.bsubject }</td>
-						<td>${d.userid }</td>
-					</tr>
-				</c:forEach>
-				</tbody>
+			<div id="qnaboard">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
 						
-			</table>
+							<table class="table table-list-search">
+								<thead>
+									<tr>
+										<th class="title">제목</th>
+										<th class="id">글쓴이</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="q" items="${qlist }">
+										<tr>
+											<td class="title">${q.bsubject }</td>
+											<td class="id">${q.userid }</td>
+										</tr>
+									</c:forEach>
+							</table>
+							
+						</div>
+					</div>
+				</div>
 			</div>
-				</center>
-		</article>
-	
-
-
-
-		<article>
 		</article>
 
+
+
+
+		<article></article>
+
 		<article>
-			<center>
-				<span>자유게시판</span>
-			</center>
+			<span>자유게시판</span>
 		</article>
 
 		<article>
 			<div>
-				<center>
-					<span>스터디 게시판</span>
-				</center>
+				<span>스터디 게시판</span>
 			</div>
 		</article>
 
