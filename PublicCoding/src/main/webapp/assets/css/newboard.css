@@ -4466,3 +4466,103 @@ body.home-page .subheader, body.questions-page .subheader {
     color: #333;
     background-color: #fff;
 }
+
+
+/* Á¤¼±  freeboard css*/
+@charset "utf-8";
+
+#freeboard {
+	border-collapse:collapse;
+	margin:0px;
+	padding:0px;
+	box-shadow:3px 3px 10px #C8C8C8;
+	border-spacing:0;
+	font-family:"¸¼Àº °íµñ";
+	color:white;
+	
+}
+#freeboard .menubar {
+border:0px;
+border-color:white;
+color:black;
+
+background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+
+}
+
+#freeboard .listData {
+	border-bottom:1px solid #CCCCCC;
+	height:30px;
+}
+
+#freeboard .listData .tdcenter {
+	text-align:center;
+}
+#freeboard .listData .tdleft {
+	text-align:left;
+
+}
+#freeboard .writeBt {
+	background-color: #1c1d26;
+	border:0;
+	border-color: transparent;
+}
+#freeboard .button {
+	background-color: transparent;
+	border: #e44c65;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display:inline-block;
+	font-size:18px;
+}
+#freeboard .tdcenter {
+	text-align: center;
+}
+#freeboard .tdleft {
+	text-align: left;
+}
+
+#freelistmajor {
+	padding-top: 150px;
+}
+
+/* freeboard_content */
+#freeboardNav {
+	border-collapse: collapse;
+}
+#freeboardNav td {
+	
+	color:white;
+	font-family: "¸¼Àº °íµñ";
+	font-size: 16px;
+}
+#checkpwd {
+	border-collapse: collapse;
+	border-top-width: 2px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-color: #333;
+	border-top-color: #333;
+	
+}
+#checkpwd th,td {
+	margin: 0px;
+	paddng: 8px;
+	font-size: 9pt;
+}
+#checkpwd td {
+	border-bottom-width: 1px;
+	border-bottom-color: #666;
+	border-bottom-style: dotted;
+}
+#freetable_content th {
+	border: 0px;
+}
+
+#replyBtn {
+	float: right;
+}
+

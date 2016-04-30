@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.board.dao.BoardDAO;
 import com.puco.board.dao.BoardDTO;
+import com.puco.board.dao.FreeBoardDAO;
+import com.puco.board.dao.FreeBoardVO;
 import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
@@ -33,7 +35,9 @@ public class MainController {
 		map.put("start", 1);
 		map.put("end", 5);
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
 		req.setAttribute("qlist", list);
+		req.setAttribute("flist", flist);
 		// Dcategory 메뉴
 		/*
 		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
@@ -109,23 +113,6 @@ public class MainController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
-		return "common/main.jsp";
-	}
-
-	@RequestMapping("userMain.do")
-
-	public String userMain(HttpServletRequest req) {
-		Map map = new HashMap();
-		map.put("start", 1);
-		map.put("end", 5);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		req.setAttribute("qlist", list);
-		// Dcategory 메뉴
-		List<DcategoryDTO> dlist = DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
-
-		req.setAttribute("jsp", "userMain.jsp");
-
 		return "common/main.jsp";
 	}
 
