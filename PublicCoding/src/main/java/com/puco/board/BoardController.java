@@ -69,8 +69,6 @@ public class BoardController {
 		req.setAttribute("wimg",wimg);
 		System.out.println("content>wimg:"+wimg);
 		req.setAttribute("alist", alist);
-		System.out.println(alist.get(1).getRcontent());
-		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
 		req.setAttribute("no", no);
