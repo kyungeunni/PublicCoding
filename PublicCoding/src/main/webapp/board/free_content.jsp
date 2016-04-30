@@ -129,10 +129,17 @@ $(function(){
       <tr>
         <td align="right">
           
+          <c:if test="${sessionScope.id}==${vo.userid }">
           <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
-          	수정</button></a>
+          	수정</button></a></c:if>
+          
+          <c:if test="${sessionScope.id}!=${vo.userid }">
+          <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
+          <button class="button" id="updateBtn">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
+          	수정</button></a></c:if>
           
          <button id="delBtn" class="button"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;
          	삭제

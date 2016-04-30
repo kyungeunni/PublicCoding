@@ -71,24 +71,12 @@ public class FreeBoardDAO {
 		return vo;
 	}
 	//수정하기_ok
-	public static boolean boardUpdateOk(FreeBoardVO vo)
+	public static void boardUpdateOk(FreeBoardVO vo)
 	{
-		boolean bCheck=false;
-		SqlSession session=ssf.openSession();
-		String pwd=session.selectOne("freeboardGetPwd",vo.getBno());
+		SqlSession session=ssf.openSession(true);
+		session.insert("boardUpdateOk",vo);
 		session.close();
-		if(pwd.equals(vo.getMpwd()))
-		{
-			bCheck=true;
-			session=ssf.openSession(true);
-			session.update("freeboardUpdate",vo);
-			session.close();
-		}
-		else
-		{
-			bCheck=false;
-		}
-		return bCheck;
+		
 	}
 	public static int FBreplyCount(int bno)
 	{
