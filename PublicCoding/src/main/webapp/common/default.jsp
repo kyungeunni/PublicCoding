@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -55,61 +55,116 @@
 			</div>
 		</article>
 
+
 		<article>
 		<center>
-		<div id="qnaboard">
-			<h3>Q&A게시판</h3>
-			
-			<table class="table table-hover table-striped table-bordered table-condensed">
-				
-				<c:forEach var="d" items="${qlist }">
-					<%-- 
-						<div class="mainQna">
-							<div class="summary">
-								<h3>
-									<a href="content.do?no=${d.bno }" class="question-hyperlink">${d.bsubject }
-									</a>
-								</h3>
-							</div>
+			<div class="col-md-3">
+					<form action="#" method="get">
+						<div class="input-group">
+							<input class="form-control" id="system-search" name="q" 
+							placeholder="검색어를 입력해주세요" required>
 
-							<div class="started">
-								<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
-									class="reputation-score" title="reputation score " dir="ltr"></span>
-							</div>
-						</div> --%>
-			
-				
-				<tbody>
-					<tr>
-						<td>${d.mno }</td>
-						<td>${d.bsubject }</td>
-						<td>${d.userid }</td>
-					</tr>
-				</c:forEach>
-				</tbody>
-						
-			</table>
+						</div>
+					</form>
 			</div>
-				</center>
-		</article>
-	
-
-
-
-		<article>
-		</article>
-
-		<article>
-			<center>
-				<span>자유게시판</span>
 			</center>
 		</article>
 
 		<article>
+			<div id="qnaboard">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
+							Q & A 게시판	
+							<table class="table table-list-search">
+								<thead>
+									<tr>
+										<th class="no">No</th>
+										<th class="title">제목</th>
+										<th class="id">글쓴이</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<c:forEach var="q" items="${qlist }">
+										<tr>
+											<td class="no">${q.bno }</td>
+											<td class="title">${q.bsubject }</td>
+											<td class="id">${q.userid }</td>
+										</tr>
+									</c:forEach>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+
+
+
+
+		<article>
+				<div id="qnaboard">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
+							Q & A 게시판	
+							<table class="table table-list-search">
+								<thead>
+									<tr>
+										<th class="no">No</th>
+										<th class="title">제목</th>
+										<th class="id">글쓴이</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<c:forEach var="q" items="${qlist }">
+										<tr>
+											<td class="no">${q.bno }</td>
+											<td class="title">${q.bsubject }</td>
+											<td class="id">${q.userid }</td>
+										</tr>
+									</c:forEach>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<article>
 			<div>
-				<center>
-					<span>스터디 게시판</span>
-				</center>
+					<div id="qnaboard">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
+							Q & A 게시판	
+							<table class="table table-list-search">
+								<thead>
+									<tr>
+										<th class="no">No</th>
+										<th class="title">제목</th>
+										<th class="id">글쓴이</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<c:forEach var="q" items="${qlist }">
+										<tr>
+											<td class="no">${q.bno }</td>
+											<td class="title">${q.bsubject }</td>
+											<td class="id">${q.userid }</td>
+										</tr>
+									</c:forEach>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 			</div>
 		</article>
 
