@@ -3,7 +3,8 @@
 
 /* reset */
 * { margin:0;  padding:0;}
-ol,ul { list-style: none; }
+ol,ul { list-style: none;  }
+li{color:black; }
 a { outline:0; text-decoration:none; color:#ffffff; }
 img { border:0;}
 body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; } 
@@ -54,6 +55,10 @@ nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
 /* login css */
+
+
+
+
 article:nth-child(1) .container{
 margin-top:60px;
 margin-left:-280px;
@@ -236,4 +241,14 @@ span.tags
 	article:nth-child(1) span { display:none;}
 }
 
+.profilepic{
+	margin-top: 20px;
+}
 
+#modifybtn{
+	
+    margin: auto;
+    padding-top: 20px;
+    
+    
+}

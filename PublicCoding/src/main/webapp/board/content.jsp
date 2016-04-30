@@ -9,13 +9,13 @@
 -->
 <html>
 <head>
-<meta charset="utf-8" />
+<meta charset="EUC-KR" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/content.css">ㄴ
+<link rel="stylesheet" href="assets/css/content.css">
 
 <!-- 에디터 -->
 <link href="resources/se/css/smart_editor2.css" rel="stylesheet"
@@ -23,7 +23,7 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="resources/se/js/HuskyEZCreator.js"
-	charset="utf-8"></script>
+	charset="EUC-KR"></script>
 
 
 </head>
@@ -59,7 +59,8 @@
 										<p>${d.bcontent}</p>
 
 										<p id="written">
-											<a href="#"> <img src="assets/vote-up.png"> ${d.userid} </a> 님이 질문
+											<a href="userMain.do?mno=${d.mno}"><img src="resources/userprofiles/${wimg }"
+								alt="" width="40" height="40" class="img-rounded"> ${d.userid} </a> 님이 질문
 										<p>
 									</td>
 								</tr>
@@ -90,7 +91,8 @@
 										<p>${as.rcontent}</p>
 
 										<p id="written">
-											<a href="#"> <img src="assets/vote-up.png"> ${as.userid }</a> 님의 답변
+											<a href="userMain.do?mno=${as.mno}"> <img src="resources/userprofiles/${as.mimageurl }"
+								alt="" width="40" height="40" class="img-rounded"> ${as.userid }</a> 님의 답변
 										<p>
 									</td>
 								</tr>
@@ -119,7 +121,7 @@
 							
 								<input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
-								value="목록">
+								value="목록" size=50>
 						</div>
 						
 

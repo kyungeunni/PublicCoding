@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!DOCTYPE HTML>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="assets/css/newboard.css" />
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/newboard.css">
+
 </head>
+
 <body>
 		<!-- Main -->
 
@@ -65,7 +67,7 @@
 								<div class="question-summary narrow">
 									<!-- 카운트,뷰,보트 영역 -->
 									<div
-										onclick="window.location.href='/questions/36144341/reduce-table-whit-css-if-posible'"
+										onclick="window.location.href='content.do?no=${d.bno }&page=${curpage}'"
 										class="cp">
 										<div class="votes">
 											<div class="mini-counts">
@@ -117,7 +119,7 @@
 												href="content.do?no=${d.bno }"
 												class="started-link"	><span title="${d.bdate }" class="relativetime">${rtime[d.bno]}</span></a>
 												
-											<a href="users.do?no=&id=${d.mno }">${d.userid }</a> <span
+											<a href="userMain.do?mno=${d.mno }">${d.userid }</a> <span
 												class="reputation-score" title="reputation score " dir="ltr"></span>
 										</div>
 									</div>
@@ -309,17 +311,33 @@
 
 
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
-
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/jquery.dropotron.min.js"></script>
+	<script src="../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/modal.js"></script>
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="assets/js/popup.js"></script>
+	<script src="../assets/js/popup.js"></script>
+
+
+
+	<script type="text/javascript">
+		$(function() {
+			$(".dropdown").hover(function() {
+				$('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+				$(this).toggleClass('open');
+				$('b', this).toggleClass("caret caret-up");
+			}, function() {
+				$('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+				$(this).toggleClass('open');
+				$('b', this).toggleClass("caret caret-up");
+			});
+		});
+	</script>
+
+
+
 </body>
 </html>
