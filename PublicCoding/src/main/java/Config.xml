@@ -8,6 +8,8 @@
 		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
 		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
 		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup"/>
+				<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply"/>
+		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
