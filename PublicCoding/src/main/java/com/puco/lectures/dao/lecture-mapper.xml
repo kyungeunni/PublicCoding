@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.puco.category.dao.category-mapper">
+<mapper namespace="com.puco.lectures.dao.lecture-mapper">
 	<select id="CourseGroupAllData" resultType="CourseGroup" parameterType="int">
-		SELECT gno,gname,gimageurl,totalcno,gintro
-		FROM CourseGroup
-		WHERE sno=#{no}
+	 SELECT * FROM CourseGroup WHERE sno=#{sno}
 	</select>
 </mapper>

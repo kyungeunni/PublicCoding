@@ -33,6 +33,7 @@
 								
 					</div>
 							<div class="col-sm-6 col-md-8">
+								<h4>${sessionScope.id }</h4>
 								<h3>${vo.mid }</h3>
 								<p>
 									<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;${vo.memail } <br />
@@ -91,7 +92,6 @@
 						</div>
 					</div>
 				</div>
-<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 

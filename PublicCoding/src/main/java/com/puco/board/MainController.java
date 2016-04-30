@@ -15,6 +15,8 @@ import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.lectures.dao.CourseGroupDAO;
+import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
 import com.puco.category.dao.DcategoryDAO;
@@ -26,13 +28,16 @@ import com.puco.category.dao.ScategoryDTO;
 public class MainController {
 
 	@RequestMapping("main.do")
+		
 		public String Main(HttpServletRequest req) {
 		Map map=new HashMap();
 		map.put("start", 1);
 		map.put("end", 5);
+		System.out.println("5밑");
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		req.setAttribute("qlist", list);
 		// Dcategory 메뉴
+
 		/*List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);*/
 		// Dcategory 메뉴 끝
@@ -45,14 +50,14 @@ public class MainController {
 	// 대분류 선택시, 소분류 출력 기능부
 	@RequestMapping("scategory.do")
 	public String ScategoryAllData(HttpServletRequest req){
-		System.out.println("MainController Scategory Work");
 		String dno=req.getParameter("dno");
-		System.out.println("getParameter from main.do " + dno);
-		int no = Integer.parseInt(dno);
-		
+		String sno=req.getParameter("sno");
 		if(dno==null)
 			dno="1";
-		
+		int no = Integer.parseInt(dno);
+		if(sno==null)
+			sno="1";
+		int no1 = Integer.parseInt(sno);
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);
@@ -65,12 +70,15 @@ public class MainController {
 		}
 		req.setAttribute("slist", slist);
 		// Scategory 메뉴 끝
-		System.out.println(slist.get(0).size());
-		System.out.println(slist.get(1).size());
-		System.out.println(slist.get(2).size());
-		System.out.println("MainController scategory req.set Work");
-		System.out.println("MainController slist " + slist);
-		System.out.println("MainController dlist " + dlist);
+		
+		//////////////////////////////////////////////////////
+		List<CourseGroupDTO> dto;
+		if(no1==1){
+			dto = CourseGroupDAO.CourseGroupAllData(no1);
+		}else{
+			dto = CourseGroupDAO.CourseGroupAllData(no1);
+		}
+		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}
@@ -93,10 +101,8 @@ public class MainController {
 		map.put("end", end);
 		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
 		for(QnaBoardVO v:list){
-
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
-
 		int totalpage=QBoardDAO.BoardTotalPage();
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
@@ -126,7 +132,6 @@ public class MainController {
 		
 		return "common/main.jsp";
 	}
-	
 	
 	
 	

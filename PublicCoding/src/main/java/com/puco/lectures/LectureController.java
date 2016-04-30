@@ -3,11 +3,7 @@ package com.puco.lectures;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
-import com.puco.category.dao.DcategoryDAO;
-import com.puco.category.dao.DcategoryDTO;
-import com.puco.category.dao.ScategoryDAO;
-import com.puco.category.dao.ScategoryDTO;
+import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.*;
@@ -17,6 +13,10 @@ public class LectureController {
 	/*@RequestMapping("videolist.do")
 	public String videoListData(HttpServletRequest req){
 		//req.setAttribute("msg", "°Ô½ÃÆÇ");
+@Controller("vc")
+public class LectureController {
+	/*@RequestMapping("lectureMain.do")
+	public String lectureMainData(HttpServletRequest req){
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
 			strmode="1";
