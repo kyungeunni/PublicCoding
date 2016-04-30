@@ -1,5 +1,6 @@
 package com.puco.lectures;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
@@ -47,7 +48,10 @@ public class LectureController {
 		// Dcategory 메뉴 끝
 		
 		// Scategory 메뉴
-		List<ScategoryDTO> slist=ScategoryDAO.ScategoryReAllData(no);
+		List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+		for(int i=0;i<dlist.size();i++){
+			slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+		}
 		req.setAttribute("slist", slist);
 		// Scategory 메뉴 끝
 		

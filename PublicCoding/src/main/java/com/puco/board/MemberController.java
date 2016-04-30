@@ -10,9 +10,7 @@ import java.io.*;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.puco.board.dao.BoardDTO;
@@ -24,7 +22,6 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
-
 
 @Controller("mc")
 public class MemberController {

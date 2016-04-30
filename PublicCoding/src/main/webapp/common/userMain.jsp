@@ -155,7 +155,6 @@
 
 	<script type='text/javascript'>
 	$(document).ready(function() {
-
 		$('#calendar').fullCalendar({
 			theme: true,
 			header: {
