@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.board.dao.BoardDAO;
 import com.puco.board.dao.BoardDTO;
+import com.puco.board.dao.FreeBoardDAO;
+import com.puco.board.dao.FreeBoardVO;
 import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
 import com.puco.controller.Controller;
@@ -31,7 +33,9 @@ public class MainController {
 		map.put("start", 1);
 		map.put("end", 5);
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
 		req.setAttribute("qlist", list);
+		req.setAttribute("flist", flist);
 		// Dcategory ¸Þ´º
 		/*List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		req.setAttribute("dlist", dlist);*/
