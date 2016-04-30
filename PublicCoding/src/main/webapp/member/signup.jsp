@@ -2,8 +2,6 @@
 	pageEncoding="EUC-KR"%>
 
 <!DOCTYPE html>
-
-
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -17,13 +15,29 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
-
+<!-- //////////////////// 중복체크 shadowBox /////////////////// -->
+<link rel="stylesheet" type="text/css" href="shadow/css/shadowbox.css">
+<script type="text/javascript" src="shadow/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:["iframe"]
+});
+function idcheck() {
+	Shadowbox.open({
+		content:'member/idcheck.jsp',
+		player:'iframe',
+		width:240,
+		height:150,
+		title:'아이디 중복체크'
+	});
+}
+</script>
+<!-- //////////////////// 중복체크 shadowBox /////////////////// -->
 
 </head>
 <body>
 
-
+	<center>
 		<legend class="sumain"></legend>
 
 
@@ -34,42 +48,56 @@
 		<div class="col-lg-6 col-sm-8 col-xs-12 col-lg-offset-3 col-sm-offset-2">
 			
  </form> -->
-
+		<h4 class="modal-title" id="lineModalLabel">
+						<center>PUCO의 회원이 되어 주세요</center>
+					</h4>
 		<div class="row row-gap-medium ng-scope">
 			<!-- ngView:  -->
 			<div data-ng-view="" class="ng-scope">
 				<div class="form-box ng-scope" style="padding: 0 35px 35px 35px;">
 
-					<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
-						role="form">
+					<form class="form-horizontal ng-pristine ng-valid ng-valid-email" role="form"
+						name="join_frm" action="../member/signup_ok.jsp" method="post">
 
 						<div class="row">
 							<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-								<label for="firstname">아이디</label> <input type="text"
-									class="form-control ng-pristine ng-untouched ng-valid"
-									id="firstName" placeholder="아이디">
+								<label for="firstname">아이디</label>
+								<input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+									id="firstName" placeholder="아이디" name="id" readonly>
+								<br>
+								<input type="button" class="btn btn-block btn-primary" value="중복체크" onclick="idcheck()">
 							</div>
 							<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
-								<label for="lastName">비밀번호</label> <input type="password"
-									class="form-control ng-pristine ng-untouched ng-valid"
-									id="password" placeholder="비밀번호">
+								<label for="password1">비밀번호</label>
+								<input type="password" class="form-control ng-pristine ng-untouched ng-valid"
+									id="password" placeholder="비밀번호" name=pwd required>
+									&nbsp;
+								<label for="password2">재입력</label>
+								<input type="password" class="form-control ng-pristine ng-untouched ng-valid" 
+									placeholder="재입력" name="pwd1" required>
 							</div>
 						</div>
 
 						<div class="row onboarding-form-group">
 							<div class="col-sm-12 col-xs-12">
 								<div>
-									<label for="email">E-mail</label> <input type="text"
-										class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
-										id="email" placeholder="E-mail">
+									<label for="email">E-mail</label>
+									<input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
+										id="email" placeholder="E-mail" name="email">
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-mm-6 col-xs-12">
+							<div class="col-sm-6 col-xs-12">
 								<legend class="sumain"></legend>
 								<button type="submit" class="btn btn-block btn-primary">회원가입</button>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<legend class="sumain"></legend>
+								<a href="main.do">
+									<input type="button" class="btn btn-block btn-primary" value="취소">
+								</a>
 							</div>
 						</div>
 					</form>
@@ -102,40 +130,20 @@
 						<br>
 						<p class="col-xs-6 col-xs-offset-3 bold text-center">
 							이미 가입 하셨나요? <br>
-							<br> <a href="signin.jsp"> <input type="button"
-								class="button special" value="로그인">
-							</a>
+							<br>
+							
+								<input type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#login" value="로그인">
+								<!-- class="btn btn-block btn-primary" -->
+							
 						</p>
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>
-
-
-
+	</center>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
