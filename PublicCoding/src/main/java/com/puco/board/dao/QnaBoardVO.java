@@ -20,6 +20,7 @@ public class QnaBoardVO {
 	private String tag3;
 	private String userid;
 	private int answer;
+	
 
 	
 	public int getAnswer() {

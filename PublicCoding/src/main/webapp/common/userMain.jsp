@@ -1,42 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
-
 </head>
 
 <body>
-
 	<section>
 		<article>
+
 			<div class="container">
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
 						<div class="well profile">
-							<div class="col-sm-6 col-md-4">
-								<img src="http://img.visualdive.co.kr/sites/2/2015/10/gisa2.jpg"
-									alt="" width="160" height="140"
-									class="img-rounded" />
-							</div>
+							<div class="col-sm-6 col-md-4 profilepic" >
+													
+							<img src="resources/userprofiles/${vo.mimageURL }"
+								alt="" width="160" height="160" class="img-rounded">
+							
+								
+								<div id="modifybtn">								
+								<c:if test="${sessionScope.mno==vo.mno}"><input type="button"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
+								value="수정" size=50></c:if>
+								</div>
+								
+								
+					</div>
 							<div class="col-sm-6 col-md-8">
-								<h4>User Id</h4>
+								<h3>${vo.mid }</h3>
 								<p>
-									<i class="glyphicon glyphicon-envelope"></i> email@email. <br />
-									<i class="glyphicon glyphicon-globe"></i> www.jquery2dotnet.com <br /> 
-									<i class="glyphicon glyphicon-gift"></i>June 02, 1988
+									<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;${vo.memail } <br />
+									<i class="glyphicon glyphicon-gift"></i>&nbsp;가입일: <fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일"/><br /> 
+									<i class="glyphicon glyphicon-globe"></i> &nbsp;www.jquery2dotnet.com <br /> 
+									<i class="fa fa-eye" aria-hidden="true">&nbsp;포스트 뷰:</i><br /> 
+									<i class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간: ${login }</i><br /> 
 									
-									<p><strong>Skills: </strong>
-                        <span class="tags">html5</span> 
-                        <span class="tags">css3</span>
-                        <span class="tags">jquery</span>
-                        <span class="tags">bootstrap3</span>
+									<p><strong><font color="red"><i class="fa fa-heart" aria-hidden="true"></i></font>&nbsp;favorite: </strong>
+                        <c:forEach var="tag" items="${tags }">
+                        <span class="tags">${tag }</span></c:forEach> 
+   
                     </p>
 									
 									
@@ -45,10 +53,10 @@
 							<div class="col-xs-12 divider text-center">
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong> 20 </strong>
+										<strong> ${vo.mpoint }  </strong>
 									</h2>
 									<p>
-										<small>답변수</small>
+										<small>PUCO점수</small>
 									</p>
 									<button class="btn btn-success btn-block">
 										<span class="fa fa-plus-circle"></span> 답변 보기
@@ -57,7 +65,7 @@
 
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong>245</strong>
+										<strong>${qno }</strong>
 									</h2>
 									<p>
 										<small>질문수</small>
@@ -69,10 +77,10 @@
 
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong>245</strong>
+										<strong>${ano} </strong>
 									</h2>
 									<p>
-										<small>수강강의</small>
+										<small>답변수</small>
 									</p>
 									<button class="btn btn-info btn-block">
 										<span class="fa fa-user"></span> 수강강의 보기
@@ -83,6 +91,7 @@
 						</div>
 					</div>
 				</div>
+<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 
@@ -92,13 +101,31 @@
 
 		<article>
 			<div class="text">
-				<span>내가 쓴 글</span>
+				<span>질문글</span>
+				<div id="u_qalist">
+
+				<ul>
+				<c:forEach var="q" items="${qlist }">
+					<li><a href="content.do?no=${q.bno}&page=1">${q.bsubject}</a></li>
+					</c:forEach>
+				</ul>
+			</div>
 			</div>
 		</article>
 
 		<article>
-			<div class="text">
-				<span>나의 통계</span>
+			<div class="text" >
+				
+				<div id="u_qalist" >
+
+							<h3>답변 </h3>
+				<ul style="color:black">
+				<c:forEach var="a" items="${alist }">
+					<li><a href="content.do?no=${a.bno}">${a.bsubject}</a></li>
+					</c:forEach>
+				</ul>
+			
+			</div>
 			</div>
 		</article>
 
@@ -199,37 +226,6 @@
 		
 	});
 	</script>
-
-
-
-
-
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/modal.js"></script>
-	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="../assets/js/popup.js"></script>
-
-
-
-	<script type="text/javascript">
-		$(function() {
-			$(".dropdown").hover(function() {
-				$('.dropdown-menu', this).stop(true, true).fadeIn("fast");
-				$(this).toggleClass('open');
-				$('b', this).toggleClass("caret caret-up");
-			}, function() {
-				$('.dropdown-menu', this).stop(true, true).fadeOut("fast");
-				$(this).toggleClass('open');
-				$('b', this).toggleClass("caret caret-up");
-			});
-		});
-	</script>
-
 
 
 </body>
