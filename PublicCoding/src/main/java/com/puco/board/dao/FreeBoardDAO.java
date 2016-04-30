@@ -71,18 +71,45 @@ public class FreeBoardDAO {
 		return vo;
 	}
 	//수정하기_ok
-	public static void boardUpdateOk(FreeBoardVO vo)
+	public static void freeboardUpdateOk(FreeBoardVO vo)
 	{
 		SqlSession session=ssf.openSession(true);
-		session.insert("boardUpdateOk",vo);
+		String mno=session.selectOne("freeboardGetMno",vo.getMno());
+		session.insert("freeboardUpdateOk",vo);
 		session.close();
 		
 	}
-	public static int FBreplyCount(int bno)
+	public static int FBreplyCount(int Rno)
 	{
 		SqlSession session=ssf.openSession();
-		int count=session.selectOne("FBreplyCount",bno);
+		int count=session.selectOne("FBreplyCount",Rno);
 		session.close();
 		return count;
+	}
+	public static List<AnswerVO> FBreplyAllData(Map map)
+	{
+		SqlSession session=ssf.openSession();
+		List<AnswerVO> list=session.selectList("FBreplyAllData",map);
+		session.close();
+		return list;
+	}
+	public static void FBreplyInsert(AnswerVO vo)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.insert("FBreplyInsert",vo);
+		session.close();
+	}
+	public static void FBreplyUpdate(AnswerVO vo)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.update("FBreplyUpdate",vo);
+		session.close();
+	}
+	public static AnswerVO FBreplyParentData(int bno)
+	{
+		SqlSession session=ssf.openSession();
+		AnswerVO vo=session.selectOne("FBreplyParentData",bno);
+		session.close();
+		return vo;
 	}
 }

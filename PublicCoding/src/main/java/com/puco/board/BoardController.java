@@ -288,7 +288,8 @@ public class BoardController {
 			vo.setBno(Integer.parseInt(bno));
 			vo.setBsubject(bsubject);
 			vo.setBcontent(bcontent);
-			FreeBoardDAO.freeboardInsert(vo);
+			
+			FreeBoardDAO.freeboardUpdateOk(vo);
 			
 			
 			return "board/freeboard_update_ok.jsp";
@@ -310,6 +311,36 @@ public class BoardController {
 		   req.setAttribute("bno", bno);
 		   req.setAttribute("page", page);
 		   return "user/board/freeboard_update_ok.jsp";*/
+	   }
+	   @RequestMapping("FBreply_insert.do")
+	   public String FBreply_insert(HttpServletRequest req) throws Exception
+	   {
+		   req.setCharacterEncoding("EUC-KR");
+		   String page=req.getParameter("page");
+		   String Rno=req.getParameter("Rno");
+		   String Rcontent=req.getParameter("Rcontent");
+		   String Mno=req.getParameter("Mno");
+		   
+		   HttpSession session=req.getSession();
+		   String userid=(String)session.getAttribute("userid");
+		   String mno=(String)session.getAttribute("mno");
+		   //String name=(String)session.getAttribute("name");
+		   
+		   AnswerVO vo=new AnswerVO();
+		   vo.setRno(Integer.parseInt(Rno));
+		   vo.setMno(Integer.parseInt(Mno));
+		   vo.setUserid(userid);
+		   vo.setRcontent(Rcontent);
+		   
+		   FreeBoardDAO.FBreplyInsert(vo);
+		   
+		   req.setAttribute("no", Rno);
+		   req.setAttribute("page", page);
+		   return "";
+		   
+		   
+		   
+		   
 	   }
 	
 	

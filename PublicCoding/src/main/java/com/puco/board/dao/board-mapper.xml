@@ -125,7 +125,7 @@
 	</select>
 	
 	<select id="getimageUrl" resultType="String" parameterType="int">
-		SELECT NVL(mimageURL,'defaultprofile.jpg') FROM pucomember
+		SELECT NVL(mimageURL,'han.png') FROM pucomember
 		WHERE mno=#{mno}
 	</select>
 	
@@ -170,14 +170,16 @@
 		#{mno},#{bsubject},#{bcontent}, 2)
 	</insert>
 	<select id="freeboardGetMno" resultType="String" parameterType="int">
-	  SELECT pwd FROM mainboard
+	  SELECT mno FROM mainboard
 	  <include refid="where-no" />
 	</select>
 	<update id="freeboardUpdate" parameterType="FBoard">
 	  UPDATE mainboard SET
-     bsubject=#{bsubject},bcontent=#{bcontent}
+     bsubject=#{bsubject},bcontent=#{bcontent},userid=#{userid}
      <include refid="where-no" />
 	</update>
+	
+	
 
 
 	
