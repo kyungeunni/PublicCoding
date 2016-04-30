@@ -13,7 +13,7 @@
 		FROM(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3
 		FROM mainboard 
 		WHERE BTno=1
-		ORDER BY rownum DESC))
+		ORDER BY bno DESC))
 		WHERE num BETWEEN #{start} AND #{end}) MB
 		LEFT JOIN
 		tag t1
