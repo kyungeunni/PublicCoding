@@ -116,5 +116,10 @@ public class MemberDAO {
 		return map;
 		
 	}
-	
+	public static int memberIdCheck(String id){
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("memberIdCount",id);
+		session.close();
+		return count;
+	}
 }

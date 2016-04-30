@@ -176,8 +176,6 @@ System.out.println("vo°¡Á®¿È??>>>"+vo.getMemail());
 		return "common/user_update_ok.jsp";
 	}
 
-
-
 	@RequestMapping("signout.do")
 	public String signout(HttpServletRequest req){
 		HttpSession session=req.getSession();
@@ -185,5 +183,17 @@ System.out.println("vo°¡Á®¿È??>>>"+vo.getMemail());
 		return "member/signout.jsp";
 	}
 
-
+	@RequestMapping("signup.do")
+	public String memberSignup(HttpServletRequest req) {
+		req.setAttribute("jsp", "../member/signup.jsp");
+		return "common/main.jsp";
+	}
+	
+	@RequestMapping("idcheck_ok.do")
+	public String memberIdCheck(HttpServletRequest req){
+		String id=req.getParameter("id");
+		int count=MemberDAO.memberIdCheck(id);
+		req.setAttribute("count", count);
+		return "member/idcheck_ok.jsp";
+	}
 }
