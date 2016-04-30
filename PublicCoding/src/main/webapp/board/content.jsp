@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<<<<<<< HEAD
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -193,6 +195,5 @@
 		src="../resources/bootstrap-tagsinput-master/examples/assets/app.js"></script>
 	<script
 		src="../resources/bootstrap-tagsinput-master/examples/assets/app_bs3.js"></script>
-
 </body>
 </html>

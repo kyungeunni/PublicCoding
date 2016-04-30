@@ -105,11 +105,11 @@
 					href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
 			</c:if>
 
-			<c:if test="${sessionScope.id!=null }">
-				<li class="dropdown" id="loginok"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
-						${sessionScope.id}
-				</a>
+			<c:if test="${sessionScope.id!=null }">		
+				<li class="dropdown" id="loginok">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><img src="resources/userprofiles/${sessionScope.mimageurl }"
+								alt="" width="29" height="29" class="img-rounded">
+						 ${sessionScope.id}</a>
 					<ul class="dropdown-menu">
 						<li><a href="userMain.do?mno=${sessionScope.mno }"><i class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
 						<li><a href="#"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>개인정보수정</a></li>
