@@ -27,7 +27,7 @@
 										</c:if>
 										
 										<c:if test="${sessionScope.id==null }">
-										<h5 ><a href="#" onclick="popup_signin()" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+										<h5 ><a href="#"  data-toggle="modal" data-target="#login"  id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
 										</c:if>
 								</div>
 			</div>
