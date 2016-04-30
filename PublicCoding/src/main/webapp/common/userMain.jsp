@@ -22,13 +22,14 @@
 													
 							<img src="resources/userprofiles/${vo.mimageURL }"
 								alt="" width="160" height="160" class="img-rounded">
-								<div id="modifybtn">
-								<input type="button"
+							
+								
+								<div id="modifybtn">								
+								<c:if test="${sessionScope.mno==vo.mno}"><input type="button"
 								class="btn btn-default" name="list" id="list" onclick="window.location.href='user_update.do?mno=${sessionScope.mno }'"
-								value="수정" size=50>
-								
-								
+								value="수정" size=50></c:if>
 								</div>
+								
 								
 					</div>
 							<div class="col-sm-6 col-md-8">
@@ -64,7 +65,7 @@
 
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong>245</strong>
+										<strong>${qno }</strong>
 									</h2>
 									<p>
 										<small>질문수</small>
@@ -76,10 +77,10 @@
 
 								<div class="col-xs-12 col-sm-4 emphasis">
 									<h2>
-										<strong>245</strong>
+										<strong>${ano} </strong>
 									</h2>
 									<p>
-										<small>수강강의</small>
+										<small>답변수</small>
 									</p>
 									<button class="btn btn-info btn-block">
 										<span class="fa fa-user"></span> 수강강의 보기
@@ -90,6 +91,7 @@
 						</div>
 					</div>
 				</div>
+<!-- //>>>>>>> refs/remotes/origin/master -->
 			</div>
 		</article>
 
@@ -99,26 +101,31 @@
 
 		<article>
 			<div class="text">
-				<span>내가 쓴 글</span>
+				<span>질문글</span>
 				<div id="u_qalist">
-				<h3>질문과 답변</h3>
-				<table>
-					<tr><td>How can I make an instance of a block of Blockly with
-						Javascript?</td></tr>
-					<tr>	<td>Grocery CRUD Join tabl</td></tr>
-					<tr><td>Apache folder not showing up</td></tr>
-					<tr><td>How can I make an instance of a block of Blockly with
-						Javascript?</td></tr>
-					<tr><td>Grocery CRUD Join table</td></tr>
-					<tr><td>Apache folder not showing up</td></tr>
-				</table>
+
+				<ul>
+				<c:forEach var="q" items="${qlist }">
+					<li><a href="content.do?no=${q.bno}&page=1">${q.bsubject}</a></li>
+					</c:forEach>
+				</ul>
 			</div>
 			</div>
 		</article>
 
 		<article>
-			<div class="text">
-				<span>방문횟수</span>
+			<div class="text" >
+				
+				<div id="u_qalist" >
+
+							<h3>답변 </h3>
+				<ul style="color:black">
+				<c:forEach var="a" items="${alist }">
+					<li><a href="content.do?no=${a.bno}">${a.bsubject}</a></li>
+					</c:forEach>
+				</ul>
+			
+			</div>
 			</div>
 		</article>
 
@@ -148,7 +155,6 @@
 
 	<script type='text/javascript'>
 	$(document).ready(function() {
-
 		$('#calendar').fullCalendar({
 			theme: true,
 			header: {

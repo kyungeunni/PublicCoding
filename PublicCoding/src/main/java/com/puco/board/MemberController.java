@@ -35,15 +35,18 @@ public class MemberController {
 		String res = MemberDAO.memberLogin(id, pwd);
 		String email="";
 		String mno="";
+		String mimageurl="";
 		if(!(res.equals("NOID")||res.equals("NOPWD"))) {
 			StringTokenizer st = new StringTokenizer(res, "|");
 			email=st.nextToken();
 			mno=st.nextToken();
+			mimageurl=st.nextToken();
 			MemberDAO.loginUpdate(Integer.parseInt(mno));
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("email", email);
 			session.setAttribute("mno", mno);
+			session.setAttribute("mimageurl", mimageurl);
 			
 		}
 		req.setAttribute("res", res);
@@ -64,16 +67,10 @@ public class MemberController {
 @RequestMapping("userMain.do")
 	
 	public String userMain(HttpServletRequest req){
-		Map map=new HashMap();
-		map.put("start", 1);
-		map.put("end", 5);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		req.setAttribute("qlist", list);
-		// Dcategory 메뉴
-		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		req.setAttribute("dlist", dlist);
 		String no =req.getParameter("mno");
-		MemberDTO vo = MemberDAO.userdata(Integer.parseInt(no));
+		int mno = Integer.parseInt(no);
+		//기본정보
+		MemberDTO vo = MemberDAO.userdata(mno);
 		StringTokenizer st = new StringTokenizer(vo.getMtags(), ",");
 		List<String> tags = new ArrayList<String>();
 		while(st.hasMoreTokens()){
@@ -81,8 +78,20 @@ public class MemberController {
 			String tag = MemberDAO.getTagName(Integer.parseInt(t));
 			tags.add(tag);
 		}
-		
 		PrettyTime p = new PrettyTime(new Locale("KO"));
+		
+		//답변글
+		List<QnaBoardVO> alist = MemberDAO.getUserAnswerPost(mno);
+		req.setAttribute("alist", alist);
+		//질문글
+		List<QnaBoardVO> qlist = MemberDAO.getUserPost(mno);
+		req.setAttribute("qlist", qlist);
+		System.out.println(qlist.get(0).getBno());
+		System.out.println(qlist.get(0).getBsubject());
+		//질문갯수
+		req.setAttribute("qno", qlist.size());
+		//답변갯수
+		req.setAttribute("ano", alist.size());
 		req.setAttribute("login",p.format(vo.getLogindate()));
 		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("mno", no);
@@ -159,27 +168,7 @@ public class MemberController {
 	       {
 	    	   File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
 	    	   f.delete();
-	    	   
-	/*     	   
-	    	   먼저 MultipartRequest 을 이용하여 원본파일명으로 업로드를 한다.
-	그후... java.io.File 클래스를 이용해 Rename을 시킨다.
-
-	//파일업로드후...
-	String fileName = "원본파일명";    //확장자포함한다.
-	String newFileName = "원하는파일명.확장자";
-	String saveDir = "C:/UploadFiles';
-
-	if(!fileName.equals("")) {
-	     // 원본이 업로드된 절대경로와 파일명를 구한다.
-	     fullFileName = saveDir + "/" + fileNAme;
-	     java.io.File f1 = new java.io.File(fullFileName);
-	     if(f1.exists()) {     // 업로드된 파일명이 존재하면 Rename한다.
-	          java.io.File newFile = java.io.File(saveDir + "/" + newFileName);
-	          f1.renameTo(newFile);   // rename...
-	     }
-	}
-	    	   */ 
-	      
+	    	      
 	    }
 		return "common/user_update_ok.jsp";
 	}
