@@ -1,3 +1,6 @@
+TRUNCATE TABLE CourseGroup;
+SET DEFINE OFF;
+
 --자바 강의그룹 CourseGroup 1
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), 'Java 입문 수업 (생활코딩)', '//i.ytimg.com/vi/qR90tdW0Hbo/mqdefault.jpg', 158,'Java 입문 수업 (생활코딩)', '1');
 INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT NVL(MAX(Gno)+1,1) FROM CourseGroup), '자바 프로그래밍 기초', '//i.ytimg.com/vi/awTiYk5aCEo/mqdefault.jpg', 36,'자바 프로그래밍 기초', '1');
@@ -100,5 +103,5 @@ INSERT INTO CourseGroup(Gno,Gname,GimageURL,TotalCno,Gintro,Sno) VALUES((SELECT 
 
 
 --CSS 강의그룹 9
-
+SET DEFINE ON;
 COMMIT;
