@@ -80,17 +80,7 @@
 					<li><a href="free.do">자유 게시판</a></li>
 				</ul></li>
 
-<div class="col-md-3">
-            <center>
-            <form action="#" method="get">
-                <div class="input-group">
-                    	통합검색
-                    <input class="form-control" id="system-search" name="q" placeholder="검색어를 입력해주세요" required>
-                  
-                </div>
-            </form>
-            </center>
-        </div>
+
 			<!-- 회원가입-->
 
 			<c:if test="${sessionScope.id==null }">
@@ -119,42 +109,6 @@
 					</ul>
 			   </li>
 			</c:if>
-
-			<!-- 과거 로그인시, 로그인 한 사람에 대해 나오는 메뉴 시작 -->
-			<%-- <c:if test="${sessionScope.id==null }">
-					<li>
-						<!-- <a href="member/signin.jsp"> --> <input
-						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
-					</li>
-					<!-- <li><a href="elements.html">Elements</a></li> -->
-					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
-					<li id="pop1"><input onclick="popup_signup()" type="button"
-						class="button special" value="회원가입"></li>
-					</c:if>
-					<c:if test="${sessionScope.id!=null }">
-						<li><input type="button" value="${sessionScope.id}"></li>
-						<div class="btn-group open">
-							<a class="btn btn-default" href="#"><i
-								class="fa fa-user fa-fw"></i> ${sessionScope.id}</a> <a
-								class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-								href="#"> <span class="fa fa-caret-down"
-								title="Toggle dropdown menu"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="fa fa-pencil fa-fw"
-										aria-hidden="true"></i> Edit</a></li>
-								<li><a href="#"><i class="fa fa-trash-o fa-fw"
-										aria-hidden="true"></i> Delete</a></li>
-								<li><a href="#"><i class="fa fa-ban fa-fw"
-										aria-hidden="true"></i> Ban</a></li>
-								<li class="divider"></li>
-								<li><a href="#"><i class="fa fa-unlock"
-										aria-hidden="true"></i> Make admin</a></li>
-							</ul>
-						</div>
-					</c:if>
-			 --%>
-			<!-- 과거 로그인시, 로그인 한 사람에 대해 나오는 메뉴 시작 끝 -->
 		</ul>
 
 		<div class="modal fade" id="join" tabindex="-1" role="dialog"
@@ -192,7 +146,8 @@
 							<div class="row onboarding-form-group">
 								<div class="col-sm-12 col-xs-12">
 									<div>
-										<label for="email">E-mail</label> <input type="text"
+										<label for="email">E-mail</label> 
+										<input type="email"
 											class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
 											id="email" placeholder="E-mail">
 									</div>
@@ -410,5 +365,6 @@
 	    });
 	});
 	</script>
+	
 </body>
 </html>

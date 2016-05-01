@@ -33,11 +33,20 @@ public class MainController {
 	public String Main(HttpServletRequest req) {
 		Map map = new HashMap();
 		map.put("start", 1);
-		map.put("end", 5);
+		map.put("end", 10);
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
 		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
 		req.setAttribute("qlist", list);
 		req.setAttribute("flist", flist);
+		
+		int no1 = 1;
+		List<CourseGroupDTO> g1list=CourseGroupDAO.CourseGroupAllData(no1);
+		req.setAttribute("g1list", g1list);
+		
+		int no2 = 2;
+		List<CourseGroupDTO> g2list=CourseGroupDAO.CourseGroupAllData(no2);
+		req.setAttribute("g2list", g2list);
+		
 		// Dcategory ¸Þ´º
 		/*
 		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();

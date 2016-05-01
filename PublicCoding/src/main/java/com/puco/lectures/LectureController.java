@@ -55,11 +55,9 @@ public class LectureController {
 		req.setAttribute("slist", slist);
 		// Scategory ¸Þ´º ³¡
 		
+		
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
-		System.out.println("LectureController CourseGroupDTO Work");
 		req.setAttribute("glist", glist);
-		System.out.println("LectureController CourseGroup req.set Work");
-		System.out.println("LectureController glist " + glist);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}

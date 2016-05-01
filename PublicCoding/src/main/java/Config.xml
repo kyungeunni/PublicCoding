@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
-		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
-		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
-		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
-		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
-		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup"/>
-				<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply"/>
-		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard"/>
+		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard" />
+		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member" />
+		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer" />
+		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory" />
+		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory" />
+		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO"
+			alias="CourseGroup" />
+		<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply" />
+		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard" />
 	</typeAliases>
-	
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -23,12 +24,12 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
 		<mapper resource="com/puco/board/dao/board-mapper.xml" />
 		<mapper resource="com/puco/member/dao/member-mapper.xml" />
 		<mapper resource="com/puco/category/dao/category-mapper.xml" />
 		<mapper resource="com/puco/lectures/dao/lecture-mapper.xml" />
 	</mappers>
-	
+
 </configuration>
