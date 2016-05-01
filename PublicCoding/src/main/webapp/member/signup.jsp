@@ -33,8 +33,6 @@ function idcheck() {
 }
 </script>
 <!-- //////////////////// 중복체크 shadowBox /////////////////// -->
-<<<<<<< HEAD
-
 <!-- ////////////////////////////////////// JOIN ACTION /////////////////////////// -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -63,9 +61,6 @@ function idcheck() {
 	});
 </script>
 <!-- ////////////////////////////////////////////////////////////////////////////// -->
-=======
->>>>>>> refs/remotes/origin/master
-
 </head>
 <body>
 
