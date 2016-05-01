@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSessionContext;
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.member.dao.MemberDAO;
+import com.puco.member.dao.ScoreVO;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.puco.board.dao.*;
 import com.puco.category.dao.DcategoryDAO;
@@ -110,7 +112,10 @@ public class BoardController {
 		   System.out.println("boardinsert>>1");
 		   QBoardDAO.boardInsert(vo);
 		   System.out.println("boardinsert>>2");
-		return "board/insert_ok.jsp";
+			ScoreVO d= new ScoreVO(mno,1,"질문 ("+vo.getBsubject().substring(0, 10)+")");
+			MemberDAO.recordScore(d);
+
+		   		return "board/insert_ok.jsp";
 		
 	}
 	@RequestMapping("answer.do")
@@ -128,7 +133,8 @@ public class BoardController {
 	   vo.setMno(mno);
 	   vo.setRcontent(content);
 	   QBoardDAO.insertAnswer(vo);
-	   
+		ScoreVO d= new ScoreVO(mno,3,"(+3) 답변작성 ("+vo.getRcontent().substring(0, 10)+"...)");
+		MemberDAO.recordScore(d);
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
 	   
@@ -148,10 +154,22 @@ public class BoardController {
 		if(type.equals("1")){
 			System.out.println("실행");
 						QBoardDAO.incrBVote(ino);
+						int mno = QBoardDAO.getBmno(Integer.parseInt(bno));
+						String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+						if(bsubject.length()>10)
+							bsubject=bsubject.substring(0, 9)+"...";
+						ScoreVO d= new ScoreVO(mno,3,"(+3) 공감가는 질문!!( "+bsubject+")");
+						MemberDAO.recordScore(d);
 		}else{
 			System.out.println("설마");
 			String rno=req.getParameter("rno");
 			QBoardDAO.incrAvote(bno,  rno);
+			int mno = QBoardDAO.getAmno(Integer.parseInt(rno));
+			String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+			if(bsubject.length()>10)
+				bsubject=bsubject.substring(0, 9)+"...";
+			ScoreVO d= new ScoreVO(mno,3,"(+3) 도움되는 답변!( "+bsubject+")");
+			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);
 		req.setAttribute("page", page);
@@ -169,9 +187,21 @@ public class BoardController {
 		//질문업
 		if(type.equals("1")){
 						QBoardDAO.decrBVote(ino);
+						int mno = QBoardDAO.getBmno(Integer.parseInt(bno));
+						String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+						if(bsubject.length()>10)
+							bsubject=bsubject.substring(0, 9)+"...";
+						ScoreVO d= new ScoreVO(mno,-1,"(-1) 부적합한 질문:( ( "+bsubject+")");
+						MemberDAO.recordScore(d);
 		}else{
 			String rno=req.getParameter("rno");
 			QBoardDAO.decrAvote(bno,  rno);
+			int mno = QBoardDAO.getAmno(Integer.parseInt(rno));
+			String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+			if(bsubject.length()>10)
+				bsubject=bsubject.substring(0, 9)+"...";
+			ScoreVO d= new ScoreVO(mno,-2,"(-1) 부적합한 답변:( ( "+bsubject+")");
+			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);
 		req.setAttribute("page", page);

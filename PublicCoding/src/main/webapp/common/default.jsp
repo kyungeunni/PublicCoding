@@ -90,6 +90,31 @@
 
 		<article>
 			<span>자유게시판</span>
+			<div id="freeboard">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9">
+						
+							<table class="table table-list-search">
+								<thead>
+									<tr>
+										<th class="title">제목</th>
+										<th class="id">글쓴이</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="q" items="${flist }">
+										<tr>
+											<td class="title">${q.bsubject }</td>
+											<td class="id">${q.userid }</td>
+										</tr>
+									</c:forEach>
+							</table>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</article>
 
 		<article>

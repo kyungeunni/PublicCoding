@@ -1,7 +1,6 @@
 package com.puco.board.dao;
 
 import java.io.Reader;
-import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -111,5 +110,14 @@ public class FreeBoardDAO {
 		AnswerVO vo=session.selectOne("FBreplyParentData",bno);
 		session.close();
 		return vo;
+	}
+
+	public static List<FreeBoardVO> MainFreeData(Map map) {
+		SqlSession session = ssf.openSession();
+		List<FreeBoardVO> list = session.selectList("getMainFreeData", map);		
+		System.out.println(1);
+		session.close();
+		System.out.println(list.size());
+		return list;
 	}
 }

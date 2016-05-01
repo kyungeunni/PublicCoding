@@ -100,6 +100,22 @@
 		<include refid="where-no" />
 		AND rno=#{rno}
 	</update>
+	
+	<select id="getBmno" resultType="int" parameterType="int">
+	select mno FROM mainboard
+	where bno=#{bno}
+	</select>
+	
+	<select id="getAmno" resultType="int" parameterType="int">
+	select mno FROM Answer
+	where rno=#{rno}
+	</select>
+	
+	<select id="getbSubject" resultType="String" parameterType="int">
+	select bsubject FROM mainboard
+	where bno=#{bno}
+	</select>
+	
 	<insert id="insertAnswer" parameterType="Answer">
 		INSERT INTO Answer(Rno,
 		Rcontent,Bno,Mno)
@@ -115,12 +131,26 @@
 		FROM(SELECT bno,bsubject,mno
 		FROM mainboard
 		WHERE BTno=1
-		ORDER BY rownum DESC))
+		ORDER BY bno DESC))
 		WHERE num BETWEEN #{start} AND #{end}) MB
 		LEFT JOIN pucomember MT
 		on MT.mno =mb.mno
 		order by bno desc
 		
+	</select>
+	
+		<select id="getMainFreeData" resultType="FBoard" parameterType="java.util.Map">
+	  SELECT bno,bsubject,MB.Mno as mno,MT.mid as userid
+		FROM (SELECT bno,bsubject,mno,num FROM
+		(SELECT bno,bsubject,mno,rownum as num
+		FROM(SELECT bno,bsubject,mno
+		FROM mainboard 
+		WHERE BTno=2
+		ORDER BY bno DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
+		LEFT JOIN pucomember MT
+		on MT.mno =mb.mno
+		order by bno desc
 	</select>
 	
 	<select id="getimageUrl" resultType="String" parameterType="int">
@@ -136,7 +166,7 @@
 		FROM(SELECT bno,bsubject,mno,bdate,bhit
 		FROM mainboard 
 		WHERE BTno=2
-		ORDER BY rownum DESC))
+		ORDER BY bno DESC))
 		WHERE num BETWEEN #{start} AND #{end}) MB
 		LEFT JOIN pucomember MT
 		on MT.mno =mb.mno
@@ -144,7 +174,7 @@
 	</select>
 	<select id="freeboardRowCount" resultType="int">
 	  SELECT COUNT(*) FROM mainboard 
-	  WHERE btno=1
+	  WHERE btno=2
 	</select>
 	<update id="freeboardHitIncrement" parameterType="int">
 	  UPDATE mainBoard SET

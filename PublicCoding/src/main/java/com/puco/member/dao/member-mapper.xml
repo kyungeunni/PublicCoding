@@ -37,6 +37,7 @@
 		logindate = SYSDATE,mpoint=mpoint+5
 		WHERE mno=#{mno}
 	</update>
+	
 	<!-- 득점 -->
 	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
@@ -44,6 +45,12 @@
 		= mpoint+#{point}
 		WHERE mno=#{mno}
 	</update>
+	
+	<!-- 득점 테이블 추가  -->
+	<insert id="recordScore"  parameterType="Score" >
+		INSERT INTO  scoreChart(mno,score,message)
+		VALUES(#{mno},#{score},#{message})
+	</insert>
 
 	<update id="userUpdate" parameterType="Member">
 		<!-- UPDATE pucomember SET MimageURL=#{mimageURL},filesize=#{filesize}, 
@@ -87,22 +94,7 @@
 	</select>
 	
 	<!-- 통계  -->
-	<!-- 
-	CREATE TABLE pucoMember(
-   Mno NUMBER CONSTRAINT pcm_mno_nn NOT NULL,
-   Mid VARCHAR2(20) CONSTRAINT pcm_id_nn NOT NULL,
-   Mpwd VARCHAR2(20) CONSTRAINT pcm_pwd_nn NOT NULL,
-   Memail    VARCHAR2(320) CONSTRAINT pcm_em_nn NOT NULL,
-   MimageURL VARCHAR2(400),   
-   Mdate DATE DEFAULT SYSDATE,
-   Mpoint NUMBER DEFAULT 0,
-   Lno NUMBER DEFAULT 1,
-   CONSTRAINT pcm_mno_pk PRIMARY KEY(Mno),
-   CONSTRAINT pcm_lno_fk FOREIGN KEY(Lno)
-   REFERENCES memLevel(Lno)
-);
 	
-	 -->
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO pucoMember(Mno,Mid,Mpwd,Memail)

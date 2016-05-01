@@ -98,6 +98,7 @@
 
 			<c:if test="${sessionScope.id==null }">
 				<li class="joinok" data-target="#join">
+				
 				<a href="join.do"><i class="fa fa-user"></i>회원가입</a></li>
 
 				<li class="logininok" data-toggle="modal" data-target="#login"><a
