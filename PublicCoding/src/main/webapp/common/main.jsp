@@ -84,13 +84,12 @@
 					<li><a href="free.do">자유 게시판</a></li>
 				</ul></li>
 
-<div class="col-md-3">
+		<div class="col-md-3">
             <center>
             <form action="#" method="get">
                 <div class="input-group">
                     	통합검색
-                    <input class="form-control" id="system-search" name="q" placeholder="검색어를 입력해주세요" required>
-                  
+                    <input class="form-control" id="system-search" name="q" placeholder="검색어를 입력해주세요" required>     
                 </div>
             </form>
             </center>
@@ -99,7 +98,7 @@
 
 			<c:if test="${sessionScope.id==null }">
 				<li class="joinok" data-target="#join">
-				<a href="signup.do"><i class="fa fa-user"></i>회원가입</a></li>
+				<a href="join.do"><i class="fa fa-user"></i>회원가입</a></li>
 
 				<li class="logininok" data-toggle="modal" data-target="#login"><a
 					href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
@@ -182,7 +181,6 @@
 								이미 가입 하셨나요? <br> <br> <input type="button"
 									class="btn btn-block btn-primary" data-toggle="modal"
 									data-target="#login" data-dismiss="modal" value="로그인">
-
 							</p>
 						</div>
 

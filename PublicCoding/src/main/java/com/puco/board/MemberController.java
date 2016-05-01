@@ -50,25 +50,13 @@ public class MemberController {
 			session.setAttribute("email", email);
 			session.setAttribute("mno", mno);
 			session.setAttribute("mimageurl", mimageurl);
-
 		}
 		req.setAttribute("res", res);
 		System.out.println("MemberController -> signin.jsp");
 		return "member/signin.jsp";
 	}
 
-
-	@RequestMapping("join.do")
-	   public String memberJoin(HttpServletRequest req){
-
-		   req.setAttribute("jsp", "member/join.jsp");
-		   return "common/main.jsp";
-	   }
-
-
-
-@RequestMapping("userMain.do")
-
+	@RequestMapping("userMain.do")
 	public String userMain(HttpServletRequest req){
 		String no =req.getParameter("mno");
 		int mno = Integer.parseInt(no);
@@ -82,7 +70,7 @@ public class MemberController {
 			tags.add(tag);
 		}
 		PrettyTime p = new PrettyTime(new Locale("KO"));
-System.out.println("vo가져옴??>>>"+vo.getMemail());
+		System.out.println("vo가져옴??>>>"+vo.getMemail());
 		//답변글
 		List<QnaBoardVO> alist = MemberDAO.getUserAnswerPost(mno);
 		req.setAttribute("alist", alist);
@@ -183,8 +171,8 @@ System.out.println("vo가져옴??>>>"+vo.getMemail());
 		return "member/signout.jsp";
 	}
 
-	@RequestMapping("signup.do")
-	public String memberSignup(HttpServletRequest req) {
+	@RequestMapping("join.do")	// 회원가입 페이지로 넘어가는 용도
+	public String joinPage(HttpServletRequest req) {
 		req.setAttribute("jsp", "../member/signup.jsp");
 		return "common/main.jsp";
 	}
@@ -195,5 +183,34 @@ System.out.println("vo가져옴??>>>"+vo.getMemail());
 		int count=MemberDAO.memberIdCheck(id);
 		req.setAttribute("count", count);
 		return "member/idcheck_ok.jsp";
+	}
+	
+	@RequestMapping("signup.do")
+	public String memberSignup(HttpServletRequest req) throws Exception{
+		System.out.println("work signup.do");
+		System.out.println(req);
+		//req.setCharacterEncoding("EUC-KR");
+		String mid=req.getParameter("id");
+		System.out.println(mid);
+		String mpwd=req.getParameter("pwd");
+		System.out.println(mpwd);
+		String memail=req.getParameter("email");
+		System.out.println(memail);
+		MemberDTO dto=new MemberDTO();
+		dto.setMid(mid);
+		dto.setMpwd(mpwd);
+		dto.setMemail(memail);
+		System.out.println("set dto");
+		MemberDAO.insertMember(dto);
+		System.out.println("MemberDTO work : "+dto);
+		
+		String id=req.getParameter("id");
+		System.out.println("before memberIdCheck " + id);
+		int count=MemberDAO.memberIdCheck(id);
+		System.out.println("count in memberSignup, MemberController : "+count);
+		req.setAttribute("mid", mid);
+		req.setAttribute("count", count);
+		req.setAttribute("jsp", "../member/signup_ok.jsp");
+		return "common/main.jsp";
 	}
 }

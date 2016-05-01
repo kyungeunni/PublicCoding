@@ -116,10 +116,19 @@ public class MemberDAO {
 		return map;
 		
 	}
+	
 	public static int memberIdCheck(String id){
 		SqlSession session=ssf.openSession();
 		int count=session.selectOne("memberIdCount",id);
+		System.out.println("memberIdCheck Complete / count : "+count);
 		session.close();
 		return count;
+	}
+	
+	public static void insertMember(MemberDTO dto) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("insertMember",dto);
+		System.out.println("insertMember Complete Joined well");
+		session.close();
 	}
 }
