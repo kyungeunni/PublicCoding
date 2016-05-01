@@ -100,6 +100,22 @@
 		<include refid="where-no" />
 		AND rno=#{rno}
 	</update>
+	
+	<select id="getBmno" resultType="int" parameterType="int">
+	select mno FROM mainboard
+	where bno=#{bno}
+	</select>
+	
+	<select id="getAmno" resultType="int" parameterType="int">
+	select mno FROM Answer
+	where rno=#{rno}
+	</select>
+	
+	<select id="getbSubject" resultType="String" parameterType="int">
+	select bsubject FROM mainboard
+	where bno=#{bno}
+	</select>
+	
 	<insert id="insertAnswer" parameterType="Answer">
 		INSERT INTO Answer(Rno,
 		Rcontent,Bno,Mno)

@@ -24,6 +24,7 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
+import com.puco.member.dao.ScoreVO;
 
 
 @Controller("mc")
@@ -45,6 +46,9 @@ public class MemberController {
 			mno=st.nextToken();
 			mimageurl=st.nextToken();
 			MemberDAO.loginUpdate(Integer.parseInt(mno));
+			ScoreVO d= new ScoreVO(Integer.parseInt(mno),1,"(+1) 로그인 하였습니다.");
+			MemberDAO.recordScore(d);
+
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("email", email);
