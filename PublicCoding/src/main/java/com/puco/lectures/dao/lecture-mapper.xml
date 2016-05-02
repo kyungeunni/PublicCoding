@@ -6,4 +6,28 @@
 		FROM CourseGroup
 		WHERE sno=#{no}
 	</select>
+	<!-- 
+		CREATE TABLE Content(
+		   Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
+		   Cname VARCHAR2(50) CONSTRAINT ct_cnm_nn NOT NULL, 
+		   CmediaURL VARCHAR2(400) CONSTRAINT ct_mu_nn NOT NULL, 
+		   Ctime VARCHAR2(28),
+		   CsiteURL VARCHAR2(400),
+		   Cstep NUMBER CONSTRAINT ct_cs_nn NOT NULL, 
+		   Gno NUMBER CONSTRAINT ct_gno_nn NOT NULL,
+		   CONSTRAINT ct_cno_pk PRIMARY KEY(Cno),
+		   CONSTRAINT ct_gn_fk FOREIGN KEY(Gno)
+		   REFERENCES CourseGroup(gno)
+		);
+	 -->
+	<select id="ContentListData" resultType="Content" parameterType="int">
+		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
+		FROM Content
+		WHERE gno=#{gno}
+	</select>
+	<select id="ContentAllData" resultType="Content" parameterType="int">
+		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
+		FROM Content
+		WHERE gno=#{gno}
+	</select>
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -8,150 +9,266 @@
 -->
 <html>
 	<head>
-		<title>No Sidebar - Landed by HTML5 UP</title>
+		<title>PUCO</title>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified JavaScript -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/sujin-main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
-				<div class="container">
-					<div class="page-header" style="margin-top: 100px">
- 					 <h1 style="font: 20px ¸¼Àº °íµñ">½ÅÀÔ SWÀÎ·ÂÀ» À§ÇÑ ½ÇÀü JSP Servlet µ¿¿µ»ó °úÁ¤ <small>Subtext for header</small></h1>
-					</div>
-				<!-- Content -->
-					<div class="row">
-						<div class="col-xs-10 col-sm-7 col-md-7">
-					<section id="content">
-							<div class="embed-responsive embed-responsive-16by9">
-  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${url }" frameborder="0" allowfullscreen></iframe>
-							</div>
-						</div>
-						<div class="col-xs-10 col-sm-5 col-md-5">
-							<table class="table">
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>1°­ </td>
-									<td><a href="" target="_self">À¥ÇÁ·Î±×·¡¹Ö</a></td>
-									<td>23:41</td>
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>2°­ </td>
-									<td><a href="" target="_self">°³¹ß È¯°æ ¼³Á¤</a></td>
-									<td>23:41</td>
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>3°­ </td>
-									<td><a href="" target="_self"> JSP ¸Àº¸±â</a> </td>
-									<td>23:41</td>
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>4°­ </td>
-									<td><a href="" target="_self">Servlet ¸Àº¸±â</a> </td>
-									<td>23:41</td>
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>5°­ </td>
-									<td><a href="" target="_self">Servlet º»°İÀûÀ¸·Î »ìÆìº¸±â 1</a> </td>
-									<td>23:41</td>
-								</tr>
-							</table>
-						</div>
-					</section>
-					</div>
-				<div>
-  					<!-- Nav tabs -->
-  					<ul class="nav nav-tabs" id="myTab" role="tablist">
-   						<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">°­ÀÇ¼Ò°³</a></li>
-    					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">°­ÀÇÆò°¡</a></li>
-    					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">¿¬°ü°­ÀÇ</a></li>
-    					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">¿¬°ü°Ô½Ã±Û</a></li>
-    					<li role="presentation"><a href="#board" aria-controls="board" role="tab" data-toggle="tab">½Ç½À¸µÅ©</a></li>
-  					
-  					</ul>
-
- 					<!-- Tab panes -->
-  					<div class="tab-content">
-    				<div role="tabpanel" class="tab-pane active" id="home">
-    					<p><h5>°­ÀÇ¸í : ½ÅÀÔSWÀÎ·ÂÀ» À§ÇÑ ½ÇÀü JSP Servlet µ¿¿µ»ó°úÁ¤ - Á¦ 03°­ JSP ¸Àº¸±â</h5></p>
-						<p>°­ÀÇ ³»¿ë : <br>
-							ÀÌ¹ø °­ÀÇ´Â JSP ¸Àº¸±â ÆíÀÔ´Ï´Ù.<br>
-							PC·Î º¸½Ç¶§´Â www.wiz.center/tag/jsp, http://www.youtube.com/wizcenterseoul ¶Ç´Â À§ÀÇ µ¿¿µ»ó¿¡¼­ HD µ¿¿µ»óÀ» º¸½Ã´Â °ÍÀÌ ÁÁ½À´Ï´Ù.<br>
-							1080p·Î ¼³Á¤ÇØ¼­ º¸½Ã¸é ±ÛÀÚ°¡ Àß º¸ÀÔ´Ï´Ù. ¿À¸¥ÂÊ ÇÏ´Ü Åé´Ï¸ğ¾ç¿¡¼­ 1080p¸¦ ¼±ÅÃÇÏ¼¼¿ä.<br>
-							±×¸®°í ¸ğ¹ÙÀÏ·Î º¸½Ç ¶§¿¡´Â À¯Æ©ºê ¾ÛÀ¸·Î º¸½Ê½Ã¿À. ±×·¡¾ß ±ÛÀÚ°¡ Àß º¸ÀÔ´Ï´Ù.<br></p>
-						<p>PPT ÆÄÀÏ, ¼Ò½ºÆÄÀÏÀº Ã·ºÎÆÄÀÏÀº www.wiz.center/tag/jspÀ» ÂüÁ¶ÇÏ¼¼¿ä.</p></div>
-    				<div role="tabpanel" class="tab-pane" id="profile"><p><h5>°­ÀÇ Æò°¡</h5></p> </div>
-    				<div role="tabpanel" class="tab-pane" id="messages"><p><h5>¿¬°ü°­ÀÇ</h5></p>
-    				<div class="row">
-					  <div class="col-xs-5 col-sm-4 col-md-3">
-					    <div class="thumbnail">
-					      <img src="..." alt="...">
-					      <div class="caption">
-					        <h3>Thumbnail label</h3>
-					        <p>³»..¿ë...</p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-xs-5 col-sm-4 col-md-3">
-					    <div class="thumbnail">
-					      <img src="..." alt="...">
-					      <div class="caption">
-					        <h3>Thumbnail label</h3>
-					        <p>³»..¿ë...</p>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-xs-5 col-sm-4 col-md-3">
-					    <div class="thumbnail">
-					      <img src="..." alt="...">
-					      <div class="caption">
-					        <h3>Thumbnail label</h3>
-					        <p>³»..¿ë...</p>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-    				</div>
-    				<div role="tabpanel" class="tab-pane" id="settings"><p><h5>¿¬°ü °Ô½Ã±Û </h5></p></div>
-    				<div role="tabpanel" class="tab-pane" id="board"><p><h5>½Ç½À </h5></p></div>
-  					</div>
-				</div>
-				
+		
+		<!-- newScripts -->	
 			<script src="http://code.jquery.com/jquery-latest.js"></script>
-        	<script src="assets/bootstrap-3.3.2/js/tab.js"></script>
+        	<script src="resources/bootstrap-3.3.2/js/tab.js"></script>
+        	
         	<script>
         		$('#myTab a').click(function (e) {
         		  	e.preventDefault()
         		  	$(this).tab('show')
         		})
+        		
         	</script>
-		</div>
-	</div>
-		</div>
+	</head>
+	<body>
+		<div id="page-wrapper">
 
+			<!-- Header -->
+				<header id="header">
+					
+					<nav id="nav">
+						<ul>
+							<!-- Log out -->
+							
+							<!-- <li><a href="#" class="button small">Sign In</a></li>
+							<li><a href="#" class="button small special">Sign Up</a></li> -->
+							
+							<!-- Log in -->
+							
+							<!-- <li><a href="#" class="button small"><span class="glyphicon glyphicon-user"></span>Hi! PUCO</a>
+								<ul>
+									<li><a href="#">Profile</a></li>
+									<li><a href="#">Option 2</a></li>
+									<li><a href="#">Option 3</a></li>
+									<li><a href="#">Log out</a></li>
+								</ul>
+							</li> -->
+							
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+			<div id="main">
+
+				<div class="container">
+					<div class="page-header" style="margin-top: 100px">
+ 					 <h1 style="font: 20px ë§‘ì€ ê³ ë”•">${cname } <small>Subtext for header</small></h1>
+					</div>
+				<!-- Content -->
+				<section id="content">
+					<div class="row">
+						<div class="col-xs-10 col-sm-7 col-md-7">
+					
+							<div class="embed-responsive embed-responsive-16by9">
+  							<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${cmediaurl }&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						
+						
+						<!-- ìˆ˜ê°• ì¤‘ && ë¡œê·¸ì¸ í›„  -->
+						<c:if test="${sessionScope.id != null }">
+						
+							<div class="col-xs-10 col-sm-5 col-md-5">
+							<table class="table">
+							<c:forEach var="i" items="${clist }">
+								<tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+									</td>
+									<td>${i }ê°• </td>
+									<td><a href="" target="_self">${i.cname }</a></td>
+									
+								</tr>
+							</c:forEach>
+							<!-- <tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+									</td>
+									<td>2ê°• </td>
+									<td><a href="" target="_self">ê°œë°œ í™˜ê²½ ì„¤ì •</a></td>
+									
+								</tr>
+								<tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+									</td>
+									<td>3ê°• </td>
+									<td><a href="" target="_self"> JSP ë§›ë³´ê¸°</a> </td>
+									
+								</tr>
+								<tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+									</td>
+									<td>4ê°• </td>
+									<td><a href="" target="_self">Servlet ë§›ë³´ê¸°</a> </td>
+									
+								</tr>
+								<tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+									</td>
+									<td>5ê°• </td>
+									<td><a href="" target="_self">Servlet ë³¸ê²©ì ìœ¼ë¡œ ì‚´í´ë³´ê¸° 1</a> </td>
+								
+								</tr>-->
+								
+							</table> 
+							</div>
+							</c:if>
+						<!-- ìˆ˜ê°• ì „ || ë¡œê·¸ì¸ ì „  -->
+						<c:if test="${sessionScope.id == null }">
+						
+							<p>
+							<a href="signin.do" class="button large special"><span class="glyphicon glyphicon-play"></span> START COURSE</a>
+							
+						<div class="col-xs-10 col-sm-5 col-md-5">
+							<div class="row">
+						
+							<div id="class_info">
+							<p>
+							<table class="table">
+									<tr>
+										<td width=70>ê°•ì˜ </td>
+										<td width=100>120 </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>ì‹œê°„ </td>
+										<td>60 </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>ê°•ì‚¬ </td>
+										<td>ëˆ„êµ°ê°€ </td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>êµ¬ë¶„ </td>
+										<td>JSP </td>
+										<td></td>
+									</tr>
+							</table>
+							</p>
+							</div>
+						 </div>
+						</div> 
+						</c:if>
+											
+					  </div>
+					</section>
+				<div>
+				
+  					<!-- Nav tabs -->
+  					<div class="col-xs-12 col-sm-12 col-md-12">
+	  					<ul class="nav nav-tabs" id="myTab" role="tablist">
+	   						<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">ê°•ì˜ì†Œê°œ</a></li>
+	    					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ê°•ì˜í‰ê°€</a></li>
+	    					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">ì—°ê´€ê°•ì˜</a></li>
+	    					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">ì—°ê´€ê²Œì‹œê¸€</a></li>
+	    					<li role="presentation"><a href="#board" aria-controls="board" role="tab" data-toggle="tab">ì‹¤ìŠµë§í¬</a></li>
+	    				</ul>
+  					</div>
+
+ 					<!-- Tab panes -->
+  					<div class="col-xs-12 col-sm-12 col-md-12">
+  					<div class="tab-content">
+	    				<div role="tabpanel" class="tab-pane active" id="home">
+	    					<p><h5>${j.title }</h5></p>
+							<p>ê°•ì˜ ë‚´ìš© : <br>
+								ì´ë²ˆ ê°•ì˜ëŠ” JSP ë§›ë³´ê¸° í¸ì…ë‹ˆë‹¤.<br>
+								PCë¡œ ë³´ì‹¤ë•ŒëŠ” www.wiz.center/tag/jsp, http://www.youtube.com/wizcenterseoul ë˜ëŠ” ìœ„ì˜ ë™ì˜ìƒì—ì„œ HD ë™ì˜ìƒì„ ë³´ì‹œëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.<br>
+								1080pë¡œ ì„¤ì •í•´ì„œ ë³´ì‹œë©´ ê¸€ìê°€ ì˜ ë³´ì…ë‹ˆë‹¤. ì˜¤ë¥¸ìª½ í•˜ë‹¨ í†±ë‹ˆëª¨ì–‘ì—ì„œ 1080pë¥¼ ì„ íƒí•˜ì„¸ìš”.<br>
+								ê·¸ë¦¬ê³  ëª¨ë°”ì¼ë¡œ ë³´ì‹¤ ë•Œì—ëŠ” ìœ íŠœë¸Œ ì•±ìœ¼ë¡œ ë³´ì‹­ì‹œì˜¤. ê·¸ë˜ì•¼ ê¸€ìê°€ ì˜ ë³´ì…ë‹ˆë‹¤.<br></p>
+							<p>PPT íŒŒì¼, ì†ŒìŠ¤íŒŒì¼ì€ ì²¨ë¶€íŒŒì¼ì€ www.wiz.center/tag/jspì„ ì°¸ì¡°í•˜ì„¸ìš”.</p>
+						</div>
+						
+	    				<div role="tabpanel" class="tab-pane" id="profile">
+		 					<p><h5>ê°•ì˜ ë¦¬ë·°</h5></p>
+		 					<jsp:include page="${review.jsp }"></jsp:include>
+	    				</div>
+	
+	    				<div role="tabpanel" class="tab-pane" id="messages"><p><h5>ì—°ê´€ê°•ì˜</h5></p>
+		    				<div class="row">
+		    					<c:forEach var="i" begin="1" end="4">
+								  <div class="col-xs-5 col-sm-4 col-md-3">
+								    <div class="thumbnail">
+								      <img src="${image}" alt="...">
+								      <div class="caption">
+								        <h3>${title }</h3>
+								        <p>ë‚´..ìš©...</p>
+								      </div>
+								    </div>
+								  </div>
+							 	</c:forEach>
+							</div>
+	    				</div>
+	    				
+	    				<div role="tabpanel" class="tab-pane" id="settings">
+	    					<p><h5>ì—°ê´€ ê²Œì‹œê¸€ </h5></p>
+	    				</div>
+	    				
+	    				<div role="tabpanel" class="tab-pane" id="board">
+	    					<div class="row">
+		    				<div class="col-xs-10 col-sm-7 col-md-7">
+		    				
+		    					<p>
+									  <table class="table">
+									   	<tr>
+									   		<th>ì‚¬ì´íŠ¸ëª…</th>
+									   		<th>ë§í¬</th>
+									   		<th>ì¢…ë¥˜</th>
+									   	</tr>
+									   	<tr>
+									   		<td>JSFiddle</td>
+									   		<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
+									   		<td>html, css, javascript..</td>
+									   	</tr>
+									   	<tr>
+									   		<td>Ideone.com</td>
+									   		<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
+									   		<td>html, css, javascript..</td>
+									   	</tr>
+									   	<tr>
+									   		<td>Compile online</td>
+									   		<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
+									   		<td>html, css, javascript..</td>
+									   	</tr>
+									   	<tr>
+									   		<td>CodeChef</td>
+									   		<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
+									   		<td>html, css, javascript..</td>
+									   	</tr>
+									  </table>
+		    					</p>
+		    				
+	    					</div>	
+	    					</div>
+    					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
