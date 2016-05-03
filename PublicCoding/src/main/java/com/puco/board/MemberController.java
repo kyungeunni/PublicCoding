@@ -1,25 +1,16 @@
 package com.puco.board;
 
 import java.util.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+
+
 import java.util.StringTokenizer;
 import java.io.*;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.puco.board.dao.BoardDTO;
-import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
-import com.puco.category.dao.DcategoryDAO;
-import com.puco.category.dao.DcategoryDTO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
@@ -157,13 +148,14 @@ public class MemberController {
 	    System.out.println(d.getFilesize());
 	    System.out.println(d.getMimageURL());
 	    MemberDAO.userUpdate(d);
+	    HttpSession session=req.getSession();
+	    session.setAttribute("mimageurl", d.getMimageURL());
 	    // ÀÌµ¿
 	    System.out.println(">>>>>>>>filename3");
 	       if(filename!=null && info.getFilesize()>0)
 	       {
 	    	   File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
 	    	   f.delete();
-
 	    }
 		return "common/user_update_ok.jsp";
 	}

@@ -16,11 +16,11 @@ header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; le
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
 article:nth-child(1) { width:20%; height:3000px; background:#1c1d26;}
-article:nth-child(2) { width:80%; height:30vh; background:#ffffff}
-article:nth-child(3) { width:80%; height:auto; background:#ff0080;}
+article:nth-child(2) { width:80%; height:auto; background:#666666;}
+
 
 #qnaboard {width:80%;}
-
+.ratings {padding: 9px;}
 @keyframes scale {
 	0% { transform:scale(0); }	
 	100% { transform:scale(1); }
@@ -45,14 +45,23 @@ header h1 a:hover{color:#e44b66; text-decoration: none}
 
 /*nav*/
 nav a:hover {color:#1c1d26;}
-nav a:nth-child(1) {	position:absolute; right:150px;}
-nav a:nth-child(2) {	position:absolute; right:10px;}
+nav a:nth-child(1) {position:absolute; right:150px;}
+nav a:nth-child(2) {position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
 /* LECTURES 배너*/
 
 .container a {color:black;}
 .panel-title a:hover{color:#e44b66; text-decoration: none;}
+.caption h4{white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
+.thumbnail img{margin-top: 15px; margin-left: 14px;}
+.thumbnailb {color: red;}
+
+article .textte {margin:auto;}
+article .row {margin: 3px; margin-top: 10px;}
 
 
 @media screen and (min-width:1280px) {  

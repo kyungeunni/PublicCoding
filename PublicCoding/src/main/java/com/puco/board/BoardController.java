@@ -22,10 +22,14 @@ public class BoardController {
 	@RequestMapping("qnaboard.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
+		String order = req.getParameter("order");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		Map reltmap = new HashMap();
+
 		if(page==null)
 			page="1";
+		if(order==null)
+			order="1";
 		int curpage=Integer.parseInt(page);
 		int rowSize=10;
 		int start=(curpage*rowSize) - (rowSize-1);
@@ -34,7 +38,7 @@ public class BoardController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
+		List<QnaBoardVO> list = QBoardDAO.boardAllData(map,Integer.parseInt(order));
 		for(QnaBoardVO v:list){
 
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
@@ -44,7 +48,7 @@ public class BoardController {
 		
 
 		int totalpage=QBoardDAO.BoardTotalPage();
-		
+		req.setAttribute("order", order);
 		req.setAttribute("dlist", dlist);
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
