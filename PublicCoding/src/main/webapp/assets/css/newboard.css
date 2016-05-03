@@ -4184,13 +4184,16 @@ body.home-page .subheader, body.questions-page .subheader {
 
 .narrow .votes {
 	display: inline-block;
-	height: 38px;
+	height: auto;
 	min-width: 38px;
+	width:50px;
 	margin: 0 3px 0 0;
 	font-size: 11px;
 	color: #777;
 	padding: 5px 5px 6px 5px;
 }
+
+
 
 .votes {
 	padding: 0;
@@ -4231,7 +4234,7 @@ body.home-page .subheader, body.questions-page .subheader {
 
 .narrow .views {
 	display: inline-block;
-	height: 38px;
+	height: auto;
 	min-width: 40px;
 	margin: 0 7px 0 0;
 	font-size: 11px;
@@ -4564,4 +4567,9 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 #replyBtn {
 	float: right;
 }
-
+.voted .mini-counts{
+	color:  #e44c65;
+}
+.voted{
+background-color: rgba(255, 255, 255, 0.075);
+}

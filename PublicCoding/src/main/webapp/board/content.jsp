@@ -120,7 +120,7 @@
 							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" ></c:if>
 							
 								<input type="button"
-								class="btn btn-default" name="list" id="list" onclick="window.location.href='boardmain.do?page=${page }'"
+								class="btn btn-default" name="list" id="list" onclick="window.location.href='qnaboard.do?page=${page }'"
 								value="목록" size=50>
 						</div>
 						
