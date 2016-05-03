@@ -38,13 +38,13 @@
 		WHERE mno=#{mno}
 	</update>
 	
-	<!-- 득점 -->
-	<update id="getPoint" parameterType="int">
+ 	<!-- 득점 -->
+<!--	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
 		mpoint
 		= mpoint+#{point}
 		WHERE mno=#{mno}
-	</update>
+	</update> -->
 	
 	<!-- 득점 테이블 추가  -->
 	<insert id="recordScore"  parameterType="Score" >
