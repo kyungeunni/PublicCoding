@@ -4131,7 +4131,6 @@ body.home-page .subheader, body.questions-page .subheader {
 
 .subheader {
 	clear: both;
-	margin-bottom: 15px;
 	height: 40px;
 	border-bottom: 2px solid #e44c65;
 }
@@ -4209,13 +4208,13 @@ body.home-page .subheader, body.questions-page .subheader {
 }
 
 .answered {
-	background-color: #75845C;
+	background-color: #993d4c;
 	color: #FFFFFF;
 }
+.answered .mini-counts{
+	color:white;
+	}
 
-.answered {
-	color: #4C9067;
-}
 
 .status {
 	padding: 0;
@@ -4226,7 +4225,7 @@ body.home-page .subheader, body.questions-page .subheader {
 .narrow .mini-counts {
 	font-size: 17px;
 	font-weight: 300;
-	color: #777;
+
 	margin-bottom: 4px;
 }
 
