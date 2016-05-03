@@ -113,11 +113,10 @@
 			<div class="text">
 				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ --> 
 				<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
-				<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set> 
+				<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
 				<c:forEach var="i" begin="1" end="${celi_ok}">
 						<div class="row" style="margin-top: 30px">
-							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }"
-								items="${glist}">
+							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}">
 								<div class="col-sm-3 col-lg-3 col-md-3">
 									<div class="thumbnail hthumbnail">
 										<img src="${g.gimageurl}">
@@ -131,13 +130,17 @@
 											<!-- rgb(171,164,234) -->
 										</div>
 										<div class="ratings">
-											<p class="pull-right">15 reviews</p>
+											<p class="pull-right">${20 } reviews</p>
 											<p>
-												<span class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span>
+											&nbsp;&nbsp;
+											<c:forEach var="count" begin="1" end="5">
+												<c:if test="${count<=4 }">
+													<span class="glyphicon glyphicon-star"></span>
+												</c:if>
+												 <c:if test="${count>4 }">
+													<span class="glyphicon glyphicon-star-empty"></span>
+												</c:if>
+										 	</c:forEach>
 											</p>
 										</div>
 									</div>
