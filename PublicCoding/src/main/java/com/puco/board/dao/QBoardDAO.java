@@ -21,11 +21,21 @@ public class QBoardDAO {
 		}
 		
 	}
-	public static List<QnaBoardVO> boardAllData(Map map){
+	public static List<QnaBoardVO> boardAllData(Map map,int order){
 		SqlSession session=ssf.openSession();
-		System.out.println(1);
-		List<QnaBoardVO> list = session.selectList("boardAllData",map);
-		System.out.println(2);
+		List<QnaBoardVO> list = null;
+		switch(order){
+		case 1:
+			list = session.selectList("boardAllData",map);
+			break;
+		case 2:
+			list = session.selectList("boardHitData",map);
+			break;
+		case 3:
+			list = session.selectList("boardVoteData",map);
+			break;
+		}
+			
 		session.close();
 		return list;
 	}
@@ -134,6 +144,29 @@ public class QBoardDAO {
 	}
 	
 	
+	public static int getBmno(int bno){
+		SqlSession session = ssf.openSession();
+		int list = session.selectOne("getBmno", bno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
+	
+	public static int getAmno(int rno){
+		SqlSession session = ssf.openSession();
+		int list = session.selectOne("getAmno", rno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
+
+	public static String getbSubject(int bno){
+		SqlSession session = ssf.openSession();
+		String list = session.selectOne("getbSubject", bno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
 }
 
 

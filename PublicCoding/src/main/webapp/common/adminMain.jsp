@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +12,37 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="../assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="assets/css/main2.css">
+
+
+<!-- ////////////////////////////////////// LOGIN ACTION /////////////////////////// -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#logBtn').click(function() {
+			var id = $('#id').val();
+			if (id.trim() == "") {
+				$('#id').focus();
+				return;
+			}
+
+			var pwd = $('#pwd').val();
+			if (pwd.trim() == "") {
+				$('#pwd').focus();
+				return;
+			}
+			$('#logForm').submit();
+		});
+		$('#logoutBtn').click(function() {
+			$('#logoutForm').submit();
+		});
+	});
+</script>
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
+
+
+
 </head>
 <body>
 
@@ -25,32 +56,97 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">언어</a></li>
-					<li><a href="#">데이터베이스</a></li>
-					<li><a href="#"> WEB/HTML/CSS</a></li>
+					<li><a href="scategory.do?dno=1">Language</a></li>
+					<li><a href="scategory.do?dno=2">Database</a></li>
+					<li><a href="scategory.do?dno=3">Web</a></li>
 				</ul></li>
+
 
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
 					스터디</a>
-				<ul class="dropdown-menu">
-					<li><a href="#">지역별</a></li>
-					<li><a href="#">주제별</a></li>
-				</ul></li>
+
+				<center>
+					<ul class="dropdown-menu">
+
+						<li><a href="#">지역별</a></li>
+						<li><a href="#">주제별</a></li>
+
+					</ul>
+				</center></li>
+
 
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-file-text-o"></i>게시판</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Q&A 게시판</a></li>
+					<li><a href="qnaboard.do">Q&A 게시판</a></li>
 					<li><a href="#">자유 게시판</a></li>
 				</ul></li>
 
-			<!-- 회원가입-->
-			<li class="joinok" data-toggle="modal" data-target="#join"><a
-				href="#"><i class="fa fa-user"></i>회원가입</a></li>
 
-			<li class="logininok" data-toggle="modal" data-target="#login"><a
-				href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
+			<!-- 회원가입-->
+
+			<c:if test="${sessionScope.id==null }">
+				<li class="joinok" data-toggle="modal" data-target="#join"><a
+					href="#"><i class="fa fa-user"></i>회원가입</a></li>
+
+				<li class="logininok" data-toggle="modal" data-target="#login"><a
+					href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
+			</c:if>
+
+			<c:if test="${sessionScope.id!=null }">
+
+				<li class="dropdown" id="loginok"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"><img
+						src="resources/userprofiles/${sessionScope.mimageurl }" alt=""
+						width="29" height="29" class="img-rounded">
+						${sessionScope.id}</a>
+					<ul class="dropdown-menu">
+						<li><a href="userMain.do?mno=${sessionScope.mno }"><i
+								class="fa fa-pagelines fa-fw" aria-hidden="true"></i>My Page</a></li>
+						<li><a href="#"><i class="fa fa-pencil fa-fw"
+								aria-hidden="true"></i>개인정보수정</a></li>
+						<li><a href="#signout.do" data-target="#logout"
+							id="logoutBtn"> <i class="fa fa-sign-out fa-fw"></i>로그아웃
+						</a></li>
+					</ul></li>
+			</c:if>
+
+			<!-- 과거 로그인시, 로그인 한 사람에 대해 나오는 메뉴 시작 -->
+			<%-- <c:if test="${sessionScope.id==null }">
+					<li>
+						<!-- <a href="member/signin.jsp"> --> <input
+						onclick="popup_signin()" type="button" value="로그인"> <!-- 로그인<!-- </a> -->
+					</li>
+					<!-- <li><a href="elements.html">Elements</a></li> -->
+					<!-- <li><a href="member/signup.jsp" class="button special">Sign Up</a></li> -->
+					<li id="pop1"><input onclick="popup_signup()" type="button"
+						class="button special" value="회원가입"></li>
+					</c:if>
+					<c:if test="${sessionScope.id!=null }">
+						<li><input type="button" value="${sessionScope.id}"></li>
+						<div class="btn-group open">
+							<a class="btn btn-default" href="#"><i
+								class="fa fa-user fa-fw"></i> ${sessionScope.id}</a> <a
+								class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+								href="#"> <span class="fa fa-caret-down"
+								title="Toggle dropdown menu"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-pencil fa-fw"
+										aria-hidden="true"></i> Edit</a></li>
+								<li><a href="#"><i class="fa fa-trash-o fa-fw"
+										aria-hidden="true"></i> Delete</a></li>
+								<li><a href="#"><i class="fa fa-ban fa-fw"
+										aria-hidden="true"></i> Ban</a></li>
+								<li class="divider"></li>
+								<li><a href="#"><i class="fa fa-unlock"
+										aria-hidden="true"></i> Make admin</a></li>
+							</ul>
+						</div>
+					</c:if>
+			 --%>
+			<!-- 과거 로그인시, 로그인 한 사람에 대해 나오는 메뉴 시작 끝 -->
 		</ul>
 
 		<div class="modal fade" id="join" tabindex="-1" role="dialog"
@@ -107,9 +203,9 @@
 							<br>
 
 							<p class="col-xs-6 col-xs-offset-3 bold text-center">
-								이미 가입 하셨나요? <br>
-								<br> <input type="button" class="btn btn-block btn-primary"
-									data-toggle="modal" data-target="#login" data-dismiss="modal" value="로그인">
+								이미 가입 하셨나요? <br> <br> <input type="button"
+									class="btn btn-block btn-primary" data-toggle="modal"
+									data-target="#login" data-dismiss="modal" value="로그인">
 
 							</p>
 						</div>
@@ -120,10 +216,9 @@
 		</div>
 
 
-
-		<div class="modal fade" id="login" tabindex="-1" role="dialog"
+		<!-- 원래 main 화면에 있는 기본 로그인 부분 시작 -->
+		<%-- <div class="modal fade" id="login" tabindex="-1" role="dialog"
 			aria-labelledby="modalLabel" aria-hidden="true">
-
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -131,15 +226,13 @@
 							<span aria-hidden="true"></span><span class="sr-only">Close</span>
 						</button>
 						<h4 class="modal-title" id="lineModalLabel">
-							<center>안녕하세요 PUCO 입니다.</center>
+							<center>안녕하세요. PUCO 입니다.</center>
 						</h4>
 					</div>
 					<div class="modal-body">
-
 						<!-- content goes here -->
 						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
 							role="form">
-
 							<div class="row">
 								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
 									<label for="firstname">아이디</label> <input type="text"
@@ -152,73 +245,76 @@
 										id="password" placeholder="비밀번호">
 								</div>
 							</div>
-
-
 							<p>
 							<p>
-
-								<input type="button" class="btn btn-block btn-primary" data-target="#login"
-									 data-dismiss="modal" value="로그인">
+								<input type="button" class="btn btn-block btn-primary"
+									data-target="#login" data-dismiss="modal" value="로그인">
 						</form>
+					</div>
+				</div>
+			</div>
+		</div> --%>
+		<!-- 원래 main 화면에 있는 기본 로그인 부분  끝 -->
 
+
+		<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 시작 -->
+		<div class="modal fade" id="login" tabindex="-1" role="dialog"
+			aria-labelledby="modalLabel" aria-hidden="true">
+
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true"></span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="lineModalLabel">
+							<center>안녕하세요. PUCO 입니다.</center>
+						</h4>
+					</div>
+					<div class="modal-body">
+
+						<!-- content goes here -->
+						<c:if test="${sessionScope.id==null }">
+							<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
+								role="form" method="post" action="signin.do" id="logForm">
+
+								<div class="row">
+									<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
+										<label for="firstname">아이디</label> <input type="text"
+											class="form-control ng-pristine ng-untouched ng-valid"
+											id="id" name="id" placeholder="아이디">
+									</div>
+									<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
+										<label for="lastName">비밀번호</label> <input type="password"
+											class="form-control ng-pristine ng-untouched ng-valid"
+											id="pwd" name="pwd" placeholder="비밀번호">
+									</div>
+								</div>
+
+								<p>
+								<p>
+									<button type="button" class="btn btn-block btn-primary"
+										data-target="#login" data-dismiss="modal" id="logBtn">로그인</button>
+							</form>
+						</c:if>
+						<c:if test="${sessionScope.id!=null }">
+							<form method="post" action="signout.do" id="logoutForm">
+								${sessionScope.id }님 환영합니다!!&nbsp;
+								<button type="button" class="btn btn-block btn-primary"
+									data-target="#login" data-dismiss="modal" id="logoutBtn">로그아웃</button>
+							</form>
+						</c:if>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 끝 -->
 
 
 	</header>
 
-	<!-- <nav id="nav-main">
-	</nav> -->
-
-	<section>
-		<article>
-			<div class="text" id="content">
-				<span>사이트소개</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="text">
-				<span>자유게시판</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="text">
-				<span>q&a게시판</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="text">
-				<span>동영상 carousel</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="text">
-				<span>스터디</span>
-			</div>
-		</article>
-
-		<article>
-			<div class="footer">
-				<ul class="icons">
-					<li><a href="#">about us</a></li>
-				</ul>
-
-				<ul class="copyright">
-					<li>&copy;Copyright by SIST-C3.</li>
-				</ul>
-
-			</div>
-		</article>
-
-	</section>
-
+	<!-- content -->
+	<jsp:include page="${jsp }"></jsp:include>
 
 	<!-- Scripts -->
 
@@ -227,13 +323,13 @@
 		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 		crossorigin="anonymous"></script>
 
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrolly.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/skel.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/modal.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+
 
 
 	<!-- 회원가입/로그인 팝업창 띄우기 -->

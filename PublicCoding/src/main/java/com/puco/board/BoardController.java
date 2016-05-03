@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSessionContext;
 import org.ocpsoft.prettytime.PrettyTime;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.member.dao.MemberDAO;
+import com.puco.member.dao.ScoreVO;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.puco.board.dao.*;
 import com.puco.category.dao.DcategoryDAO;
@@ -20,10 +22,14 @@ public class BoardController {
 	@RequestMapping("qnaboard.do")
 	public String boardListData(HttpServletRequest req){
 		String page=req.getParameter("page");
+		String order = req.getParameter("order");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
 		Map reltmap = new HashMap();
+
 		if(page==null)
 			page="1";
+		if(order==null)
+			order="1";
 		int curpage=Integer.parseInt(page);
 		int rowSize=10;
 		int start=(curpage*rowSize) - (rowSize-1);
@@ -32,7 +38,7 @@ public class BoardController {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<QnaBoardVO> list = QBoardDAO.boardAllData(map);
+		List<QnaBoardVO> list = QBoardDAO.boardAllData(map,Integer.parseInt(order));
 		for(QnaBoardVO v:list){
 
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
@@ -42,7 +48,7 @@ public class BoardController {
 		
 
 		int totalpage=QBoardDAO.BoardTotalPage();
-		
+		req.setAttribute("order", order);
 		req.setAttribute("dlist", dlist);
 		req.setAttribute("curpage",curpage);
 		req.setAttribute("list", list);
@@ -69,8 +75,6 @@ public class BoardController {
 		req.setAttribute("wimg",wimg);
 		System.out.println("content>wimg:"+wimg);
 		req.setAttribute("alist", alist);
-		System.out.println(alist.get(1).getRcontent());
-		System.out.println(alist.size());
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
 		req.setAttribute("no", no);
@@ -112,7 +116,10 @@ public class BoardController {
 		   System.out.println("boardinsert>>1");
 		   QBoardDAO.boardInsert(vo);
 		   System.out.println("boardinsert>>2");
-		return "board/insert_ok.jsp";
+			ScoreVO d= new ScoreVO(mno,1,"질문 ("+vo.getBsubject().substring(0, 10)+")");
+			MemberDAO.recordScore(d);
+
+		   		return "board/insert_ok.jsp";
 		
 	}
 	@RequestMapping("answer.do")
@@ -130,7 +137,8 @@ public class BoardController {
 	   vo.setMno(mno);
 	   vo.setRcontent(content);
 	   QBoardDAO.insertAnswer(vo);
-	   
+		ScoreVO d= new ScoreVO(mno,3,"(+3) 답변작성 ("+vo.getRcontent().substring(0, 10)+"...)");
+		MemberDAO.recordScore(d);
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
 	   
@@ -150,10 +158,22 @@ public class BoardController {
 		if(type.equals("1")){
 			System.out.println("실행");
 						QBoardDAO.incrBVote(ino);
+						int mno = QBoardDAO.getBmno(Integer.parseInt(bno));
+						String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+						if(bsubject.length()>10)
+							bsubject=bsubject.substring(0, 9)+"...";
+						ScoreVO d= new ScoreVO(mno,3,"(+3) 공감가는 질문!!( "+bsubject+")");
+						MemberDAO.recordScore(d);
 		}else{
 			System.out.println("설마");
 			String rno=req.getParameter("rno");
 			QBoardDAO.incrAvote(bno,  rno);
+			int mno = QBoardDAO.getAmno(Integer.parseInt(rno));
+			String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+			if(bsubject.length()>10)
+				bsubject=bsubject.substring(0, 9)+"...";
+			ScoreVO d= new ScoreVO(mno,3,"(+3) 도움되는 답변!( "+bsubject+")");
+			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);
 		req.setAttribute("page", page);
@@ -171,13 +191,201 @@ public class BoardController {
 		//질문업
 		if(type.equals("1")){
 						QBoardDAO.decrBVote(ino);
+						int mno = QBoardDAO.getBmno(Integer.parseInt(bno));
+						String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+						if(bsubject.length()>10)
+							bsubject=bsubject.substring(0, 9)+"...";
+						ScoreVO d= new ScoreVO(mno,-1,"(-1) 부적합한 질문:( ( "+bsubject+")");
+						MemberDAO.recordScore(d);
 		}else{
 			String rno=req.getParameter("rno");
 			QBoardDAO.decrAvote(bno,  rno);
+			int mno = QBoardDAO.getAmno(Integer.parseInt(rno));
+			String bsubject=QBoardDAO.getbSubject(Integer.parseInt(bno));
+			if(bsubject.length()>10)
+				bsubject=bsubject.substring(0, 9)+"...";
+			ScoreVO d= new ScoreVO(mno,-2,"(-1) 부적합한 답변:( ( "+bsubject+")");
+			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);
 		req.setAttribute("page", page);
 		return "board/vote_ok.jsp";
 	}
+	
+	
+	//////////////////////     Freeboard(정선)    ///////////////////////////////////
+	@RequestMapping("free.do")
+	public String freeboard_list(HttpServletRequest req)
+	{
+		
+		String page=req.getParameter("page");
+		System.out.println("page:"+page);
+		PrettyTime p = new PrettyTime(new Locale("KO"));
+		Map reltmap = new HashMap();
+		System.out.println("time:"+reltmap);
+		if(page==null)
+			page="1";
+		System.out.println("if page:"+page);
+		int curpage=Integer.parseInt(page);
+		System.out.println("curpage:"+curpage);
+		int rowSize=10;
+		int start=(curpage*rowSize) - (rowSize-1);
+		int end = curpage*rowSize;
+		Map map=new HashMap();
+		
+		map.put("start", start);
+		map.put("end", end);
+		System.out.println(start);
+		System.out.println(end);
+		List<FreeBoardVO> list = FreeBoardDAO.FreeboardAllData(map);
+		for(FreeBoardVO v:list){
+			reltmap.put(v.getBno(), p.format(v.getBdate()));
+		}
+
+		int totalpage=FreeBoardDAO.freeboardTotalpage();
+		System.out.println("totalpage:"+totalpage);
+		req.setAttribute("curpage",curpage);
+		req.setAttribute("list", list);
+		req.setAttribute("totalpage", totalpage);
+		req.setAttribute("rtime", reltmap);
+		req.setAttribute("jsp", "../board/free.jsp");
+		return "common/main.jsp";
+	}
+	@RequestMapping("freeboard_content.do")
+	public String freeboard_content(HttpServletRequest req)
+	{
+		String no=req.getParameter("no");
+		System.out.println("no1");
+		String page=req.getParameter("page");
+		System.out.println("page1");
+		FreeBoardVO vo=FreeBoardDAO.freeboardContentData(Integer.parseInt(no));
+		System.out.println("mno값"+vo.getMno());
+		System.out.println("dao.freeboard");
+		req.setAttribute("page", page);
+		System.out.println("setpage");
+		req.setAttribute("vo", vo);
+		System.out.println("setvo");
+		req.setAttribute("jsp", "../board/free_content.jsp");
+		System.out.println("setjsp");
+		return "common/main.jsp";
+	}
+	@RequestMapping("freeboard_insert.do")
+	public String freeboard_insert(HttpServletRequest req)
+	{	
+		req.setAttribute("jsp", "../board/freeboard_insert.jsp");
+		return "common/main.jsp";
+	}
+	@RequestMapping("freeboard_insert_ok.do")
+	public String freeboard_insert_ok(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+		HttpSession hs=req.getSession();
+		String no=(String) hs.getAttribute("mno");
+		int mno=Integer.parseInt(no);
+		String bsubject=req.getParameter("bsubject");
+		String bcontent=req.getParameter("ir1");
+		FreeBoardVO vo=new FreeBoardVO();
+		vo.setMno(mno);
+		vo.setBsubject(bsubject);
+		vo.setBcontent(bcontent);
+		FreeBoardDAO.freeboardInsert(vo);
+		return "board/freeboard_insert_ok.jsp";
+	}
+	 @RequestMapping("freeboard_update.do")
+	   public String board_update(HttpServletRequest req)
+	   {
+		 String bno=req.getParameter("bno");
+		   String page=req.getParameter("page");
+		   FreeBoardVO vo=FreeBoardDAO.freeboardUpdate(Integer.parseInt(bno));
+		   req.setAttribute("page", page);
+		   req.setAttribute("vo", vo);
+		   req.setAttribute("jsp", "../board/freeboard_update.jsp");
+		   return "common/main.jsp";
+	   }
+	   @RequestMapping("freeboard_update_ok.do")
+	   public String board_update_ok(HttpServletRequest req)throws Exception
+	   {
+		   
+		   req.setCharacterEncoding("EUC-KR");
+			HttpSession hs=req.getSession();
+			String no=(String) hs.getAttribute("mno");
+			int mno=Integer.parseInt(no);
+			
+			String bno=req.getParameter("bno");
+			String page=req.getParameter("page");
+			String bsubject=req.getParameter("bsubject");
+			String bcontent=req.getParameter("ir1");
+			FreeBoardVO vo=new FreeBoardVO();
+			vo.setMno(mno);
+			vo.setBno(Integer.parseInt(bno));
+			vo.setBsubject(bsubject);
+			vo.setBcontent(bcontent);
+			
+			FreeBoardDAO.freeboardUpdateOk(vo);
+			
+			
+			return "board/freeboard_update_ok.jsp";
+		   /*req.setCharacterEncoding("EUC-KR");
+		   
+		   String bno=req.getParameter("bno");
+		   String page=req.getParameter("page");
+		   String mpwd=req.getParameter("mpwd");
+		   FreeBoardVO vo=new FreeBoardVO();
+		   vo.setBno(Integer.parseInt(bno));
+		   vo.setUserid(userid);
+		   vo.setBsubject(bsubject);
+		   vo.setBcontent(bcontent);
+		   vo.setMpwd(mpwd);
+		   
+		   //DB연동
+		   boolean bCheck=FreeBoardDAO.boardUpdateOk(vo);
+		   req.setAttribute("bCheck", bCheck);
+		   req.setAttribute("bno", bno);
+		   req.setAttribute("page", page);
+		   return "user/board/freeboard_update_ok.jsp";*/
+	   }
+	   @RequestMapping("FBreply_insert.do")
+	   public String FBreply_insert(HttpServletRequest req) throws Exception
+	   {
+		   req.setCharacterEncoding("EUC-KR");
+		   String page=req.getParameter("page");
+		   String Rno=req.getParameter("Rno");
+		   String Rcontent=req.getParameter("Rcontent");
+		   String Mno=req.getParameter("Mno");
+		   
+		   HttpSession session=req.getSession();
+		   String userid=(String)session.getAttribute("userid");
+		   String mno=(String)session.getAttribute("mno");
+		   //String name=(String)session.getAttribute("name");
+		   
+		   AnswerVO vo=new AnswerVO();
+		   vo.setRno(Integer.parseInt(Rno));
+		   vo.setMno(Integer.parseInt(Mno));
+		   vo.setUserid(userid);
+		   vo.setRcontent(Rcontent);
+		   
+		   FreeBoardDAO.FBreplyInsert(vo);
+		   
+		   req.setAttribute("no", Rno);
+		   req.setAttribute("page", page);
+		   return "board/FBreply_ok.jsp";
+	   }
+	   @RequestMapping("FBreply_re_insert.do")
+	   public String FBreply_re_insert(HttpServletRequest req) throws Exception
+	   {
+		   req.setCharacterEncoding("EUC-KR");
+		   String bno=req.getParameter("bno");
+		   String page=req.getParameter("page");
+		   String Rno=req.getParameter("Rno");
+		   String Rcontent=req.getParameter("Rcontent");
+		   
+		   AnswerVO rvo= FreeBoardDAO.FBreplyParentData(Integer.parseInt(bno));
+		   
+		   return "board/FBreply_ok.jsp";
+	   }
+
+
+	
+	
 
 }

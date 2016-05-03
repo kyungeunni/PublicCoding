@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+	pageEncoding="EUC-KR" %>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%
+	List<BoardDTO> d = dao.boardListData(0);
+%> --%>
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet" href="assets/css/newboard.css">
-
+<title>PUBLIC CODING</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/newboard.css" />
 </head>
 
 <body>
@@ -24,7 +26,7 @@
 										</c:if>
 										
 										<c:if test="${sessionScope.id==null }">
-										<h5 ><a href="#" onclick="popup_signin()" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+										<h5 ><a href="#"  data-toggle="modal" data-target="#login"  id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
 										</c:if>
 								</div>
 			</div>
@@ -40,17 +42,16 @@
 					<header class="subheader">
 						<h1 id="h-top-questions">Top Questions</h1>
 						<div id="tabs">
-							<a class="youarehere" href="?tab=interesting" data-nav-xhref=""
+							<a href="?order=1" data-nav-xhref=""
 								title="Questions that may be of interest to you based on your history and tag preference"
-								data-value="interesting"> 최신등록</a> <a href="?tab=featured"
+								data-value="interesting"
+								<c:if test="${order==1}">class="youarehere"</c:if> > 최신등록</a> <a href="?order=2"
 								data-nav-xhref="" title="Questions with an active bounty"
-								data-value="featured"> <span class="bounty-indicator-tab">437</span>
-								인기답변
-							</a> <a href="?tab=hot" data-nav-xhref=""
+								data-value="featured" <c:if test="${order==2}">class="youarehere"</c:if>> 
+								높은조회수
+							</a> <a href="?order=3" data-nav-xhref=""
 								title="Questions with the most views, answers, and votes over the last few days"
-								data-value="week"> 주간</a> <a href="?tab=week" data-nav-xhref=""
-								title="Questions with the most views, answers, and votes this week"
-								data-value="month"> 월간</a>
+								data-value="week" <c:if test="${order==3}">class="youarehere"</c:if>>인기답변 </a> 
 
 						</div>
 					</header>
@@ -76,7 +77,7 @@
 											<div>votes</div>
 										</div>
 										
-										<div class="status  unanswered">
+										<div class="status  <c:if test="${d.answer>0}">answered</c:if>">
 											<div class="mini-counts">
 												<span title="${d.answer } answers">${d.answer }</span>
 											</div>
@@ -130,8 +131,8 @@
 						</div>
 						<div class="col-sm-offset-3 col-sm-8">
 						
-							<a href="boardmain.do?page=${curpage>1?curpage-1:curpage }"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
-			          ${curpage } page / ${totalpage } pages<a href="boardmain.do?page=${curpage<totalpage?curpage+1:curpage }">
+							<a href="qnaboard.do?page=${curpage>1?curpage-1:curpage }&order=${order}"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
+			          ${curpage } page / ${totalpage } pages<a href="qnaboard.do?page=${curpage<totalpage?curpage+1:curpage }&order=${order}">
 			          <i class="fa fa-chevron-circle-right" aria-hidden="true">다음페이지</i></a><br>
 			          
 							
@@ -144,7 +145,7 @@
 							<a href="//stackexchange.com/questions?tab=hot"
 								class="js-gps-track"
 								data-gps-track="posts_hot_network.click({ item_type:1, location:8 })">
-								Hot Network Questions </a>
+								IT 실시간 뉴스 </a>
 						</h4>
 						<ul>
 							<li>

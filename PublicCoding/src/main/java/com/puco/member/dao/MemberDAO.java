@@ -1,6 +1,8 @@
 package com.puco.member.dao;
 
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -8,6 +10,9 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.ocpsoft.prettytime.PrettyTime;
+
+import com.puco.board.dao.QnaBoardVO;
+
 import org.apache.ibatis.session.SqlSession;
 
 public class MemberDAO {
@@ -42,7 +47,7 @@ public class MemberDAO {
 			System.out.println("memberGetpwd " + d.getMpwd());
 			if(pwd.equals(d.getMpwd())) {
 				System.out.println("memberGetpwd Work1");
-				result = d.getMemail()+"|"+d.getMno();
+				result = d.getMemail()+"|"+d.getMno()+"|"+d.getMimageURL();
 				System.out.println(result);
 			}
 			else {
@@ -64,7 +69,8 @@ public class MemberDAO {
 		SqlSession session = ssf.openSession();
 		System.out.println("userdata>>1");
 		MemberDTO vo=session.selectOne("getUserData", mno);
-		
+		int point=session.selectOne("getUserSCore",mno);
+		vo.setMpoint(point);
 		session.close();
 		
 		return vo;
@@ -79,6 +85,57 @@ public class MemberDAO {
 	public static void loginUpdate(int mno){
 		SqlSession session = ssf.openSession(true);
 		session.update("loginUpdate",mno);
+		session.close();
+	}
+	
+	public static String getTagName(int tgno){
+		SqlSession session = ssf.openSession();
+		String tag = session.selectOne("getTagName",tgno);
+		session.close();
+		return tag;
+	}
+	public static String getTaglist(int mno) {
+		SqlSession session = ssf.openSession();
+		String tag = session.selectOne("getTagList",mno);
+		session.close();
+		return tag;
+		
+	}
+	
+	public static List<QnaBoardVO> getUserPost(int mno) {
+		SqlSession session = ssf.openSession();
+		List<QnaBoardVO> map = session.selectList("getUserPost",mno);
+		session.close();
+		return map;
+		
+	}
+	
+	public static void recordScore(ScoreVO d) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("recordScore",d);
+		session.close();		
+	}
+	
+	public static List<QnaBoardVO> getUserAnswerPost(int mno) {
+		SqlSession session = ssf.openSession();
+		List<QnaBoardVO> map = session.selectList("getUserAnswerPost",mno);
+		session.close();
+		return map;
+		
+	}
+	
+	public static int memberIdCheck(String id){
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("memberIdCount",id);
+		System.out.println("memberIdCheck Complete / count : "+count);
+		session.close();
+		return count;
+	}
+	
+	public static void insertMember(MemberDTO dto) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("insertMember",dto);
+		System.out.println("insertMember Complete Joined well");
 		session.close();
 	}
 }

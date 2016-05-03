@@ -1,17 +1,4 @@
 package com.puco.lectures.dao;
-/*
-CREATE TABLE CourseGroup(
-   Gno NUMBER CONSTRAINT cg_gno_nn NOT NULL, 
-   Gname VARCHAR2(50) CONSTRAINT sg_sno_nn NOT NULL,
-   GimageURL VARCHAR2(400),
-   TotalCno NUMBER,
-   Gintro VARCHAR2(800) CONSTRAINT sg_gi_nn NOT NULL,
-   Sno NUMBER CONSTRAINT cg_sno_nn NOT NULL,
-   CONSTRAINT cg_gn_pk PRIMARY KEY(Gno),
-   CONSTRAINT cg_sn_fk FOREIGN KEY(Sno)
-   REFERENCES scategory(sno)
-);
- */
 public class CourseGroupDTO {
 	private int gno;
 	private String gname;
@@ -19,7 +6,6 @@ public class CourseGroupDTO {
 	private int totalcno;
 	private String gintro;
 	private int sno;
-	
 	public int getGno() {
 		return gno;
 	}
@@ -56,4 +42,6 @@ public class CourseGroupDTO {
 	public void setSno(int sno) {
 		this.sno = sno;
 	}
+	
+	
 }
