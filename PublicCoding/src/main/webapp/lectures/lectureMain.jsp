@@ -111,19 +111,17 @@
 		</article>
 		<article>
 			<div class="text">
-				<span> <!-- 썸내일 시작 --> <c:set var="celi"
-						value="${fn:length(glist)/4}"></c:set> <c:set var="celi_ok"
-						value="${celi+(1-(celi%1))%1}"></c:set> <c:forEach var="i"
-						begin="1" end="${celi_ok}">
+				<span> <!-- 썸내일 시작 --> 
+				<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
+				<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
+				<c:forEach var="i" begin="1" end="${celi_ok}">
 						<div class="row" style="margin-top: 30px">
-
-							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }"
-								items="${glist}">
+							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}">
 								<div class="col-sm-3 col-lg-3 col-md-3">
 									<div class="thumbnail hthumbnail">
 										<img src="${g.gimageurl}">
 										<div class="caption">
-											<h4 class="pull-right">강의명:${g.gname }</h4>
+											<h4 class="pull-center">강의명:${g.gname }</h4>
 											<p>
 												<a href="play.do?gno=${g.gno }" style="color: red;">${g.gintro}<br>
 													총강의수:${g.totalcno }강
@@ -132,13 +130,17 @@
 											<!-- rgb(171,164,234) -->
 										</div>
 										<div class="ratings">
-											<p class="pull-right">15 reviews</p>
+											<p class="pull-right">${20 } reviews</p>
 											<p>
-												<span class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span> <span
-													class="glyphicon glyphicon-star"></span>
+											&nbsp;&nbsp;
+											<c:forEach var="count" begin="1" end="5">
+												<c:if test="${count<=4 }">
+													<span class="glyphicon glyphicon-star"></span>
+												</c:if>
+												 <c:if test="${count>4 }">
+													<span class="glyphicon glyphicon-star-empty"></span>
+												</c:if>
+										 	</c:forEach>
 											</p>
 										</div>
 									</div>

@@ -55,9 +55,9 @@
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="lectureMain.do"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
-					<li><a href="scategory.do?dno=1">Language</a></li>
-					<li><a href="scategory.do?dno=2">Database</a></li>
-					<li><a href="scategory.do?dno=3">Web</a></li>
+					<li><a href="scategory.do?sno=1">Language</a></li>
+					<li><a href="scategory.do?sno=4">Database</a></li>
+					<li><a href="scategory.do?sno=6">Web</a></li>
 				</ul></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
