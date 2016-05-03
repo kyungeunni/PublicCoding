@@ -41,30 +41,31 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
+			<!-- 
 				<header id="header">
 					
 					<nav id="nav">
 						<ul>
-							<!-- Log out -->
 							
-							<!-- <li><a href="#" class="button small">Sign In</a></li>
-							<li><a href="#" class="button small special">Sign Up</a></li> -->
 							
-							<!-- Log in -->
+							<li><a href="#" class="button small">Sign In</a></li>
+							<li><a href="#" class="button small special">Sign Up</a></li>
 							
-							<!-- <li><a href="#" class="button small"><span class="glyphicon glyphicon-user"></span>Hi! PUCO</a>
+							
+							
+							<li><a href="#" class="button small"><span class="glyphicon glyphicon-user"></span>Hi! PUCO</a>
 								<ul>
 									<li><a href="#">Profile</a></li>
 									<li><a href="#">Option 2</a></li>
 									<li><a href="#">Option 3</a></li>
 									<li><a href="#">Log out</a></li>
 								</ul>
-							</li> -->
+							</li>
 							
 						</ul>
 					</nav>
 				</header>
-
+			-->
 			<!-- Main -->
 			<div id="main">
 
@@ -76,9 +77,8 @@
 				<section id="content">
 					<div class="row">
 						<div class="col-xs-10 col-sm-7 col-md-7">
-					
 							<div class="embed-responsive embed-responsive-16by9">
-  							<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${cmediaurl }&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  								<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${cmediaurl }&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 						
@@ -138,7 +138,7 @@
 						<c:if test="${sessionScope.id == null }">
 						
 							<p>
-							<a href="signin.do" class="button large special"><span class="glyphicon glyphicon-play"></span> START COURSE</a>
+							<a href="#"  data-toggle="modal" data-target="#login"  id="asking" class="button large special"><span class="glyphicon glyphicon-play"></span>START COURSE</a>
 							
 						<div class="col-xs-10 col-sm-5 col-md-5">
 							<div class="row">

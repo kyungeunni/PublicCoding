@@ -235,7 +235,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 끝 --></header>
+	<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 끝 -->
+	</header>
 								
 
 	<!-- content -->
