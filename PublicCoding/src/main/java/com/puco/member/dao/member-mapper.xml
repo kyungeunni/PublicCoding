@@ -37,6 +37,7 @@
 		logindate = SYSDATE,mpoint=mpoint+5
 		WHERE mno=#{mno}
 	</update>
+	
 	<!-- 득점 -->
 	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
@@ -44,6 +45,12 @@
 		= mpoint+#{point}
 		WHERE mno=#{mno}
 	</update>
+	
+	<!-- 득점 테이블 추가  -->
+	<insert id="recordScore"  parameterType="Score" >
+		INSERT INTO  scoreChart(mno,score,message)
+		VALUES(#{mno},#{score},#{message})
+	</insert>
 
 	<update id="userUpdate" parameterType="Member">
 		<!-- UPDATE pucomember SET MimageURL=#{mimageURL},filesize=#{filesize}, 

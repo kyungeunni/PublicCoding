@@ -84,8 +84,8 @@
 			<!-- 회원가입-->
 
 			<c:if test="${sessionScope.id==null }">
-				<li class="joinok" data-toggle="modal" data-target="#join"><a
-					href="#"><i class="fa fa-user"></i>회원가입</a></li>
+				<li class="joinok" data-target="#join">
+				<a href="signup.do"><i class="fa fa-user"></i>회원가입</a></li>
 
 				<li class="logininok" data-toggle="modal" data-target="#login"><a
 					href="#"><i class="fa fa-sign-in"></i>로그인</a></li>
@@ -111,7 +111,7 @@
 			</c:if>
 		</ul>
 
-		<div class="modal fade" id="join" tabindex="-1" role="dialog"
+		<%-- <div class="modal fade" id="join" tabindex="-1" role="dialog"
 			aria-labelledby="modalLabel" aria-hidden="true">
 
 			<div class="modal-dialog">

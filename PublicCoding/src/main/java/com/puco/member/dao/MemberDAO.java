@@ -109,6 +109,12 @@ public class MemberDAO {
 		
 	}
 	
+	public static void recordScore(ScoreVO d) {
+		SqlSession session = ssf.openSession(true);
+		session.insert("recordScore",d);
+		session.close();		
+	}
+	
 	public static List<QnaBoardVO> getUserAnswerPost(int mno) {
 		SqlSession session = ssf.openSession();
 		List<QnaBoardVO> map = session.selectList("getUserAnswerPost",mno);
@@ -116,5 +122,10 @@ public class MemberDAO {
 		return map;
 		
 	}
-	
+	public static int memberIdCheck(String id){
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("memberIdCount",id);
+		session.close();
+		return count;
+	}
 }

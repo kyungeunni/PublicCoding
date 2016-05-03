@@ -13,7 +13,7 @@ table { table-layout: fixed}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:100%; height:40vh; background:#e44b66;}
+article:nth-child(1) { width:100%; height:40vh; background:#a9d8be;}
 article:nth-child(2) { width:87%; height:10vh; background:#ffffff;  margin-left: 100px;}
 article:nth-child(3) { width:30%; height:38vh; background:#ffffff; text-align: "center"; margin-left: 100px;}
 article:nth-child(4) { width:30%; height:38vh; background:#ccc; text-align: "center";}
@@ -41,7 +41,7 @@ article:nth-child(6) { width:100%; height:8vh; background:#888;}
     margin-left: auto;
     height: 200px;
 }
-#mainc {width:1900px;}
+#mainc {width:1400px;}
 
 /* Thumbnail Box */
 .caption h4 {

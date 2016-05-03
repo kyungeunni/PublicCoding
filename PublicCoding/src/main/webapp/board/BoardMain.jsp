@@ -147,7 +147,7 @@
 							<a href="//stackexchange.com/questions?tab=hot"
 								class="js-gps-track"
 								data-gps-track="posts_hot_network.click({ item_type:1, location:8 })">
-								Hot Network Questions </a>
+								IT 실시간 뉴스 </a>
 						</h4>
 						<ul>
 							<li>

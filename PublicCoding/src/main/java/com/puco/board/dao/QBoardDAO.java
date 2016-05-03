@@ -134,6 +134,29 @@ public class QBoardDAO {
 	}
 	
 	
+	public static int getBmno(int bno){
+		SqlSession session = ssf.openSession();
+		int list = session.selectOne("getBmno", bno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
+	
+	public static int getAmno(int rno){
+		SqlSession session = ssf.openSession();
+		int list = session.selectOne("getAmno", rno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
+
+	public static String getbSubject(int bno){
+		SqlSession session = ssf.openSession();
+		String list = session.selectOne("getbSubject", bno);		
+		System.out.println("DAO LIST>>"+list);
+		session.close();
+		return list;
+	}
 }
 
 

@@ -24,6 +24,7 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
+import com.puco.member.dao.ScoreVO;
 
 
 @Controller("mc")
@@ -45,6 +46,9 @@ public class MemberController {
 			mno=st.nextToken();
 			mimageurl=st.nextToken();
 			MemberDAO.loginUpdate(Integer.parseInt(mno));
+			ScoreVO d= new ScoreVO(Integer.parseInt(mno),1,"(+1) 로그인 하였습니다.");
+			MemberDAO.recordScore(d);
+
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("email", email);
@@ -176,8 +180,6 @@ System.out.println("vo가져옴??>>>"+vo.getMemail());
 		return "common/user_update_ok.jsp";
 	}
 
-
-
 	@RequestMapping("signout.do")
 	public String signout(HttpServletRequest req){
 		HttpSession session=req.getSession();
@@ -185,5 +187,17 @@ System.out.println("vo가져옴??>>>"+vo.getMemail());
 		return "member/signout.jsp";
 	}
 
-
+	@RequestMapping("signup.do")
+	public String memberSignup(HttpServletRequest req) {
+		req.setAttribute("jsp", "../member/signup.jsp");
+		return "common/main.jsp";
+	}
+	
+	@RequestMapping("idcheck_ok.do")
+	public String memberIdCheck(HttpServletRequest req){
+		String id=req.getParameter("id");
+		int count=MemberDAO.memberIdCheck(id);
+		req.setAttribute("count", count);
+		return "member/idcheck_ok.jsp";
+	}
 }
