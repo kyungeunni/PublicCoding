@@ -94,4 +94,11 @@
 	</select>
 	
 	<!-- 통계  -->
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO pucoMember(Mno,Mid,Mpwd,Memail)
+		VALUES((SELECT NVL(MAX(Mno)+1,1) FROM pucoMember),
+		#{mid},#{mpwd},#{memail})
+	</insert>
 </mapper>

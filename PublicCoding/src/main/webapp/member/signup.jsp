@@ -34,6 +34,34 @@ function idcheck() {
 </script>
 <!-- //////////////////// 중복체크 shadowBox /////////////////// -->
 
+<!-- ////////////////////////////////////// JOIN ACTION /////////////////////////// -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#joinBtn').click(function() {
+			var id = $('#id').val();
+			if (id.trim() == "") {
+				$('#id').focus();
+				return;
+			}
+
+			var pwd = $('#pwd').val();
+			if (pwd.trim() == "") {
+				$('#pwd').focus();
+				return;
+			}
+			
+			var email = $('#email').val();
+			if (pwd.trim() == "") {
+				$('#email').focus();
+				return;
+			}
+			$('#join_frm').submit();
+		});
+	});
+</script>
+<!-- ////////////////////////////////////////////////////////////////////////////// -->
 </head>
 <body>
 
@@ -57,7 +85,7 @@ function idcheck() {
 				<div class="form-box ng-scope" style="padding: 0 35px 35px 35px;">
 
 					<form class="form-horizontal ng-pristine ng-valid ng-valid-email" role="form"
-						name="join_frm" action="../member/signup_ok.jsp" method="post">
+						name="join_frm" action="signup.do" method="post" id="join_frm">
 
 						<div class="row">
 							<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
@@ -91,7 +119,7 @@ function idcheck() {
 						<div class="row">
 							<div class="col-sm-6 col-xs-12">
 								<legend class="sumain"></legend>
-								<button type="submit" class="btn btn-block btn-primary">회원가입</button>
+								<button type="submit" class="btn btn-block btn-primary" id="joinBtn">회원가입</button>
 							</div>
 							<div class="col-sm-6 col-xs-12">
 								<legend class="sumain"></legend>
