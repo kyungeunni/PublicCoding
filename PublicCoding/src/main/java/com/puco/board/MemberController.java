@@ -36,7 +36,7 @@ public class MemberController {
 			email=st.nextToken();
 			mno=st.nextToken();
 			mimageurl=st.nextToken();
-			//MemberDAO.loginUpdate(Integer.parseInt(mno));
+			MemberDAO.loginUpdate(Integer.parseInt(mno));
 			ScoreVO d= new ScoreVO(Integer.parseInt(mno),1,"(+1) 로그인 하였습니다.");
 			MemberDAO.recordScore(d);
 
