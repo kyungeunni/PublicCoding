@@ -15,9 +15,9 @@ table td{width:10px;}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:20%; height:90vh; background:#1c1d26;}
+article:nth-child(1) { width:20%; height:3000px; background:#1c1d26;}
 article:nth-child(2) { width:80%; height:30vh; background:#ffffff}
-article:nth-child(3) { width:80%; height:60vh; background:#ff0080;}
+article:nth-child(3) { width:80%; height:auto; background:#ff0080;}
 
 #qnaboard {width:80%;}
 

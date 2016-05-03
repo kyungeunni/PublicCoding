@@ -12,7 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="assets/css/main2.css">
+<link type="text/css" rel="stylesheet" href="assets/css/default.css">
 
 
 <!-- ////////////////////////////////////// LOGIN ACTION /////////////////////////// -->
@@ -52,17 +52,13 @@
 		</h1>
 
 		<ul id="gnb">
-
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="boardmain.do"><i class="fa fa-book"></i>온라인
-					강의</a>
+				data-toggle="dropdown" href="lectureMain.do"><i class="fa fa-book"></i>온라인 강의</a>
 				<ul class="dropdown-menu">
 					<li><a href="scategory.do?dno=1">Language</a></li>
 					<li><a href="scategory.do?dno=2">Database</a></li>
 					<li><a href="scategory.do?dno=3">Web</a></li>
 				</ul></li>
-
-
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
 					스터디</a>
@@ -84,16 +80,6 @@
 					<li><a href="free.do">자유 게시판</a></li>
 				</ul></li>
 
-		<div class="col-md-3">
-            <center>
-            <form action="#" method="get">
-                <div class="input-group">
-                    	통합검색
-                    <input class="form-control" id="system-search" name="q" placeholder="검색어를 입력해주세요" required>     
-                </div>
-            </form>
-            </center>
-        </div>
 			<!-- 회원가입-->
 
 			<c:if test="${sessionScope.id==null }">
@@ -160,7 +146,8 @@
 							<div class="row onboarding-form-group">
 								<div class="col-sm-12 col-xs-12">
 									<div>
-										<label for="email">E-mail</label> <input type="text"
+										<label for="email">E-mail</label> 
+										<input type="email"
 											class="form-control ng-pristine ng-untouched ng-valid ng-valid-email"
 											id="email" placeholder="E-mail">
 									</div>
@@ -188,7 +175,49 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+
+		<!-- 원래 main 화면에 있는 기본 로그인 부분 시작 -->
+		<%-- <div class="modal fade" id="login" tabindex="-1" role="dialog"
+			aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true"></span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="lineModalLabel">
+							<center>안녕하세요. PUCO 입니다.</center>
+						</h4>
+					</div>
+					<div class="modal-body">
+						<!-- content goes here -->
+						<form class="form-horizontal ng-pristine ng-valid ng-valid-email"
+							role="form">
+							<div class="row">
+								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
+									<label for="firstname">아이디</label> <input type="text"
+										class="form-control ng-pristine ng-untouched ng-valid"
+										id="firstName" placeholder="아이디">
+								</div>
+								<div class="col-sm-6 col-xs-12" style="margin-bottom: 10px;">
+									<label for="lastName">비밀번호</label> <input type="password"
+										class="form-control ng-pristine ng-untouched ng-valid"
+										id="password" placeholder="비밀번호">
+								</div>
+							</div>
+							<p>
+							<p>
+								<input type="button" class="btn btn-block btn-primary"
+									data-target="#login" data-dismiss="modal" value="로그인">
+						</form>
+					</div>
+				</div>
+			</div>
 		</div> --%>
+		<!-- 원래 main 화면에 있는 기본 로그인 부분  끝 -->
+
 
 		<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 시작 -->
 		<div class="modal fade" id="login" tabindex="-1" role="dialog"
@@ -225,17 +254,22 @@
 								</div>
 
 								<p>
-									<p>
-								<button type="button" class="btn btn-block btn-primary"
+								<p>
+									<button type="button" class="btn btn-block btn-primary"
 										data-target="#login" data-dismiss="modal" id="logBtn">로그인</button>
-					
 							</form>
-				</c:if>
+						</c:if>
+						<c:if test="${sessionScope.id!=null }">
+							<form method="post" action="signout.do" id="logoutForm">
+								${sessionScope.id }님 환영합니다!!&nbsp;
+								<button type="button" class="btn btn-block btn-primary"
+									data-target="#login" data-dismiss="modal" id="logoutBtn">로그아웃</button>
+							</form>
+						</c:if>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- 로그인 modal 창의 id, password, 로그인, 로그아웃 버튼 부분 끝 -->
 	</header>
 								
 
@@ -327,5 +361,6 @@
 	    });
 	});
 	</script>
+	
 </body>
 </html>
