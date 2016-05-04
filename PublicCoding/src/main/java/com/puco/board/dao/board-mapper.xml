@@ -124,6 +124,7 @@
 		LEFT JOIN pucomember MT2
 		on MT2.mno = answer.mno
 		<include refid="where-no" />
+				order by rhit DESC
 	</select>
 
 	<update id="bVoteUp" parameterType="int">

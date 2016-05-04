@@ -74,6 +74,10 @@ public class BoardController {
 		System.out.println("content>>3");
 		req.setAttribute("wimg",wimg);
 		System.out.println("content>wimg:"+wimg);
+		PrettyTime p = new PrettyTime(new Locale("KO"));
+		 req.setAttribute("time", p.format(vo.getBdate()));
+		
+		
 		req.setAttribute("alist", alist);
 		req.setAttribute("d", vo);
 		req.setAttribute("page", page);
@@ -137,7 +141,10 @@ public class BoardController {
 	   vo.setMno(mno);
 	   vo.setRcontent(content);
 	   QBoardDAO.insertAnswer(vo);
-		ScoreVO d= new ScoreVO(mno,3,"(+3) 답변작성 ("+vo.getRcontent().substring(0, 10)+"...)");
+	   String bsubject=QBoardDAO.getbSubject(bno);
+		if(bsubject.length()>10)
+			bsubject=bsubject.substring(0, 9)+"...";
+		ScoreVO d= new ScoreVO(mno,3,"(+3) 답변작성 ("+bsubject+")");
 		MemberDAO.recordScore(d);
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);

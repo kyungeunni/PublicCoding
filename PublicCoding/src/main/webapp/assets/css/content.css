@@ -52,7 +52,7 @@ li{
 #mainbar
 {
 	margin: 0 auto;
-   	width: 950px;
+   	width: 900px;
 	float:left;
 	
 }
@@ -104,4 +104,14 @@ li{
 #tdvote{
 	width: 15%;
 	
+}
+.tags {
+    line-height: 60px;
+    margin-top: 4px;
+    float:none;
+}
+
+#sidebar{
+	
+	width:200px;
 }

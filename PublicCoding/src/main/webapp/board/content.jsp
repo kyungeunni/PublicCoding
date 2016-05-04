@@ -14,7 +14,7 @@
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/newboard.css" />
 <link rel="stylesheet" href="assets/css/content.css">
 
 <!-- 에디터 -->
@@ -36,7 +36,22 @@
 				<!-- 					<h2>HTML5에서 div의 float을 주면 wrapper가 감싸지 못합니다.</h2>
 					<p>#태그. #태그. #태그</p> -->
 				<h2>${d.bsubject }</h2>
-				<p>#${d.tag1 }.#${d.tag2 }. #${d.tag3 }</p>
+				<!-- <p>#${d.tag1 }.#${d.tag2 }. #${d.tag3 }</p> -->
+				<div class="tags t-태그 t-태그">
+											<c:if test="${d.tag1!='NONE' }">
+											<a href="/questions/tagged/${d.tag1}" class="post-tag"
+												title="show questions tagged &#39;${d.tag1}&#39;" rel="tag">${d.tag1}</a>
+												</c:if>
+												<c:if test="${d.tag2!='NONE' }">
+											<a href="/questions/tagged/${d.tag2}" class="post-tag"
+												title="show questions tagged &#39;${d.tag2}&#39;" rel="tag">${d.tag2}</a>
+												</c:if>
+												<c:if test="${d.tag3!='NONE' }">
+											<a href="/questions/tagged/${d.tag3}" class="post-tag"
+												title="show questions tagged &#39;${d.tag3}&#39;" rel="tag">${d.tag3}</a>
+												</c:if>
+											
+										</div>
 			</header>
 
 			<!-- Content -->
@@ -107,7 +122,7 @@
 					<div class="content-h">
 						<h3>당신의 답변을 적어주세요.</h3>
 						<!-- 에디터 -->
-						<form action="answer.do" id="frm">
+						<form action="answer.do" id="frm" method="post">
 						<textarea name="ir1" id="ir1"
 							style="width: 800px; height: 300px; display: none;"></textarea>
 							<input type="hidden" id="no" name="no" value="${no }">
@@ -115,7 +130,7 @@
 							</form>
 						<div class="col-sm-offset-8 col-sm-8">
 							<c:if test="${sessionScope.id==null }">
-							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" onclick="popup_signin()"></c:if>
+							<input type="button" class="btn btn-default" value="답변달기" data-toggle="modal" data-target="#login""></c:if>
 							 <c:if test="${sessionScope.id!=null }">
 							<input type="button" id="sndbtn" class="btn btn-default" value="답변달기" ></c:if>
 							
@@ -154,6 +169,7 @@
 																	[]);
 													// 이부분에 에디터 validation 검증
 													//폼 submit
+													alert("실행?");
 													$("#frm").submit();
 												})
 							})
@@ -165,9 +181,13 @@
 			</div>
 
 			<div id="sidebar">
-				<p>blar blar blar</p>
-				<p>blar blar blar</p>
-				<p>blar blar blar</p>
+				<p>작성시간 &nbsp;${time }</p>
+				<p>조회수 &nbsp; ${d.bhit }</p>
+
+				
+
+
+				
 				<p>blar blar blar</p>
 				<p>blar blar blar</p>
 			</div>

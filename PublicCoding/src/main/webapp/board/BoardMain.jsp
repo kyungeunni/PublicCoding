@@ -18,7 +18,7 @@
 		<!-- Main -->
 
 		<div class="container">
-			<div class="major" id="listmajor">
+			<div class="major" id="boardlistmajor">
 				<div id="pucoof"><h2>PUCO Overflow</h2></div>
 				<div  id="btnqst">
 										<c:if test="${sessionScope.id!=null }">

@@ -41,13 +41,13 @@
 									<fmt:formatDate value="${vo.mdate}" pattern="yyyy년 MM월 dd일" />
 									<br /> <i class="glyphicon glyphicon-globe"></i>
 									&nbsp;www.jquery2dotnet.com <br /> <i class="fa fa-eye"
-										aria-hidden="true">&nbsp;포스트 뷰:</i><br /> <i
+										aria-hidden="true">&nbsp;포스트 뷰: ${vo.boardhit} </i><br /> <i
 										class="fa fa-clock-o" aria-hidden="true">&nbsp;최근 접속시간:
 										${login }</i><br />
 								<p>
 									<strong><font color="red"><i
 											class="fa fa-heart" aria-hidden="true"></i></font>&nbsp;favorite: </strong>
-									<c:forEach var="tag" items="${tags }">
+									<c:forEach var="tag" items="${tags }" >
 										<span class="tags">${tag }</span>
 									</c:forEach>
 
