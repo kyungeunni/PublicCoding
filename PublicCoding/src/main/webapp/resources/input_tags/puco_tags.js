@@ -44,8 +44,10 @@ elt.tagsinput({
     source: pgtag.ttAdapter()
   }
 });
+
+/*
 elt.tagsinput('add', { "value": 2 , "text": "JAVA"   });
-/*elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
+elt.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
 elt.tagsinput('add', { "value": 4 , "text": "Washington"  , "continent": "America"   });
 elt.tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
 elt.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });

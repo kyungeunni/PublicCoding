@@ -1,25 +1,16 @@
 package com.puco.board;
 
 import java.util.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+
+
 import java.util.StringTokenizer;
 import java.io.*;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.puco.board.dao.BoardDTO;
-import com.puco.board.dao.QBoardDAO;
 import com.puco.board.dao.QnaBoardVO;
-import com.puco.category.dao.DcategoryDAO;
-import com.puco.category.dao.DcategoryDTO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
@@ -81,8 +72,6 @@ public class MemberController {
 		//질문글
 		List<QnaBoardVO> qlist = MemberDAO.getUserPost(mno);
 		req.setAttribute("qlist", qlist);
-		System.out.println(qlist.get(0).getBno());
-		System.out.println(qlist.get(0).getBsubject());
 		//질문갯수
 		req.setAttribute("qno", qlist.size());
 		//답변갯수
@@ -102,15 +91,15 @@ public class MemberController {
 		System.out.println("userupdate.do>>>1");
 		String mtags=MemberDAO.getTaglist(Integer.parseInt(mno));
 		StringTokenizer st = new StringTokenizer(mtags, ",");
-		String tags = "";
+		List<String> tags = new ArrayList<String>();
 		while(st.hasMoreTokens()){
 			String t = st.nextToken();
 			String tag = MemberDAO.getTagName(Integer.parseInt(t));
-			tags+=tag+",";
+			tags.add(tag);
 		}
+		
+		MemberDAO.loginUpdate(Integer.parseInt(mno));
 		System.out.println("userupdate.do>>>1");
-		tags=tags.substring(0, tags.length()-1);
-		System.out.println(tags);
 		req.setAttribute("tags", tags);
 		req.setAttribute("jsp", "user_edit.jsp");
 		return "common/main.jsp";
@@ -118,7 +107,7 @@ public class MemberController {
 
 	@RequestMapping("user_update_ok.do")
 	public String user_update_ok(HttpServletRequest req) throws IOException{
-
+		
 		String path="c://SpringDev//springStudy//.metadata//.plugins//org.eclipse.wst.server.core//tmp1//wtpwebapps//PublicCoding//resources//userprofiles";
 	    String enctype="EUC-KR";
 	    int size=1024*1024*100;
@@ -126,13 +115,14 @@ public class MemberController {
 	    		new MultipartRequest(req,path,size,enctype,
 	    				new DefaultFileRenamePolicy());
 	    String mno=mr.getParameter("mno");
-	    System.out.println(mno);
+	     System.out.println(mno);
+	    String tags= mr.getParameter("taglist");
+	    
 	    String filename=mr.getOriginalFileName("upload");
-	    System.out.println(">>>>>>>>filename"+filename);
 	    MemberDTO info=MemberDAO.userdata(Integer.parseInt(mno));
-	    System.out.println(">>>>>>>>filename1");
 	    MemberDTO d=new MemberDTO();
 	    d.setMno(Integer.parseInt(mno));
+	    d.setMtags(tags);
 	    if(filename==null)
 	    {
 	    	if(!(info.getMimageURL().equals("defaultprofile.jpg"))){
@@ -157,13 +147,14 @@ public class MemberController {
 	    System.out.println(d.getFilesize());
 	    System.out.println(d.getMimageURL());
 	    MemberDAO.userUpdate(d);
+	    HttpSession session=req.getSession();
+	    session.setAttribute("mimageurl", d.getMimageURL());
 	    // 이동
 	    System.out.println(">>>>>>>>filename3");
 	       if(filename!=null && info.getFilesize()>0)
 	       {
 	    	   File f=new File("C:\\SpringDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\PublicCoding\\resources\\userprofiles\\"+info.getMimageURL());
 	    	   f.delete();
-
 	    }
 		return "common/user_update_ok.jsp";
 	}

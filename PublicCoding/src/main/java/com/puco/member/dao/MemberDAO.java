@@ -69,7 +69,10 @@ public class MemberDAO {
 		SqlSession session = ssf.openSession();
 		System.out.println("userdata>>1");
 		MemberDTO vo=session.selectOne("getUserData", mno);
-		
+		int point=session.selectOne("getUserSCore",mno);
+		vo.setMpoint(point);
+		int boardhit = session.selectOne("getSumHit",mno);
+		vo.setBoardhit(boardhit);
 		session.close();
 		
 		return vo;

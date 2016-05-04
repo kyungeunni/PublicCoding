@@ -249,6 +249,12 @@ span.tags
 	
     margin: auto;
     padding-top: 20px;
-    
-    
+}
+
+.taglist{
+	margin: auto;
+}
+
+.useredittd{
+	height:60px;
 }

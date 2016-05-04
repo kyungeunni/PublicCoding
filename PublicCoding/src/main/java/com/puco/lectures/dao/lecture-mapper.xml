@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.puco.category.dao.category-mapper">
+<mapper namespace="com.puco.lectures.dao.lecture-mapper">
 	<select id="CourseGroupAllData" resultType="CourseGroup" parameterType="int">
-		SELECT gno,gname,gimageurl,totalcno,gintro
-		FROM CourseGroup
-		WHERE sno=#{no}
+	 SELECT * FROM CourseGroup WHERE sno=#{sno}
+	</select>
+	<!-- 
+		CREATE TABLE Content(
+		   Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
+		   Cname VARCHAR2(50) CONSTRAINT ct_cnm_nn NOT NULL, 
+		   CmediaURL VARCHAR2(400) CONSTRAINT ct_mu_nn NOT NULL, 
+		   Ctime VARCHAR2(28),
+		   CsiteURL VARCHAR2(400),
+		   Cstep NUMBER CONSTRAINT ct_cs_nn NOT NULL, 
+		   Gno NUMBER CONSTRAINT ct_gno_nn NOT NULL,
+		   CONSTRAINT ct_cno_pk PRIMARY KEY(Cno),
+		   CONSTRAINT ct_gn_fk FOREIGN KEY(Gno)
+		   REFERENCES CourseGroup(gno)
+		);
+	 -->
+	<select id="ContentListData" resultType="Content" parameterType="int">
+		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
+		FROM Content
+		WHERE gno=#{gno}
+		ORDER BY cno ASC
 	</select>
 </mapper>

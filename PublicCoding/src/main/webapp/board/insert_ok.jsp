@@ -1,4 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:redirect url="../puco/boardmain.do"/>
+<c:redirect url="../puco/qnaboard.do"/>

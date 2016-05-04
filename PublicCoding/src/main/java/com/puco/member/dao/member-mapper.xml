@@ -18,11 +18,19 @@
 
 	<!-- Userpage 데이터 -->
 	<select id="getUserData" resultType="Member" parameterType="int">
-		SELECT mno,mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate,mtags
+		SELECT mno,mid,memail,mimageurl,filesize,mdate,lno,logindate,mtags
 		FROM
 		pucoMember
 		WHERE mno=#{mno}
+	
 	</select>
+	
+		<select id="getUserSCore" resultType="int" parameterType="int">
+		SELECT SUM(score)
+		FROM 	scorechart
+		WHERE mno=#{mno}	
+	</select>
+	
 	<!-- 수강정보 -->
 	<select id="getUserCourse" resultType="String" parameterType="int">
 		select gname FROM CourseGroup cg
@@ -34,17 +42,17 @@
 	<!-- 로그인시 -->
 	<update id="loginUpdate" parameterType="int">
 		UPDATE pucomember SET
-		logindate = SYSDATE,mpoint=mpoint+5
+		logindate = SYSDATE
 		WHERE mno=#{mno}
 	</update>
 	
-	<!-- 득점 -->
-	<update id="getPoint" parameterType="int">
+ 	<!-- 득점 -->
+<!--	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
 		mpoint
 		= mpoint+#{point}
 		WHERE mno=#{mno}
-	</update>
+	</update> -->
 	
 	<!-- 득점 테이블 추가  -->
 	<insert id="recordScore"  parameterType="Score" >
@@ -56,7 +64,7 @@
 		<!-- UPDATE pucomember SET MimageURL=#{mimageURL},filesize=#{filesize}, 
 			mtags=#{tags} WHERE no=#{mno} -->
 		UPDATE pucomember SET
-		MimageURL=#{mimageURL},filesize=#{filesize}
+		MimageURL=#{mimageURL},filesize=#{filesize}, mtags=#{mtags}
 		WHERE
 		mno=#{mno}
 
@@ -93,7 +101,11 @@
 	 Order by rhit DESC
 	</select>
 	
-	<!-- 통계  -->
+	<!-- 게시글 뷰 합계  -->
+	<select id="getSumHit" resultType="int" parameterType="int">
+		SELECT SUM(bhit) FROM Mainboard
+		WHERE mno=#{mno}
+	</select>
 	
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="Member">

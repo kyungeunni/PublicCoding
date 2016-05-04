@@ -3,11 +3,7 @@ package com.puco.lectures;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
-import com.puco.category.dao.DcategoryDAO;
-import com.puco.category.dao.DcategoryDTO;
-import com.puco.category.dao.ScategoryDAO;
-import com.puco.category.dao.ScategoryDTO;
+import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.*;
@@ -17,6 +13,10 @@ public class LectureController {
 	/*@RequestMapping("videolist.do")
 	public String videoListData(HttpServletRequest req){
 		//req.setAttribute("msg", "게시판");
+@Controller("vc")
+public class LectureController {
+	/*@RequestMapping("lectureMain.do")
+	public String lectureMainData(HttpServletRequest req){
 		String strmode=req.getParameter("mode");
 		if(strmode==null)
 			strmode="1";
@@ -40,7 +40,7 @@ public class LectureController {
 		int no = Integer.parseInt(sno);
 		
 		if(sno==null)
-			sno="1";
+			no=1;
 		
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
@@ -55,11 +55,10 @@ public class LectureController {
 		req.setAttribute("slist", slist);
 		// Scategory 메뉴 끝
 		
+		
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
-		System.out.println("LectureController CourseGroupDTO Work");
+		System.out.println("LectureController CourseGroupDAO Work");
 		req.setAttribute("glist", glist);
-		System.out.println("LectureController CourseGroup req.set Work");
-		System.out.println("LectureController glist " + glist);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";
 	}
@@ -67,13 +66,29 @@ public class LectureController {
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
-		//req.setAttribute("msg", "게시판");
-		req.setCharacterEncoding("EUC-KR");
-		String lecture=req.getParameter("lecture").substring(9);
-		String list=req.getParameter("list");
-		String url=lecture+"?list="+list; //awTiYk5aCEo?list=PLENYGEQnz1xrMzGAfcCJFBzkBNzY2ufb1
-		req.setAttribute("url", url);
-		req.setAttribute("jsp", "play.jsp");
-		return "lectures/videolist.jsp";
+		String gnos=req.getParameter("gno");							// 그룹번호
+		String cnos=req.getParameter("cno");    						// 동영상번호
+		int gno = Integer.parseInt(gnos);
+		
+		List<ContentDTO> clist=ContentDAO.ContentListData(gno);			// clist에 동영상정보 담아옴
+		int initcno = clist.get(0).getCno();							// initcno에 제일 첫번째 동영상 번호를 받아옴
+		
+		if(cnos==null)
+			cnos=String.valueOf(initcno);								// 최초는 무조건 cno=0
+		
+		int cno = Integer.parseInt(cnos);
+		
+		String contenturl=clist.get(cno-initcno).getCmediaurl();		// clist에는 첫번째 것은 제외하고 받아옴(list에 뿌려줄 것들)
+		contenturl=contenturl.substring(9,contenturl.length());			// 전체 URL중 /watch?v=을 잘라버렸음
+		String secondrul=contenturl.substring(0,contenturl.indexOf("&"));	// 순수 동영상 URL부분만 잘라 저장함
+		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);		// &index=& 까지 잘라내버림
+		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
+	
+		req.setAttribute("contenturl", contenturl);
+		req.setAttribute("clist", clist);
+		req.setAttribute("gno", gno);
+
+		req.setAttribute("jsp", "../lectures/play.jsp");
+		return "common/main.jsp";
 	}
 }

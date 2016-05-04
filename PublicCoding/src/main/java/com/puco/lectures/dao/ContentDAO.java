@@ -19,14 +19,14 @@ private static SqlSessionFactory ssf;
 			System.out.println("CourseGroupDAO ERROR "+ex.getMessage());
 		}
 	}
-	public static List<ContentDTO> ContentAllData(int no){
-		System.out.println("ContentAllData method Work");
+	public static List<ContentDTO> ContentListData(int gno){
+		System.out.println("ContentListData method Work");
 		SqlSession session = ssf.openSession();
-		System.out.println("ContentAllData SqlSession Work");
-		List<ContentDTO> clist = session.selectList("ContentAllData", no);
-		System.out.println("ContentAllData selectList Work");
+		System.out.println("ContentListData SqlSession Work");
+		List<ContentDTO> clist = session.selectList("ContentListData", gno);
+		System.out.println("ContentListData selectList Work");
 		session.close();
-		System.out.println("ContentAllData session close Work");
+		System.out.println("ContentListData session close Work");
 		System.out.println("clist " + clist);
 		return clist;
 	}

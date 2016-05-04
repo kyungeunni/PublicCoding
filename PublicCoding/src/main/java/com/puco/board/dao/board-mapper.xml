@@ -28,6 +28,55 @@
 		order by bno desc
 		
 	</select>
+	<select id="boardHitData" resultType="QBoard" parameterType="java.util.Map">
+		SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
+		MB.bno=answer.bno) as answer
+		FROM (SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,num FROM
+		(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,rownum as num
+		FROM(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3
+		FROM mainboard 
+		WHERE BTno=1
+		ORDER BY bhit DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
+		LEFT JOIN
+		tag t1
+		on T1.tgno = mb.tgno1
+		LEFT JOIN tag t2
+		on T2.tgno = mb.tgno2
+		LEFT
+		JOIN tag t3
+		on T3.tgno = mb.tgno3
+		LEFT JOIN pucomember MT
+		on MT.mno =mb.mno
+		order by bhit desc
+		
+	</select>
+	
+	<select id="boardVoteData" resultType="QBoard" parameterType="java.util.Map">
+		SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,bvote,T1.tgName as tag1, T2.tgName as tag2, T3.tgName as tag3, MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
+		MB.bno=answer.bno) as answer
+		FROM (SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,num FROM
+		(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3,rownum as num
+		FROM(SELECT bno,bsubject,mno,bdate,bhit,bvote,tgno1, tgno2, tgno3
+		FROM mainboard 
+		WHERE BTno=1
+		ORDER BY bvote DESC))
+		WHERE num BETWEEN #{start} AND #{end}) MB
+		LEFT JOIN
+		tag t1
+		on T1.tgno = mb.tgno1
+		LEFT JOIN tag t2
+		on T2.tgno = mb.tgno2
+		LEFT
+		JOIN tag t3
+		on T3.tgno = mb.tgno3
+		LEFT JOIN pucomember MT
+		on MT.mno =mb.mno
+		order by bvote desc
+		
+	</select>
+
+
 
 	<select id="boardRowCount" resultType="int">
 		SELECT COUNT(*) FROM
@@ -75,6 +124,7 @@
 		LEFT JOIN pucomember MT2
 		on MT2.mno = answer.mno
 		<include refid="where-no" />
+				order by rhit DESC
 	</select>
 
 	<update id="bVoteUp" parameterType="int">
