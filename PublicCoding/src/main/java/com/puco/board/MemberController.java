@@ -97,7 +97,8 @@ public class MemberController {
 			String tag = MemberDAO.getTagName(Integer.parseInt(t));
 			tags.add(tag);
 		}
-
+		
+		MemberDAO.loginUpdate(Integer.parseInt(mno));
 		System.out.println("userupdate.do>>>1");
 		req.setAttribute("tags", tags);
 		req.setAttribute("jsp", "user_edit.jsp");
