@@ -7,7 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>PUBLIC CODING | 모두가 즐기는 코딩</title>
-
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="resources/input_tags/bootstrap-tagsinput.css">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link rel="stylesheet" href="resources/input_tags/app.css">	
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -361,6 +365,74 @@
 	    });
 	});
 	</script>
-	
+	<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
+
+	ga('create', 'UA-42755476-1', 'bootstrap-tagsinput.github.io');
+	ga('send', 'pageview');
+</script>
+<script>
+	$(function() {
+		//전역변수선언
+		var editor_object = [];
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef : editor_object,
+			elPlaceHolder : "ir1",
+			sSkinURI : "resources/se/SmartEditor2Skin.html",
+			htParams : {
+				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseToolbar : true,
+				// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseVerticalResizer : true,
+				// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+				bUseModeChanger :true,
+
+			}
+		});
+		
+		//전송버튼 클릭이벤트
+		$("#sndbtn").click(function() {
+			
+			//태그 값 저장
+			$('#taglist').val($("#tags").val());
+			alert("taglist>>"+$('#taglist').val());
+			var title=$('#title').val();
+			if(title.trim()=="")
+			{
+				$('#title').focus();
+				alert("2");
+				return;
+			}
+			alert(1);
+			//id가 smarteditor인 textarea에 에디터에서 대입
+			editor_object.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+			alert(2);
+			// 이부분에 에디터 validation 검증
+			//폼 submit
+			$("#frm").submit();
+		})
+	})
+</script>
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+	<script
+		src="resources/input_tags/bootstrap-tagsinput.min.js"></script>
+	<script
+		src="resources/input_tags/bootstrap-tagsinput-angular.min.js"></script>
+	<script src="resources/input_tags/puco_tags.js"></script>
 </body>
 </html>

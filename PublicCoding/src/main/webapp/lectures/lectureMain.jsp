@@ -71,7 +71,7 @@
 			<div class="textte">
 				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ --> <c:set var="celi"
 						value="${fn:length(glist)/4}"></c:set> <c:set var="celi_ok"
-						value="${celi+(1-(celi%1))%1}"></c:set> <c:forEach var="i"
+						value="${celi+(1-(celi%1))%1}"></c:set> \ <c:forEach var="i"
 						begin="1" end="${celi_ok}">
 						<div class="row">
 

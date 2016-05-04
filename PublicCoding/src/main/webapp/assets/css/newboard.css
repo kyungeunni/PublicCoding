@@ -1,31 +1,15 @@
-@import url("font-awesome.min.css");
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=verdana);
 
-@import
-	url("http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic")
-	;
+/* reset */
+* { margin:0;  padding:0;}
+ol,ul { list-style: none; }
+a { outline:0; text-decoration:none; color:#ffffff; }
+img { border:0;}
+body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; } 
+table { table-layout: fixed}
 
-/*
-	Landed by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-/* Reset */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
-	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-	output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	/* vertical-align: baseline; */
-}
-/*·¹ÀÌ¾Æ¿ô*/
+/*ë ˆì´ì•„ì›ƒ*/
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
@@ -44,7 +28,7 @@ article:nth-child(6) { width:100%; height:8vh; background:#888;}
 }
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
-/* header ÄÁÅÙÃ÷ */
+/* header ì»¨í…ì¸  */
 header h1 { width:400px; height:136px; background-size:contain; position:absolute; top:5px;	left:20px; font-size:20pt;}
 header h1 a:hover{color:#e44b66; text-decoration: none}
 #gnb { position:absolute; top:300px; right:65px;}
@@ -68,12 +52,12 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 
 @media screen and (min-width:1280px) {  
 	
-	/*·¹ÀÌ¾Æ¿ô*/
+	/*ë ˆì´ì•„ì›ƒ*/
 	header { position:relative; width:100%; height:80px;}
 	nav { width:100%; margin-left:0%;}		
 	section { width:100%; margin-left:0px;}	
 	
-	/* header ÄÁÅÙÃ÷ */
+	/* header ì»¨í…ì¸  */
 	header h1 { width:400px; height:40px; left:20px; margin-left:0px;}
 	header h1 a {color:#ffffff}
 	#gnb { top:20px; right:60px;}	
@@ -4264,20 +4248,20 @@ body.home-page .subheader, body.questions-page .subheader {
 #mainbar h2, .mainbar h2, #mainbar h3, .mainbar h3, #mainbar h4,
 	.mainbar h4 {
 	font-weight: 400;
-	font-family: "¸¼Àº °íµñ";
+	font-family: "ë§‘ì€ ê³ ë”•";
 }
 
 .narrow .summary h3 {
 	margin-bottom: 0.35em;
 	line-height: 1.3;
-	font-family: "¸¼Àº °íµñ";
+	font-family: "ë§‘ì€ ê³ ë”•";
 }
 
 .summary h3 {
 	font-size: 20px;
 	line-height: 1.4;
 	margin-bottom: 0.5em;
-	font-family: "¸¼Àº °íµñ";
+	font-family: "ë§‘ì€ ê³ ë”•";
 }
 
 .tags {
@@ -4447,34 +4431,14 @@ float: right;
 	width:750px;
 	padding-top: 100px;
 }
-.modal-header {
-    min-height: 16.43px;
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
-    color: black;
-}
-.modal-title {
-    margin: 0;
-    line-height: 1.42857143;
-    font-size: 18px;
-}
 
 .row {
     margin-right: -15px;
     margin-left: -15px;
 }
-.modal-body {
-    position: relative;
-    padding: 15px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}
 
 
-/* Á¤¼±  freeboard css*/
+/* ì •ì„   freeboard css*/
 @charset "utf-8";
 
 #freeboard {
@@ -4483,7 +4447,7 @@ float: right;
 	padding:0px;
 	box-shadow:3px 3px 10px #C8C8C8;
 	border-spacing:0;
-	font-family:"¸¼Àº °íµñ";
+	font-family:"ë§‘ì€ ê³ ë”•";
 	color:white;
 	
 }
@@ -4541,7 +4505,7 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 #freeboardNav td {
 	
 	color:white;
-	font-family: "¸¼Àº °íµñ";
+	font-family: "ë§‘ì€ ê³ ë”•";
 	font-size: 16px;
 }
 #checkpwd {

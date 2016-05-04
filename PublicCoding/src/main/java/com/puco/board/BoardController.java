@@ -54,6 +54,7 @@ public class BoardController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
+		
 		return "common/main.jsp";
 	}
 
