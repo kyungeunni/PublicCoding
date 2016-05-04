@@ -28,9 +28,9 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapse${d.dno}"> <c:if test="${d.dno == 1 }">
-													<i class="fa fa-code"></i>${d.dname }</a>
+											<a data-toggle="collapse" data-parent="#accordion" href="#collapse${d.dno}">
+											<c:if test="${d.dno == 1 }">
+												<i class="fa fa-code"></i>${d.dname }</a>
 											</c:if>
 											<c:if test="${d.dno == 2 }">
 												<i class="fa fa-database"></i>${d.dname }</a>
@@ -40,8 +40,6 @@
 											</c:if>
 										</h4>
 									</div>
-
-
 									<div id="collapse${d.dno}" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<table class="table">
@@ -69,26 +67,27 @@
 
 		<article>
 			<div class="textte">
-				<span> <!-- 썸내일 시작 --> <c:set var="celi"
-						value="${fn:length(glist)/4}"></c:set> <c:set var="celi_ok"
-						value="${celi+(1-(celi%1))%1}"></c:set> <c:forEach var="i"
-						begin="1" end="${celi_ok}">
+
+				<span> <!-- 썸내일 시작 -->
+					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
+					<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
+					
+					<c:forEach var="i" begin="1" end="${celi_ok}">
 						<div class="row">
 
-							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }"
-								items="${glist}">
+							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }" items="${glist}">
+							<%-- <c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}"> --%>
+
 								<div class="col-sm-3 col-lg-3 col-md-3">
-									
 									<div class="thumbnail hthumbnail">
-									<div class=tumbnailb">
-										<img src="${g.gimageurl}">
-									</div>
+										<div class=tumbnailb">
+											<img src="${g.gimageurl}">
+										</div>
+										
 										<div class="caption">
-											<br>
-											<br>
+											<br> <br>
 											<h4 class="nowrap">
-												<a href="play.do?gno=${g.gno }" style="color: red;">강의명
-													: ${g.gname }</a>
+												<a href="play.do?gno=${g.gno }" style="color: red;">강의명: ${g.gname }</a>
 											</h4>
 											<h5>총 강의수 : ${g.totalcno }강</h5>
 
@@ -100,8 +99,7 @@
                 <div class="row">
                 
                     <div class="col-xs-12 col-md-6 text-center">
-                        <h1 class="rating-num">
-                            4.0</h1>
+                        <h1 class="rating-num">4.0</h1>
                         <div class="rating">
                             <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
@@ -190,11 +188,5 @@
 			</div>
 		</article>
 	</section>
-
-	<!-- 썸네일 -->
-	<!-- jQuery -->
-	<script src="assets/js/hyun/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>

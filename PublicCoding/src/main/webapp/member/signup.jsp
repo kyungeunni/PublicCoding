@@ -33,7 +33,6 @@ function idcheck() {
 }
 </script>
 <!-- //////////////////// 중복체크 shadowBox /////////////////// -->
-
 <!-- ////////////////////////////////////// JOIN ACTION /////////////////////////// -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
