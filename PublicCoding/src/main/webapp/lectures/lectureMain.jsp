@@ -40,8 +40,6 @@
 											</c:if>
 										</h4>
 									</div>
-
-
 									<div id="collapse${d.dno}" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<table class="table">
@@ -69,19 +67,18 @@
 
 		<article>
 			<div class="textte">
-				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ --> <c:set var="celi"
-						value="${fn:length(glist)/4}"></c:set> <c:set var="celi_ok"
-						value="${celi+(1-(celi%1))%1}"></c:set> <c:forEach var="i"
-						begin="1" end="${celi_ok}">
+				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ --> <c:set var="celi" value="${fn:length(glist)/4}"></c:set> 
+				<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set> 
+				<c:forEach var="i" begin="1" end="${celi_ok}">
 						<div class="row">
-
-							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }"
-								items="${glist}">
+							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}">
 								<div class="col-sm-3 col-lg-3 col-md-3">
-
 									<div class="thumbnail hthumbnail">
-										<div class=tumbnailb">
-											<img src="${g.gimageurl}">
+										<div class="tumbnailb">
+											<div>
+											<a href="play.do?gno=${g.gno }">
+											<img src="${g.gimageurl}" style="width: 90%;"></a></div>
+											<div><img src="assets/css/hyun/recommend.png" style="width: 30%;"></div>
 										</div>
 										<div class="caption">
 											<br> <br>
