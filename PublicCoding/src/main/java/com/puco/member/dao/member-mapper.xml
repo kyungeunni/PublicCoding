@@ -18,11 +18,19 @@
 
 	<!-- Userpage 데이터 -->
 	<select id="getUserData" resultType="Member" parameterType="int">
-		SELECT mno,mid,memail,mimageurl,filesize,mdate,mpoint,lno,logindate,mtags
+		SELECT mno,mid,memail,mimageurl,filesize,mdate,lno,logindate,mtags
 		FROM
 		pucoMember
 		WHERE mno=#{mno}
+	
 	</select>
+	
+		<select id="getUserSCore" resultType="int" parameterType="int">
+		SELECT SUM(score)
+		FROM 	scorechart
+		WHERE mno=#{mno}	
+	</select>
+	
 	<!-- 수강정보 -->
 	<select id="getUserCourse" resultType="String" parameterType="int">
 		select gname FROM CourseGroup cg
@@ -34,17 +42,17 @@
 	<!-- 로그인시 -->
 	<update id="loginUpdate" parameterType="int">
 		UPDATE pucomember SET
-		logindate = SYSDATE,mpoint=mpoint+5
+		logindate = SYSDATE
 		WHERE mno=#{mno}
 	</update>
 	
-	<!-- 득점 -->
-	<update id="getPoint" parameterType="int">
+ 	<!-- 득점 -->
+<!--	<update id="getPoint" parameterType="int">
 		UPDATE pucomember SET
 		mpoint
 		= mpoint+#{point}
 		WHERE mno=#{mno}
-	</update>
+	</update> -->
 	
 	<!-- 득점 테이블 추가  -->
 	<insert id="recordScore"  parameterType="Score" >

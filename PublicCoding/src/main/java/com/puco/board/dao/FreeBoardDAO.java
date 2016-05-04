@@ -27,10 +27,10 @@ public class FreeBoardDAO {
 	public static List<FreeBoardVO> FreeboardAllData(Map map)
 	{
 		
-		//System.out.println(123);
 		SqlSession session=ssf.openSession();
-		//System.out.println(456);
-		List<FreeBoardVO> list=session.selectList("FreeboardAllData",map);
+		List<FreeBoardVO>	list=session.selectList("FreeboardAllData");
+
+
 		
 		session.close();
 		return list;

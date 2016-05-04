@@ -78,9 +78,21 @@ public class LectureController {
 		//ContentDTO dto=ContentDAO.ContentAllData(no);
 		System.out.println("LectureController Content req.set Work");
 		System.out.println("LectureController clist " + clist);
-		
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
 		/*List<ContentDTO> dto = ContentDAO.ContentAllData(no);*/
 		
+		String sno=req.getParameter("sno");
+		
+		if(sno==null)
+			no=1;
+		// Scategory 메뉴
+				List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+				for(int i=0;i<dlist.size();i++){
+					slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+				}
+				req.setAttribute("slist", slist);
+				// Scategory 메뉴 끝
 		
 		/*//req.setAttribute("msg", "게시판");
 		req.setCharacterEncoding("EUC-KR");
