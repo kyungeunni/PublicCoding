@@ -83,9 +83,10 @@
 					<div class="row">
 						<div class="col-xs-10 col-sm-7 col-md-7">
 							<div class="embed-responsive embed-responsive-16by9">
-								<iframe class="embed-responsive-item" width="560" height="315"
-									src="https://www.youtube.com/embed/${ cmediaurl }&amp;showinfo=0"
-									frameborder="0" allowfullscreen></iframe>
+							<!-- 값을 단일로는 전혀 못 받고 있다. clist를 for문으로 어떻게 돌릴지 궁리하거나, 단일값을 줄 방법을 찾아야함 -->
+								<!-- &amp;showinfo=0 -->
+									<iframe class="embed-responsive-item" width="560" height="315" 
+									src="https://www.youtube.com/embed/${contenturl}" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 
@@ -99,7 +100,7 @@
 										<tr>
 											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
 											<td>${i }강</td>
-											<td><a href="" target="_self">${i.cname }</a></td>
+											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
 										</tr>
 									</c:forEach>
 									<!-- <tr>

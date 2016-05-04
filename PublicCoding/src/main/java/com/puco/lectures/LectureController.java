@@ -66,21 +66,38 @@ public class LectureController {
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
-		String gno=req.getParameter("gno");
-		int no = Integer.parseInt(gno);
+		String gnos=req.getParameter("gno");
+		String cnos=req.getParameter("cno");
+		int gno = Integer.parseInt(gnos);
 		
-		if(gno==null)
-			no=1;
+		List<ContentDTO> clist=ContentDAO.ContentListData(gno);
+		int initcno = clist.get(0).getCno();
+		if(cnos==null)
+			cnos=String.valueOf(initcno);
+		int cno = Integer.parseInt(cnos);
 		
-		List<ContentDTO> clist=ContentDAO.ContentListData(no);
+		System.out.println(initcno);
+		System.out.println("cno 체크>>>>"+(cno-initcno));
+		String contenturl=clist.get(cno-initcno).getCmediaurl();
+		System.out.println("url체크"+contenturl);
+		contenturl=contenturl.substring(9,contenturl.length());
+		String secontrul=contenturl.substring(0,contenturl.indexOf("&"));
+		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);
+		contenturl=secontrul+"?"+contenturl;
+		System.out.println("final >>> "+contenturl);
+		System.out.println("secondurl >>> "+secontrul);
+		req.setAttribute("contenturl", contenturl);
+		
 		System.out.println("LectureController ContentDAO Work");
+		req.setAttribute("contenturl", contenturl);
+		System.out.println("url체크"+contenturl);
 		req.setAttribute("clist", clist);
 		//ContentDTO dto=ContentDAO.ContentAllData(no);
 		System.out.println("LectureController Content req.set Work");
 		System.out.println("LectureController clist " + clist);
 		
 		/*List<ContentDTO> dto = ContentDAO.ContentAllData(no);*/
-		
+		req.setAttribute("gno", gno);
 		
 		/*//req.setAttribute("msg", "게시판");
 		req.setCharacterEncoding("EUC-KR");
