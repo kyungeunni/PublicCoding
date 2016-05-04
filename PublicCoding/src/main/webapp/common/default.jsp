@@ -31,7 +31,7 @@
 												<div class="caption">
 													<h4>
 														강의명: <br />${g1.gname }</h4>
-													<a class="btn btn-mini" href="#"> 강의 알아보기</a>
+													<a class="btn btn-mini" href="play.do?gno=${g1.gno }"> 강의 알아보기</a>
 												</div>
 											</div>
 										</li>

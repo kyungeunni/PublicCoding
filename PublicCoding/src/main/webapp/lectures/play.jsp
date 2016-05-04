@@ -21,8 +21,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/sujin-main.css" />
@@ -39,7 +38,7 @@
         		  	$(this).tab('show')
         		})
         		
-        	</script>
+</script>
 </head>
 <body>
 	<div id="page-wrapper">
@@ -98,11 +97,9 @@
 								<table class="table">
 									<c:forEach var="i" items="${clist }">
 										<tr>
-											<td><span class="glyphicon glyphicon-play-circle"
-												aria-hidden="true"></span></td>
+											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
 											<td>${i }강</td>
 											<td><a href="" target="_self">${i.cname }</a></td>
-
 										</tr>
 									</c:forEach>
 									<!-- <tr>
@@ -145,9 +142,9 @@
 						<c:if test="${sessionScope.id == null }">
 
 							<p>
-								<a href="#" data-toggle="modal" data-target="#login" id="asking"
-									class="button large special"><span
-									class="glyphicon glyphicon-play"></span>START COURSE</a>
+								<a href="#" data-toggle="modal" data-target="#login" id="asking" class="button large special">
+									<span class="glyphicon glyphicon-play"></span>START COURSE
+								</a>
 							<div class="col-xs-10 col-sm-5 col-md-5">
 								<div class="row">
 
