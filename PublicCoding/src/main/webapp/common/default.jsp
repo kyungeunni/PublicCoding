@@ -21,12 +21,12 @@
 					<div class="carousel slide" id="myCarousel">
 						<div class="carousel-inner">
 							<div class="item active">
-								<c:forEach var="g1" begin="1" end="6" items="${g1list}">
+								<c:forEach var="g1" begin="0" end="5" items="${g1list}">
 									<ul class="thumbnails">
 										<li class="col-sm-2">
 											<div class="fff">
 												<div class="thumbnail">
-													<a href="#"><img src="${g1.gimageurl}" alt=""></a>
+													<a href="play.do?gno=${g1.gno }"><img src="${g1.gimageurl}" alt=""></a>
 												</div>
 												<div class="caption">
 													<h4>
@@ -71,6 +71,7 @@
 				</div>
 			</div>
 		</article>
+
 
 		<article>
 			<form action="#" method="get">

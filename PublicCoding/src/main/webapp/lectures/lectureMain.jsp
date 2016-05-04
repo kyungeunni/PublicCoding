@@ -40,8 +40,6 @@
 											</c:if>
 										</h4>
 									</div>
-
-
 									<div id="collapse${d.dno}" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<table class="table">
@@ -69,6 +67,7 @@
 
 		<article>
 			<div class="textte">
+
 				<span> <!-- 썸내일 시작 -->
 					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
 					<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
@@ -77,16 +76,16 @@
 						<div class="row">
 
 							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }" items="${glist}">
+							<%-- <c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}"> --%>
+
 								<div class="col-sm-3 col-lg-3 col-md-3">
-									
 									<div class="thumbnail hthumbnail">
 										<div class=tumbnailb">
 											<img src="${g.gimageurl}">
 										</div>
 										
 										<div class="caption">
-											<br>
-											<br>
+											<br> <br>
 											<h4 class="nowrap">
 												<a href="play.do?gno=${g.gno }" style="color: red;">강의명: ${g.gname }</a>
 											</h4>
@@ -189,11 +188,5 @@
 			</div>
 		</article>
 	</section>
-
-	<!-- 썸네일 -->
-	<!-- jQuery -->
-	<script src="assets/js/hyun/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="assets/js/hyun/bootstrap.min.js"></script>
 </body>
 </html>

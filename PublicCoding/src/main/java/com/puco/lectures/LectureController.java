@@ -85,9 +85,9 @@ public class LectureController {
 		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
 	
 		req.setAttribute("contenturl", contenturl);
-		req.setAttribute("contenturl", contenturl);
 		req.setAttribute("clist", clist);
 		req.setAttribute("gno", gno);
+
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}

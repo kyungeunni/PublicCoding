@@ -18,7 +18,7 @@
 		<!-- Main -->
 
 		<div class="container">
-			<div class="major" id="listmajor">
+			<div class="major" id="boardlistmajor">
 				<div id="pucoof"><h2>PUCO Overflow</h2></div>
 				<div  id="btnqst">
 										<c:if test="${sessionScope.id!=null }">
@@ -70,7 +70,7 @@
 									<div
 										onclick="window.location.href='content.do?no=${d.bno }&page=${curpage}'"
 										class="cp">
-										<div class="votes">
+										<div class="votes <c:if test="${d.bvote>0}">voted</c:if>">
 											<div class="mini-counts">
 												<span title="${d.bvote} votes">${d.bvote}</span>
 											</div>
