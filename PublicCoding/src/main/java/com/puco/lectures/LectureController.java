@@ -66,45 +66,28 @@ public class LectureController {
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
-		String gnos=req.getParameter("gno");
-		String cnos=req.getParameter("cno");
+		String gnos=req.getParameter("gno");							// 그룹번호
+		String cnos=req.getParameter("cno");    						// 동영상번호
 		int gno = Integer.parseInt(gnos);
 		
-		List<ContentDTO> clist=ContentDAO.ContentListData(gno);
-		int initcno = clist.get(0).getCno();
+		List<ContentDTO> clist=ContentDAO.ContentListData(gno);			// clist에 동영상정보 담아옴
+		int initcno = clist.get(0).getCno();							// initcno에 제일 첫번째 동영상 번호를 받아옴
+		
 		if(cnos==null)
-			cnos=String.valueOf(initcno);
+			cnos=String.valueOf(initcno);								// 최초는 무조건 cno=0
+		
 		int cno = Integer.parseInt(cnos);
 		
-		System.out.println(initcno);
-		System.out.println("cno 체크>>>>"+(cno-initcno));
-		String contenturl=clist.get(cno-initcno).getCmediaurl();
-		System.out.println("url체크"+contenturl);
-		contenturl=contenturl.substring(9,contenturl.length());
-		String secontrul=contenturl.substring(0,contenturl.indexOf("&"));
-		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);
-		contenturl=secontrul+"?"+contenturl;
-		System.out.println("final >>> "+contenturl);
-		System.out.println("secondurl >>> "+secontrul);
+		String contenturl=clist.get(cno-initcno).getCmediaurl();		// clist에는 첫번째 것은 제외하고 받아옴(list에 뿌려줄 것들)
+		contenturl=contenturl.substring(9,contenturl.length());			// 전체 URL중 /watch?v=을 잘라버렸음
+		String secondrul=contenturl.substring(0,contenturl.indexOf("&"));	// 순수 동영상 URL부분만 잘라 저장함
+		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);		// &index=& 까지 잘라내버림
+		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
+	
 		req.setAttribute("contenturl", contenturl);
-		
-		System.out.println("LectureController ContentDAO Work");
 		req.setAttribute("contenturl", contenturl);
-		System.out.println("url체크"+contenturl);
 		req.setAttribute("clist", clist);
-		//ContentDTO dto=ContentDAO.ContentAllData(no);
-		System.out.println("LectureController Content req.set Work");
-		System.out.println("LectureController clist " + clist);
-		
-		/*List<ContentDTO> dto = ContentDAO.ContentAllData(no);*/
 		req.setAttribute("gno", gno);
-		
-		/*//req.setAttribute("msg", "게시판");
-		req.setCharacterEncoding("EUC-KR");
-		String lecture=req.getParameter("lecture").substring(9);
-		String list=req.getParameter("list");
-		String url=lecture+"?list="+list; //awTiYk5aCEo?list=PLENYGEQnz1xrMzGAfcCJFBzkBNzY2ufb1
-		req.setAttribute("url", url);*/
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}

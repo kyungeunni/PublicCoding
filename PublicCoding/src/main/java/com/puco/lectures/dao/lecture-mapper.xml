@@ -24,9 +24,4 @@
 		WHERE gno=#{gno}
 		ORDER BY cno ASC
 	</select>
-	<select id="ContentAllData" resultType="Content" parameterType="int">
-		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
-		FROM Content
-		WHERE gno=#{gno}
-	</select>
 </mapper>
