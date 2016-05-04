@@ -127,6 +127,8 @@
 		SELECT NVL(mimageURL,'defaultprofile.jpg') FROM pucomember
 		WHERE mno=#{mno}
 	</select>
+	
+	<!-- 정선 Freeboard -->
 
  	<select id="FreeboardAllData" resultType="FBoard" parameterType="java.util.Map">
 	  SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,MT.mid as userid,(SELECT COUNT(*) FROM answer WHERE
@@ -153,10 +155,8 @@
 	</update>
 	<select id="freeboardContentData" resultType="FBoard" parameterType="int">
 	  SELECT bno,bsubject,MB.Mno as mno,bdate,bhit,bcontent,MT.mid as userid,
-		(SELECT
-		COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
-		FROM mainboard
-		MB
+		(SELECT COUNT(*) FROM answer WHERE MB.bno=answer.bno) as answer
+		FROM mainboard MB
 		LEFT JOIN pucomember MT
 		on MT.mno = mb.mno
 		<include refid="where-no" />
@@ -167,15 +167,15 @@
 		VALUES((SELECT NVL(MAX(bno)+1,1) FROM MainBoard),
 		#{mno},#{bsubject},#{bcontent}, 2)
 	</insert>
-	<select id="freeboardGetMno" resultType="String" parameterType="int">
-	  SELECT mno FROM mainboard
-	  <include refid="where-no" />
-	</select>
-	<update id="freeboardUpdate" parameterType="FBoard">
-	  UPDATE mainboard SET
-     bsubject=#{bsubject},bcontent=#{bcontent},userid=#{userid}
+	<update id="freeboardUpdateOk" parameterType="FBoard">
+	  UPDATE mainBoard SET
+     bsubject=#{bsubject},bcontent=#{bcontent},mno=#{mno}
      <include refid="where-no" />
 	</update>
+	<delete id="freeboardDelete" parameterType="int">
+	  DELETE FROM mainBoard
+	  <include refid="where-no" />
+	</delete>
 </mapper>
 
 

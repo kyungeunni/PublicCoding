@@ -7,6 +7,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.io.*;
 import java.util.*;
@@ -63,10 +64,10 @@ public class FreeBoardDAO {
 		
 	}
 	//수정하기
-	public static FreeBoardVO freeboardUpdate(int no)
+	public static FreeBoardVO freeboardUpdate(int bno)
 	{
 		SqlSession session=ssf.openSession();
-		FreeBoardVO vo=session.selectOne("freeboardUpdate",no);
+		FreeBoardVO vo=session.selectOne("freeboardContentData",bno);
 		session.close();
 		return vo;
 	}
@@ -74,11 +75,10 @@ public class FreeBoardDAO {
 	public static void freeboardUpdateOk(FreeBoardVO vo)
 	{
 		SqlSession session=ssf.openSession(true);
-		String mno=session.selectOne("freeboardGetMno",vo.getMno());
-		session.insert("freeboardUpdateOk",vo);
+		session.update("freeboardUpdateOk",vo);
 		session.close();
-		
 	}
+	
 	public static int FBreplyCount(int Rno)
 	{
 		SqlSession session=ssf.openSession();
@@ -111,5 +111,19 @@ public class FreeBoardDAO {
 		AnswerVO vo=session.selectOne("FBreplyParentData",bno);
 		session.close();
 		return vo;
+	}
+	//게시글 삭제
+	public static void freeboardDelete(int no)
+	{
+		SqlSession session=ssf.openSession(true);
+		session.delete("freeboardDelete",no);
+		session.close();
+	}
+	//댓글의 댓글
+	public static void FBreplyStepIncrement(AnswerVO vo) 
+	{
+		SqlSession session = ssf.openSession(true);
+		session.update("FBreplyStepIncrement", vo);
+		session.close();
 	}
 }

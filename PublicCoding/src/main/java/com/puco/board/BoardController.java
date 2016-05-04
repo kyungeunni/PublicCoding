@@ -230,7 +230,8 @@ public class BoardController {
 		req.setAttribute("page", page);
 		System.out.println("setpage");
 		req.setAttribute("vo", vo);
-		System.out.println("setvo");
+		System.out.println("setvo "+vo);
+		
 		req.setAttribute("jsp", "../board/free_content.jsp");
 		System.out.println("setjsp");
 		return "common/main.jsp";
@@ -260,8 +261,10 @@ public class BoardController {
 	 @RequestMapping("freeboard_update.do")
 	   public String board_update(HttpServletRequest req)
 	   {
-		 String bno=req.getParameter("bno");
+		 String bno=req.getParameter("no");
+		 System.out.println("freeboard_update - no : "+bno);
 		   String page=req.getParameter("page");
+		   System.out.println("freeboard_update - page : "+page);
 		   FreeBoardVO vo=FreeBoardDAO.freeboardUpdate(Integer.parseInt(bno));
 		   req.setAttribute("page", page);
 		   req.setAttribute("vo", vo);
@@ -271,45 +274,53 @@ public class BoardController {
 	   @RequestMapping("freeboard_update_ok.do")
 	   public String board_update_ok(HttpServletRequest req)throws Exception
 	   {
-		   
+		   System.out.println("freeboard_update_ok.do working!!!!");
 		   req.setCharacterEncoding("EUC-KR");
-			HttpSession hs=req.getSession();
-			String no=(String) hs.getAttribute("mno");
-			int mno=Integer.parseInt(no);
-			
-			String bno=req.getParameter("bno");
-			String page=req.getParameter("page");
-			String bsubject=req.getParameter("bsubject");
-			String bcontent=req.getParameter("ir1");
-			FreeBoardVO vo=new FreeBoardVO();
-			vo.setMno(mno);
-			vo.setBno(Integer.parseInt(bno));
-			vo.setBsubject(bsubject);
-			vo.setBcontent(bcontent);
-			
-			FreeBoardDAO.freeboardUpdateOk(vo);
-			
-			
-			return "board/freeboard_update_ok.jsp";
-		   /*req.setCharacterEncoding("EUC-KR");
+		   HttpSession hs=req.getSession();
+		   String no=(String) hs.getAttribute("mno");
+		   int mno=Integer.parseInt(no);
+		   System.out.println("freeboard_update_ok.do / mno : "+mno);
 		   
 		   String bno=req.getParameter("bno");
+		   System.out.println("freeboard_update_ok.do / bno : "+bno);
 		   String page=req.getParameter("page");
-		   String mpwd=req.getParameter("mpwd");
+		   System.out.println("freeboard_update_ok.do / page : "+page);
+		   String bsubject=req.getParameter("bsubject");
+		   System.out.println("freeboard_update_ok.do / bsubject : "+bsubject);
+		   String bcontent=req.getParameter("ir1");
+		   System.out.println("freeboard_update_ok.do / bcontent : "+bcontent);
+		   
 		   FreeBoardVO vo=new FreeBoardVO();
+		   vo.setMno(mno);
 		   vo.setBno(Integer.parseInt(bno));
-		   vo.setUserid(userid);
 		   vo.setBsubject(bsubject);
 		   vo.setBcontent(bcontent);
-		   vo.setMpwd(mpwd);
-		   
-		   //DB¿¬µ¿
-		   boolean bCheck=FreeBoardDAO.boardUpdateOk(vo);
-		   req.setAttribute("bCheck", bCheck);
+		
+		   FreeBoardDAO.freeboardUpdateOk(vo);
 		   req.setAttribute("bno", bno);
 		   req.setAttribute("page", page);
-		   return "user/board/freeboard_update_ok.jsp";*/
+		   return "board/freeboard_update_ok.jsp";
+		   
 	   }
+	   @RequestMapping("freeboard_delete.do")
+	   public String freeboard_delete(HttpServletRequest req)
+	   {
+		   String bno=req.getParameter("bno");
+		   System.out.println("bno:"+bno);
+		   String page=req.getParameter("page");
+		   System.out.println("page:"+page);
+		   HttpSession hs=req.getSession();
+		   String no=(String) hs.getAttribute("mno");
+		   int mno=Integer.parseInt(no);
+		   System.out.println("mno:"+mno);
+		   
+		   req.setAttribute("page", page);
+		   req.setAttribute("mno", mno);
+		   return "board/freeboard_delete.jsp";
+		   
+	   }
+	   
+	   //´ñ±Û
 	   @RequestMapping("FBreply_insert.do")
 	   public String FBreply_insert(HttpServletRequest req) throws Exception
 	   {

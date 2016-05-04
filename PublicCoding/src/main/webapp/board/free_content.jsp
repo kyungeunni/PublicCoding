@@ -90,8 +90,8 @@ $(function(){
 		   return;
 	   }
 	   $('#rfrm'+no).submit();
-   });
-}); */
+   });*/
+});
 </script>
 </head>
 <body>
@@ -129,37 +129,30 @@ $(function(){
       <tr>
         <td align="right">
           
-          <c:if test="${sessionScope.id}==${vo.userid }">
+          <c:if test="${sessionScope.id == vo.userid }">
           <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
           	수정</button></a></c:if>
           
-          <c:if test="${sessionScope.id}!=${vo.userid }">
+          <%-- <c:if test="${sessionScope.id}!=${vo.userid }">
           <a href="freeboard_update.do?no=${vo.bno }&page=${page }">
           <button class="button" id="updateBtn">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
-          	수정</button></a></c:if>
-          
+          	수정</button></a></c:if> --%>
+         
+         <c:if test="${sessionScope.id == vo.userid }">
+         <a href="freeboard_delete.do?page=${page }">
          <button id="delBtn" class="button"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;
          	삭제
-         </button>
+         </button></a></c:if>
           
           <a href="free.do?page=${page }">
           <button class="button"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;&nbsp;
           	목록</button></a>
         </td>
       </tr>
-      <tr>
-        <td align="right">
-        <form method=post action="freeboard_delete.do">
-          <input type=hidden name=no value="${vo.bno }">
-          <input type=hidden name=page value="${page }">
-          비밀번호:<input type="password" name=pwd size=10>
-          <button style="color: black;">삭제</button>
-          </form>
-        </td>
-      </tr>
+     
     </table>
     <div>
     <a href="#" id="reply_show" style="color:#e44c65">댓글보기</a>
