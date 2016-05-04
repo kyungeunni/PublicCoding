@@ -13,7 +13,7 @@ table { table-layout: fixed}
 /*레이아웃*/
 article { float:left; height:auto;}
 article:nth-child(1) { width:33.333333%; height:60vh; background:#ccc;} 
-article:nth-child(2) { width:66.666666%; height:60vh; background:#ff0000;}
+article:nth-child(2) { width:66.666666%; height:60vh; background:#ccc;}
 article:nth-child(3) { width:33.333333%; height:30vh; background:#ffffff;}
 article:nth-child(4) { width:33.333333%; height:30vh; background:#ffffff;}
 article:nth-child(5) { width:33.333333%; height:30vh; background:#ffffff;}
@@ -249,6 +249,12 @@ span.tags
 	
     margin: auto;
     padding-top: 20px;
-    
-    
+}
+
+.taglist{
+	margin: auto;
+}
+
+.useredittd{
+	height:60px;
 }
