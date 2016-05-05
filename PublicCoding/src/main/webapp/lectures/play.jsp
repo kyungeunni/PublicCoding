@@ -74,7 +74,7 @@
 
 			<div class="container">
 				<div class="page-header" style="margin-top: 100px">
-					<h1 style="font: 20px 맑은 고딕">${cname }
+					<h1 style="font: 20px 맑은 고딕">${firstCname }
 						<small>Subtext for header</small>
 					</h1>
 				</div>
@@ -99,7 +99,7 @@
 									<c:forEach var="i" items="${clist }">
 										<tr>
 											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-											<td>${i }강</td>
+											<td>${i.cstep }강</td>
 											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
 										</tr>
 									</c:forEach>

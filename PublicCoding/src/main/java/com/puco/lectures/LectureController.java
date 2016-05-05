@@ -83,7 +83,9 @@ public class LectureController {
 		String secondrul=contenturl.substring(0,contenturl.indexOf("&"));	// 순수 동영상 URL부분만 잘라 저장함
 		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);		// &index=& 까지 잘라내버림
 		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
-	
+		String firstCname=clist.get(cno-initcno).getCname();			// 첫번째 강의 제목을 받아옴
+		
+		req.setAttribute("firstCname", firstCname);
 		req.setAttribute("contenturl", contenturl);
 		req.setAttribute("clist", clist);
 		req.setAttribute("gno", gno);
