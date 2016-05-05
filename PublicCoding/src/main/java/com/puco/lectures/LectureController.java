@@ -82,14 +82,20 @@ public class LectureController {
 		contenturl=contenturl.substring(9,contenturl.length());			// 전체 URL중 /watch?v=을 잘라버렸음
 		String secondrul=contenturl.substring(0,contenturl.indexOf("&"));	// 순수 동영상 URL부분만 잘라 저장함
 		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);		// &index=& 까지 잘라내버림
-		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
-		String firstCname=clist.get(cno-initcno).getCname();			// 첫번째 강의 제목을 받아옴
+		contenturl=secondrul+"?"+contenturl;	// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
+		
+		String firstCname=clist.get(cno-initcno).getCname();			// 선택된 강의 제목을 받아옴
+		String firstSite=clist.get(cno-initcno).getCsiteurl();			// 선택된 강의의 사이트 URL을 가져옴
 		
 		req.setAttribute("firstCname", firstCname);
 		req.setAttribute("contenturl", contenturl);
+		req.setAttribute("firstSite", firstSite);
 		req.setAttribute("clist", clist);
 		req.setAttribute("gno", gno);
-
+		
+		CourseGroupDTO dto=CourseGroupDAO.CourseGroupOneData(gno);		// 하단 강의 소개부 용도
+		req.setAttribute("ginfo", dto);
+		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}

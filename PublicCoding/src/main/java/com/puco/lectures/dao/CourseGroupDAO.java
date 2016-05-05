@@ -26,4 +26,10 @@ public class CourseGroupDAO {
 		session.close();
 		return list;
 	}
+	public static CourseGroupDTO CourseGroupOneData(int gno){
+		SqlSession session = ssf.openSession();
+		CourseGroupDTO dto = session.selectOne("CourseGroupOneData", gno);
+		session.close();
+		return dto;
+	}
 }

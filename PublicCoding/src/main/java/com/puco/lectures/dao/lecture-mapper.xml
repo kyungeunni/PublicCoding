@@ -4,6 +4,9 @@
 	<select id="CourseGroupAllData" resultType="CourseGroup" parameterType="int">
 	 SELECT * FROM CourseGroup WHERE sno=#{sno}
 	</select>
+	<select id="CourseGroupOneData" resultType="CourseGroup" parameterType="int">
+	 SELECT * FROM CourseGroup WHERE gno=#{gno}
+	</select>
 	<!-- 
 		CREATE TABLE Content(
 		   Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
