@@ -32,4 +32,10 @@ public class CourseGroupDAO {
 		session.close();
 		return dto;
 	}
+	public static List<CourseGroupDTO> SameGroupAllData(int gno){
+		SqlSession session = ssf.openSession();
+		List<CourseGroupDTO> glist = session.selectList("SameGroupAllData", gno);
+		session.close();
+		return glist;
+	}
 }

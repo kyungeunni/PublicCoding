@@ -203,13 +203,14 @@
 								<h5>연관강의</h5>
 								</p>
 								<div class="row">
-									<c:forEach var="i" begin="1" end="4">
+									<c:forEach var="i" begin="1" end="4" items="${glist }">
 										<div class="col-xs-5 col-sm-4 col-md-3">
 											<div class="thumbnail">
-												<img src="${image}" alt="...">
+												<img src="${i.gimageurl}" alt="...">
 												<div class="caption">
-													<h3>${title }</h3>
-													<p>내..용...</p>
+													<h5><font color="#000">${i.gname }</font>></h5>
+													<p>총 강의수 : ${i.totalcno }강</p>
+													<a class="btn btn-mini" href="play.do?gno=${i.gno }"> 강의 알아보기</a>
 												</div>
 											</div>
 										</div>
@@ -242,17 +243,17 @@
 											<tr>
 												<td>Ideone.com</td>
 												<td><a href="https://ideone.com/" target="_blank">https://ideone.com</a></td>
-												<td>html, css, javascript..</td>
+												<td>java, sql, javascript..</td>
 											</tr>
 											<tr>
 												<td>Compile online</td>
-												<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
-												<td>html, css, javascript..</td>
+												<td><a href="http://www.onlinecompiler.net/" target="_blank">http://www.onlinecompiler.net</a></td>
+												<td>c/c++, fortran, pascal..</td>
 											</tr>
 											<tr>
 												<td>CodeChef</td>
-												<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
-												<td>html, css, javascript..</td>
+												<td><a href="https://www.codechef.com/ide" target="_blank">https://www.codechef.com/ide</a></td>
+												<td>asm, php, ada, ruby..</td>
 											</tr>
 										</table>
 										</p>

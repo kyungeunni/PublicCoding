@@ -1,6 +1,7 @@
 package com.puco.lectures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import com.puco.category.dao.*;
@@ -95,6 +96,10 @@ public class LectureController {
 		
 		CourseGroupDTO dto=CourseGroupDAO.CourseGroupOneData(gno);		// 하단 강의 소개부 용도
 		req.setAttribute("ginfo", dto);
+		
+		List<CourseGroupDTO> glist=CourseGroupDAO.SameGroupAllData(gno);// 연관강의 무작위 출력
+		Collections.shuffle(glist);
+		req.setAttribute("glist", glist);
 		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";

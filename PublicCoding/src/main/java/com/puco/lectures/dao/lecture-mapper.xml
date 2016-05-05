@@ -27,4 +27,8 @@
 		WHERE gno=#{gno}
 		ORDER BY cno ASC
 	</select>
+	<select id="SameGroupAllData" resultType="CourseGroup" parameterType="int">
+		SELECT * FROM CourseGroup WHERE sno=(SELECT sno FROM CourseGroup WHERE gno=#{gno})
+		ORDER BY gno ASC
+	</select>
 </mapper>
