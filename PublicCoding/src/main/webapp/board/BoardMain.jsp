@@ -38,7 +38,6 @@
 
 				<!-- 추가 -->
 				<div id="mainbar" style="display: inline;">
-					
 					<header class="subheader">
 						<h1 id="h-top-questions">Top Questions</h1>
 						<div id="tabs">
@@ -137,11 +136,11 @@
 						</div>
 					</div>
 				</div>
-				<div id="sidebar" style="width: 600px">
+				<div id="sidebar" style="width: 300px">
 					<div id="hot-network-questions" class="module" style="width: 100%;">
 						<h4 class="js-gps-track" style="display: inline; color: white;">IT 실시간 뉴스</h4>&nbsp;&nbsp;
 						<form method="post" action="qnaboard.do">
-						<input type="text" style="width: 200px; display: inline;" name="title" value="${search }">
+						<input type="text" style="width: 180px; display: inline;" name="title" value="${search }">
 						<input type="submit" value="검색">
 						<input type="hidden" value="${curpage }" name="page">
 						</form>
