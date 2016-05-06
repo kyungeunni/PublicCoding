@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
@@ -67,6 +69,7 @@ public class LectureController {
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
+		
 		String gnos=req.getParameter("gno");							// 그룹번호
 		String cnos=req.getParameter("cno");    						// 동영상번호
 		int gno = Integer.parseInt(gnos);
@@ -101,7 +104,50 @@ public class LectureController {
 		Collections.shuffle(glist);
 		req.setAttribute("glist", glist);
 		
+		HttpSession hs = req.getSession();								// 강의를 수강 중인지 여부 판단 시작
+		String no = (String) hs.getAttribute("mno");
+		if(no != null){													// 현재 로그인 상태인지 확인
+			int mno = Integer.parseInt(no);
+			System.out.println("mno " + mno);
+			InfoattendantDTO InfoDto = new InfoattendantDTO();
+			InfoDto.setGno(gno);
+			InfoDto.setMno(mno);
+			InfoattendantDTO confirmCourse = InfoattendantDAO.ConfirmCourseData(InfoDto);
+			System.out.println("confirmCourse "+confirmCourse);
+			System.out.println("gno "+gno);
+			req.setAttribute("confirmCourse", confirmCourse);
+		}
+		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
+	}
+	
+	@RequestMapping("register.do")
+	public String infoattendantData(HttpServletRequest req) throws Exception{
+		HttpSession hs = req.getSession();								// 강의를 수강 중인지 여부 판단 시작
+		String no1 = (String) hs.getAttribute("mno");
+		String no2 = req.getParameter("gno");
+		
+		InfoattendantDTO InfoDto = new InfoattendantDTO();
+		int gno = Integer.parseInt(no2);
+		InfoDto.setGno(gno);
+		System.out.println("gno " + gno);
+		
+		if(no1 != null){													// 현재 로그인 상태인지 확인
+			int mno = Integer.parseInt(no1);
+			InfoDto.setMno(mno);
+			System.out.println("no1 " + no1);
+			System.out.println("mno " + mno);
+
+			InfoattendantDTO confirmCourse = InfoattendantDAO.ConfirmCourseData(InfoDto);
+			System.out.println("confirmCourse in register.do"+confirmCourse);
+			
+			if(confirmCourse == null){
+				InfoattendantDAO.RegisterCourseData(InfoDto);
+			}
+		}
+		System.out.println("gno "+InfoDto.getGno());
+		req.setAttribute("gno", InfoDto.getGno());
+		return "lectures/registerLecture_ok.jsp";
 	}
 }

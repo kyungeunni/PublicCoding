@@ -7,20 +7,6 @@
 	<select id="CourseGroupOneData" resultType="CourseGroup" parameterType="int">
 	 SELECT * FROM CourseGroup WHERE gno=#{gno}
 	</select>
-	<!-- 
-		CREATE TABLE Content(
-		   Cno NUMBER CONSTRAINT ct_cno_nn NOT NULL,
-		   Cname VARCHAR2(50) CONSTRAINT ct_cnm_nn NOT NULL, 
-		   CmediaURL VARCHAR2(400) CONSTRAINT ct_mu_nn NOT NULL, 
-		   Ctime VARCHAR2(28),
-		   CsiteURL VARCHAR2(400),
-		   Cstep NUMBER CONSTRAINT ct_cs_nn NOT NULL, 
-		   Gno NUMBER CONSTRAINT ct_gno_nn NOT NULL,
-		   CONSTRAINT ct_cno_pk PRIMARY KEY(Cno),
-		   CONSTRAINT ct_gn_fk FOREIGN KEY(Gno)
-		   REFERENCES CourseGroup(gno)
-		);
-	 -->
 	<select id="ContentListData" resultType="Content" parameterType="int">
 		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
 		FROM Content
@@ -31,4 +17,12 @@
 		SELECT * FROM CourseGroup WHERE sno=(SELECT sno FROM CourseGroup WHERE gno=#{gno})
 		ORDER BY gno ASC
 	</select>
+	<select id="ConfirmCourseData" resultType="Infoattendant" parameterType="Infoattendant">
+		SELECT gno FROM Infoattendant WHERE mno=#{mno} AND gno=#{gno}
+	</select>
+	<insert id="RegisterCourseData" parameterType="int">
+		INSERT INTO
+		Infoattendant(suno,mno,gno)
+		VALUES((SELECT NVL(MAX(suno)+1,1) FROM Infoattendant),#{mno},#{gno})
+	</insert>
 </mapper>

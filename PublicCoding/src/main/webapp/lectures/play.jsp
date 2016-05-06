@@ -87,39 +87,20 @@
 									src="https://www.youtube.com/embed/${contenturl}" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
-
-
-						<!-- 수강 중 && 로그인 후  -->
-						<c:if test="${sessionScope.id != null }">
-
-							<div class="col-xs-10 col-sm-5 col-md-5" style="height:400px; overflow:auto">
-								<table class="table">
-									<c:forEach var="i" items="${clist }">
-										<tr>
-											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-											<td>${i.cstep }강</td>
-											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
-										</tr>
-									</c:forEach>
-							<!-- <tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a></td>
-									
-								</tr>
-								-->
-
-								</table>
-							</div>
-						</c:if>
-						<!-- 수강 전 || 로그인 전  -->
-						<c:if test="${sessionScope.id == null }">
-
+						
+						<!-- 수강 전  || 로그인 전 -->
+						<c:if test="${gno != confirmCourse.gno}">
 							<p>
+							<c:if test="${sessionScope.id == null }">	
 								<a href="#" data-toggle="modal" data-target="#login" id="asking" class="button large special">
 									<span class="glyphicon glyphicon-play"></span>START COURSE
 								</a>
+							</c:if>
+							<c:if test="${gno != confirmCourse.gno && sessionScope.id != null }">
+								<a href="register.do?gno=${gno }" class="button large special">
+								<span class="glyphicon glyphicon-play"></span>START COURSE
+								</a>
+							</c:if>
 							<div class="col-xs-10 col-sm-5 col-md-5">
 								<div class="row">
 
@@ -150,6 +131,31 @@
 										</p>
 									</div>
 								</div>
+							</div>
+						</c:if>
+
+						<!-- 수강 중   -->
+						<c:if test="${gno == confirmCourse.gno && sessionScope.id != null}">
+
+							<div class="col-xs-10 col-sm-5 col-md-5" style="height:450px; overflow:auto">
+								<table class="table">
+									<c:forEach var="i" items="${clist }">
+										<tr>
+											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+											<td>${i.cstep }강</td>
+											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
+										</tr>
+									</c:forEach>
+							<!-- <tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+									<td>2강 </td>
+									<td><a href="" target="_self">개발 환경 설정</a></td>
+									
+								</tr>
+								-->
+
+								</table>
 							</div>
 						</c:if>
 
