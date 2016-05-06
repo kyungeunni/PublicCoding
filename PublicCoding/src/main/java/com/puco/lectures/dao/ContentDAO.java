@@ -30,10 +30,4 @@ private static SqlSessionFactory ssf;
 		System.out.println("clist " + clist);
 		return clist;
 	}
-	public static ContentDTO ContentAllData(int gno){
-		SqlSession session = ssf.openSession();
-		ContentDTO dto = session.selectOne("ContentAllData", gno);
-		session.close();
-		return dto;
-	}
 }

@@ -30,7 +30,6 @@
 				$('#id').focus();
 				return;
 			}
-
 			var pwd = $('#pwd').val();
 			if (pwd.trim() == "") {
 				$('#pwd').focus();
