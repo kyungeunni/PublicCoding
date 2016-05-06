@@ -74,9 +74,7 @@
 					
 					<c:forEach var="i" begin="1" end="${celi_ok}">
 						<div class="row">
-
-							<c:forEach var="g" begin="${(i*4)-3}" end="${i*4 }" items="${glist}">
-							<%-- <c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}"> --%>
+							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}">
 
 								<div class="col-sm-3 col-lg-3 col-md-3">
 									<div class="thumbnail hthumbnail">

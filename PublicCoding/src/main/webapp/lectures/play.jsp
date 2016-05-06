@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -74,8 +73,8 @@
 
 			<div class="container">
 				<div class="page-header" style="margin-top: 100px">
-					<h1 style="font: 20px 맑은 고딕">${cname }
-						<small>Subtext for header</small>
+					<h1 style="font: 20px 맑은 고딕">${firstCname }
+						<!-- <small>Subtext for header</small> -->
 					</h1>
 				</div>
 				<!-- Content -->
@@ -83,69 +82,25 @@
 					<div class="row">
 						<div class="col-xs-10 col-sm-7 col-md-7">
 							<div class="embed-responsive embed-responsive-16by9">
-							<!-- 값을 단일로는 전혀 못 받고 있다. clist를 for문으로 어떻게 돌릴지 궁리하거나, 단일값을 줄 방법을 찾아야함 -->
 								<!-- &amp;showinfo=0 -->
 									<iframe class="embed-responsive-item" width="560" height="315" 
 									src="https://www.youtube.com/embed/${contenturl}" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
-
-
-						<!-- 수강 중 && 로그인 후  -->
-						<c:if test="${sessionScope.id != null }">
-
-							<div class="col-xs-10 col-sm-5 col-md-5">
-								<table class="table">
-									<c:forEach var="i" items="${clist }">
-										<tr>
-											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-											<td>${i }강</td>
-											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
-										</tr>
-									</c:forEach>
-									<!-- <tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a></td>
-									
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>3강 </td>
-									<td><a href="" target="_self"> JSP 맛보기</a> </td>
-									
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>4강 </td>
-									<td><a href="" target="_self">Servlet 맛보기</a> </td>
-									
-								</tr>
-								<tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-									</td>
-									<td>5강 </td>
-									<td><a href="" target="_self">Servlet 본격적으로 살펴보기 1</a> </td>
-								
-								</tr>-->
-
-								</table>
-							</div>
-						</c:if>
-						<!-- 수강 전 || 로그인 전  -->
-						<c:if test="${sessionScope.id == null }">
-
+						
+						<!-- 수강 전  || 로그인 전 -->
+						<c:if test="${gno != confirmCourse.gno}">
 							<p>
+							<c:if test="${sessionScope.id == null }">	
 								<a href="#" data-toggle="modal" data-target="#login" id="asking" class="button large special">
 									<span class="glyphicon glyphicon-play"></span>START COURSE
 								</a>
+							</c:if>
+							<c:if test="${gno != confirmCourse.gno && sessionScope.id != null }">
+								<a href="register.do?gno=${gno }" class="button large special">
+								<span class="glyphicon glyphicon-play"></span>START COURSE
+								</a>
+							</c:if>
 							<div class="col-xs-10 col-sm-5 col-md-5">
 								<div class="row">
 
@@ -179,6 +134,31 @@
 							</div>
 						</c:if>
 
+						<!-- 수강 중   -->
+						<c:if test="${gno == confirmCourse.gno && sessionScope.id != null}">
+
+							<div class="col-xs-10 col-sm-5 col-md-5" style="height:450px; overflow:auto">
+								<table class="table">
+									<c:forEach var="i" items="${clist }">
+										<tr>
+											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+											<td>${i.cstep }강</td>
+											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
+										</tr>
+									</c:forEach>
+							<!-- <tr>
+									<td>
+									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+									<td>2강 </td>
+									<td><a href="" target="_self">개발 환경 설정</a></td>
+									
+								</tr>
+								-->
+
+								</table>
+							</div>
+						</c:if>
+
 					</div>
 				</section>
 				<div>
@@ -204,16 +184,16 @@
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="home">
 								<p>
-								<h5>${j.title }</h5>
+								<h5>${ginfo.gname }</h5>
 								</p>
 								<p>
-									강의 내용 : <br> 이번 강의는 JSP 맛보기 편입니다.<br> PC로 보실때는
-									www.wiz.center/tag/jsp, http://www.youtube.com/wizcenterseoul
-									또는 위의 동영상에서 HD 동영상을 보시는 것이 좋습니다.<br> 1080p로 설정해서 보시면 글자가 잘
-									보입니다. 오른쪽 하단 톱니모양에서 1080p를 선택하세요.<br> 그리고 모바일로 보실 때에는 유튜브
-									앱으로 보십시오. 그래야 글자가 잘 보입니다.<br>
+									강의 내용 : ${ginfo.gintro}
+									<br> 이번 강의는 ${firstCname }편입니다.
+									<br> PC로 보실때는 http://www.youtube.com${firstSite } 또는 위의 동영상에서 HD 동영상을 보시는 것이 좋습니다.
+									<br> 1080p로 설정해서 보시면 글자가 잘 보입니다. 오른쪽 하단 톱니모양에서 1080p를 선택하세요.
+									<br> 그리고 모바일로 보실 때에는 유튜브 앱으로 보십시오. 그래야 글자가 잘 보입니다.<br>
 								</p>
-								<p>PPT 파일, 소스파일은 첨부파일은 www.wiz.center/tag/jsp을 참조하세요.</p>
+								<p>PPT 파일, 소스파일은 첨부파일은 http://www.youtube.com${firstSite }을 참조하세요.</p>
 							</div>
 
 							<div role="tabpanel" class="tab-pane" id="profile">
@@ -229,13 +209,14 @@
 								<h5>연관강의</h5>
 								</p>
 								<div class="row">
-									<c:forEach var="i" begin="1" end="4">
+									<c:forEach var="i" begin="1" end="4" items="${glist }">
 										<div class="col-xs-5 col-sm-4 col-md-3">
 											<div class="thumbnail">
-												<img src="${image}" alt="...">
+												<img src="${i.gimageurl}" alt="...">
 												<div class="caption">
-													<h3>${title }</h3>
-													<p>내..용...</p>
+													<h5><font color="#000">${i.gname }</font>></h5>
+													<p>총 강의수 : ${i.totalcno }강</p>
+													<a class="btn btn-mini" href="play.do?gno=${i.gno }"> 강의 알아보기</a>
 												</div>
 											</div>
 										</div>
@@ -267,18 +248,18 @@
 											</tr>
 											<tr>
 												<td>Ideone.com</td>
-												<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
-												<td>html, css, javascript..</td>
+												<td><a href="https://ideone.com/" target="_blank">https://ideone.com</a></td>
+												<td>java, sql, javascript..</td>
 											</tr>
 											<tr>
 												<td>Compile online</td>
-												<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
-												<td>html, css, javascript..</td>
+												<td><a href="http://www.onlinecompiler.net/" target="_blank">http://www.onlinecompiler.net</a></td>
+												<td>c/c++, fortran, pascal..</td>
 											</tr>
 											<tr>
 												<td>CodeChef</td>
-												<td><a href="https://jsfiddle.net/" target="_blank">http://jsfiddle.net</a></td>
-												<td>html, css, javascript..</td>
+												<td><a href="https://www.codechef.com/ide" target="_blank">https://www.codechef.com/ide</a></td>
+												<td>asm, php, ada, ruby..</td>
 											</tr>
 										</table>
 										</p>
