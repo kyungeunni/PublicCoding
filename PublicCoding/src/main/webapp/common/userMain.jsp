@@ -7,6 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link type="text/css" rel="stylesheet" href="assets/css/userMain.css">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" src = "http://code.jquery.com/jquery.js" ></script>
 
 </head>
 
@@ -65,7 +72,7 @@
 										<small>PUCO점수</small>
 									</p>
 									<button class="btn btn-success btn-block">
-										<span class="fa fa-plus-circle"></span> 답변 보기
+										<span class="fa fa-plus-circle"></span> History
 									</button>
 								</div>
 
@@ -89,7 +96,7 @@
 										<small>답변수</small>
 									</p>
 									<button class="btn btn-info btn-block">
-										<span class="fa fa-user"></span> 수강강의 보기
+										<span class="fa fa-user"></span> 답변보기
 									</button>
 								</div>
 
@@ -101,17 +108,22 @@
 		</article>
 
 		<article>
-			<div id='calendar'>calendar</div>
+			<div id='calendar'>
+				<div id="graph" style="margin-top:60px;">
+			<jsp:include page="user_pointchart.jsp"></jsp:include>
+				</div>
+
+			</div>
 		</article>
 
 		<article>
 			<div class="text">
-				<span>질문글</span>
+				<h3>질문</h3>
 				<div id="u_qalist">
 
 					<ul>
 						<c:forEach var="q" items="${qlist }">
-							<li><a href="content.do?no=${q.bno}&page=1">${q.bsubject}</a></li>
+							<li><a href="content.do?no=${q.bno}&page=1"><i class="fa fa-thumbs-up" aria-hidden="true">x${q.bvote} | &nbsp; </i>${q.bsubject}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -127,7 +139,7 @@
 					<h3>답변</h3>
 					<ul style="color: black">
 						<c:forEach var="a" items="${alist }">
-							<li><a href="content.do?no=${a.bno}">${a.bsubject}</a></li>
+							<li><a href="content.do?no=${a.bno}"><i class="fa fa-thumbs-up" aria-hidden="true">x${a.bvote} | &nbsp; </i>${a.bsubject}</a></li>
 						</c:forEach>
 					</ul>
 
@@ -156,68 +168,6 @@
 
 	</section>
 
-
-	<!-- Scripts -->
-
-	<script type='text/javascript'>
-		$(document).ready(function() {
-			$('#calendar').fullCalendar({
-				theme : true,
-				header : {
-					left : 'prev,next today',
-					center : 'title',
-					right : 'month,agendaWeek,agendaDay'
-				},
-				defaultDate : '2016-01-12',
-				editable : true,
-				eventLimit : true, // allow "more" link when too many events
-				events : [ {
-					title : 'All Day Event',
-					start : '2016-01-01'
-				}, {
-					title : 'Long Event',
-					start : '2016-01-07',
-					end : '2016-01-10'
-				}, {
-					id : 999,
-					title : 'Repeating Event',
-					start : '2016-01-09T16:00:00'
-				}, {
-					id : 999,
-					title : 'Repeating Event',
-					start : '2016-01-16T16:00:00'
-				}, {
-					title : 'Conference',
-					start : '2016-01-11',
-					end : '2016-01-13'
-				}, {
-					title : 'Meeting',
-					start : '2016-01-12T10:30:00',
-					end : '2016-01-12T12:30:00'
-				}, {
-					title : 'Lunch',
-					start : '2016-01-12T12:00:00'
-				}, {
-					title : 'Meeting',
-					start : '2016-01-12T14:30:00'
-				}, {
-					title : 'Happy Hour',
-					start : '2016-01-12T17:30:00'
-				}, {
-					title : 'Dinner',
-					start : '2016-01-12T20:00:00'
-				}, {
-					title : 'Birthday Party',
-					start : '2016-01-13T07:00:00'
-				}, {
-					title : 'Click for Google',
-					url : 'http://google.com/',
-					start : '2016-01-28'
-				} ]
-			});
-
-		});
-	</script>
 
 
 </body>

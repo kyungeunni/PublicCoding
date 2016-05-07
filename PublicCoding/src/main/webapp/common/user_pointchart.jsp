@@ -1,130 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<!-- Additional files for the Highslide popup effect -->
-<script src="https://www.highcharts.com/samples/static/highslide-full.min.js"></script>
-<script src="https://www.highcharts.com/samples/static/highslide.config.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="https://www.highcharts.com/samples/static/highslide.css" />
-<script>
-$(function () {
 
-    // Get the CSV and create the chart
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.csv&callback=?', function (csv) {
+<script type="text/javascript">
+	$(function() {
+		var regdate = <fmt:formatDate value="${vo.mdate}" pattern="yyyy-MM-dd" />;
+		var chart = new Highcharts.Chart({
+			chart : {
 
-        $('#container').highcharts({
+				renderTo : 'chart'
+			},
 
-            data: {
-                csv: csv
-            },
-
-            title: {
-                text: '점수 득점 현황'
-            },
-
-            subtitle: {
-                text: '~현재'
-            },
-
-            xAxis: {
-                tickInterval: 7 * 24 * 3600 * 1000, // one week
-                tickWidth: 0,
-                gridLineWidth: 1,
-                labels: {
-                    align: 'left',
-                    x: 3,
-                    y: -3
-                }
-            },
-
-            yAxis: [{ // left y axis
-                title: {
-                    text: null
-                },
-                labels: {
-                    align: 'left',
-                    x: 3,
-                    y: 16,
-                    format: '{value:.,0f}'
-                },
-                showFirstLabel: false
-            }, { // right y axis
-                linkedTo: 0,
-                gridLineWidth: 0,
-                opposite: true,
-                title: {
-                    text: null
-                },
-                labels: {
-                    align: 'right',
-                    x: -3,
-                    y: 16,
-                    format: '{value:.,0f}'
-                },
-                showFirstLabel: false
-            }],
-
-            legend: {
-                align: 'left',
-                verticalAlign: 'top',
-                y: 20,
-                floating: true,
-                borderWidth: 0
-            },
-
-            tooltip: {
-                shared: true,
-                crosshairs: true
-            },
-
-            plotOptions: {
-                series: {
-                    cursor: 'pointer',
-                    point: {
-                        events: {
-                            click: function (e) {
-                                hs.htmlExpand(null, {
-                                    pageOrigin: {
-                                        x: e.pageX || e.clientX,
-                                        y: e.pageY || e.clientY
-                                    },
-                                    headingText: this.series.name,
-                                    maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                        this.y + ' visits',
-                                    width: 200
-                                });
-                            }
-                        }
-                    },
-                    marker: {
-                        lineWidth: 1
-                    }
-                }
-            },
-
-            series: [{
-                name: 'All visits',
-                lineWidth: 4,
-                marker: {
-                    radius: 4
-                }
-            }, {
-                name: 'New visitors'
-            }]
-        });
-    });
-
-});
+			title : {
+				text : '점수 획득 현황',
+				x : -20
+			//center
+			},
+			subtitle : {
+				text : '가입일~현재 ',
+				x : -20
+			},
+			xAxis : {
+				categories: ['가입일',
+				               <c:forEach var="vo" items="${datelist}">
+				              ' <c:out value="${vo}"/>',
+				               </c:forEach>]
+			 /* 날짜  */ 
+            /*    ' <c:out value="${vo.mdate}"/>',
+               <c:forEach var="vo" items="${datelist}">
+               '<c:out value="${vo}"/>',
+               </c:forEach> */
+			},
+			yAxis : {
+				title : {
+					text : '득점'
+				},
+				plotLines : [ {
+					value : 0,
+					width : 1,
+					color : '#808080'
+				} ]
+			},
+			tooltip : {
+				valueSuffix : '점'
+			},
+			legend : {
+				layout : 'vertical',
+				align : 'right',
+				verticalAlign : 'middle',
+				borderWidth : 0
+			},
+			series : [
+					{
+						name : '<c:out value="${vo.mid}"/>',
+						 data: [0,
+					               <c:forEach var="vo" items="${pointlist}">
+					               /* '<c:out value="${vo}"/>'  */
+			               <c:out value="${vo}"/>,
+					               </c:forEach>
+						        ]
+					} ]
+		});
+	});
 </script>
 </head>
 <body>
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div id="chart" style="width: 600px; height: 400px; margin-left:30px; float:left;" ></div>
+	<div id="point_table" style="overflow: auto; min-width: 400px; height: 400px; margin: 0; float:right; margin-right:50px;">
+		<table>
+			<tr>
+			<th colspan="2"> <h3>점수 획득 내역</h3></th>
+			</tr>
+			<c:forEach var ="vo" items="${scorelist}">
+			<tr>
+				<td width=30%><fmt:formatDate value="${vo.sdate}" pattern=" MM월 dd일" /></td>
+				<td width=70%>${vo.message}</td>
+			</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 </html>

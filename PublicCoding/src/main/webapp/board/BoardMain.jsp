@@ -100,15 +100,15 @@
 										</h3>
 										<div class="tags t-태그 t-태그">
 											<c:if test="${d.tag1!='NONE' }">
-											<a href="/questions/tagged/${d.tag1}" class="post-tag"
+											<a href="taglist.do?value=${d.tag1}" class="post-tag"
 												title="show questions tagged &#39;${d.tag1}&#39;" rel="tag">${d.tag1}</a>
 												</c:if>
 												<c:if test="${d.tag2!='NONE' }">
-											<a href="/questions/tagged/${d.tag2}" class="post-tag"
+											<a href="taglist.do?value=${d.tag2}" class="post-tag"
 												title="show questions tagged &#39;${d.tag2}&#39;" rel="tag">${d.tag2}</a>
 												</c:if>
 												<c:if test="${d.tag3!='NONE' }">
-											<a href="/questions/tagged/${d.tag3}" class="post-tag"
+											<a href="taglist.do?value=${d.tag3}" class="post-tag"
 												title="show questions tagged &#39;${d.tag3}&#39;" rel="tag">${d.tag3}</a>
 												</c:if>
 											
