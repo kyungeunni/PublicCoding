@@ -1,8 +1,11 @@
 package com.puco.lectures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
@@ -66,6 +69,7 @@ public class LectureController {
 	
 	@RequestMapping("play.do")
 	public String videoPlayData(HttpServletRequest req) throws Exception{
+		
 		String gnos=req.getParameter("gno");							// 그룹번호
 		String cnos=req.getParameter("cno");    						// 동영상번호
 		int gno = Integer.parseInt(gnos);
@@ -82,13 +86,68 @@ public class LectureController {
 		contenturl=contenturl.substring(9,contenturl.length());			// 전체 URL중 /watch?v=을 잘라버렸음
 		String secondrul=contenturl.substring(0,contenturl.indexOf("&"));	// 순수 동영상 URL부분만 잘라 저장함
 		contenturl=contenturl.substring(contenturl.lastIndexOf("&")+1);		// &index=& 까지 잘라내버림
-		contenturl=secondrul+"?"+contenturl;							// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
-	
+		contenturl=secondrul+"?"+contenturl;	// 최종적으로 필요한 URL을 얻어냄 xTfCkSlwF1Q?list=PL7mmuO705dG0HUei41yV3ZOTT5MVURjGs
+		
+		String firstCname=clist.get(cno-initcno).getCname();			// 선택된 강의 제목을 받아옴
+		String firstSite=clist.get(cno-initcno).getCsiteurl();			// 선택된 강의의 사이트 URL을 가져옴
+		
+		req.setAttribute("firstCname", firstCname);
 		req.setAttribute("contenturl", contenturl);
+		req.setAttribute("firstSite", firstSite);
 		req.setAttribute("clist", clist);
 		req.setAttribute("gno", gno);
-
+		
+		CourseGroupDTO dto=CourseGroupDAO.CourseGroupOneData(gno);		// 하단 강의 소개부 용도
+		req.setAttribute("ginfo", dto);
+		
+		List<CourseGroupDTO> glist=CourseGroupDAO.SameGroupAllData(gno);// 연관강의 무작위 출력
+		Collections.shuffle(glist);
+		req.setAttribute("glist", glist);
+		
+		HttpSession hs = req.getSession();								// 강의를 수강 중인지 여부 판단 시작
+		String no = (String) hs.getAttribute("mno");
+		if(no != null){													// 현재 로그인 상태인지 확인
+			int mno = Integer.parseInt(no);
+			System.out.println("mno " + mno);
+			InfoattendantDTO InfoDto = new InfoattendantDTO();
+			InfoDto.setGno(gno);
+			InfoDto.setMno(mno);
+			InfoattendantDTO confirmCourse = InfoattendantDAO.ConfirmCourseData(InfoDto);
+			System.out.println("confirmCourse "+confirmCourse);
+			System.out.println("gno "+gno);
+			req.setAttribute("confirmCourse", confirmCourse);
+		}
+		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
+	}
+	
+	@RequestMapping("register.do")
+	public String infoattendantData(HttpServletRequest req) throws Exception{
+		HttpSession hs = req.getSession();								// 강의를 수강 중인지 여부 판단 시작
+		String no1 = (String) hs.getAttribute("mno");
+		String no2 = req.getParameter("gno");
+		
+		InfoattendantDTO InfoDto = new InfoattendantDTO();
+		int gno = Integer.parseInt(no2);
+		InfoDto.setGno(gno);
+		System.out.println("gno " + gno);
+		
+		if(no1 != null){													// 현재 로그인 상태인지 확인
+			int mno = Integer.parseInt(no1);
+			InfoDto.setMno(mno);
+			System.out.println("no1 " + no1);
+			System.out.println("mno " + mno);
+
+			InfoattendantDTO confirmCourse = InfoattendantDAO.ConfirmCourseData(InfoDto);
+			System.out.println("confirmCourse in register.do"+confirmCourse);
+			
+			if(confirmCourse == null){
+				InfoattendantDAO.RegisterCourseData(InfoDto);
+			}
+		}
+		System.out.println("gno "+InfoDto.getGno());
+		req.setAttribute("gno", InfoDto.getGno());
+		return "lectures/registerLecture_ok.jsp";
 	}
 }
