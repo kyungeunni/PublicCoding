@@ -87,7 +87,6 @@ public class MemberController {
 		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("mno", no);
 		req.setAttribute("vo", vo);
-		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("tags", tags);
 		return "common/main.jsp";
 	}
