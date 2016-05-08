@@ -5,7 +5,7 @@
 	<select id="MeetupinfoData" resultType="Meetup">
 		SELECT * FROM meetupInfo
 	</select>
-	
+
 	<select id="LocationNumber" resultType="String" parameterType="int">
 		SELECT locationno FROM meetupInfo
 		WHERE meetno=#{meetno}
@@ -47,11 +47,20 @@
 		</selectKey>
 		INSERT INTO meetupreginfo VALUES(#{rno},#{mno},#{meetno},#{meetdate},#{meettime},0,#{tno})
 	</insert>
+	
 <!-- 	mypage(출력) -->
 	<select id="studyjoinUserAllData" resultType="StudyJoin" parameterType="int">
-		SELECT * FROM meetupreginfo
-		WHERE mno=#{mno}
+		SELECT MRI.*,title,maxpeople,poster, tname,loc 
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+		WHERE MRI.mno=#{mno}
+		order by MRI.rno desc
 	</select>
+	
+
  	<!-- 추가(예약) -->
 	<!--<insert id="reserveInsert" parameterType="Reserve"> 
 		<selectKey keyProperty="no" resultType="int" order="BEFORE">

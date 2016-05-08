@@ -163,4 +163,6 @@ public class OnOffController {
     	req.setAttribute("mno", mno);
     	return "onoffmix/reserve_ok.jsp";
     }
+    
+    
 }

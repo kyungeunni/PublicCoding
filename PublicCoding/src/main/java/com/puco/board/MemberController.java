@@ -13,6 +13,8 @@ import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
 import com.puco.member.dao.ScoreVO;
+import com.puco.onoffmix.dao.OnoffmixDAO;
+import com.puco.onoffmix.dao.StudyJoinVO;
 
 
 @Controller("mc")
@@ -75,6 +77,11 @@ public class MemberController {
 		List<Integer> pointlist = MemberDAO.getPointDate(mno,datelist);
 		List<ScoreVO> scorelist = MemberDAO.getAllPointData(mno);
 		System.out.println("pointlist>>>>>true");
+		
+		//오프라인 스터디 참가내역
+		List<StudyJoinVO> onoff=OnoffmixDAO.studyjoinUserAllData(mno);
+		System.out.println("참가내역 쿼리>>");
+		req.setAttribute("onoff", onoff);
 		req.setAttribute("scorelist", scorelist);
 		req.setAttribute("datelist",datelist );
 		req.setAttribute("pointlist",pointlist );

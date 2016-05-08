@@ -149,7 +149,8 @@
 
 		<article>
 			<div class="text">
-				<span>개설 스터디 내역</span>
+				<h3>참가스터디</h3>
+				<jsp:include page="mypage.jsp"></jsp:include>
 			</div>
 		</article>
 
