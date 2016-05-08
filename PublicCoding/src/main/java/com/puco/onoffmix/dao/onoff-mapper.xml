@@ -40,12 +40,28 @@
 
 	</select>
 	
+	  <select id="getJoinedPeoplebyGN" resultType="int" parameterType="int">
+		SELECT mno FROM meetupreginfo
+		WHERE groupno=#{groupno}
+
+	</select>
+	
+	<select id="getMaxGn" resultType="int" >
+	SELECT NVL(MAX(groupno)+1,1) FROM meetupreginfo
+	</select>
+	<select id="getGroupNo" resultType="int" parameterType="java.util.Map">
+		SELECT groupno FROM meetupreginfo
+		WHERE meetno =#{meetno }	
+		AND meetdate =#{meetdate}
+		AND meettime =#{meettime }
+	</select>
+	
 		<!-- 추가(예약) -->
 	<insert id="studyjoin" parameterType="StudyJoin"> 
 		<selectKey keyProperty="rno" resultType="int" order="BEFORE">
 			SELECT NVL(MAX(rno)+1,1) as rno FROM meetupreginfo		
 		</selectKey>
-		INSERT INTO meetupreginfo VALUES(#{rno},#{mno},#{meetno},#{meetdate},#{meettime},0,#{tno})
+		INSERT INTO meetupreginfo VALUES(#{rno},#{mno},#{meetno},#{meetdate},#{meettime},0,#{tno},#{groupno})
 	</insert>
 	
 <!-- 	mypage(출력) -->
@@ -60,6 +76,15 @@
 		order by MRI.rno desc
 	</select>
 	
+	<!-- 스터디목록(출력) -->
+	<select id="studyjoinAllData" resultType="StudyJoin" >
+		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+	</select>
 
  	<!-- 추가(예약) -->
 	<!--<insert id="reserveInsert" parameterType="Reserve"> 

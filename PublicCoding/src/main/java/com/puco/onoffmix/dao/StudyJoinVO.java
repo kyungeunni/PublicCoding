@@ -10,6 +10,7 @@ public class StudyJoinVO {
 	private String meetdate;
 	private String meettime;
 	private int tno;
+	private int groupno;
 	//meetupinfo에서 추가
 	private String title;
 	private String poster;
@@ -23,6 +24,12 @@ public class StudyJoinVO {
 	private String mnogroup;
 	
 	
+	public int getGroupno() {
+		return groupno;
+	}
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
 	public String getTname() {
 		return tname;
 	}

@@ -143,12 +143,25 @@ public class OnOffController {
     	String day=req.getParameter("day");
     	String time=req.getParameter("time");
     	String tno=req.getParameter("tno");
-
+    	String jnum=req.getParameter("jnum");
     	HttpSession session=req.getSession();
     	String mno=(String)session.getAttribute("mno");
     	System.out.println(meetno+"-"+day+"-"
-    			+time+"-"+tno+"-"+mno);
+    			+time+"-"+tno+"-"+mno+"-"+jnum);
+    	
     	StudyJoinVO vo = new StudyJoinVO();
+    	if(jnum.equals("0")){
+    		int temp = OnoffmixDAO.getMaxGn();
+    		vo.setGroupno(temp);
+    	}else{
+    		Map map = new HashMap();
+        	map.put("meetno",meetno);
+        	map.put("meetdate",day);
+        	map.put("meettime",time);
+        	int temp= OnoffmixDAO.getGroupNo(map);
+        	System.out.println(temp);
+        	vo.setGroupno(temp);
+    	}
     	vo.setMno(Integer.parseInt(mno));
     	vo.setMeettime(time);
     	vo.setMeetdate(day);
@@ -163,6 +176,30 @@ public class OnOffController {
     	req.setAttribute("mno", mno);
     	return "onoffmix/reserve_ok.jsp";
     }
-    
+    @RequestMapping("studylist.do")
+    public String studylist(HttpServletRequest req)
+    {	
+    	List<StudyJoinVO> list= OnoffmixDAO.studyjoinAllData();
+    	Map imgmapmap = new HashMap();
+    	Map mjoinedmap = new HashMap();
+    	Map imgmap ;
+    	for(StudyJoinVO vo:list){
+    		int gno=vo.getGroupno();
+    		List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(gno);
+    		imgmap = new HashMap();
+    		for(Integer m:mjoined){
+        		String temp= QBoardDAO.getimageUrl(m);
+        		imgmap.put(m, temp);  
+        		System.out.println(m+"¹ø url>>>"+temp);
+        	}
+    		imgmapmap.put(gno, imgmap);
+    		mjoinedmap.put(gno, mjoined);
+    	}
+    	req.setAttribute("imgmapmap", imgmapmap);
+    	req.setAttribute("mjoinedmap", mjoinedmap);
+    	req.setAttribute("list", list);
+    	req.setAttribute("jsp", "../onoffmix/studylist.jsp");
+    	return "common/main.jsp";
+    }
     
 }

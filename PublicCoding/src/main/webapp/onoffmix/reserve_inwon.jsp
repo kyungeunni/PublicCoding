@@ -12,7 +12,8 @@
 $(function(){
 	$('#grade').change(function(){
 		var inwon=$('#grade').val();
-		$('#resImg').attr("src","assets/img/reserve.jpg");
+		var login=<cout: value="${sessionScope.mno}"/>;
+			$('#resImg').attr("src","assets/img/reserve.jpg");
 		$('#resImg').css("cursor","pointer");
 	});
 	$('#resImg').click(function(){
@@ -20,6 +21,7 @@ $(function(){
 		if(src=="assets/img/res_d.png"){
 			return;
 		}
+		
 		else{
 			//alert("예매시작")
 						$('#res_frm').submit();

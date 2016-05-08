@@ -68,7 +68,7 @@
 								<input type="hidden" id="day_jsp" name="day">
 								<input type="hidden" id="time_jsp" name="time">
 								<input type="hidden" id="loc_jsp" name="tno"> 
-
+								<input type="hidden" id="isfirst_jsp" name="jnum">
 							</form>
 							<img src="assets/img/res_d.png" border=0 id="resImg">
 							</td>
