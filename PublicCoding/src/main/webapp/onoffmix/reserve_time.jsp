@@ -15,15 +15,20 @@ $(function(){
 		
 		//$('#span_inwon').text("최소인원: "+minp+"(참가:"+jnum+")");
  		$('#span_inwon').text("최소인원: "+<c:out value="${minp}"/>); 
-
-	
+		var mno="<c:out value="${sessionScope.mno}"/>";
+		
 	$('#resImg').click(function(){
 		var src = $('#resImg').attr("src");
 		if(src=="assets/img/res_d.png"){
 			return;
 		}
+		if(mno==""){
+			alert("로그인 후 이용해주세요.");
+			return;
+		}
 		else{
 			//alert("예매시작")
+			$('#isfirst_jsp').val(<c:out value="${jnum}"/>);
 						$('#res_frm').submit();
 		}
 		

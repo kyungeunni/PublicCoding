@@ -65,7 +65,7 @@
 				<center>
 					<ul class="dropdown-menu">
 
-						<li><a href="onoff.do">지역별</a></li>
+						<li><a href="studylist.do">인기모임</a></li>
 						<li><a href="onoff.do">주제별</a></li>
 
 					</ul>

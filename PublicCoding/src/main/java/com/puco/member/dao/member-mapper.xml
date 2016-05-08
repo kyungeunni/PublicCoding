@@ -123,6 +123,7 @@
 	<select id="getAllPointData" resultType="Score" parameterType="int">
 		SELECT score,message,sdate
 		FROM scorechart
+		where mno=#{mno}
 		Order by sdate DESC
 	</select>
 
