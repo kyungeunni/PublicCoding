@@ -27,10 +27,18 @@
 	</insert>
 	<select id="replyAllData" resultType="CReply" parameterType="java.util.Map">
 		SELECT greno,grename,grecontent,dbday,gretab,num 
-    	FROM (greno,grename,grecontent,dbday,gretab,rownum as num 
-    	FROM (SELECT greno,grename,grecontent,TO_CHAR(gredate,'YYYY-MM-DD HH24:MI:SS') as dbday,gretab
-    	FROM reply WHERE gno=#{gno}
-    	ORDER BY gregroup DESC,grestep ASC ))
+    	FROM(SELECT greno,grename,grecontent,dbday,gretab,rownum as num 
+    	FROM(SELECT greno,grename,grecontent,TO_CHAR(gredate,'YYYY-MM-DD HH24:MI:SS') as dbday,gretab
+    	FROM courseReply WHERE gno=#{gno} ORDER BY gregroup DESC, grestep ASC))
     	WHERE num BETWEEN #{start} AND #{end}
 	</select>
+	<!-- 댓글 추가  -->
+	<insert id="replyInsert" parameterType="CReply">
+		<!--   자동 증가번호 (sequence)   -->
+		<selectKey keyProperty="greno" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(greno)+1,1) as greno FROM courseReply
+		</selectKey>
+		INSERT INTO courseReply VALUES(#{greno}, #{gno}, #{grecontent}, #{grepoint}, SYSDATE, 
+		(SELECT NVL(MAX(gregroup)+1,1) FROM CourseReply),0,0,0,0, #{grepwd}, #{grename})
+	</insert>
 </mapper>

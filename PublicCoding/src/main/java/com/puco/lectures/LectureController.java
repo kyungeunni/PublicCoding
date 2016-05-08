@@ -133,18 +133,22 @@ public class LectureController {
 		
 		
 		String rpage=req.getParameter("rpage");							// 강의 평가 댓글 출력
-		/*   if(rpage==null)
+		   if(rpage==null)
 			   rpage="1";
 		   int cpage=Integer.parseInt(rpage);
-		   int rowSize=10;
+		   int rowSize=5;
 		   int start=(cpage*rowSize)-(rowSize-1);
 		   int end=(cpage*rowSize);
 		   Map remap=new HashMap();
-		   remap.put("bno", no);
+		   remap.put("gno", gnos);
+		   System.out.println("gno in play.do " + gnos);
 		   remap.put("start", start);
+		   System.out.println("start in play.do " + start);
 		   remap.put("end", end);
+		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
-		   req.setAttribute("replyList", replyList);*/
+		   System.out.println("DAO replyAllData in play.do worked well");
+		   req.setAttribute("replyList", replyList);
 		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
@@ -183,11 +187,14 @@ public class LectureController {
 	public String reply_insert(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
 		System.out.println("reply_isert in LectureController worked");
+		
 		String gno=req.getParameter("gno");
 		System.out.println("reply_isert - gno : "+gno);
 		String grecontent=req.getParameter("reply_data");
 		System.out.println("reply_isert - grecontent : "+grecontent);
-		// DB연동
+		String grepoint=req.getParameter("grepoint");
+		System.out.println("reply_isert - grepoint : "+grepoint);
+		
 		HttpSession session=req.getSession();
 		String grename=(String)session.getAttribute("id");
 		System.out.println("reply_isert - grename : "+grename);
@@ -196,9 +203,16 @@ public class LectureController {
 		
 		CourseReplyDTO dto=new CourseReplyDTO();
 		dto.setGno(Integer.parseInt(gno));
-		dto.setGrename(grename);
-		dto.setGrepwd(grepwd);
 		dto.setGrecontent(grecontent);
+		dto.setGrepoint(Integer.parseInt(grepoint));
+		dto.setGrepwd(grepwd);
+		dto.setGrename(grename);
+		
+		System.out.println("전달할 준비 완료");
+		CourseReplyDAO.replyInsert(dto);
+		System.out.println("쿼리문 실행 완료 gno "+gno);
+		
+		req.setAttribute("gno", gno);
 		
 		return "lectures/reply_ok.jsp";
 	}

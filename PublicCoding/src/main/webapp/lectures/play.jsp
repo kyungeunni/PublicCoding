@@ -43,6 +43,9 @@
 <script type="text/javascript">
 $(function(){
 	$('#replyBtn').click(function(){
+		var checkedValue=$("input[type=radio][name=grepoint]:checked").val();
+		alert(checkedValue);
+		
 		var rd=$('#reply_data').val();
 		if(rd.trim()=="")
 		{
@@ -51,6 +54,7 @@ $(function(){
 		}
 		$('#rifrm').submit();
 	});
+	
 });
 </script>
 <!-- //////////////////////// 강의 평가 댓글  끝 ////////////////////////// -->
@@ -210,36 +214,6 @@ $(function(){
 								<div class="container">
 
 									<div class="row">
-										<div class="col-sm-3">
-											<div class="rating-block">
-												<h4>Average user rating</h4>
-												<h2 class="bold padding-bottom-7">
-													4.3 <small>/ 5</small>
-												</h2>
-												<button type="button" class="btn btn-warning btn-sm"
-													aria-label="Left Align">
-													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-												</button>
-												<button type="button" class="btn btn-warning btn-sm"
-													aria-label="Left Align">
-													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-												</button>
-												<button type="button" class="btn btn-warning btn-sm"
-													aria-label="Left Align">
-													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-												</button>
-												<button type="button"
-													class="btn btn-default btn-grey btn-sm"
-													aria-label="Left Align">
-													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-												</button>
-												<button type="button"
-													class="btn btn-default btn-grey btn-sm"
-													aria-label="Left Align">
-													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-												</button>
-											</div>
-										</div>
 
 										<div class="col-sm-3">
 											<h4>Rating breakdown</h4>
@@ -331,11 +305,77 @@ $(function(){
 										</div>
 									</div>
 									<br>
+									
+									
+									<c:if test="${sessionScope.id != null && gno == confirmCourse.gno}">
 									<!-- 리뷰 작성 박스 시작 -->
-									<c:if test="${sessionScope.id != null }">
 									<div class="col-md-6">
 										<div class="well well-sm">
 										<form accept-charset="EUC-KR" action="reply_insert.do" method="post" id="rifrm">
+										
+										
+										<div class="col-sm-3">
+											<div class="rating-block">
+											
+												<font style="color: black">
+												<h4>Average user rating</h4>
+												<!-- <h2 class="bold padding-bottom-7">
+													4.3 <small>/ 5</small>
+												</h2> -->
+												<!-- <button type="button" class="btn btn-warning btn-sm"
+													aria-label="Left Align" name="star" value="1">
+													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												</button>
+												<button type="button" class="btn btn-warning btn-sm"
+													aria-label="Left Align" name="star" value="2">
+													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												</button>
+												<button type="button" class="btn btn-warning btn-sm"
+													aria-label="Left Align" name="star" value="3">
+													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												</button>
+												<button type="button"
+													class="btn btn-default btn-grey btn-sm"
+													aria-label="Left Align" name="star" value="4">
+													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												</button>
+												<button type="button"
+													class="btn btn-default btn-grey btn-sm"
+													aria-label="Left Align" name="star" value="5">
+													<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												</button> -->
+		
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<input type="radio" name="grepoint" value="1"><br>
+												
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<input type="radio" name="grepoint" value="2" checked="true"><br>
+												
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<input type="radio" name="grepoint" value="3"><br>
+												
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<input type="radio" name="grepoint" value="4"><br>
+												
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+												<input type="radio" name="grepoint" value="5"><br>
+												
+												</font>
+												
+											</div>
+										</div>
+										
+										
 											<div class="text-right">
 												<a class="btn btn-success btn-green" id="open-review-box">
 													<input type=button id="replyBtn" value="Review">
@@ -385,44 +425,48 @@ $(function(){
 															<a href="#">${rvo.grename }</a>
 														</div>
 														<div class="review-block-date">
-															${rvo.gredate }<br />${rvo.dbdate }
+															${rvo.gredate }<br />${rvo.dbday }
 														</div>
 													</div>
 													
+													
 													<div class="col-sm-9">
-														<div class="review-block-rate">
-															<button type="button" class="btn btn-warning btn-xs"
-																aria-label="Left Align">
-																<span class="glyphicon glyphicon-star"
-																	aria-hidden="true"></span>
-															</button>
-															<button type="button" class="btn btn-warning btn-xs"
-																aria-label="Left Align">
-																<span class="glyphicon glyphicon-star"
-																	aria-hidden="true"></span>
-															</button>
-															<button type="button" class="btn btn-warning btn-xs"
-																aria-label="Left Align">
-																<span class="glyphicon glyphicon-star"
-																	aria-hidden="true"></span>
-															</button>
-															<button type="button"
-																class="btn btn-default btn-grey btn-xs"
-																aria-label="Left Align">
-																<span class="glyphicon glyphicon-star"
-																	aria-hidden="true"></span>
-															</button>
-															<button type="button"
-																class="btn btn-default btn-grey btn-xs"
-																aria-label="Left Align">
-																<span class="glyphicon glyphicon-star"
-																	aria-hidden="true"></span>
-															</button>
-														</div>
 														
-														<div class="review-block-description">${rvo.grecontent }
+															<div class="review-block-rate">
+																<button type="button" class="btn btn-warning btn-xs"
+																	aria-label="Left Align">
+																	<span class="glyphicon glyphicon-star"
+																		aria-hidden="true"></span>
+																</button>
+																<button type="button" class="btn btn-warning btn-xs"
+																	aria-label="Left Align">
+																	<span class="glyphicon glyphicon-star"
+																		aria-hidden="true"></span>
+																</button>
+																<button type="button" class="btn btn-warning btn-xs"
+																	aria-label="Left Align">
+																	<span class="glyphicon glyphicon-star"
+																		aria-hidden="true"></span>
+																</button>
+																<button type="button"
+																	class="btn btn-default btn-grey btn-xs"
+																	aria-label="Left Align">
+																	<span class="glyphicon glyphicon-star"
+																		aria-hidden="true"></span>
+																</button>
+																<button type="button"
+																	class="btn btn-default btn-grey btn-xs"
+																	aria-label="Left Align">
+																	<span class="glyphicon glyphicon-star"
+																		aria-hidden="true"></span>
+																</button>
 															</div>
+															
+															
+														<div class="review-block-description">${rvo.grecontent }</div>
 													</div>
+													
+													
 												</div>
 												<hr />
 												</c:forEach>
