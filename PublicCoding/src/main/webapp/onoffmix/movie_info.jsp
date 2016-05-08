@@ -19,7 +19,9 @@ $(function(){
 		$('#span_title').text("");
 		$('#span_title').text(title);	//태그와 태그사이
 		$('#title_jsp').val(title);
-		var param="mno="+$(this).attr("id");
+		$('#meetno_jsp').val($(this).attr("id"));
+		
+		var param="mno="+$(this).attr("id");		
 		sendMessage("POST", "theater_info.do", param, theaterInfo)
 	});
 });
@@ -36,7 +38,7 @@ function theaterInfo(){
 </head>
 <body>
 	<center>
-		<table id="table_content" style="width:135px">
+		<table id="table_content" style="width:200px">
 			<tr>
 				<th>스터디 정보</th>
 			</tr>

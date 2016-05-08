@@ -13,9 +13,11 @@
 $(function(){
 	$('.theater_name').click(function(){
 		var tname=$(this).text();
-		$('#span_tname').text("±ÿ¿Â∏Ì:"+tname);
+		$('#span_tname').text("¿Âº“:"+tname);
 		$('#theater_jsp').val(tname);
-		sendMessage("POST", "reserve_date.do", null, reserveDate);
+		$('#loc_jsp').val($(this).attr("id"));
+		var param="tno="+$(this).attr("id");
+		sendMessage("POST", "reserve_date.do", param, reserveDate);
 	});
 });
 

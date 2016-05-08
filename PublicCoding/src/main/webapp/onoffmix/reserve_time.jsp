@@ -10,13 +10,13 @@
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.res_time').click(function(){
+	
 		var time = $(this).text();
-		$('#span_time').text("상영시간:"+time);
-		$('#time_jsp').val(time);
-		$('#resImg').attr("src","assets/img/reserve.jpg");
-		$('#resImg').css("cursor","pointer");
-	});
+		
+		//$('#span_inwon').text("최소인원: "+minp+"(참가:"+jnum+")");
+ 		$('#span_inwon').text("최소인원: "+<c:out value="${minp}"/>); 
+
+	
 	$('#resImg').click(function(){
 		var src = $('#resImg').attr("src");
 		if(src=="assets/img/res_d.png"){
@@ -41,17 +41,13 @@ function inwondInfo(){
 <title>Insert title here</title>
 </head>
 <body>
-<center>
-	<table id="table_content" width=450>
-		<tr>
-			<th colspan="5">시간정보	</th>
-		</tr>
-		<tr>
-			<c:forEach var="time" items="${list }">
-				<td class="res_time dataTd">${time }</td>
-			</c:forEach>
-		</tr>
-	</table>
-	</center>
+	<div>참가자: ${jnum} 명
+	<c:forEach var="d" items="${mjoined }">
+		<span><a href="userMain.do?mno=${d}" title="user정보 보기"><img src="resources/userprofiles/${imgmap[d]}"
+								alt="" width="40" height="40" class="img-rounded"> </a> </span>
+		</c:forEach>
+	<input type="hidden" value="${ minp}">
+	</div>
 </body>
 </html>
+

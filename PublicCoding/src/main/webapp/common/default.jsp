@@ -26,12 +26,14 @@
 										<li class="col-sm-2">
 											<div class="fff">
 												<div class="thumbnail">
-													<a href="play.do?gno=${g1.gno }"><img src="${g1.gimageurl}" alt=""></a>
+													<a href="play.do?gno=${g1.gno }"><img
+														src="${g1.gimageurl}" alt=""></a>
 												</div>
 												<div class="caption">
 													<h4>
 														강의명: <br />${g1.gname }</h4>
-													<a class="btn btn-mini" href="play.do?gno=${g1.gno }"> 강의 알아보기</a>
+													<a class="btn btn-mini" href="play.do?gno=${g1.gno }">
+														강의 알아보기</a>
 												</div>
 											</div>
 										</li>
@@ -50,7 +52,7 @@
 												<div class="caption">
 													<h4>
 														강의명: <br />${g2.gname }</h4>
-													<a class="btn btn-mini" href="#"> 강의 알아보기</a>
+													<a class="btn btn-mini" href="courseGroup.do?gno=${g2.gno }"> 강의 알아보기</a>
 												</div>
 											</div>
 										</li>
@@ -75,32 +77,21 @@
 
 		<article>
 			<div class="row">
-					<h4>원하는 정보를 검색해 보세요</h4>
-				</div>
-					<form action="#" method="get">
-<label class="control-label col-sm-2" for="tags">Tags:</label>				
-						<div class="form-group">
-							
-							<div class="col-sm-8">
-								<div class="example example_objects_as_tags">
-									<div class="bs-example">
-										<input type="text" id="tags" name="tags" placeholder="태그" />
-<!-- <input class="form-con
-
-
-
-
-
-
-
-trol" id="system-search" name="q"
+				<h4>원하는 정보를 검색해 보세요</h4>
+			</div>
+			<form action="#" method="get">
+				<label class="control-label col-sm-2" for="tags">Tags:</label>
+				<div class="form-group">
+					<div class="example example_objects_as_tags">
+						<div class="bs-example">
+							<input type="text" id="tags" name="tags" placeholder="태그" />
+							<!-- <input class="form-control" id="system-search" name="q"
 							placeholder="검색어를 입력해주세요" required> -->
-									</div>
-								</div>
-							</div>
 						</div>
-						
-					</form>
+					</div>
+				</div>
+
+			</form>
 		</article>
 
 		<article>

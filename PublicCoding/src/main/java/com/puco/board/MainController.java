@@ -45,6 +45,21 @@ public class MainController {
 		List<CourseGroupDTO> g2list=CourseGroupDAO.CourseGroupAllData(no2);
 		req.setAttribute("g2list", g2list);
 		
+		String sno=req.getParameter("sno");
+		int no = Integer.parseInt(sno);
+		
+		if(sno==null)
+			no=1;
+		
+		List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
+		req.setAttribute("dlist", dlist);
+		
+		List<List<ScategoryDTO>> slist=new ArrayList<List<ScategoryDTO>>();
+		for(int i=0;i<dlist.size();i++){
+			slist.add(ScategoryDAO.ScategoryAllData(dlist.get(i).getDno()));
+		}
+		req.setAttribute("slist", slist);
+		
 		// Dcategory ¸Þ´º
 		/*
 		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();

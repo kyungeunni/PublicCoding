@@ -61,9 +61,11 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 #qnaboard th.id{width:10%;}  
 
 
-
-
-
+#mainc {width:100%; margin-top: 50px;}
+.caption h4{white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
 
 
 

@@ -1,11 +1,15 @@
 package com.puco.lectures;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.puco.board.dao.FreeBoardDAO;
+import com.puco.board.dao.FreeBoardVO;
+import com.puco.board.dao.QBoardDAO;
+import com.puco.board.dao.QnaBoardVO;
 import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
@@ -90,10 +94,12 @@ public class LectureController {
 		
 		String firstCname=clist.get(cno-initcno).getCname();			// 선택된 강의 제목을 받아옴
 		String firstSite=clist.get(cno-initcno).getCsiteurl();			// 선택된 강의의 사이트 URL을 가져옴
+		String firstCtime=clist.get(cno-initcno).getCtime();
 		
 		req.setAttribute("firstCname", firstCname);
 		req.setAttribute("contenturl", contenturl);
 		req.setAttribute("firstSite", firstSite);
+		req.setAttribute("firstCtime", firstCtime);
 		req.setAttribute("clist", clist);
 		req.setAttribute("gno", gno);
 		
@@ -117,6 +123,32 @@ public class LectureController {
 			System.out.println("gno "+gno);
 			req.setAttribute("confirmCourse", confirmCourse);
 		}
+		
+		Map map = new HashMap();										// 강의 연관 게시물 검색
+		map.put("start", 1);
+		map.put("end", 10);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		req.setAttribute("qlist", list);
+		
+		
+		String rpage=req.getParameter("rpage");							// 강의 평가 댓글 출력
+		   if(rpage==null)
+			   rpage="1";
+		   int cpage=Integer.parseInt(rpage);
+		   int rowSize=5;
+		   int start=(cpage*rowSize)-(rowSize-1);
+		   int end=(cpage*rowSize);
+		   Map remap=new HashMap();
+		   remap.put("gno", gnos);
+		   System.out.println("gno in play.do " + gnos);
+		   remap.put("start", start);
+		   System.out.println("start in play.do " + start);
+		   remap.put("end", end);
+		   System.out.println("end in play.do " + end);
+		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
+		   System.out.println("DAO replyAllData in play.do worked well");
+		   req.setAttribute("replyList", replyList);
 		
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
@@ -149,5 +181,39 @@ public class LectureController {
 		System.out.println("gno "+InfoDto.getGno());
 		req.setAttribute("gno", InfoDto.getGno());
 		return "lectures/registerLecture_ok.jsp";
+	}
+	
+	@RequestMapping("reply_insert.do")
+	public String reply_insert(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		System.out.println("reply_isert in LectureController worked");
+		
+		String gno=req.getParameter("gno");
+		System.out.println("reply_isert - gno : "+gno);
+		String grecontent=req.getParameter("reply_data");
+		System.out.println("reply_isert - grecontent : "+grecontent);
+		String grepoint=req.getParameter("grepoint");
+		System.out.println("reply_isert - grepoint : "+grepoint);
+		
+		HttpSession session=req.getSession();
+		String grename=(String)session.getAttribute("id");
+		System.out.println("reply_isert - grename : "+grename);
+		String grepwd=(String)session.getAttribute("pwd");
+		System.out.println("reply_isert - grepwd : "+grepwd);
+		
+		CourseReplyDTO dto=new CourseReplyDTO();
+		dto.setGno(Integer.parseInt(gno));
+		dto.setGrecontent(grecontent);
+		dto.setGrepoint(Integer.parseInt(grepoint));
+		dto.setGrepwd(grepwd);
+		dto.setGrename(grename);
+		
+		System.out.println("전달할 준비 완료");
+		CourseReplyDAO.replyInsert(dto);
+		System.out.println("쿼리문 실행 완료 gno "+gno);
+		
+		req.setAttribute("gno", gno);
+		
+		return "lectures/reply_ok.jsp";
 	}
 }

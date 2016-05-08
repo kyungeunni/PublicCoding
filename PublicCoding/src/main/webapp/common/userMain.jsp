@@ -139,7 +139,7 @@
 					<h3>답변</h3>
 					<ul style="color: black">
 						<c:forEach var="a" items="${alist }">
-							<li><a href="content.do?no=${a.bno}"><i class="fa fa-thumbs-up" aria-hidden="true">x${a.bvote} | &nbsp; </i>${a.bsubject}</a></li>
+							<li><a href="content.do?no=${a.bno}&page=1"><i class="fa fa-thumbs-up" aria-hidden="true">x${a.bvote} | &nbsp; </i>${a.bsubject}</a></li>
 						</c:forEach>
 					</ul>
 
@@ -149,7 +149,8 @@
 
 		<article>
 			<div class="text">
-				<span>개설 스터디 내역</span>
+				<h3>참가스터디</h3>
+				<jsp:include page="mypage.jsp"></jsp:include>
 			</div>
 		</article>
 
