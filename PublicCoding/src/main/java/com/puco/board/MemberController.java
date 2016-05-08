@@ -42,6 +42,7 @@ public class MemberController {
 
 			HttpSession session=req.getSession();
 			session.setAttribute("id", id);
+			session.setAttribute("pwd", pwd);		// 05.08일 비밀 번호 세션에 추가
 			session.setAttribute("email", email);
 			session.setAttribute("mno", mno);
 			session.setAttribute("mimageurl", mimageurl);
