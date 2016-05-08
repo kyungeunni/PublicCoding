@@ -93,7 +93,8 @@
 			<c:if test="${sessionScope.id!=null }">
 
 				<li class="dropdown" id="loginok">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><img src="resources/userprofiles/${sessionScope.mimageurl }"
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<img src="resources/userprofiles/${sessionScope.mimageurl }"
 								alt="" width="29" height="29" class="img-rounded">
 
 						 ${sessionScope.id}</a>
