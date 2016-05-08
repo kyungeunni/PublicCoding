@@ -433,33 +433,19 @@ $(function(){
 													<div class="col-sm-9">
 														
 															<div class="review-block-rate">
+																<c:forEach var="i" begin="1" end="${rvo.grepoint}">
 																<button type="button" class="btn btn-warning btn-xs"
 																	aria-label="Left Align">
 																	<span class="glyphicon glyphicon-star"
 																		aria-hidden="true"></span>
 																</button>
-																<button type="button" class="btn btn-warning btn-xs"
-																	aria-label="Left Align">
-																	<span class="glyphicon glyphicon-star"
-																		aria-hidden="true"></span>
-																</button>
-																<button type="button" class="btn btn-warning btn-xs"
-																	aria-label="Left Align">
-																	<span class="glyphicon glyphicon-star"
-																		aria-hidden="true"></span>
-																</button>
-																<button type="button"
+																</c:forEach>
+																<!-- <button type="button"
 																	class="btn btn-default btn-grey btn-xs"
 																	aria-label="Left Align">
 																	<span class="glyphicon glyphicon-star"
 																		aria-hidden="true"></span>
-																</button>
-																<button type="button"
-																	class="btn btn-default btn-grey btn-xs"
-																	aria-label="Left Align">
-																	<span class="glyphicon glyphicon-star"
-																		aria-hidden="true"></span>
-																</button>
+																</button> -->
 															</div>
 															
 															
