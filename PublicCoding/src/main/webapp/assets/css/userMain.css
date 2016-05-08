@@ -12,8 +12,8 @@ table { table-layout: fixed}
 
 /*레이아웃*/
 article { float:left; height:auto;}
-article:nth-child(1) { width:33.333333%; height:60vh; background:#ccc;} 
-article:nth-child(2) { width:66.666666%; height:60vh; background:#ccc;}
+article:nth-child(1) { width:33.333333%; height:60vh; background:#ffffff;} 
+article:nth-child(2) { width:66.666666%; height:60vh; background:#ffffff;}
 article:nth-child(3) { width:33.333333%; height:30vh; background:#ffffff;}
 article:nth-child(4) { width:33.333333%; height:30vh; background:#ffffff;}
 article:nth-child(5) { width:33.333333%; height:30vh; background:#ffffff;}
@@ -257,4 +257,13 @@ span.tags
 
 .useredittd{
 	height:60px;
+}
+
+.text{
+	padding-left: 30px;
+	padding-right: 5px;
+	border-right-color: #c8c8c8;
+	border-right-style: solid;
+	border-right-width: 1px; 
+	
 }

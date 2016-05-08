@@ -13,6 +13,10 @@
 		<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply" />
 		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard" />
 		<typeAlias type="com.puco.member.dao.ScoreVO" alias="Score" />
+		<typeAlias type="com.puco.onoffmix.dao.LocationInfoVO" alias="Loc" />
+		<typeAlias type="com.puco.onoffmix.dao.MeetupinfoVO" alias="Meetup" />
+		<typeAlias type="com.puco.onoffmix.dao.StudyJoinVO" alias="StudyJoin" />
+		<typeAlias type="com.puco.onoffmix.dao.StimeinfoVO" alias="Timeinfo" />
 	</typeAliases>
 
 	<environments default="development">
@@ -32,6 +36,7 @@
 		<mapper resource="com/puco/member/dao/member-mapper.xml" />
 		<mapper resource="com/puco/category/dao/category-mapper.xml" />
 		<mapper resource="com/puco/lectures/dao/lecture-mapper.xml" />
+		<mapper resource="com/puco/onoffmix/dao/onoff-mapper.xml"/>
 	</mappers>
 
 </configuration>

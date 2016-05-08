@@ -1,9 +1,6 @@
 package com.puco.board;
 
 import java.util.*;
-
-
-import java.util.StringTokenizer;
 import java.io.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -37,7 +34,10 @@ public class MemberController {
 			mno=st.nextToken();
 			mimageurl=st.nextToken();
 			MemberDAO.loginUpdate(Integer.parseInt(mno));
-			ScoreVO d= new ScoreVO(Integer.parseInt(mno),1,"(+1) 로그인 하였습니다.");
+			ScoreVO d= new ScoreVO();
+			d.setMno(Integer.parseInt(mno));
+			d.setScore(1);
+			d.setMessage("(+1) 로그인 하였습니다.");
 			MemberDAO.recordScore(d);
 
 			HttpSession session=req.getSession();
@@ -71,6 +71,13 @@ public class MemberController {
 		req.setAttribute("alist", alist);
 		//질문글
 		List<QnaBoardVO> qlist = MemberDAO.getUserPost(mno);
+		List<String> datelist = MemberDAO.getPointDateList(mno);
+		List<Integer> pointlist = MemberDAO.getPointDate(mno,datelist);
+		List<ScoreVO> scorelist = MemberDAO.getAllPointData(mno);
+		System.out.println("pointlist>>>>>true");
+		req.setAttribute("scorelist", scorelist);
+		req.setAttribute("datelist",datelist );
+		req.setAttribute("pointlist",pointlist );
 		req.setAttribute("qlist", qlist);
 		//질문갯수
 		req.setAttribute("qno", qlist.size());
@@ -80,7 +87,6 @@ public class MemberController {
 		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("mno", no);
 		req.setAttribute("vo", vo);
-		req.setAttribute("jsp", "userMain.jsp");
 		req.setAttribute("tags", tags);
 		return "common/main.jsp";
 	}

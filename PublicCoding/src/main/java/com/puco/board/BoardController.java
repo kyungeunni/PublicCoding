@@ -120,7 +120,11 @@ public class BoardController {
 		System.out.println("boardinsert>>1");
 		QBoardDAO.boardInsert(vo);
 		System.out.println("boardinsert>>2");
-		ScoreVO d = new ScoreVO(mno, 1, "질문 (" + vo.getBsubject().substring(0, 10) + ")");
+		ScoreVO d= new ScoreVO();
+		d.setMno(mno);
+		d.setScore(1);
+		d.setMessage("질문 (" + vo.getBsubject().substring(0, 10) + ")");
+		
 		MemberDAO.recordScore(d);
 
 		return "board/insert_ok.jsp";
@@ -145,7 +149,10 @@ public class BoardController {
 		String bsubject = QBoardDAO.getbSubject(bno);
 		if (bsubject.length() > 10)
 			bsubject = bsubject.substring(0, 9) + "...";
-		ScoreVO d = new ScoreVO(mno, 3, "(+3) 답변작성 (" + bsubject + ")");
+		ScoreVO d= new ScoreVO();
+		d.setMno(mno);
+		d.setScore(3);
+		d.setMessage("(+3) 답변작성 (" + bsubject + ")");
 		MemberDAO.recordScore(d);
 		req.setAttribute("no", bno);
 		req.setAttribute("page", page);
@@ -170,7 +177,10 @@ public class BoardController {
 			String bsubject = QBoardDAO.getbSubject(Integer.parseInt(bno));
 			if (bsubject.length() > 10)
 				bsubject = bsubject.substring(0, 9) + "...";
-			ScoreVO d = new ScoreVO(mno, 3, "(+3) 공감가는 질문!!( " + bsubject + ")");
+			ScoreVO d= new ScoreVO();
+			d.setMno(mno);
+			d.setScore(3);
+			d.setMessage("(+3) 공감가는 질문!!( " + bsubject + ")");
 			MemberDAO.recordScore(d);
 		} else {
 			System.out.println("설마");
@@ -180,7 +190,10 @@ public class BoardController {
 			String bsubject = QBoardDAO.getbSubject(Integer.parseInt(bno));
 			if (bsubject.length() > 10)
 				bsubject = bsubject.substring(0, 9) + "...";
-			ScoreVO d = new ScoreVO(mno, 3, "(+3) 도움되는 답변!( " + bsubject + ")");
+			ScoreVO d= new ScoreVO();
+			d.setMno(mno);
+			d.setScore(3);
+			d.setMessage("(+3) 도움되는 답변!( " + bsubject + ")");
 			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);
@@ -203,7 +216,10 @@ public class BoardController {
 			String bsubject = QBoardDAO.getbSubject(Integer.parseInt(bno));
 			if (bsubject.length() > 10)
 				bsubject = bsubject.substring(0, 9) + "...";
-			ScoreVO d = new ScoreVO(mno, -1, "(-1) 부적합한 질문:( ( " + bsubject + ")");
+			ScoreVO d= new ScoreVO();
+			d.setMno(mno);
+			d.setScore(-1);
+			d.setMessage("(-1) 부적합한 질문:( ( " + bsubject + ")");
 			MemberDAO.recordScore(d);
 		} else {
 			String rno = req.getParameter("rno");
@@ -212,7 +228,10 @@ public class BoardController {
 			String bsubject = QBoardDAO.getbSubject(Integer.parseInt(bno));
 			if (bsubject.length() > 10)
 				bsubject = bsubject.substring(0, 9) + "...";
-			ScoreVO d = new ScoreVO(mno, -2, "(-1) 부적합한 답변:( ( " + bsubject + ")");
+			ScoreVO d= new ScoreVO();
+			d.setMno(mno);
+			d.setScore(-1);
+			d.setMessage("(-1) 부적합한 답변 :( ( " + bsubject + ")");
 			MemberDAO.recordScore(d);
 		}
 		req.setAttribute("no", bno);

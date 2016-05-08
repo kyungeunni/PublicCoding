@@ -1,17 +1,15 @@
 package com.puco.member.dao;
 
-import java.util.*;
+import java.util.Date;
+
 public class ScoreVO {
 
 	 private int score;
 	 private int mno;
 	 private String message;
 	 private Date sdate;
-	public ScoreVO(int mno, int score, String message) {
-		this.mno=mno;
-		this.score=score;
-		this.message=message;
-	}
+
+	
 	public int getScore() {
 		return score;
 	}

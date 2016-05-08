@@ -1,6 +1,7 @@
 package com.puco.member.dao;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -69,9 +70,12 @@ public class MemberDAO {
 		SqlSession session = ssf.openSession();
 		System.out.println("userdata>>1");
 		MemberDTO vo=session.selectOne("getUserData", mno);
+		System.out.println("userdata>>2");
 		int point=session.selectOne("getUserSCore",mno);
+		System.out.println("userdata>>3");
 		vo.setMpoint(point);
 		int boardhit = session.selectOne("getSumHit",mno);
+		System.out.println("userdata>>4");
 		vo.setBoardhit(boardhit);
 		session.close();
 		
@@ -139,5 +143,39 @@ public class MemberDAO {
 		session.insert("insertMember",dto);
 		System.out.println("insertMember Complete Joined well");
 		session.close();
+	}
+	
+	public static List<String> getPointDateList(int mno){
+		SqlSession session=ssf.openSession();
+		System.out.println("1번 >> ");
+		List<String> date=session.selectList("getPointDate",mno);
+		session.close();
+		return date;		
+	}
+	public static List<Integer> getPointDate(int mno,List<String> date){
+		SqlSession session=ssf.openSession();
+		System.out.println("2번 >> ");
+		List<Integer> map = new ArrayList();
+		Map emap=new HashMap();
+		emap.put("mno", mno);
+		int sum =0;
+		for(String d:date){
+			emap.put("date", d);
+			int temp = session.selectOne("getDaySumPoint",emap);
+			sum+=temp;
+			map.add( sum);
+			System.out.println(d+"일  >> "+ sum);
+		}
+		session.close();
+		return map;
+	}
+	
+	
+	public static List<ScoreVO> getAllPointData(int mno){
+		SqlSession session=ssf.openSession();
+		System.out.println("1번 >>왜죠?? ");
+		List<ScoreVO> list=session.selectList("getAllPointData",mno);
+		session.close();
+		return list;		
 	}
 }

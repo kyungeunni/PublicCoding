@@ -22,15 +22,16 @@
 		FROM
 		pucoMember
 		WHERE mno=#{mno}
-	
+
 	</select>
-	
-		<select id="getUserSCore" resultType="int" parameterType="int">
-		SELECT SUM(score)
-		FROM 	scorechart
-		WHERE mno=#{mno}	
+
+	<select id="getUserSCore" resultType="int" parameterType="int">
+		SELECT
+		SUM(score)
+		FROM scorechart
+		WHERE mno=#{mno}
 	</select>
-	
+
 	<!-- 수강정보 -->
 	<select id="getUserCourse" resultType="String" parameterType="int">
 		select gname FROM CourseGroup cg
@@ -45,18 +46,15 @@
 		logindate = SYSDATE
 		WHERE mno=#{mno}
 	</update>
-	
- 	<!-- 득점 -->
-<!--	<update id="getPoint" parameterType="int">
-		UPDATE pucomember SET
-		mpoint
-		= mpoint+#{point}
-		WHERE mno=#{mno}
-	</update> -->
-	
-	<!-- 득점 테이블 추가  -->
-	<insert id="recordScore"  parameterType="Score" >
-		INSERT INTO  scoreChart(mno,score,message)
+
+	<!-- 득점 -->
+	<!-- <update id="getPoint" parameterType="int"> UPDATE pucomember SET mpoint 
+		= mpoint+#{point} WHERE mno=#{mno} </update> -->
+
+	<!-- 득점 테이블 추가 -->
+	<insert id="recordScore" parameterType="Score">
+		INSERT INTO
+		scoreChart(mno,score,message)
 		VALUES(#{mno},#{score},#{message})
 	</insert>
 
@@ -64,7 +62,8 @@
 		<!-- UPDATE pucomember SET MimageURL=#{mimageURL},filesize=#{filesize}, 
 			mtags=#{tags} WHERE no=#{mno} -->
 		UPDATE pucomember SET
-		MimageURL=#{mimageURL},filesize=#{filesize}, mtags=#{mtags}
+		MimageURL=#{mimageURL},filesize=#{filesize},
+		mtags=#{mtags}
 		WHERE
 		mno=#{mno}
 
@@ -82,35 +81,61 @@
 		FROM pucomember
 		WHERE mno=#{mno}
 	</select>
-	
-<!-- 쓴 글 & 답변단 글 가져오기 -->
-		<select id ="getUserPost" resultType="QBoard" parameterType="int">
-	SELECT bsubject,bno
-	 FROM  mainboard MT
-	 WHERE mno=#{mno}
-	 Order by bhit DESC
-	</select>
-	
+
 	<!-- 쓴 글 & 답변단 글 가져오기 -->
-		<select id ="getUserAnswerPost" resultType="QBoard" parameterType="int">
-	SELECT AT.bno, MT.bsubject as bsubject
-	 FROM  answer AT
-	 LEFT JOIN mainboard MT
-	 on AT.bno=MT.bno
-	 WHERE AT.mno=#{mno}
-	 Order by rhit DESC
+	<select id="getUserPost" resultType="QBoard" parameterType="int">
+		SELECT bsubject,bno,bvote
+		FROM mainboard MT
+		WHERE mno=#{mno}
+		Order by bvote DESC
 	</select>
-	
-	<!-- 게시글 뷰 합계  -->
+
+	<!-- 쓴 글 & 답변단 글 가져오기 -->
+	<select id="getUserAnswerPost" resultType="QBoard"
+		parameterType="int">
+		SELECT AT.bno, MT.bsubject as bsubject,rhit as bvote
+		FROM answer AT
+		LEFT JOIN mainboard MT
+		on AT.bno=MT.bno
+		WHERE AT.mno=#{mno}
+		Order by rhit DESC
+	</select>
+
+	<!-- 게시글 뷰 합계 -->
 	<select id="getSumHit" resultType="int" parameterType="int">
-		SELECT SUM(bhit) FROM Mainboard
+		SELECT
+		NVL(SUM(bhit),0) FROM Mainboard
 		WHERE mno=#{mno}
 	</select>
-	
+
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="Member">
-		INSERT INTO pucoMember(Mno,Mid,Mpwd,Memail)
-		VALUES((SELECT NVL(MAX(Mno)+1,1) FROM pucoMember),
+		INSERT INTO
+		pucoMember(Mno,Mid,Mpwd,Memail)
+		VALUES((SELECT NVL(MAX(Mno)+1,1) FROM
+		pucoMember),
 		#{mid},#{mpwd},#{memail})
 	</insert>
+
+	<!-- 점수 득점 데이터(테이블 출력용) -->
+
+
+	<select id="getAllPointData" resultType="Score" parameterType="int">
+		SELECT score,message,sdate
+		FROM scorechart
+		Order by sdate DESC
+	</select>
+
+	<select id="getPointDate" resultType="String" parameterType="int">
+		SELECT DISTINCT TO_CHAR(sdate,'yyyy-MM-dd') as sdate FROM scorechart
+		WHERE mno=#{mno} order by sdate asc
+	</select>
+
+	<select id="getDaySumPoint" resultType="int" parameterType="java.util.Map">
+		SELECT sum(score)
+		FROM scorechart
+		where mno=#{mno}
+		AND TO_CHAR(sdate,'yyyy-MM-dd')=#{date}
+
+	</select>
 </mapper>
