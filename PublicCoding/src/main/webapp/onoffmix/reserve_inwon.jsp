@@ -12,10 +12,6 @@
 $(function(){
 	$('#grade').change(function(){
 		var inwon=$('#grade').val();
-		$('#span_inwon').text("인원:"+inwon+"명");
-		$('#span_price').text("금액:"+(inwon*9000)+"원");
-		$('#inwon_jsp').val(inwon);
-		$('#price_jsp').val(inwon*9000);		
 		$('#resImg').attr("src","assets/img/reserve.jpg");
 		$('#resImg').css("cursor","pointer");
 	});

@@ -5,6 +5,28 @@ public class StudyJoinVO {
 	private int mno;
 	private int meetno;
 	private int res_check;
+	private String meetdate;
+	private String meettime;
+	private int tno;
+	
+		public int getTno() {
+		return tno;
+	}
+	public void setTno(int tno) {
+		this.tno = tno;
+	}
+		public String getMeetdate() {
+		return meetdate;
+	}
+	public void setMeetdate(String meetdate) {
+		this.meetdate = meetdate;
+	}
+	public String getMeettime() {
+		return meettime;
+	}
+	public void setMeettime(String meettime) {
+		this.meettime = meettime;
+	}
 	public int getRno() {
 		return rno;
 	}

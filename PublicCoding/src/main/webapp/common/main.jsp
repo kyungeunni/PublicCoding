@@ -65,8 +65,8 @@
 				<center>
 					<ul class="dropdown-menu">
 
-						<li><a href="boardmain.do">지역별</a></li>
-						<li><a href="#">주제별</a></li>
+						<li><a href="onoff.do">지역별</a></li>
+						<li><a href="onoff.do">주제별</a></li>
 
 					</ul>
 				</center></li>
@@ -290,12 +290,6 @@
 	<script src="assets/js/util.js"></script>
 
 
-
-	<!-- 회원가입/로그인 팝업창 띄우기 -->
-	<script src="../assets/js/popup.js"></script>
-	<!-- 메인페이지에서 동영상/이미지 겹치는 스크립트 -->
-	<script type="text/javascript"
-		src="//cdn.jsdelivr.net/g/modernizr@2.7,respond@1.4,bootstrap@3.1,fittext@1.2"></script>
 
 
 	<script type="text/javascript">

@@ -16,12 +16,41 @@
 		WHERE tno=#{tno}
 	</select>	
 
-
+	<select id="getTimeTable" resultType="String" parameterType="int">
+	SELECT timeno FROM Locationinfo
+	WHERE tno = #{tno}
+	</select>
 	
 	
 	<select id ="timeInfoData" resultType="String" parameterType="int">
 		SELECT time FROM timeInfo
 		WHERE tno=#{tno}	
+	</select>
+	
+	<select id="getMinPeople" resultType="int" parameterType="int">
+			SELECT maxpeople FROM meetupinfo
+		WHERE meetno =#{meetno }	
+	</select>
+	
+  <select id="getJoinedPeople" resultType="int" parameterType="java.util.Map">
+		SELECT mno FROM meetupreginfo
+		WHERE meetno =#{meetno }	
+		AND meetdate =#{meetdate}
+		AND meettime =#{meettime }
+
+	</select>
+	
+		<!-- 추가(예약) -->
+	<insert id="studyjoin" parameterType="StudyJoin"> 
+		<selectKey keyProperty="rno" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(rno)+1,1) as rno FROM meetupreginfo		
+		</selectKey>
+		INSERT INTO meetupreginfo VALUES(#{rno},#{mno},#{meetno},#{meetdate},#{meettime},0,#{tno})
+	</insert>
+<!-- 	mypage(출력) -->
+	<select id="studyjoinUserAllData" resultType="StudyJoin" parameterType="int">
+		SELECT * FROM meetupreginfo
+		WHERE mno=#{mno}
 	</select>
  	<!-- 추가(예약) -->
 	<!--<insert id="reserveInsert" parameterType="Reserve"> 

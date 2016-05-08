@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,12 +12,14 @@
 <script type="text/javascript">
 $(function(){
 		$('.rdate').click(function(){
-			var year=$(this).attr("year");
-			var month=$(this).attr("month");
 			var day=$(this).text();
-			$('#span_date').text("예약일"+year+"-"+month+"-"+day);
-			$('#day_jsp').val(year+"-"+month+"-"+day);
-			sendMessage("POST", "reserve_time.do", null, timeInfo);
+			var strArray=day.split('-');
+			$('#span_date').text("일시: "+strArray[0]);
+			$('#span_time').text("스터디 시간:"+strArray[1]);
+			$('#day_jsp').val(strArray[0]);
+			$('#time_jsp').val(strArray[1]);
+			var param="mno="+$('#meetno_jsp').val()+"&day="+strArray[0]+"&time="+strArray[1];		
+			sendMessage("POST", "reserve_time.do", param, timeInfo);
 			
 		});
 });
@@ -24,7 +27,9 @@ $(function(){
 function timeInfo(){
 	if(httpRequest.readyState=4){
 		if(httpRequest.status==200){
-			$('#timei').html(httpRequest.responseText);
+			$('#span_joined').html(httpRequest.responseText);
+			$('#resImg').attr("src","assets/img/reserve.jpg");
+			$('#resImg').css("cursor","pointer");
 		}
 	}
 }
@@ -35,7 +40,7 @@ function timeInfo(){
 
 </head>
 <body>
-	<center>
+<%-- 	<center>
 		<h3>${year }년도 ${month } 월</h3>
 		<table id="table_content" width=315>
 			<tr>
@@ -64,13 +69,13 @@ function timeInfo(){
 							<td class="tdcenter">&nbsp;</td>
 						</c:forEach>
 				</c:if>
-				<c:if test="${i>=day }">
+				<c:if test="${i>day }">
 					<td class="tdcenter" bgcolor="#ccccff">
 					<a href="#" year="${year }" month="${month }"  class="rdate">${i }</a>
 						
 					</td>
 				</c:if>
-				<c:if test="${i<day }">
+				<c:if test="${i<=day }">
 					<td class="tdcenter">${i }</td>
 				</c:if>
 				<c:set var="week" value="${week+1 }" />
@@ -81,6 +86,19 @@ function timeInfo(){
 				</c:if>
 			</c:forEach>
 			</tr>
+		</table>
+	</center> --%>
+	<center>
+		<table id="table_content" style="width:200px">
+			<tr>
+				<th>일시</th>
+			</tr>
+
+			<c:forEach var="vo" items="${tlist }">
+				<tr  class="dataTr">
+					<td class="rdate">${vo }</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</center>
 </body>

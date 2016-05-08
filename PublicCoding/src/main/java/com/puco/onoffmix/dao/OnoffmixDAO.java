@@ -37,6 +37,14 @@ public class OnoffmixDAO {
     			
     }
     
+    
+    public static String getTimeTable(int tno){
+    	SqlSession session = ssf.openSession();
+    	String list = session.selectOne("getTimeTable",tno);
+    	session.close();
+    	return list;
+    			
+    }
     public static String theaterNumber(int meetno){
     	SqlSession session = ssf.openSession();
     	String list = session.selectOne("LocationNumber",meetno);
@@ -59,15 +67,35 @@ public class OnoffmixDAO {
     	return list;
     }
     
-/*    //예약
-    public static List<ReserveVO> reserveUserAllData(String id){
+   
+    
+    public static int getMinPeople(int meetno){
     	SqlSession session = ssf.openSession();
-    	List<ReserveVO> list = session.selectList("reserveUserAllData",id);
+    	int list = session.selectOne("getMinPeople",meetno);
     	session.close();
     	return list;
-    			
     }
     
+    public static List<Integer> getJoinedPeople(Map map){
+    	SqlSession session = ssf.openSession();
+    	List<Integer> list = session.selectList("getJoinedPeople",map);
+    	session.close();
+    	return list;
+    }
+    
+    public static void studyjoin(StudyJoinVO vo){
+    	SqlSession session = ssf.openSession(true);
+    	session.insert("studyjoin",vo);
+    	session.close();
+    }
+
+    public static List<StudyJoinVO> studyjoinUserAllData(int mno){
+    	SqlSession session = ssf.openSession();
+    	List<StudyJoinVO> list = session.selectList("studyjoinUserAllData",mno);
+    	session.close();
+    	return list;
+    }
+    /*    //예약
     public static List<ReserveVO> reserveAdminAllData(){
     	SqlSession session = ssf.openSession();
     	List<ReserveVO> list = session.selectList("reserveAdminAllData");

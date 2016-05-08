@@ -1,18 +1,19 @@
 package com.puco.board;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
+
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import com.puco.board.dao.QBoardDAO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.onoffmix.dao.LocationInfoVO;
 import com.puco.onoffmix.dao.MeetupinfoVO;
 import com.puco.onoffmix.dao.OnoffmixDAO;
+import com.puco.onoffmix.dao.StudyJoinVO;
 
 
 
@@ -59,6 +60,17 @@ public class OnOffController {
     {
     	String strYear=req.getParameter("year");
     	String strMonth=req.getParameter("month");
+    	String tno=req.getParameter("tno");
+    	String timetable = OnoffmixDAO.getTimeTable(Integer.parseInt(tno));
+    	StringTokenizer str = new StringTokenizer(timetable, ",");
+    	List<String> timelist=new ArrayList<String>();
+    	while(str.hasMoreTokens())
+    	{
+    		String vo=OnoffmixDAO.timeInfoData(Integer.parseInt(str.nextToken()));
+    		timelist.add(vo);
+    		System.out.println(vo);
+    	}  
+    	
     	Date date=new Date();
     	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-M-d");//09 
     	StringTokenizer st=new StringTokenizer(sdf.format(date), "-");
@@ -75,88 +87,80 @@ public class OnOffController {
     	int month=Integer.parseInt(strMonth);
     	int day=Integer.parseInt(sd);
     	
-    	String[] strWeek={"일","월","화","수","목","금","토"};
-    	int[] lastDay={
-    		31,28,31,30,31,30,
-    		31,31,30,31,30,31
-    	};
-    	
-    	int total=((year-1)*365)+((year-1)/4)-((year-1)/100)
-    			 +((year-1)/400);
-    	if(((year%4==0)&&(year%100!=0))||(year%400==0))
-    	{
-    		lastDay[1]=29;
-    	}
-    	else
-    	{
-    		lastDay[1]=28;
+    	List<String> tlist=new ArrayList<String>();
+    	for(String time:timelist){
+    		String temp = strMonth+"월"+String.valueOf(++day)+"일-"+time;
+    		tlist.add(temp);
+    		System.out.println("rdate>>>>>>>"+temp);
     	}
     	
-    	for(int i=0;i<month-1;i++)
-    	{
-    		total+=lastDay[i];
-    	}
-    	
-    	total++;
-    	int week=total%7;
-    	System.out.println("week:"+strWeek[week]);
-    	req.setAttribute("year", year);
-    	req.setAttribute("month", month);
-    	req.setAttribute("day", day);
-    	req.setAttribute("week", week);
-    	req.setAttribute("lastDay", lastDay[month-1]);
-    	List<String> weekList=new ArrayList<String>();
-    	for(int i=0;i<7;i++)
-    	{
-    		weekList.add(strWeek[i]);
-    	}
-    	req.setAttribute("weekList", weekList);
+    	req.setAttribute("tlist", tlist);
+    	    	
     	return "onoffmix/reserve_date.jsp";
     }
 
     @RequestMapping("reserve_time.do")
-    public String reserve_time(HttpServletRequest req)
+    public String reserve_time(HttpServletRequest req) throws Exception
     {
-    	int[] temp=new int[5];
-    	boolean bCheck=false;
-    	int su=0;
-    	for(int i=0;i<5;i++)
-    	{
-    		bCheck=true;
-    		while(bCheck)
-    		{
-    			su=(int)(Math.random()*15)+1;
-    			bCheck=false;
-    			for(int j=0;j<i;j++)
-    			{
-    				if(temp[j]==su)
-    				{
-    					bCheck=true;
-    					break;
-    				}
-    			}
-    		}
-    		temp[i]=su;
+    	req.setCharacterEncoding("UTF-8");
+    	String mno=req.getParameter("mno");
+    	
+    	int meetno = Integer.parseInt(mno);
+    	String meetdate=req.getParameter("day");
+    	String meettime=req.getParameter("time");
+    	System.out.println("meetno>"+meetno);
+    	System.out.println("meetdate>"+meetdate);
+    	System.out.println("meettime>"+meettime);
+    	Map map = new HashMap();
+    	map.put("meetno",meetno);
+    	map.put("meetdate",meetdate);
+    	map.put("meettime",meettime);
+    	int minp=OnoffmixDAO.getMinPeople(meetno);
+    	System.out.println("최소인원>>>"+minp);
+    	List<Integer> mjoined = OnoffmixDAO.getJoinedPeople(map);
+    	System.out.println("참가인원 크기>>>"+mjoined.size());
+    	Map imgmap = new HashMap();
+    	for(Integer m:mjoined){
+    		String temp= QBoardDAO.getimageUrl(m);
+    		imgmap.put(m, temp);  
+    		System.out.println(m+"번 url>>>"+temp);
     	}
-    	for(int i=0;i<temp.length-1;i++)
-    	{
-    		for(int j=i+1;j<temp.length;j++)
-    		{
-    			if(temp[i]>temp[j])
-    			{
-    				int a=temp[i];
-    				temp[i]=temp[j];
-    				temp[j]=a;
-    			}
-    		}
-    	}
-    	List<String> list=new ArrayList<String>();
-    	for(int no:temp)
-    	{
-    		String time=OnoffmixDAO.timeInfoData(no);
-    		list.add(time);
-    	}
-    	req.setAttribute("list", list);
+    	System.out.println("Done???");
+    	req.setAttribute("minp", minp);
+    	req.setAttribute("mjoined", mjoined);
+    	req.setAttribute("imgmap", imgmap);
+    	req.setAttribute("jnum", mjoined.size());//참가인원
+    	
     	return "onoffmix/reserve_time.jsp";
+    }
+    
+    @RequestMapping("register_ok.do")
+    public String reserve_ok(HttpServletRequest req)
+    throws Exception
+    {
+    	req.setCharacterEncoding("EUC-KR");
+    	String meetno=req.getParameter("meetno");
+    	String day=req.getParameter("day");
+    	String time=req.getParameter("time");
+    	String tno=req.getParameter("tno");
+
+    	HttpSession session=req.getSession();
+    	String mno=(String)session.getAttribute("mno");
+    	System.out.println(meetno+"-"+day+"-"
+    			+time+"-"+tno+"-"+mno);
+    	StudyJoinVO vo = new StudyJoinVO();
+    	vo.setMno(Integer.parseInt(mno));
+    	vo.setMeettime(time);
+    	vo.setMeetdate(day);
+    	vo.setTno(Integer.parseInt(tno));
+    	vo.setMeetno(Integer.parseInt(meetno));
+    	System.out.println();
+    	OnoffmixDAO.studyjoin(vo);
+    	/*
+    	//List<ReserveVO> list=MovieDAO.reserveUserAllData(id);
+    	//req.setAttribute("list", list);
+    	//req.setAttribute("jsp", "movie/mypage.jsp");*/
+    	req.setAttribute("mno", mno);
+    	return "onoffmix/reserve_ok.jsp";
     }
 }
