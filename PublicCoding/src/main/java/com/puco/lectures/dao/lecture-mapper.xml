@@ -26,9 +26,9 @@
 		VALUES((SELECT NVL(MAX(suno)+1,1) FROM Infoattendant),#{mno},#{gno})
 	</insert>
 	<select id="replyAllData" resultType="CReply" parameterType="java.util.Map">
-		SELECT greno,grename,grecontent,dbday,gretab,num 
-    	FROM(SELECT greno,grename,grecontent,dbday,gretab,rownum as num 
-    	FROM(SELECT greno,grename,grecontent,TO_CHAR(gredate,'YYYY-MM-DD HH24:MI:SS') as dbday,gretab
+		SELECT greno,grepoint,grename,grecontent,dbday,gretab,num 
+    	FROM(SELECT greno,grepoint,grename,grecontent,dbday,gretab,rownum as num 
+    	FROM(SELECT greno,grepoint,grename,grecontent,TO_CHAR(gredate,'YYYY-MM-DD HH24:MI:SS') as dbday,gretab
     	FROM courseReply WHERE gno=#{gno} ORDER BY gregroup DESC, grestep ASC))
     	WHERE num BETWEEN #{start} AND #{end}
 	</select>
