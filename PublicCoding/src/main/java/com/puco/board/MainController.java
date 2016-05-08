@@ -19,6 +19,9 @@ import com.puco.lectures.dao.CourseGroupDAO;
 import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
+import com.puco.member.dao.ScoreVO;
+import com.puco.onoffmix.dao.OnoffmixDAO;
+import com.puco.onoffmix.dao.StudyJoinVO;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
@@ -51,7 +54,8 @@ public class MainController {
 		 */
 		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
-
+		
+			
 		return "common/main.jsp";// jsp파일이름
 
 

@@ -146,10 +146,11 @@ $(function(){
 								<table class="table">
 									<c:forEach var="i" items="${clist }">
 										<tr>
-											<td><span class="glyphicon glyphicon-play-circle"
+											<td class="t1">
+											<span class="glyphicon glyphicon-play-circle"
 												aria-hidden="true"></span></td>
-											<td>${i.cstep }강</td>
-											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
+											<td class="t2">${i.cstep }강</td>
+											<td class="t3"><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
 										</tr>
 									</c:forEach>
 									<!-- <tr>

@@ -66,14 +66,13 @@
 				data-toggle="dropdown" href="#"><i class="fa fa-retweet"></i>오프라인
 					스터디</a>
 
-				<center>
 					<ul class="dropdown-menu">
 
 						<li><a href="onoff.do">지역별</a></li>
 						<li><a href="onoff.do">주제별</a></li>
 
 					</ul>
-				</center></li>
+				</li>
 
 
 			<li class="dropdown"><a class="dropdown-toggle"
@@ -416,6 +415,31 @@
 			$("#frm").submit();
 		})
 	})
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	 
+    $('#myCarousel').carousel({
+            interval: 5000
+    });
+
+    $('#carousel-text').html($('#slide-content-0').html());
+
+    //Handles the carousel thumbnails
+    $('[id^=carousel-selector-]').click( function(){
+            var id_selector = $(this).attr("id");
+            var id = selectorId.substr(selectorId.lastIndexOf("-") + 1);
+            var id = parseInt(id);
+            $('#myCarousel').carousel(id);
+    });
+
+
+    // When the carousel slides, auto update the text
+    $('#myCarousel').on('slid.bs.carousel', function (e) {
+             var id = $('.item.active').data('slide-number');
+            $('#carousel-text').html($('#slide-content-'+id).html());
+    });
+});
 </script>
 <script
 		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -3006,6 +3006,14 @@ dl {
 }
 
 /* Table */
+.table tr{width:100%;}
+.table tr .t1{width:5%;}
+.table tr .t2{width:12%; margin-left: 10px;}
+.table tr .t3{width:83%; white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
+
 .table-wrapper {
 	-webkit-overflow-scrolling: touch;
 	overflow-x: auto;
