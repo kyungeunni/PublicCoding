@@ -217,7 +217,9 @@ $(function(){
 
 										<div class="col-sm-3">
 											<h4>Rating breakdown</h4>
-											<div class="pull-left">
+											<h3>${grepointAvg }</h3>
+											
+											<!-- <div class="pull-left">
 												<div class="pull-left" style="width: 35px; line-height: 1;">
 													<div style="height: 9px; margin: 5px 0;">
 														5 <span class="glyphicon glyphicon-star"></span>
@@ -234,6 +236,8 @@ $(function(){
 												</div>
 												<div class="pull-right" style="margin-left: 10px;">1</div>
 											</div>
+											
+											
 											<div class="pull-left">
 												<div class="pull-left" style="width: 35px; line-height: 1;">
 													<div style="height: 9px; margin: 5px 0;">
@@ -251,6 +255,8 @@ $(function(){
 												</div>
 												<div class="pull-right" style="margin-left: 10px;">1</div>
 											</div>
+											
+											
 											<div class="pull-left">
 												<div class="pull-left" style="width: 35px; line-height: 1;">
 													<div style="height: 9px; margin: 5px 0;">
@@ -268,6 +274,8 @@ $(function(){
 												</div>
 												<div class="pull-right" style="margin-left: 10px;">0</div>
 											</div>
+											
+											
 											<div class="pull-left">
 												<div class="pull-left" style="width: 35px; line-height: 1;">
 													<div style="height: 9px; margin: 5px 0;">
@@ -285,6 +293,8 @@ $(function(){
 												</div>
 												<div class="pull-right" style="margin-left: 10px;">0</div>
 											</div>
+											
+											
 											<div class="pull-left">
 												<div class="pull-left" style="width: 35px; line-height: 1;">
 													<div style="height: 9px; margin: 5px 0;">
@@ -301,7 +311,9 @@ $(function(){
 													</div>
 												</div>
 												<div class="pull-right" style="margin-left: 10px;">0</div>
-											</div>
+											</div> -->
+											
+											
 										</div>
 									</div>
 									<br>

@@ -66,7 +66,8 @@ public class LectureController {
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
 		System.out.println("LectureController CourseGroupDAO Work");
 		req.setAttribute("glist", glist);
-		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
+		
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");		
 		return "common/main.jsp";
 	}
 	// 강의그룹 기능 생성부 끝
@@ -147,9 +148,12 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
-		   System.out.println("DAO replyAllData in play.do worked well");
 		   req.setAttribute("replyList", replyList);
-		
+		   
+		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
+		   System.out.println("replyPoint worked");
+		   req.setAttribute("grepointAvg", avg);
+		   
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}
