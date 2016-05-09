@@ -15,11 +15,11 @@
 <!-- <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet"> -->
 </head>
-
-
-<body style="background-color: black;height: 100%">
+<body style="background-color: #1c1d26;height: 100%">
+	<div style="color: white; font-size: 20px;">
+	</div>
 	<section>
-		<article style="background-color: black;height: 100%;width: 350px">
+		<article style="background-color: #1c1d26;height: 100%;width: 350px">
 			<div class="container" style="width: 100%">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
@@ -63,7 +63,7 @@
 			</div>
 		</article>
 
-		<article style="background-color: black;height: 100%">
+		<article style="background-color: #1c1d26;height: 100%">
 			<div class="textte">
 				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ -->
 					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
