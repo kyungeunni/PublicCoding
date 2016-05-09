@@ -32,7 +32,7 @@ public class BoardController {
 		if (page == null)
 			page = "1";
 		if (order == null)
-			order = "1";
+			order = "2";
 		int curpage = Integer.parseInt(page);
 		int rowSize = 10;
 		int start = (curpage * rowSize) - (rowSize - 1);

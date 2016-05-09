@@ -86,7 +86,7 @@
 						<div class="col-sm-10">
 							<div class="example example_objects_as_tags">
 								<div class="bs-example">
-									<input type="text" id="tags" name="tags" value="${tags }" />
+									<input type="text" id="tags" name="tags" />
 								</div>
 							</div>
 						</div></td>

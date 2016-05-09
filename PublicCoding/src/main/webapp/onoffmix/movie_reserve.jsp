@@ -70,7 +70,11 @@
 								<input type="hidden" id="loc_jsp" name="tno"> 
 								<input type="hidden" id="isfirst_jsp" name="jnum">
 							</form>
-							<img src="assets/img/res_d.png" border=0 id="resImg">
+							<!-- <img src="assets/img/res_d.png" border=0 id="resImg"> -->
+							<button class="btn btn-block disabled" id="resImg">
+							<!-- btn btn-success btn-block -->
+									<span class="fa fa-plus-circle"></span> 참가하기
+								</button>
 							</td>
 						</tr>
 					</table>

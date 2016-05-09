@@ -86,6 +86,17 @@
 		ON MRI.tno=LI.tno
 	</select>
 
+	<!-- 특정스터디(출력) -->
+	<select id="studyjoinData" resultType="StudyJoin" parameterType="int">
+		SELECT meetdate,meettime,title,maxpeople,poster, tname,loc 
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+		where groupno=#{groupno}
+	</select>
+
  	<!-- 추가(예약) -->
 	<!--<insert id="reserveInsert" parameterType="Reserve"> 
 		<selectKey keyProperty="no" resultType="int" order="BEFORE">

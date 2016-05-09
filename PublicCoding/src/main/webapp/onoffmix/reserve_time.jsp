@@ -18,8 +18,8 @@ $(function(){
 		var mno="<c:out value="${sessionScope.mno}"/>";
 		
 	$('#resImg').click(function(){
-		var src = $('#resImg').attr("src");
-		if(src=="assets/img/res_d.png"){
+		var src = $('#resImg').attr("class");
+		if(src=="btn btn-block disabled"){
 			return;
 		}
 		if(mno==""){

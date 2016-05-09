@@ -10,10 +10,12 @@ import javax.servlet.http.HttpSession;
 import com.puco.board.dao.QBoardDAO;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
+import com.puco.member.dao.ScoreVO;
 import com.puco.onoffmix.dao.LocationInfoVO;
 import com.puco.onoffmix.dao.MeetupinfoVO;
 import com.puco.onoffmix.dao.OnoffmixDAO;
 import com.puco.onoffmix.dao.StudyJoinVO;
+import com.puco.onoffmix.dao.XYValues;
 
 
 
@@ -182,6 +184,7 @@ public class OnOffController {
     	List<StudyJoinVO> list= OnoffmixDAO.studyjoinAllData();
     	Map imgmapmap = new HashMap();
     	Map mjoinedmap = new HashMap();
+    	Map jnummap = new HashMap();
     	Map imgmap ;
     	for(StudyJoinVO vo:list){
     		int gno=vo.getGroupno();
@@ -194,12 +197,43 @@ public class OnOffController {
         	}
     		imgmapmap.put(gno, imgmap);
     		mjoinedmap.put(gno, mjoined);
+    		jnummap.put(gno, mjoined.size());
+    		//req.setAttribute("jnum", mjoined.size());//참가인원
     	}
     	req.setAttribute("imgmapmap", imgmapmap);
     	req.setAttribute("mjoinedmap", mjoinedmap);
+    	req.setAttribute("jnummap", jnummap);
     	req.setAttribute("list", list);
     	req.setAttribute("jsp", "../onoffmix/studylist.jsp");
     	return "common/main.jsp";
     }
-    
+  
+    @RequestMapping("studydetail.do")
+    public String studydetail(HttpServletRequest req){
+    	String gno=req.getParameter("groupno");
+    	int groupno =Integer.parseInt(gno);
+    	StudyJoinVO vo = OnoffmixDAO.studyjoinData(groupno);
+    	int minp=OnoffmixDAO.getMinPeople(vo.getMeetno());
+    	System.out.println("최소인원>>>"+minp);
+    	List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(groupno);
+    	System.out.println("참가인원 크기>>>"+mjoined.size());
+    	Map imgmap = new HashMap();
+    	for(Integer m:mjoined){
+    		String temp= QBoardDAO.getimageUrl(m);
+    		imgmap.put(m, temp);  
+    		System.out.println(m+"번 url>>>"+temp);
+    	}
+    	System.out.println("Done???");
+    	double[] axis =XYValues.getList().get(groupno);
+    	
+    	req.setAttribute("minp", minp);
+    	req.setAttribute("mjoined", mjoined);
+    	req.setAttribute("imgmap", imgmap);
+    	req.setAttribute("jnum", mjoined.size());//참가인원
+    	req.setAttribute("vo", vo);
+    	req.setAttribute("axis", axis);
+    	
+    	req.setAttribute("jsp", "../onoffmix/studydetail.jsp");
+    	return "common/main.jsp";
+    }
 }

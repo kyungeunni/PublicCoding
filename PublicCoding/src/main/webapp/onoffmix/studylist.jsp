@@ -58,7 +58,7 @@
 										<td id="span_time">스터디 시간: ${vo.meettime}</td>
 									</tr>
 									<tr>
-										<td id="span_inwon">최소인원: ${vo.maxpeople}</td>
+										<td id="span_inwon">최소인원: ${vo.maxpeople} (현재 ${jnummap[vo.groupno]}명)</td>
 									</tr>
 
 									<tr>
@@ -84,7 +84,7 @@
 														class="fa fa-heart" aria-hidden="true"></i></font>&nbsp;참가자:</strong></td>
 											<td width="75%" id="span_joined">
 												<div>
-													<%-- 참가자: ${jnum} 명 --%>
+													
 													<c:forEach var="d" items="${mjoinedmap[vo.groupno] }">
 														<span><a href="userMain.do?mno=${d}"
 															title="user정보 보기"><img
@@ -97,8 +97,8 @@
 										</tr>
 									</table>
 								</div>
-								<button class="btn btn-success btn-block">
-									<span class="fa fa-plus-circle"></span> 참가하기
+								<button class="btn btn-success btn-block" onclick="window.location.href='studydetail.do?groupno=${vo.groupno }&page=1'">
+									<span class="fa fa-plus-circle"></span> 상세보기
 								</button>
 							</div>
 						</div>
