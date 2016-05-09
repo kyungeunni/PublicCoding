@@ -4471,7 +4471,6 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 }
 #freeboard .listData .tdleft {
 	text-align:left;
-
 }
 #freeboard .writeBt {
 	background-color: #1c1d26;
@@ -4492,6 +4491,9 @@ background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #ddd
 }
 #freeboard .tdleft {
 	text-align: left;
+		white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
 }
 
 #freelistmajor {

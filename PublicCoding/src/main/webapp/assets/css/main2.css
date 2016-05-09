@@ -64,6 +64,7 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 /* Main QnAboard */
 .h3m {background-color: black; color:#ffffff; height:4vh; margin-top: -6px;}
 .h3n {margin-top: -5px; padding-top: 7px;}
+.h3n a:HOVER{color:#e44b66; text-decoration: none;}
 
 #col-line1 {width:34%; text-align: left;}
 #table-size{margin-left: 20px;}
@@ -88,11 +89,12 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 /* Main freeboard */
 #col-line2 {width:34%; text-align: left;}
 #fboard th{width:100%;}
-#fboard th.title2{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
-#fboard th.id2{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
 
-#fboard th.title3{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
-#fboard th.id3{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+#fboard .title2{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard .id2{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+
+#fboard .title3{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard .id3{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
 
   
 #fboard a{color:black;}
@@ -124,6 +126,7 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 h3.h3class {
     padding-top: 5px;
 }
+
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 .col-item
 {

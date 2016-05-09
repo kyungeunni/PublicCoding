@@ -214,13 +214,15 @@
 		<article>
 			<center>
 				<div class="h3m">
-					<h3 class="h3n">Q&A 게시판</h3>
+					<h3 class="h3n">
+						<a href="qnaboard.do">Q&A 게시판</a>
+					</h3>
 				</div>
 			</center>
 			<div id="qnaboard">
 				<div class="container">
 					<div class="row">
-						<div id="col-line1"style="height: 70vh; overflow: auto">
+						<div id="col-line1" style="height: 70vh; overflow: auto">
 							<div class="table-size">
 								<table class="table table-list-search">
 									<thead>
@@ -253,7 +255,9 @@
 		<article>
 			<center>
 				<div class="h3m">
-					<h3 class="h3n">자유 게시판</h3>
+					<h3 class="h3n">
+						<a href="free.do">자유 게시판</a>
+					</h3>
 				</div>
 			</center>
 			<div id="fboard">
@@ -264,16 +268,19 @@
 								<thead>
 									<tr>
 										<th class="title2" style="text-align: left">제목</th>
-										<th class="id2"style="text-align: left">글쓴이</th>
+										<th class="id2" style="text-align: left">글쓴이</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="f" items="${flist }">
 										<tr class="ftr">
-											<td class="title3" style="text-align:left"><a	href="freeboard_content.do?no=${f.bno }">${f.bsubject }</a></td>
-											<td class="id3" style="text-align: left"><a href="userMain.do?mno=${f.mno }">${f.userid }</a></td>
+											<td class="title3" style="text-align: left"><a
+												href="freeboard_content.do?no=${f.bno }">${f.bsubject }</a></td>
+											<td class="id3" style="text-align: left"><a
+												href="userMain.do?mno=${f.mno }">${f.userid }</a></td>
 										</tr>
 									</c:forEach>
+								</tbody>
 							</table>
 						</div>
 					</div>
