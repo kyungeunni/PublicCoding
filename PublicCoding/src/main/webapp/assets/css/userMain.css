@@ -9,7 +9,7 @@ a { outline:0; text-decoration:none; color:#808080; }
 img { border:0;}
 body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; } 
 table { table-layout: fixed}
-
+tr{    height: 30px;}
 /*레이아웃*/
 article { float:left; height:auto;}
 article:nth-child(1) { width:33.333333%; height:60vh; background:#ffffff;} 
