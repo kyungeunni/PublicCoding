@@ -35,4 +35,27 @@ public class CourseReplyDAO {
 		session.insert("replyInsert", dto);
 		session.close();
 	}
+	public static double replyPointAvg(int gno){
+		SqlSession session=ssf.openSession();
+		String sum=session.selectOne("replyPointSum", gno);
+		String count=session.selectOne("replyPointCount", gno);
+		session.close();
+		
+		double initSum;
+		double initCount;
+		double avg;
+		
+		if(sum==null || count==null)
+			 avg=0.0;
+		else{
+			initSum=Double.parseDouble(sum);
+			initCount=Double.parseDouble(count);
+			avg = initSum/initCount;
+		}
+		
+		System.out.println("sum "+sum);
+		System.out.println("count "+count);
+		
+		return avg;
+	}
 }

@@ -55,10 +55,8 @@
 											</table>
 										</div>
 									</div>
-
 								</div>
 							</c:forEach>
-
 						</div>
 					</div>
 				</div>
@@ -81,9 +79,7 @@
 												<a href="play.do?gno=${g.gno }">
 												<img src="${g.gimageurl}" style="width: 90%;"></a>
 											</div>
- 											<div>
- 												<img src="assets/css/hyun/recommend.png" style="width: 30%;">
- 											</div>
+ 											
   										</div>
 										<div class="caption">
 											<br> <br>
@@ -97,7 +93,7 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 text-center">
-                        <h1 class="rating-num">4.0</h1>
+                        <h1 class="rating-num">${avgMap[g.gno]}</h1>
                         <div class="rating">
                             <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">

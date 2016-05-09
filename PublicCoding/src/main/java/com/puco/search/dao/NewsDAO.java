@@ -1,13 +1,11 @@
 package com.puco.search.dao;
 import java.util.*;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
-
 import com.mongodb.*;
-
 import java.net.*;
 import java.io.*;
+
 public class NewsDAO {
 	public static void main(String[] arg){
 		try{
