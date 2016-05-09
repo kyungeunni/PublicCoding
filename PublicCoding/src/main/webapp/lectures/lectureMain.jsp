@@ -15,14 +15,12 @@
 <!-- <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet"> -->
 </head>
-
-
-<body>
+<body style="background-color: #1c1d26;height: 100%">
 	<section>
-		<article>
-			<div class="container">
+		<article style="background-color: #1c1d26;height: 100%;width: 350px">
+			<div class="container" style="width: 100%">
 				<div class="row">
-					<div class="col-sm-3 col-md-3">
+					<div class="col-sm-12 col-md-12">
 						<div class="panel-group" id="accordion">
 							<c:forEach var="d" items="${dlist }">
 								<div class="panel panel-default">
@@ -63,9 +61,8 @@
 			</div>
 		</article>
 
-		<article>
+		<article style="background-color: #1c1d26;height: 100%">
 			<div class="textte">
-
 				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ -->
 					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
 					<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
