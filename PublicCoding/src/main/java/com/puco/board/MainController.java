@@ -17,6 +17,7 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.CourseGroupDAO;
 import com.puco.lectures.dao.CourseGroupDTO;
+import com.puco.lectures.dao.CourseReplyDAO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
 import com.puco.category.dao.DcategoryDAO;
@@ -89,6 +90,20 @@ public class MainController {
 		} else {
 			dto = CourseGroupDAO.CourseGroupAllData(no1);
 		}
+		
+		Map avgMap = new HashMap();
+		////////////////////////////////////////////////
+		for(CourseGroupDTO vo:dto){
+			int gno = vo.getGno();
+			System.out.println("¿©±â "+gno);
+			double avg=CourseReplyDAO.replyPointAvg(gno);
+			System.out.println("CourseGroup Controller : "+avg);
+			avgMap.put(gno, avg);
+		}
+		////////////////////////////////////////////////
+		System.out.println(avgMap.size());
+		req.setAttribute("avgMap", avgMap);
+		
 		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
 		return "common/main.jsp";

@@ -43,6 +43,8 @@ public class LectureController {
 	// 강의그룹 기능 생성부
 	@RequestMapping("courseGroup.do")
 	public String videoListData(HttpServletRequest req){
+		
+		System.out.println(">>>>>>>>>>>>강의그룹 리스트");
 		String sno=req.getParameter("sno");
 		int no = Integer.parseInt(sno);
 		
@@ -66,6 +68,19 @@ public class LectureController {
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
 		System.out.println("LectureController CourseGroupDAO Work");
 		req.setAttribute("glist", glist);
+		
+		Map avgMap = new HashMap();
+		////////////////////////////////////////////////
+		for(CourseGroupDTO vo:glist){
+			int gno = vo.getGno();
+			System.out.println("여기 "+gno);
+			double avg=CourseReplyDAO.replyPointAvg(gno);
+			System.out.println("CourseGroup Controller : "+avg);
+			avgMap.put(gno, avg);
+		}
+		////////////////////////////////////////////////
+		System.out.println(avgMap.size());
+		req.setAttribute("avgMap", avgMap);
 		
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");		
 		return "common/main.jsp";

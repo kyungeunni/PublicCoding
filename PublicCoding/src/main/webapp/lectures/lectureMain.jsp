@@ -93,7 +93,7 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 text-center">
-                        <h1 class="rating-num">4.0</h1>
+                        <h1 class="rating-num">${avgMap[g.gno]}</h1>
                         <div class="rating">
                             <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
