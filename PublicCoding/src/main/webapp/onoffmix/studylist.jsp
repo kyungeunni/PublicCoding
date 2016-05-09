@@ -15,20 +15,19 @@
 
 		<div class="container">
 		<header class="subheader">
-						<h1 id="h-top-questions">Top Questions</h1>
-						<div id="tabs">
+						<div><h1 id="h-top-questions">오프라인 스터디 </h1></div>
+						<div style="padding-top: 7px;"><font color="#c8c8c8"><h4>온라인으로는 부족한 우리, 오프라인 스터디로 보충해봐요.</h4></font></div>
+						<%-- <div id="tabs">
 							<a href="?order=1" data-nav-xhref=""
-								title="Questions that may be of interest to you based on your history and tag preference"
+								
 								data-value="interesting"
 								<c:if test="${order==1}">class="youarehere"</c:if> > 최신등록</a> <a href="?order=2"
-								data-nav-xhref="" title="Questions with an active bounty"
+								data-nav-xhref="" 
 								data-value="featured" <c:if test="${order==2}">class="youarehere"</c:if>> 
-								높은조회수
-							</a> <a href="?order=3" data-nav-xhref=""
-								title="Questions with the most views, answers, and votes over the last few days"
-								data-value="week" <c:if test="${order==3}">class="youarehere"</c:if>>인기답변 </a> 
+								높은 참가자수
+							</a>
 
-						</div>
+						</div> --%>
 					</header>
 			<div class="row">
 				<c:forEach var="vo" items="${list }">
@@ -97,7 +96,7 @@
 										</tr>
 									</table>
 								</div>
-								<button class="btn btn-success btn-block" onclick="window.location.href='studydetail.do?groupno=${vo.groupno }&page=1'">
+								<button class="btn btn-success btn-block" onclick="window.location.href='studydetail.do?groupno=${vo.groupno }&min=${vo.maxpeople} '">
 									<span class="fa fa-plus-circle"></span> 상세보기
 								</button>
 							</div>

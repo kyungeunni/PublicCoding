@@ -23,18 +23,22 @@
  
   .subheader {
 	margin-bottom: 0;
-	height: 34px;
-	clear: both;
-	height: 40px;
-	border-bottom: 2px solid #e44c65;
+	height: 130px;
+	/* clear: both; */
+	border: 2px solid #d3dcd8;
+	background-color:  #ffffff;
 }
 .subheader h1 {
-	color: #c0c0c0;
-	font-size: 18px;
+	color: #000000;
+	font-size: 30pt;
 	font-weight: 600;
 	float: left;
 	font-weight: normal;
-	margin-bottom: 0;
+	margin-bottom: 10px;
+	position:inherit;
+	display: block;
+	float:none;
+	
 }
 
 #tabs, .tabs, .newnav .tabs-list-container .tabs-list .intellitab {

@@ -160,6 +160,7 @@ public class OnOffController {
         	map.put("meetno",meetno);
         	map.put("meetdate",day);
         	map.put("meettime",time);
+        	map.put("tno", tno);
         	int temp= OnoffmixDAO.getGroupNo(map);
         	System.out.println(temp);
         	vo.setGroupno(temp);
@@ -210,11 +211,12 @@ public class OnOffController {
   
     @RequestMapping("studydetail.do")
     public String studydetail(HttpServletRequest req){
+    	System.out.println("studyDetail.do start>>>>>>>>>>>>>>>>>>>");
     	String gno=req.getParameter("groupno");
+    	//String min =req.getParameter("min");
     	int groupno =Integer.parseInt(gno);
     	StudyJoinVO vo = OnoffmixDAO.studyjoinData(groupno);
-    	int minp=OnoffmixDAO.getMinPeople(vo.getMeetno());
-    	System.out.println("최소인원>>>"+minp);
+    	System.out.println("joindata>>>>>>>>>>>>");
     	List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(groupno);
     	System.out.println("참가인원 크기>>>"+mjoined.size());
     	Map imgmap = new HashMap();
@@ -224,15 +226,18 @@ public class OnOffController {
     		System.out.println(m+"번 url>>>"+temp);
     	}
     	System.out.println("Done???");
-    	double[] axis =XYValues.getList().get(groupno);
+    	double[][] axis =XYValues.getAxias();
+    	double x=axis[vo.getTno()-1][0];
+    	double y=axis[vo.getTno()-1][1];
+    	System.out.println(x+"asdadsa"+y);
     	
-    	req.setAttribute("minp", minp);
+    	
     	req.setAttribute("mjoined", mjoined);
     	req.setAttribute("imgmap", imgmap);
     	req.setAttribute("jnum", mjoined.size());//참가인원
     	req.setAttribute("vo", vo);
-    	req.setAttribute("axis", axis);
-    	
+    	req.setAttribute("x", x);
+    	req.setAttribute("y", y);
     	req.setAttribute("jsp", "../onoffmix/studydetail.jsp");
     	return "common/main.jsp";
     }
