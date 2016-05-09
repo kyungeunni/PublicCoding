@@ -176,6 +176,27 @@
 	  DELETE FROM mainBoard
 	  <include refid="where-no" />
 	</delete>
+	<!-- 게시물(댓글갯수) -->
+	<select id="FBreplyCount" resultType="int" parameterType="int">
+	  SELECT COUNT(depth) FROM Reply
+	  WHERE no=#{no}
+	</select>
+	<select id="FBreplyAllData" resultType="Reply" parameterType="java.util.Map">
+	  SELECT bno,mno,brecontent,dbday,bretab,num
+	  FROM (SELECT bno,mno,brecontent,dbday,bretab,rownum as num
+	  FROM (SELECT bno,mno,brecontent,TO_CHAR(bredate,'YYYY-MM-DD HH24:MI:SS') as dbday,bretab
+	  FROM boardreply WHERE bno=#{bno}
+	  ORDER BY bregroup DESC,brestep ASC ))
+	  WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 댓글추가 -->
+	<insert id="FBreplyInsert" parameterType="Reply">
+	  <selectKey keyProperty="breno" resultType="int" order="BEFORE">
+	  SELECT NVL(MAX(breno)+1,1) as breno FROM boardreply
+	  </selectKey>
+	  INSERT INTO boardreply VALUES(#{breno},#{brecontent},SYSDATE,
+	  (SELECT NVL(MAX(bregroup)+1,1) FROM boardreply),0,0,0,0,#{bno},#{mno})	  
+	</insert>
 </mapper>
 
 

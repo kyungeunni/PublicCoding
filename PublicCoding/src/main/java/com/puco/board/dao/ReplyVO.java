@@ -3,35 +3,70 @@ package com.puco.board.dao;
 import java.util.Date;
 
 public class ReplyVO {
-	private int no;
-	private String id;
-	private String name;
+	private int breno;
+	private String brecontent;
+	private Date bredate;
+	private int bregroup;
+	private int brestep;
+	private int bretab;
+	private int bredepth;
+	private int breroot;
 	private int bno;
-	private String msg;
-	private Date regdate;
-	private int group_id;
-	private int group_step;
-	private int group_tab;
-	private int root;
-	private int depth;
+	private int mno;
 	private String dbday;
-	public int getNo() {
-		return no;
+	public String getDbday() {
+		return dbday;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
 	}
-	public String getId() {
-		return id;
+	public int getBreno() {
+		return breno;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setBreno(int breno) {
+		this.breno = breno;
 	}
-	public String getName() {
-		return name;
+	public String getBrecontent() {
+		return brecontent;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setBrecontent(String brecontent) {
+		this.brecontent = brecontent;
+	}
+	public Date getBredate() {
+		return bredate;
+	}
+	public void setBredate(Date bredate) {
+		this.bredate = bredate;
+	}
+	public int getBregroup() {
+		return bregroup;
+	}
+	public void setBregroup(int bregroup) {
+		this.bregroup = bregroup;
+	}
+	public int getBrestep() {
+		return brestep;
+	}
+	public void setBrestep(int brestep) {
+		this.brestep = brestep;
+	}
+	public int getBretab() {
+		return bretab;
+	}
+	public void setBretab(int bretab) {
+		this.bretab = bretab;
+	}
+	public int getBredepth() {
+		return bredepth;
+	}
+	public void setBredepth(int bredepth) {
+		this.bredepth = bredepth;
+	}
+	public int getBreroot() {
+		return breroot;
+	}
+	public void setBreroot(int breroot) {
+		this.breroot = breroot;
 	}
 	public int getBno() {
 		return bno;
@@ -39,52 +74,12 @@ public class ReplyVO {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	public String getMsg() {
-		return msg;
+	public int getMno() {
+		return mno;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
-	public int getGroup_id() {
-		return group_id;
-	}
-	public void setGroup_id(int group_id) {
-		this.group_id = group_id;
-	}
-	public int getGroup_step() {
-		return group_step;
-	}
-	public void setGroup_step(int group_step) {
-		this.group_step = group_step;
-	}
-	public int getGroup_tab() {
-		return group_tab;
-	}
-	public void setGroup_tab(int group_tab) {
-		this.group_tab = group_tab;
-	}
-	public int getRoot() {
-		return root;
-	}
-	public void setRoot(int root) {
-		this.root = root;
-	}
-	public int getDepth() {
-		return depth;
-	}
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-	public String getDbday() {
-		return dbday;
-	}
-	public void setDbday(String dbday) {
-		this.dbday = dbday;
-	}
+	
+	
 }

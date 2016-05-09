@@ -31,7 +31,7 @@ $(function(){
         i=0;
       }
    });
-   /* $('.reply_write').click(function(){
+    $('.reply_write').click(function(){
       var id=$(this).attr('id');
       var no=id.substring(1);// w1 w2 w3
       if(w==0)
@@ -90,7 +90,7 @@ $(function(){
 		   return;
 	   }
 	   $('#rfrm'+no).submit();
-   });*/
+   });
 });
 </script>
 </head>
@@ -142,7 +142,7 @@ $(function(){
           	¼öÁ¤</button></a></c:if> --%>
          
          <c:if test="${sessionScope.id == vo.userid }">
-         <a href="freeboard_delete.do?page=${page }">
+         <a href="freeboard_delete.do?no=${vo.bno }&page=${page }">
          <button id="delBtn" class="button"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;
          	»èÁ¦
          </button></a></c:if>
@@ -157,31 +157,33 @@ $(function(){
     <div>
     <a href="#" id="reply_show" style="color:#e44c65">´ñ±Ûº¸±â</a>
     </div>
-<%--     <table id="freetable_content" class="reply_table" style="display:none">
+    <table id="freetable_content" class="reply_table" style="display:none">
      <tr>
-      <th colspan=2>´ñ±Û</th>
+      <th colspan=2 style="background-color:transparent">´ñ±Û</th>
      </tr>
      <c:forEach var="rvo" items="${list }">
        <tr>
          <td width="75%" height="30">
-          <c:if test="${rvo.group_tab>0 }">
-           <c:forEach var="i" begin="1" end="${rvo.group_tab }">
+          <c:if test="${rvo.bretab>0 }">
+           <c:forEach var="i" begin="1" end="${rvo.bretab }">
             &nbsp;&nbsp;
            </c:forEach>
-           <img src="user/board/image/icon_reply.gif">
+           <i class="fa fa-reply" aria-hidden="true"></i>
           </c:if>
-          ${rvo.msg }<br>
-           <c:if test="${rvo.group_tab>0 }">
-           <c:forEach var="i" begin="1" end="${rvo.group_tab }">
+          ${rvo.brecontent }<br>
+           <c:if test="${rvo.bretab>0 }">
+           <c:forEach var="i" begin="1" end="${rvo.bretab }">
             &nbsp;&nbsp;
            </c:forEach>
           </c:if>
-          <font color=blue>${rvo.userid }</font>
-          (${rvo.bdate })
+          <font color=blue>${rvo.mno }</font>
+          (${rvo.dbday })
          </td>
          <td width="25%" class="tdcenter" style="background-color: transparent;">
-           <img src="user/board/image/btn_reply.gif" id="w${rvo.bno }" class="reply_write">
-           <c:if test="${sessionScope.id==rvo.userid }">
+           <button class="button" id="w${rvo.bno }" class="reply_write">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
+          	¼öÁ¤</button> 
+           <c:if test="${sessionScope.id==vo.userid }">
              <img src="user/board/image/btn_modify.gif" id="m${rvo.bno }" class="reply_modify">
              <a href="reply_delete.do?no=${rvo.bno }&bno=${vo.bno}&page=${page}">
              <img src="user/board/image/btn_delete.gif"></a>
@@ -190,40 +192,40 @@ $(function(){
        </tr>
      <tr id="ww${rvo.bno }" style="display:none">
       <td colspan="2">
-       <form method="post" action="reply_re_insert.do" id="rfrm${rvo.bno }">
+       <form method="post" action="reply_re_insert.do" id="rfrm${rvo.breno }">
         <input type="hidden" name="bno" value="${vo.bno }">
         <input type="hidden" name="page" value="${page}">
-        <input type="hidden" name="no" value="${rvo.bno }">
-        <textarea rows="4" cols="85" name="reply_data" style="float: left" id="d${rvo.no }"></textarea>
-        <input type=button value="´ñ±Û´Þ±â" style="height:60px" id="rBtn${rvo.bno }" class="riBtn">
+        <input type="hidden" name="no" value="${rvo.breno }">
+        <textarea rows="4" cols="85" name="reply_data" style="float: left" id="d${rvo.bno }"></textarea>
+        <input type=button value="´ñ±Û´Þ±â" style="height:60px" id="rBtn${rvo.breno }" class="riBtn">
        </form>
       </td>
      </tr>
-     <tr id="mm${rvo.no }" style="display:none">
+     <tr id="mm${rvo.bno }" style="display:none">
       <td colspan="2">
       
-       <form method="post" action="reply_update.do" id="frm${rvo.bno }">
+       <form method="post" action="reply_update.do" id="frm${rvo.breno }">
        	 <input type="hidden" name="bno" value="${vo.bno }">
          <input type="hidden" name="page" value="${page}">
-         <input type="hidden" name="no" value="${rvo.bno }">
-        <textarea rows="4" cols="85" name="reply_data" style="float: left" id="rd${rvo.no }" >${rvo.msg }</textarea>
-        <input type=button value="´ñ±Û¼öÁ¤" style="height:60px" id="btn${rvo.no }" class="ruBtn">
+         <input type="hidden" name="no" value="${rvo.breno }">
+        <textarea rows="4" cols="85" name="reply_data" style="float: left" id="rd${rvo.bno }" >${rvo.brecontent }</textarea>
+        <input type=button value="´ñ±Û¼öÁ¤" style="height:60px" id="btn${rvo.bno }" class="ruBtn">
       	</form>
       </td>
      </tr>
      </c:forEach>
      <tr>
       <td colspan="2">
-        <form method="post" action="reply_insert.do" id="rifrm">
-         <input type="hidden" name="bno" value="${vo.no }">
+        <form method="post" action="FBreply_insert.do" id="rifrm">
+         <input type="hidden" name="bno" value="${vo.bno }">
          <input type="hidden" name="page" value="${page}">
-         <input type="hidden" name="no" value="${rvo.no }">
+         
          <textarea rows="4" cols="50" name="reply_data" style="float: left" id="reply_data"></textarea>
          <input type=button value="´ñ±Û" style="height:50px" id="replyBtn">
         </form>
       </td>
      </tr>
-    </table> --%>
+    </table>
   
     </div>
     </div>

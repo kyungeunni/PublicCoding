@@ -86,29 +86,34 @@ public class FreeBoardDAO {
 		session.close();
 		return count;
 	}
-	public static List<AnswerVO> FBreplyAllData(Map map)
+	public static List<ReplyVO> FBreplyAllData(Map map)
 	{
 		SqlSession session=ssf.openSession();
-		List<AnswerVO> list=session.selectList("FBreplyAllData",map);
+		System.out.println("쿼리 수행전 : "+map);
+		List<ReplyVO> list=session.selectList("FBreplyAllData",map);
+		System.out.println("list in DAO"+list);
 		session.close();
 		return list;
 	}
-	public static void FBreplyInsert(AnswerVO vo)
+	public static void FBreplyInsert(ReplyVO vo)
 	{
+		System.out.println("세션확인");
 		SqlSession session=ssf.openSession(true);
+		System.out.println("true확인");
 		session.insert("FBreplyInsert",vo);
+		System.out.println("vo확인");
 		session.close();
 	}
-	public static void FBreplyUpdate(AnswerVO vo)
+	public static void FBreplyUpdate(ReplyVO vo)
 	{
 		SqlSession session=ssf.openSession(true);
 		session.update("FBreplyUpdate",vo);
 		session.close();
 	}
-	public static AnswerVO FBreplyParentData(int bno)
+	public static ReplyVO FBreplyParentData(int bno)
 	{
 		SqlSession session=ssf.openSession();
-		AnswerVO vo=session.selectOne("FBreplyParentData",bno);
+		ReplyVO vo=session.selectOne("FBreplyParentData",bno);
 		session.close();
 		return vo;
 	}
@@ -120,7 +125,7 @@ public class FreeBoardDAO {
 		session.close();
 	}
 	//댓글의 댓글
-	public static void FBreplyStepIncrement(AnswerVO vo) 
+	public static void FBreplyStepIncrement(ReplyVO vo) 
 	{
 		SqlSession session = ssf.openSession(true);
 		session.update("FBreplyStepIncrement", vo);

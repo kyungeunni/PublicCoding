@@ -221,16 +221,32 @@ public class BoardController {
 	public String freeboard_content(HttpServletRequest req)
 	{
 		String no=req.getParameter("no");
-		System.out.println("no1");
+		System.out.println("no"+no);
 		String page=req.getParameter("page");
-		System.out.println("page1");
+		System.out.println("page"+page);
 		FreeBoardVO vo=FreeBoardDAO.freeboardContentData(Integer.parseInt(no));
 		System.out.println("mno값"+vo.getMno());
 		System.out.println("dao.freeboard");
-		req.setAttribute("page", page);
-		System.out.println("setpage");
-		req.setAttribute("vo", vo);
-		System.out.println("setvo "+vo);
+		
+		String rpage=req.getParameter("rpage"); //reply_page
+		   if(rpage==null)
+			   rpage="1";
+		   int cpage=Integer.parseInt(rpage);
+		   int rowSize=5;
+		   int start=(cpage*rowSize)-(rowSize-1);
+		   int end=(cpage*rowSize);
+		   Map map=new HashMap();
+		   map.put("bno", no);
+		   map.put("start", start);
+		   map.put("end", end);
+		   System.out.println("map : "+map);
+		   List<ReplyVO> list=FreeBoardDAO.FBreplyAllData(map);
+		   System.out.println("댓글출력list완료");
+		   req.setAttribute("list", list);
+		   req.setAttribute("page", page);
+			System.out.println("setpage");
+			req.setAttribute("vo", vo);
+			System.out.println("setvo "+vo);
 		
 		req.setAttribute("jsp", "../board/free_content.jsp");
 		System.out.println("setjsp");
@@ -305,15 +321,16 @@ public class BoardController {
 	   @RequestMapping("freeboard_delete.do")
 	   public String freeboard_delete(HttpServletRequest req)
 	   {
-		   String bno=req.getParameter("bno");
-		   System.out.println("bno:"+bno);
+		   String bno=req.getParameter("no");
+		   System.out.println("delete bno:"+bno);
 		   String page=req.getParameter("page");
-		   System.out.println("page:"+page);
+		   System.out.println("delete page:"+page);
 		   HttpSession hs=req.getSession();
 		   String no=(String) hs.getAttribute("mno");
 		   int mno=Integer.parseInt(no);
-		   System.out.println("mno:"+mno);
+		   System.out.println("delete mno:"+mno);
 		   
+		   FreeBoardDAO.freeboardDelete(Integer.parseInt(bno));
 		   req.setAttribute("page", page);
 		   req.setAttribute("mno", mno);
 		   return "board/freeboard_delete.jsp";
@@ -326,24 +343,28 @@ public class BoardController {
 	   {
 		   req.setCharacterEncoding("EUC-KR");
 		   String page=req.getParameter("page");
-		   String Rno=req.getParameter("Rno");
-		   String Rcontent=req.getParameter("Rcontent");
-		   String Mno=req.getParameter("Mno");
+		   System.out.println("fbpage:"+page);
+		   String bno=req.getParameter("bno");
+		   System.out.println("fb bno:"+bno);
+		   String brecontent=req.getParameter("reply_data");
+		   System.out.println("brecontent:"+brecontent);
 		   
-		   HttpSession session=req.getSession();
-		   String userid=(String)session.getAttribute("userid");
-		   String mno=(String)session.getAttribute("mno");
-		   //String name=(String)session.getAttribute("name");
+		   HttpSession hs=req.getSession();
+		   String no=(String) hs.getAttribute("mno");
+		   int mno=Integer.parseInt(no);
 		   
-		   AnswerVO vo=new AnswerVO();
-		   vo.setRno(Integer.parseInt(Rno));
-		   vo.setMno(Integer.parseInt(Mno));
-		   vo.setUserid(userid);
-		   vo.setRcontent(Rcontent);
+		   System.out.println("fb mno"+mno);
 		   
-		   FreeBoardDAO.FBreplyInsert(vo);
+		   ReplyVO vo=new ReplyVO();
+		   vo.setBno(Integer.parseInt(bno));
+		   vo.setMno(mno);
+		   vo.setBrecontent(brecontent);
 		   
-		   req.setAttribute("no", Rno);
+		   System.out.println("vo받기전");
+		   //FreeBoardDAO.FBreplyInsert(vo);
+		   System.out.println("vo받은후");
+		   
+		   req.setAttribute("no", Integer.parseInt(bno));
 		   req.setAttribute("page", page);
 		   return "board/FBreply_ok.jsp";
 	   }
@@ -353,10 +374,10 @@ public class BoardController {
 		   req.setCharacterEncoding("EUC-KR");
 		   String bno=req.getParameter("bno");
 		   String page=req.getParameter("page");
-		   String Rno=req.getParameter("Rno");
-		   String Rcontent=req.getParameter("Rcontent");
+		   String no=req.getParameter("no");
+		   String msg=req.getParameter("msg");
 		   
-		   AnswerVO rvo= FreeBoardDAO.FBreplyParentData(Integer.parseInt(bno));
+		   ReplyVO rvo= FreeBoardDAO.FBreplyParentData(Integer.parseInt(no));
 		   
 		   return "board/FBreply_ok.jsp";
 	   }
