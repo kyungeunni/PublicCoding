@@ -144,7 +144,7 @@ public class LectureController {
 		map.put("start", 1);
 		map.put("end", 10);
 		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		List<FreeBoardVO> flist = FreeBoardDAO.MainFreeData(map);
 		req.setAttribute("qlist", list);
 		
 		
