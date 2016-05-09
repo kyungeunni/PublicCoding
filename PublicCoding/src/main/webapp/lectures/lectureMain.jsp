@@ -79,9 +79,7 @@
 												<a href="play.do?gno=${g.gno }">
 												<img src="${g.gimageurl}" style="width: 90%;"></a>
 											</div>
- 											<div>
- 												<img src="assets/css/hyun/recommend.png" style="width: 30%;">
- 											</div>
+ 											
   										</div>
 										<div class="caption">
 											<br> <br>
