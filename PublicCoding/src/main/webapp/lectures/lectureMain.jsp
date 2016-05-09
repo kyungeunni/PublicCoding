@@ -17,9 +17,9 @@
 </head>
 
 
-<body>
+<body style="background-color: black;height: 100%">
 	<section>
-		<article>
+		<article style="background-color: black;height: 100%">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 col-md-3">
@@ -63,9 +63,8 @@
 			</div>
 		</article>
 
-		<article>
+		<article style="background-color: black;height: 100%">
 			<div class="textte">
-
 				<span> <!-- ½æ³»ÀÏ ½ÃÀÛ -->
 					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
 					<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
