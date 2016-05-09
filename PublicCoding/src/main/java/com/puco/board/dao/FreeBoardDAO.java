@@ -114,9 +114,9 @@ public class FreeBoardDAO {
 	}
 
 
-	public static List<FreeBoardVO> MainFreeData(Map map) {
+	public static List<FreeBoardVO> MainFreeData() {
 		SqlSession session = ssf.openSession();
-		List<FreeBoardVO> list = session.selectList("getMainFreeData", map);		
+		List<FreeBoardVO> list = session.selectList("getMainFreeData");		
 		System.out.println(1);
 		session.close();
 		System.out.println(list.size());

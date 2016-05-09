@@ -13,13 +13,20 @@ table { table-layout: fixed}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:100%; height:60vh; background:#a9d8be;}
-article:nth-child(2) { width:100%; height:10vh; background:#ffffff;  margin-left: 100px;}
-article:nth-child(3) { width:30%; height:40vh; background:#ffffff; text-align: "center"; margin-left: 100px;}
-article:nth-child(4) { width:30%; height:40vh; background:#ccc; text-align: "center";}
-article:nth-child(5) { width:30%; height:40vh; background:#ffffff; text-align: "center";}
+article:nth-child(1) { width:40%; height:87vh; background:#ffffff;}
+article:nth-child(2) { width:60%; height:11vh; background:#ffffff; margin-top: 49px;}
+article:nth-child(3) { width:19%; height:76vh; background:#ffffff; text-align: "center"; margin-bottom: 5px;}
+article:nth-child(4) { width:19%; height:76vh; background:#ffffff; text-align: "center"; margin-bottom: 5px;}
+article:nth-child(5) { width:19%; height:76vh; background:#ffffff; text-align: "center";  margin-bottom: 5px;}
+article:nth-child(6) { width:100%; height:4vh; background:#c0c0c0; text-align: "center";}
+.CodeMirror-simplescroll-vertical div {
+    background: #FB0000;
+}
 
-
+.btn-primary {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;}
 
 @keyframes scale {
 	0% { transform:scale(0); }	
@@ -48,18 +55,32 @@ nav a:nth-child(1) {	position:absolute; right:150px;}
 nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 
+.photo img{height:18vh;}
+
 /* login css */
 .joinok a{color:#ffffff;}
 .logininok a{color:#ffffff;}
 
 
 /* Main QnAboard */
-#qnaboard th{width:100%;}
-#qnaboard th.no{width:5%;}
-#qnaboard th.title{width:75%;} 
-#qnaboard th.id{width:20%;}  
+#qnaboard tr{width:100%;}
+/* #qnaboard th.no{width:5%;} */
+#qnaboard tr.title{width:60%;}
+#qnaboard tr.tag{width:20%; background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5; font-weight: bold;} 
+#qnaboard tr.id{width:20%;}  
+
+/* #qnaboard th.tag1{background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;} */ 
 #qnaboard a{color:black;}
-#qnaboard a:HOVER{color:#e44b66; text-decoration: none;}
+#qnaboard a:HOVER{color:#ffffff; text-decoration: none;}
+#qnaboard .qtr:HOVER{background-color: #a9d8be;}
+.h3m {background-color: black; color:#ffffff; height:4vh; margin-top: -6px;}
+.h3n {margin-top: -5px; padding-top: 7px;}
 #col-line1 {width:50%;}
 
 /* Main freeboard */
@@ -68,8 +89,9 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 #fboard th.title{width:75%;} 
 #fboard th.id{width:20%;}  
 #fboard a{color:black;}
-#fboard a:HOVER{color:#e44b66; text-decoration: none;}
-#col-line2 {width:50%;}
+
+#fboard a:HOVER{color:#ffffff; text-decoration: none;}
+#fboard .ftr:HOVER{background-color:#e44b66;}
 
 #mainc {width:80%; margin-top: 50px;}
 .caption h4{white-space: nowrap;
@@ -82,6 +104,16 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 .control-box {margin-top:10px;}
 .prev {margin-right: 30px;}
 
+.info h4{white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
+
+.form-control{ width:95%;}
+
+h3.h3class {
+    padding-top: 5px;
+}
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 .col-item
 {
@@ -100,10 +132,12 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
     padding: 10px;
     border-radius: 0 0 5px 5px;
     margin-top: 1px;
+    
 }
 
 .col-item:hover .info {
-    background-color: #F5F5DC;
+    background-color: #337ab7;
+    color:#ffffff;
 }
 .col-item .price
 {
@@ -123,6 +157,11 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
     color: #219FD1;
 }
 
+.rating i:HOVER
+{
+    color: #ffffff;
+}
+
 .col-item .info .rating
 {
     color: #777;
@@ -138,6 +177,7 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
     margin-bottom: 10px;
     height: 52px;
 }
+
 
 .col-item .separator
 {
@@ -186,7 +226,11 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 {
     margin-right: 10px;
 }
+.separator btn-add{color:black;}
+.separator btn-add:HOVER{color:#ffffff;}
 
+.separator btn-details{color:black;}
+.separator btn-details:HOVER{color:#ffffff;}
 
 @media screen and (min-width:1280px) {  
 	

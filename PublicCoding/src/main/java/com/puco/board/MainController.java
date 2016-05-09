@@ -19,9 +19,6 @@ import com.puco.lectures.dao.CourseGroupDAO;
 import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
-import com.puco.member.dao.ScoreVO;
-import com.puco.onoffmix.dao.OnoffmixDAO;
-import com.puco.onoffmix.dao.StudyJoinVO;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
@@ -32,11 +29,9 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String Main(HttpServletRequest req) {
-		Map map = new HashMap();
-		map.put("start", 1);
-		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		req.setAttribute("flist", flist);
 		
@@ -47,15 +42,23 @@ public class MainController {
 		int no2 = 2;
 		List<CourseGroupDTO> g2list=CourseGroupDAO.CourseGroupAllData(no2);
 		req.setAttribute("g2list", g2list);
+		
 		// Dcategory 메뉴
 		/*
 		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
 		 * req.setAttribute("dlist", dlist);
 		 */
 		// Dcategory 메뉴 끝
-		req.setAttribute("jsp", "default.jsp");
 		
-			
+		
+		
+		
+		
+		req.setAttribute("jsp", "default.jsp");
+
+		
+		
+		
 		return "common/main.jsp";// jsp파일이름
 
 
@@ -70,7 +73,7 @@ public class MainController {
 			dno = "1";
 		int no = Integer.parseInt(dno);
 		if (sno == null)
-			sno = "1";
+			sno = "1";	
 		int no1 = Integer.parseInt(sno);
 		// Dcategory 메뉴
 		List<DcategoryDTO> dlist = DcategoryDAO.DcategoryAllData();
