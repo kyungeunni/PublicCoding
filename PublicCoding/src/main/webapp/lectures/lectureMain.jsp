@@ -19,10 +19,10 @@
 
 <body style="background-color: black;height: 100%">
 	<section>
-		<article style="background-color: black;height: 100%">
-			<div class="container">
+		<article style="background-color: black;height: 100%;width: 350px">
+			<div class="container" style="width: 100%">
 				<div class="row">
-					<div class="col-sm-3 col-md-3">
+					<div class="col-sm-12 col-md-12">
 						<div class="panel-group" id="accordion">
 							<c:forEach var="d" items="${dlist }">
 								<div class="panel panel-default">
