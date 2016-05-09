@@ -12,8 +12,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
+<style type="text/css">
+</style>
 </head>
-
 <body>
 		<!-- Main -->
 
@@ -138,17 +139,17 @@
 				</div>
 				<div id="sidebar" style="width: 300px">
 					<div id="hot-network-questions" class="module" style="width: 100%;">
-						<h4 class="js-gps-track" style="display: inline; color: white;">IT 실시간 뉴스</h4>&nbsp;&nbsp;
+						<h4 class="js-gps-track" style="display: inline; color: white;">IT 실시간 뉴스</h4>
 						<form method="post" action="qnaboard.do">
 						<input type="text" style="width: 180px; display: inline;" name="title" value="${search }">
 						<input type="submit" value="검색">
 						<input type="hidden" value="${curpage }" name="page">
 						</form>
 						<ul>
-							<c:forEach var="vo" begin="0" end="20" items="${newslist }">
+							<c:forEach var="vo" begin="0" end="30" items="${newslist }">
 							<li>
-								<div style="width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis; color: gold;cursor: pointer;" class="newsClass">
-									${vo.title }<br>
+								<div style="width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor: pointer;" class="newsClass">
+									<a href="#" style="color: gold;">${vo.title }</a><br>
 								</div>
 								<div style="color: gray;display: none;">
 								&nbsp;&nbsp;&nbsp;└
