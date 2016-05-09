@@ -24,7 +24,7 @@
 			</tr>
 
 			<C:forEach var="vo" items="${onoff }">
-				<tr class="dataTr" id="m${vo.rno }" onclick="window.location.href='studydetail.do?rno=${vo.rno }&page=1'">
+				<tr class="dataTr" id="m${vo.rno }" onclick="window.location.href='studydetail.do?groupno=${vo.groupno }&page=1'">
 					<td class="tdcenter">${vo.title }</td>
 					<td class="tdcenter">${vo.tname}(${vo.loc})</td>
 					<td class="tdcenter">${vo.meetdate }</td>

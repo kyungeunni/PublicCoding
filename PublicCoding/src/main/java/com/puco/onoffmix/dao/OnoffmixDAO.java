@@ -83,6 +83,12 @@ public class OnoffmixDAO {
     	return list;
     }
     
+    public static List<Integer> getJoinedPeoplebyGN(int groupno){
+    	SqlSession session = ssf.openSession();
+    	List<Integer> list = session.selectList("getJoinedPeoplebyGN",groupno);
+    	session.close();
+    	return list;
+    }
     public static void studyjoin(StudyJoinVO vo){
     	SqlSession session = ssf.openSession(true);
     	session.insert("studyjoin",vo);
@@ -95,25 +101,34 @@ public class OnoffmixDAO {
     	session.close();
     	return list;
     }
-    /*    //¿¹¾à
-    public static List<ReserveVO> reserveAdminAllData(){
+    
+    public static List<StudyJoinVO> studyjoinAllData(){
     	SqlSession session = ssf.openSession();
-    	List<ReserveVO> list = session.selectList("reserveAdminAllData");
+    	List<StudyJoinVO> list = session.selectList("studyjoinAllData");
     	session.close();
     	return list;
-    			
     }
     
-    public static void reserveInsert(ReserveVO vo){
-    	SqlSession session = ssf.openSession(true);
-    	session.insert("reserveInsert",vo);
+    public static int getGroupNo(Map map){
+    	SqlSession session = ssf.openSession();
+    	int list = session.selectOne("getGroupNo",map);
     	session.close();
+    	return list;
     }
     
-    public static void reserveOkUPdate(int no){
-    	SqlSession session = ssf.openSession(true);
-    	session.update("reserveOkUPdate",no);
+    public static int getMaxGn(){
+    	SqlSession session = ssf.openSession();
+    	int list = session.selectOne("getMaxGn");
     	session.close();
-    }*/
+    	return list;
+    }
+    
+    
+    public static StudyJoinVO studyjoinData(int groupno){
+    	SqlSession session = ssf.openSession();
+    	StudyJoinVO list = session.selectOne("studyjoinData",groupno);
+    	session.close();
+    	return list;
+    }
     
 }

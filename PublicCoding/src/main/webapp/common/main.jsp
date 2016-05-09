@@ -68,8 +68,8 @@
 
 					<ul class="dropdown-menu">
 
-						<li><a href="onoff.do">지역별</a></li>
-						<li><a href="onoff.do">주제별</a></li>
+						<li><a href="studylist.do">개설된 스터디</a></li>
+						<li><a href="onoff.do">스터디 만들기</a></li>
 
 					</ul>
 				</li>

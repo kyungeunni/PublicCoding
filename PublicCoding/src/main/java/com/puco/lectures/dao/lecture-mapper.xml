@@ -41,4 +41,14 @@
 		INSERT INTO courseReply VALUES(#{greno}, #{gno}, #{grecontent}, #{grepoint}, SYSDATE, 
 		(SELECT NVL(MAX(gregroup)+1,1) FROM CourseReply),0,0,0,0, #{grepwd}, #{grename})
 	</insert>
+	<select id="replyPointSum" parameterType="int" resultType="String">
+		SELECT SUM(grepoint)
+		FROM courseReply
+		WHERE gno=#{gno}
+	</select>
+	<select id="replyPointCount" parameterType="int" resultType="String">
+		SELECT COUNT(gno)
+		FROM courseReply
+		WHERE gno=#{gno}
+	</select>
 </mapper>

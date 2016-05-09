@@ -12,8 +12,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/newboard.css" />
+<style type="text/css">
+</style>
 </head>
-
 <body>
 		<!-- Main -->
 
@@ -37,8 +38,7 @@
 
 
 				<!-- 추가 -->
-				<div id="mainbar">
-					
+				<div id="mainbar" style="display: inline;">
 					<header class="subheader">
 						<h1 id="h-top-questions">Top Questions</h1>
 						<div id="tabs">
@@ -134,169 +134,31 @@
 							<a href="qnaboard.do?page=${curpage>1?curpage-1:curpage }&order=${order}"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
 			          ${curpage } page / ${totalpage } pages<a href="qnaboard.do?page=${curpage<totalpage?curpage+1:curpage }&order=${order}">
 			          <i class="fa fa-chevron-circle-right" aria-hidden="true">다음페이지</i></a><br>
-			          
-							
 						</div>
 					</div>
 				</div>
-				<div id="sidebar">
-					<div id="hot-network-questions" class="module">
-						<h4>
-							<a href="//stackexchange.com/questions?tab=hot"
-								class="js-gps-track"
-								data-gps-track="posts_hot_network.click({ item_type:1, location:8 })">
-								IT 실시간 뉴스 </a>
-						</h4>
+				<div id="sidebar" style="width: 300px">
+					<div id="hot-network-questions" class="module" style="width: 100%;">
+						<h4 class="js-gps-track" style="display: inline; color: white;">IT 실시간 뉴스</h4>
+						<form method="post" action="qnaboard.do">
+						<input type="text" style="width: 180px; display: inline;" name="title" value="${search }">
+						<input type="submit" value="검색">
+						<input type="hidden" value="${curpage }" name="page">
+						</form>
 						<ul>
+							<c:forEach var="vo" begin="0" end="30" items="${newslist }">
 							<li>
-								<div class="favicon favicon-security"
-									title="Information Security Stack Exchange"></div> <a
-								href="http://security.stackexchange.com/questions/118450/is-there-a-threshold-for-a-password-so-long-it-doesnt-get-any-more-secure-or-ev"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:162 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Is there a threshold for a password so long it doesn't get any
-									more secure or even becomes insecure? </a>
-
+								<div style="width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor: pointer;" class="newsClass">
+									<a href="#" style="color: gold;">${vo.title }</a><br>
+								</div>
+								<div style="color: gray;display: none;">
+								&nbsp;&nbsp;&nbsp;└
+								<a href="${vo.link }" style="color: gray;">
+								${vo.description }
+								</a>
+								</div>
 							</li>
-							<li>
-								<div class="favicon favicon-academia"
-									title="Academia Stack Exchange"></div> <a
-								href="http://academia.stackexchange.com/questions/65808/cite-something-i-overheard-as-personal-communation"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:415 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Cite something I overheard as personal communation </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-gamedev"
-									title="Game Development Stack Exchange"></div> <a
-								href="http://gamedev.stackexchange.com/questions/118862/how-do-i-ensure-a-piece-of-code-runs-only-once"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:53 }); posts_hot_network.click({ item_type:2, location:8 })">
-									How do I ensure a piece of code runs only once? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-scifi"
-									title="Science Fiction &amp; Fantasy Stack Exchange"></div> <a
-								href="http://scifi.stackexchange.com/questions/123185/why-wouldnt-hermione-and-other-muggle-borns-say-voldemorts-name"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:186 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Why wouldn't Hermione (and other muggle borns) say Voldemort's
-									name? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-mathematica"
-									title="Mathematica Stack Exchange"></div> <a
-								href="http://mathematica.stackexchange.com/questions/111223/nonzero-element-positions-of-a-matrix"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:387 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Nonzero element positions of a matrix </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-programmers"
-									title="Programmers Stack Exchange"></div> <a
-								href="http://programmers.stackexchange.com/questions/313998/should-i-add-redundant-code-now-just-in-case-it-may-be-needed-in-the-future"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:131 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Should I add redundant code now just in case it may be needed
-									in the future? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-security"
-									title="Information Security Stack Exchange"></div> <a
-								href="http://security.stackexchange.com/questions/118709/can-i-get-malware-on-my-phone-if-my-phone-is-tethered-to-my-laptop-downloading"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:162 }); posts_hot_network.click({ item_type:2, location:8 })">
-									can i get malware on my phone, if my phone is tethered to my
-									laptop downloading torrents? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-latin"
-									title="Latin Language Stack Exchange"></div> <a
-								href="http://latin.stackexchange.com/questions/631/old-vs-classical-latins"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:644 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Old vs Classical latins </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-stats" title="Cross Validated"></div>
-								<a
-								href="http://stats.stackexchange.com/questions/203993/why-0-for-failure-and-1-for-success-in-a-bernoulli-distribution"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:65 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Why 0 for failure and 1 for success in a Bernoulli
-									distribution? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-worldbuilding"
-									title="Worldbuilding Stack Exchange"></div> <a
-								href="http://worldbuilding.stackexchange.com/questions/38987/is-there-any-real-potential-advantage-to-having-two-hearts"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:579 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Is there any real potential advantage to having two hearts? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-worldbuilding"
-									title="Worldbuilding Stack Exchange"></div> <a
-								href="http://worldbuilding.stackexchange.com/questions/38502/would-a-bear-cavalry-be-feasible"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:579 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Would a bear cavalry be feasible? </a>
-
-							</li>
-							<li>
-								<div class="favicon favicon-astronomy"
-									title="Astronomy Stack Exchange"></div> <a
-								href="http://astronomy.stackexchange.com/questions/14319/did-i-see-another-planet"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:514 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Did I see another planet? </a>
-
-							</li>
-							<li class="dno js-hidden" style="display: list-item;">
-								<div class="favicon favicon-aviation"
-									title="Aviation Stack Exchange"></div> <a
-								href="http://aviation.stackexchange.com/questions/26463/which-type-of-airfoil-does-the-737-use"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:528 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Which type of airfoil does the 737 use? </a>
-
-							</li>
-							<li class="dno js-hidden" style="display: list-item;">
-								<div class="favicon favicon-mechanics"
-									title="Motor Vehicle Maintenance &amp; Repair Stack Exchange"></div>
-								<a
-								href="http://mechanics.stackexchange.com/questions/27593/what-is-the-reason-royal-enfield-classic-350"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:224 }); posts_hot_network.click({ item_type:2, location:8 })">
-									what is the reason (royal enfield classic 350) </a>
-
-							</li>
-							<li class="dno js-hidden" style="display: list-item;">
-								<div class="favicon favicon-worldbuilding"
-									title="Worldbuilding Stack Exchange"></div> <a
-								href="http://worldbuilding.stackexchange.com/questions/38590/humans-can-now-run-40-mph-how-do-i-keep-the-stupid-people-alive"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:579 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Humans can now run 40 mph. How do I keep the stupid people
-									alive? </a>
-
-							</li>
-							<li class="dno js-hidden" style="display: list-item;">
-								<div class="favicon favicon-math"
-									title="Mathematics Stack Exchange"></div> <a
-								href="http://math.stackexchange.com/questions/1716366/playing-with-fermats-little-theorem"
-								class="js-gps-track"
-								data-gps-track="site.switch({ item_type:8, target_site:69 }); posts_hot_network.click({ item_type:2, location:8 })">
-									Playing with Fermat's little theorem </a>
+							</c:forEach>
 						</ul>
 
 
@@ -334,6 +196,17 @@
 				$('.dropdown-menu', this).stop(true, true).fadeOut("fast");
 				$(this).toggleClass('open');
 				$('b', this).toggleClass("caret caret-up");
+			});
+			
+			var shownum=0;
+			$('.newsClass').click(function(){
+				if(shownum==0){
+					$(this).nextAll().show();
+					shownum=1;
+				}else{
+					$(this).nextAll().hide();
+					shownum=0;
+				}
 			});
 		});
 	</script>

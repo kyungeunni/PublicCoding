@@ -9,6 +9,8 @@ import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.ScoreVO;
+import com.puco.search.dao.Item;
+import com.puco.search.dao.NewsDAO;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.puco.board.dao.*;
 import com.puco.category.dao.DcategoryDAO;
@@ -20,7 +22,8 @@ import java.util.*;
 public class BoardController {
 
 	@RequestMapping("qnaboard.do")
-	public String boardListData(HttpServletRequest req) {
+	public String boardListData(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
 		String page = req.getParameter("page");
 		String order = req.getParameter("order");
 		PrettyTime p = new PrettyTime(new Locale("KO"));
@@ -29,7 +32,7 @@ public class BoardController {
 		if (page == null)
 			page = "1";
 		if (order == null)
-			order = "1";
+			order = "2";
 		int curpage = Integer.parseInt(page);
 		int rowSize = 10;
 		int start = (curpage * rowSize) - (rowSize - 1);
@@ -54,7 +57,15 @@ public class BoardController {
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("rtime", reltmap);
 		req.setAttribute("jsp", "../board/BoardMain.jsp");
+		/////////////////////////NewsList추가//////////////////////////////
 		
+		String title=req.getParameter("title");
+		if(title==null){
+			title="구글";
+		}
+		List<Item> newslist=NewsDAO.newsAllData(title);
+		req.setAttribute("newslist", newslist);
+		req.setAttribute("search", title);
 		return "common/main.jsp";
 	}
 

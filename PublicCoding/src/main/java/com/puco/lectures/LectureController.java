@@ -43,6 +43,8 @@ public class LectureController {
 	// 강의그룹 기능 생성부
 	@RequestMapping("courseGroup.do")
 	public String videoListData(HttpServletRequest req){
+		
+		System.out.println(">>>>>>>>>>>>강의그룹 리스트");
 		String sno=req.getParameter("sno");
 		int no = Integer.parseInt(sno);
 		
@@ -66,7 +68,21 @@ public class LectureController {
 		List<CourseGroupDTO> glist=CourseGroupDAO.CourseGroupAllData(no);
 		System.out.println("LectureController CourseGroupDAO Work");
 		req.setAttribute("glist", glist);
-		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
+		
+		Map avgMap = new HashMap();
+		////////////////////////////////////////////////
+		for(CourseGroupDTO vo:glist){
+			int gno = vo.getGno();
+			System.out.println("여기 "+gno);
+			double avg=CourseReplyDAO.replyPointAvg(gno);
+			System.out.println("CourseGroup Controller : "+avg);
+			avgMap.put(gno, avg);
+		}
+		////////////////////////////////////////////////
+		System.out.println(avgMap.size());
+		req.setAttribute("avgMap", avgMap);
+		
+		req.setAttribute("jsp", "../lectures/lectureMain.jsp");		
 		return "common/main.jsp";
 	}
 	// 강의그룹 기능 생성부 끝
@@ -147,9 +163,12 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
-		   System.out.println("DAO replyAllData in play.do worked well");
 		   req.setAttribute("replyList", replyList);
-		
+		   
+		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
+		   System.out.println("replyPoint worked");
+		   req.setAttribute("grepointAvg", avg);
+		   
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
 	}
