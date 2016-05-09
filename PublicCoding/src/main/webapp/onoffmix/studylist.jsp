@@ -7,17 +7,36 @@
 <meta charset="EUC-KR">
 
 <!-- <link type="text/css" rel="stylesheet" href="../assets/css/userMain.css"> -->
+<link type="text/css" rel="stylesheet" href="assets/css/studylist.css">
 <title>Insert title here</title>
 </head>
 <body>
 	<section>
 
 		<div class="container">
+		<header class="subheader">
+						<h1 id="h-top-questions">Top Questions</h1>
+						<div id="tabs">
+							<a href="?order=1" data-nav-xhref=""
+								title="Questions that may be of interest to you based on your history and tag preference"
+								data-value="interesting"
+								<c:if test="${order==1}">class="youarehere"</c:if> > 최신등록</a> <a href="?order=2"
+								data-nav-xhref="" title="Questions with an active bounty"
+								data-value="featured" <c:if test="${order==2}">class="youarehere"</c:if>> 
+								높은조회수
+							</a> <a href="?order=3" data-nav-xhref=""
+								title="Questions with the most views, answers, and votes over the last few days"
+								data-value="week" <c:if test="${order==3}">class="youarehere"</c:if>>인기답변 </a> 
+
+						</div>
+					</header>
 			<div class="row">
 				<c:forEach var="vo" items="${list }">
 					<div class="col-md-4" style="display: inline-block; float: left">
 						<div class="well profile">
-							<h3>${vo.title }</h3>
+						<div id="studytitle">
+							<h4>${vo.title }</h4>
+							</div>
 							<div class="col-sm-6 col-md-4 profilepic">
 
 								<img src="${vo.poster}" alt="" width="120" height="180"
@@ -27,8 +46,7 @@
 							</div>
 							<div class="col-sm-6 col-md-7" style="margin-left: 20px">
 
-								<table id="table_content" width="200px" height="200px"
-									style="padding-left: 20px;">
+								<table id="table_content" >
 
 									<tr>
 										<td id="span_tname">장소: ${vo.tname} (${vo.loc})</td>
@@ -59,7 +77,7 @@
 								</table>
 							</div>
 							<div>
-								<div style="width: inherit;">
+								<div style="width: inherit;margin-left: 12px;">
 									<table width="300">
 										<tr>
 											<td width="25%"><strong><font color="red"><i

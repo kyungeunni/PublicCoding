@@ -1,0 +1,87 @@
+.well h4{
+	font-size: 18pt;
+    font-weight: bold;
+    font-family: sans-serif;
+    }
+    
+ #studytitle{
+
+ margin-left: 12px;
+    height: 60px;
+ }
+ table{
+ margin-bottom: 10px;
+ }
+ #table_content{   
+    width:200px;
+    height:200px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-left:12px;
+									
+ }
+ 
+  .subheader {
+	margin-bottom: 0;
+	height: 34px;
+	clear: both;
+	height: 40px;
+	border-bottom: 2px solid #e44c65;
+}
+.subheader h1 {
+	color: #c0c0c0;
+	font-size: 18px;
+	font-weight: 600;
+	float: left;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+#tabs, .tabs, .newnav .tabs-list-container .tabs-list .intellitab {
+	height: 38px;
+}
+
+#tabs, .tabs, .newnav .tabs-list-container .tabs-list .intellitab {
+	float: right;
+}
+#tabs a.youarehere, .tabs a.youarehere, .newnav .tabs-list-container .tabs-list .intellitab a.youarehere
+	{
+	color: #222426;
+}
+
+#tabs a.youarehere, .tabs a.youarehere, #tabs a:hover, .tabs a:hover,
+	.newnav .tabs-list-container .tabs-list .intellitab a.youarehere,
+	.newnav .tabs-list-container .tabs-list .intellitab a:hover {
+	font-weight: 400;
+	border-bottom-color: #FFFFFF;
+	border-style: solid;
+}
+
+#tabs a.youarehere, .tabs a.youarehere, .newnav .tabs-list-container .tabs-list .intellitab a.youarehere
+	{
+	font-weight: 700;
+	color: white;
+	border-bottom-color: #e44c65 !important;
+}
+
+#tabs a, .tabs a, .newnav .tabs-list-container .tabs-list .intellitab a
+	{
+	border-width: 2px;
+	border-style: double;
+	border-color: transparent;
+	border-top-width: 2px;
+	color: #767d84;
+	font-size: 12px;
+	line-height: 1;
+	margin: 5 8px 5 5;
+	padding: 10px;
+}
+
+#tabs a, .tabs a, .newnav .tabs-list-container .tabs-list .intellitab a
+	{
+	float: left;
+	text-decoration: none;
+	display: block;
+	padding: 11px 0 12px 0;
+	margin: 0 20px 0 0;
+}
