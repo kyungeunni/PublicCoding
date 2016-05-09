@@ -16,8 +16,6 @@
 <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet"> -->
 </head>
 <body style="background-color: #1c1d26;height: 100%">
-	<div style="color: white; font-size: 20px;">
-	</div>
 	<section>
 		<article style="background-color: #1c1d26;height: 100%;width: 350px">
 			<div class="container" style="width: 100%">
