@@ -72,8 +72,7 @@
 														<div class="clearfix"></div>
 													</div>
 												</div>
-												<br>
-												<br>
+												<br> <br>
 											</div>
 
 										</c:forEach>
@@ -114,8 +113,7 @@
 														<div class="clearfix"></div>
 													</div>
 												</div>
-												<br>
-												<br>
+												<br> <br>
 											</div>
 										</c:forEach>
 
@@ -158,8 +156,7 @@
 													<div class="clearfix"></div>
 												</div>
 											</div>
-											<br>
-											<br>
+											<br> <br>
 										</div>
 									</c:forEach>
 
@@ -194,8 +191,7 @@
 													<div class="clearfix"></div>
 												</div>
 											</div>
-											<br>
-											<br>
+											<br> <br>
 										</div>
 									</c:forEach>
 								</div>
@@ -209,7 +205,7 @@
 
 		<article>
 			<form action="#" method="get">
-			<h3 class="h3class">게시판 통합검색</h3>
+				<h3 class="h3class">게시판 통합검색</h3>
 				<input class="form-control" id="system-search" name="q"
 					placeholder="검색어를 입력해주세요">
 			</form>
@@ -224,30 +220,29 @@
 			<div id="qnaboard">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-9" id="col-line1"
-							style="height: 70vh; overflow: auto">
-							<table class="table table-list-search">
-								<thead>
-									<tr>
-										<!-- <th class="no">No.</th> -->
-										<th class="title">제목</th>
-										<th class="tag">tag</th>
-										<th class="id">글쓴이</th>
-									</tr>
-								</thead>
-								<tbody>
-
-									<c:forEach var="q" items="${qlist }">
+						<div id="col-line1"style="height: 70vh; overflow: auto">
+							<div class="table-size">
+								<table class="table table-list-search">
+									<thead>
 										<tr class="qtr">
-											<%-- <td class="no1"><a href="content.do?no=${q.bno }">${q.bno }</a></td> --%>
-											<td class="title1"><a href="content.do?no=${q.bno }">${q.bsubject }</a></td>
-											<td class="tag1"><a href="content.do?no=${q.bno }">${q.tag1 }</a></td>
-											<td class="id1"><a href="userMain.do?mno=${q.mno }">${q.userid }</a></td>
+											<th class="tag" style="text-align: center">tag</th>
+											<th class="title">제목</th>
+											<th class="id">글쓴이</th>
 										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
 
+										<c:forEach var="q" items="${qlist }">
+											<tr class="qtr1">
+												<td class="tag1" style="text-align: center"><a
+													href="content.do?no=${q.bno }">${q.tag1 }</a></td>
+												<td class="title1"><a href="content.do?no=${q.bno }">${q.bsubject }</a></td>
+												<td class="id1"><a href="userMain.do?mno=${q.mno }">${q.userid }</a></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -264,24 +259,19 @@
 			<div id="fboard">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-9" id="col-line1"
-							style="height: 70vh; overflow: auto">
+						<div id="col-line2" style="height: 70vh; overflow: auto">
 							<table class="table table-list-search">
 								<thead>
 									<tr>
-										<th class="no">No.</th>
-										<th class="title">제목</th>
-										<th class="id">글쓴이</th>
+										<th class="title2" style="text-align: left">제목</th>
+										<th class="id2"style="text-align: left">글쓴이</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="f" items="${flist }">
 										<tr class="ftr">
-											<td class="no"><a
-												href="freeboard_content.do?no=${f.bno }">${f.bno }</a></td>
-											<td class="title"><a
-												href="freeboard_content.do?no=${f.bno }">${f.bsubject }</a></td>
-											<td class="id"><a href="userMain.do?mno=${f.mno }">${f.userid }</a></td>
+											<td class="title3" style="text-align:left"><a	href="freeboard_content.do?no=${f.bno }">${f.bsubject }</a></td>
+											<td class="id3" style="text-align: left"><a href="userMain.do?mno=${f.mno }">${f.userid }</a></td>
 										</tr>
 									</c:forEach>
 							</table>
