@@ -23,7 +23,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 }
 /*·¹ÀÌ¾Æ¿ô*/
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
@@ -296,7 +296,8 @@ body {
 }
 
 .row>* {
-	padding: 0 0 0 2.5em;
+	/* padding: 0 0 0 2.5em; 
+	padding: 0 0 0 0;*/
 }
 
 .row {
@@ -2560,10 +2561,10 @@ form {
 }
 
 label {
-	color: #ffffff;
+/* 	color: #ffffff; */
 	display: block;
 	font-size: 0.9em;
-	font-weight: 300;
+	font-weight: 700;
 	margin: 0 0 1em 0;
 }
 
@@ -4131,7 +4132,6 @@ body.home-page .subheader, body.questions-page .subheader {
 
 .subheader {
 	clear: both;
-	margin-bottom: 15px;
 	height: 40px;
 	border-bottom: 2px solid #e44c65;
 }
@@ -4185,13 +4185,16 @@ body.home-page .subheader, body.questions-page .subheader {
 
 .narrow .votes {
 	display: inline-block;
-	height: 38px;
+	height: auto;
 	min-width: 38px;
+	width:50px;
 	margin: 0 3px 0 0;
 	font-size: 11px;
 	color: #777;
 	padding: 5px 5px 6px 5px;
 }
+
+
 
 .votes {
 	padding: 0;
@@ -4209,13 +4212,13 @@ body.home-page .subheader, body.questions-page .subheader {
 }
 
 .answered {
-	background-color: #75845C;
+	background-color: #993d4c;
 	color: #FFFFFF;
 }
+.answered .mini-counts{
+	color:white;
+	}
 
-.answered {
-	color: #4C9067;
-}
 
 .status {
 	padding: 0;
@@ -4226,13 +4229,13 @@ body.home-page .subheader, body.questions-page .subheader {
 .narrow .mini-counts {
 	font-size: 17px;
 	font-weight: 300;
-	color: #777;
+
 	margin-bottom: 4px;
 }
 
 .narrow .views {
 	display: inline-block;
-	height: 38px;
+	height: auto;
 	min-width: 40px;
 	margin: 0 7px 0 0;
 	font-size: 11px;
@@ -4246,7 +4249,7 @@ body.home-page .subheader, body.questions-page .subheader {
 }
 
 .narrow .summary {
-	width: 530px;
+	 width: 530px;
 	padding: 0;
 	float: left;
 	padding-top: 10px;
@@ -4432,9 +4435,12 @@ body.home-page .subheader, body.questions-page .subheader {
 }
 
 #btnqst{
-	float:right;
-	border-color: inherit;
-	border-bottom-style: inherit;
+float: right;
+    position: absolute;
+    margin-right: 0px;
+    border-color: inherit;
+    margin-left: 42pc;
+    border-bottom-style: inherit
 }
 
 #listmajor{
@@ -4465,4 +4471,119 @@ body.home-page .subheader, body.questions-page .subheader {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
+}
+
+
+/* Á¤¼±  freeboard css*/
+@charset "utf-8";
+
+#freeboard {
+	border-collapse:collapse;
+	margin:0px;
+	padding:0px;
+	box-shadow:3px 3px 10px #C8C8C8;
+	border-spacing:0;
+	font-family:"¸¼Àº °íµñ";
+	color:white;
+	
+}
+#freeboard .menubar {
+border:0px;
+border-color:white;
+color:black;
+
+background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #cbcddb 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+
+}
+
+#freeboard .listData {
+	border-bottom:1px solid #CCCCCC;
+	height:30px;
+}
+
+#freeboard .listData .tdcenter {
+	text-align:center;
+}
+#freeboard .listData .tdleft {
+	text-align:left;
+
+}
+#freeboard .writeBt {
+	background-color: #1c1d26;
+	border:0;
+	border-color: transparent;
+}
+#freeboard .button {
+	background-color: transparent;
+	border: #e44c65;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display:inline-block;
+	font-size:18px;
+}
+#freeboard .tdcenter {
+	text-align: center;
+}
+#freeboard .tdleft {
+	text-align: left;
+}
+
+#freelistmajor {
+	padding-top: 150px;
+}
+
+/* freeboard_content */
+#freeboardNav {
+	border-collapse: collapse;
+}
+#freeboardNav td {
+	
+	color:white;
+	font-family: "¸¼Àº °íµñ";
+	font-size: 16px;
+}
+#checkpwd {
+	border-collapse: collapse;
+	border-top-width: 2px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	border-bottom-color: #333;
+	border-top-color: #333;
+	
+}
+#checkpwd th,td {
+	margin: 0px;
+	paddng: 8px;
+	font-size: 9pt;
+}
+#checkpwd td {
+	border-bottom-width: 1px;
+	border-bottom-color: #666;
+	border-bottom-style: dotted;
+}
+#freetable_content th {
+	border: 0px;
+}
+
+#replyBtn {
+	float: right;
+}
+.voted .mini-counts{
+	color:  #e44c65;
+}
+.voted{
+background-color: rgba(255, 255, 255, 0.075);
+}
+
+.major h2{
+	padding:20px;
+	
+}
+
+#content{
+
+	padding-top: 50px;
 }

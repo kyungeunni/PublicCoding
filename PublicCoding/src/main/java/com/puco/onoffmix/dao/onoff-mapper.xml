@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.puco.onoffmix.dao.onoff-mapper">
+	<select id="MeetupinfoData" resultType="Meetup">
+		SELECT * FROM meetupInfo
+	</select>
+
+	<select id="LocationNumber" resultType="String" parameterType="int">
+		SELECT locationno FROM meetupInfo
+		WHERE meetno=#{meetno}
+	</select>	
+	
+		<select id="LocInfo" resultType="Loc" parameterType="int">
+		SELECT * FROM Locationinfo
+		WHERE tno=#{tno}
+	</select>	
+
+	<select id="getTimeTable" resultType="String" parameterType="int">
+	SELECT timeno FROM Locationinfo
+	WHERE tno = #{tno}
+	</select>
+	
+	
+	<select id ="timeInfoData" resultType="String" parameterType="int">
+		SELECT time FROM timeInfo
+		WHERE tno=#{tno}	
+	</select>
+	
+	<select id="getMinPeople" resultType="int" parameterType="int">
+			SELECT maxpeople FROM meetupinfo
+		WHERE meetno =#{meetno }	
+	</select>
+	
+  <select id="getJoinedPeople" resultType="int" parameterType="java.util.Map">
+		SELECT mno FROM meetupreginfo
+		WHERE meetno =#{meetno }	
+		AND meetdate =#{meetdate}
+		AND meettime =#{meettime }
+
+	</select>
+	
+	  <select id="getJoinedPeoplebyGN" resultType="int" parameterType="int">
+		SELECT mno FROM meetupreginfo
+		WHERE groupno=#{groupno}
+
+	</select>
+	
+	<select id="getMeetnobyGN" resultType="int" parameterType="int">
+		SELECT mno FROM meetupreginfo
+		WHERE groupno=#{groupno}
+
+	</select>
+	
+	<select id="getMaxGn" resultType="int" >
+	SELECT NVL(MAX(groupno)+1,1) FROM meetupreginfo
+	</select>
+	<select id="getGroupNo" resultType="int" parameterType="java.util.Map">
+		SELECT distinct groupno FROM meetupreginfo
+		WHERE meetno =#{meetno }	
+		AND meetdate =#{meetdate}
+		AND meettime =#{meettime }
+		AND tno =#{tno}
+	</select>
+	
+		<!-- 추가(예약) -->
+	<insert id="studyjoin" parameterType="StudyJoin"> 
+		<selectKey keyProperty="rno" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(rno)+1,1) as rno FROM meetupreginfo		
+		</selectKey>
+		INSERT INTO meetupreginfo VALUES(#{rno},#{mno},#{meetno},#{meetdate},#{meettime},0,#{tno},#{groupno})
+	</insert>
+	
+<!-- 	mypage(출력) -->
+	<select id="studyjoinUserAllData" resultType="StudyJoin" parameterType="int">
+		SELECT MRI.*,title,maxpeople,poster, tname,loc 
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+		WHERE MRI.mno=#{mno}
+		order by MRI.rno desc
+	</select>
+	
+	<!-- 스터디목록(출력) -->
+	<select id="studyjoinAllData" resultType="StudyJoin">
+		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+	</select>
+
+	<!-- 특정스터디(출력) -->
+	<select id="studyjoinData" resultType="StudyJoin" parameterType="int">
+		SELECT distinct meetdate,meettime,MRI.meetno as meetno,title,maxpeople,poster, tname,loc,MRI.tno as tno
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+		where groupno=#{groupno}
+	</select>
+
+ 	<!-- 추가(예약) -->
+	<!--<insert id="reserveInsert" parameterType="Reserve"> 
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(no)+1,1) as no FROM reserve		
+		</selectKey>
+		INSERT INTO reserve VALUES(#{no},#{id},#{title},#{theater},#{day},#{time},#{inwon},#{price},0)
+	</insert>
+	mypage(출력)
+	<select id="reserveUserAllData" resultType="Reserve" parameterType="String">
+		SELECT * FROM reserve
+		WHERE id=#{id}
+	</select>
+	admin(출력)
+	<select id="reserveAdminAllData" resultType="Reserve">
+		SELECT * FROM reserve
+		WHERE res_check=0
+	</select>
+	
+	승인
+	<update id="reserveOkUPdate" parameterType="int">
+		UPDATE reserve SET
+		res_check=1
+		WHERE no=#{no}
+	</update> -->
+</mapper>

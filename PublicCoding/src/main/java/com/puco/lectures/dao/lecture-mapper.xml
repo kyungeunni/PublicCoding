@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.puco.category.dao.category-mapper">
+<mapper namespace="com.puco.lectures.dao.lecture-mapper">
 	<select id="CourseGroupAllData" resultType="CourseGroup" parameterType="int">
-		SELECT gno,gname,gimageurl,totalcno,gintro
-		FROM CourseGroup
-		WHERE sno=#{no}
+	 SELECT * FROM CourseGroup WHERE sno=#{sno}
+	</select>
+	<select id="CourseGroupOneData" resultType="CourseGroup" parameterType="int">
+	 SELECT * FROM CourseGroup WHERE gno=#{gno}
+	</select>
+	<select id="ContentListData" resultType="Content" parameterType="int">
+		SELECT cno,cname,cmediaurl,ctime,csiteurl,cstep,gno
+		FROM Content
+		WHERE gno=#{gno}
+		ORDER BY cno ASC
+	</select>
+	<select id="SameGroupAllData" resultType="CourseGroup" parameterType="int">
+		SELECT * FROM CourseGroup WHERE sno=(SELECT sno FROM CourseGroup WHERE gno=#{gno})
+		ORDER BY gno ASC
+	</select>
+	<select id="ConfirmCourseData" resultType="Infoattendant" parameterType="Infoattendant">
+		SELECT gno FROM Infoattendant WHERE mno=#{mno} AND gno=#{gno}
+	</select>
+	<insert id="RegisterCourseData" parameterType="int">
+		INSERT INTO
+		Infoattendant(suno,mno,gno)
+		VALUES((SELECT NVL(MAX(suno)+1,1) FROM Infoattendant),#{mno},#{gno})
+	</insert>
+	<select id="replyAllData" resultType="CReply" parameterType="java.util.Map">
+		SELECT greno,grepoint,grename,grecontent,dbday,gretab,num 
+    	FROM(SELECT greno,grepoint,grename,grecontent,dbday,gretab,rownum as num 
+    	FROM(SELECT greno,grepoint,grename,grecontent,TO_CHAR(gredate,'YYYY-MM-DD HH24:MI:SS') as dbday,gretab
+    	FROM courseReply WHERE gno=#{gno} ORDER BY gregroup DESC, grestep ASC))
+    	WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 댓글 추가  -->
+	<insert id="replyInsert" parameterType="CReply">
+		<!--   자동 증가번호 (sequence)   -->
+		<selectKey keyProperty="greno" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(greno)+1,1) as greno FROM courseReply
+		</selectKey>
+		INSERT INTO courseReply VALUES(#{greno}, #{gno}, #{grecontent}, #{grepoint}, SYSDATE, 
+		(SELECT NVL(MAX(gregroup)+1,1) FROM CourseReply),0,0,0,0, #{grepwd}, #{grename})
+	</insert>
+	<select id="replyPointSum" parameterType="int" resultType="String">
+		SELECT SUM(grepoint)
+		FROM courseReply
+		WHERE gno=#{gno}
+	</select>
+	<select id="replyPointCount" parameterType="int" resultType="String">
+		SELECT COUNT(gno)
+		FROM courseReply
+		WHERE gno=#{gno}
 	</select>
 </mapper>

@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard"/>
-		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member"/>
-		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer"/>
-		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory"/>
-		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory"/>
-		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup"/>
+		<typeAlias type="com.puco.board.dao.QnaBoardVO" alias="QBoard" />
+		<typeAlias type="com.puco.member.dao.MemberDTO" alias="Member" />
+		<typeAlias type="com.puco.board.dao.AnswerVO" alias="Answer" />
+		<typeAlias type="com.puco.category.dao.DcategoryDTO" alias="Dcategory" />
+		<typeAlias type="com.puco.category.dao.ScategoryDTO" alias="Scategory" />
+		<typeAlias type="com.puco.lectures.dao.CourseGroupDTO" alias="CourseGroup" />
+		<typeAlias type="com.puco.lectures.dao.ContentDTO" alias="Content" />
+		<typeAlias type="com.puco.lectures.dao.CourseReplyDTO" alias="CReply" />
+		<typeAlias type="com.puco.lectures.dao.InfoattendantDTO" alias="Infoattendant" />
+		<typeAlias type="com.puco.board.dao.ReplyVO" alias="Reply" />
+		<typeAlias type="com.puco.board.dao.FreeBoardVO" alias="FBoard" />
+		<typeAlias type="com.puco.member.dao.ScoreVO" alias="Score" />
+		<typeAlias type="com.puco.onoffmix.dao.LocationInfoVO" alias="Loc" />
+		<typeAlias type="com.puco.onoffmix.dao.MeetupinfoVO" alias="Meetup" />
+		<typeAlias type="com.puco.onoffmix.dao.StudyJoinVO" alias="StudyJoin" />
+		<typeAlias type="com.puco.onoffmix.dao.StimeinfoVO" alias="Timeinfo" />
 	</typeAliases>
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
-		<dataSource type="POOLED">
-	
+			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@211.238.142.87:1521:ORCL" />
 				<property name="username" value="scott" />
@@ -21,10 +31,13 @@
 			</dataSource>
 		</environment>
 	</environments>
+
 	<mappers>
 		<mapper resource="com/puco/board/dao/board-mapper.xml" />
 		<mapper resource="com/puco/member/dao/member-mapper.xml" />
 		<mapper resource="com/puco/category/dao/category-mapper.xml" />
 		<mapper resource="com/puco/lectures/dao/lecture-mapper.xml" />
+		<mapper resource="com/puco/onoffmix/dao/onoff-mapper.xml"/>
 	</mappers>
+
 </configuration>

@@ -29,4 +29,14 @@ public class ScategoryDAO {
 		System.out.println("ScategoryAllData session close Work");
 		return slist;
 	}
+	public static List<ScategoryDTO> ScategoryReAllData(int no){
+		System.out.println("ScategoryReAllData method Work parameter is " + no);
+		SqlSession session = ssf.openSession();
+		System.out.println("ScategoryReAllData SqlSession Work");
+		List<ScategoryDTO> slist = session.selectList("ScategoryReAllData", no);
+		System.out.println("ScategoryReAllData selectList Work");
+		session.close();
+		System.out.println("ScategoryReAllData session close Work");
+		return slist;
+	}
 }

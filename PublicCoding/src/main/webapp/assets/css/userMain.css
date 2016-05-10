@@ -3,19 +3,20 @@
 
 /* reset */
 * { margin:0;  padding:0;}
-ol,ul { list-style: none; }
-a { outline:0; text-decoration:none; color:#ffffff; }
+ol,ul { list-style: none;  }
+li{color:black; }
+a { outline:0; text-decoration:none; color:#808080; }
 img { border:0;}
 body { font:12px/1.6 xxx'Poiret One'; color:#1c1d26; } 
 table { table-layout: fixed}
-
+tr{    height: 30px;}
 /*레이아웃*/
 article { float:left; height:auto;}
-article:nth-child(1) { width:33.333333%; height:60vh; background:#ff0000;}
-article:nth-child(2) { width:66.666666%; height:60vh; background:#ccc;}
-article:nth-child(3) { width:33.333333%; height:30vh; background:#ffff00;}
-article:nth-child(4) { width:33.333333%; height:30vh; background:#000080;}
-article:nth-child(5) { width:33.333333%; height:30vh; background:#000040;}
+article:nth-child(1) { width:33.333333%; height:60vh; background:#ffffff;} 
+article:nth-child(2) { width:66.666666%; height:60vh; background:#ffffff;}
+article:nth-child(3) { width:33.333333%; height:30vh; background:#ffffff;}
+article:nth-child(4) { width:33.333333%; height:30vh; background:#ffffff;}
+article:nth-child(5) { width:33.333333%; height:30vh; background:#ffffff;}
 article:nth-child(6) { width:100%; height:5vh; background:#888;}
 
 #qnaboard {width:80%;}
@@ -54,6 +55,10 @@ nav a:nth-child(2) {	position:absolute; right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
 /* login css */
+
+
+
+
 article:nth-child(1) .container{
 margin-top:60px;
 margin-left:-280px;
@@ -236,7 +241,7 @@ span.tags
 	article:nth-child(1) span { display:none;}
 }
 
-.profilepic
+.profilepic{
 	margin-top: 20px;
 }
 
@@ -244,6 +249,21 @@ span.tags
 	
     margin: auto;
     padding-top: 20px;
-    
-    
+}
+
+.taglist{
+	margin: auto;
+}
+
+.useredittd{
+	height:60px;
+}
+
+.text{
+	padding-left: 30px;
+	padding-right: 5px;
+	border-right-color: #c8c8c8;
+	border-right-style: solid;
+	border-right-width: 1px; 
+	
 }

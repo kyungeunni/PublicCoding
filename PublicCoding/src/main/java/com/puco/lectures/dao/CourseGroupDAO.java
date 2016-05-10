@@ -12,7 +12,6 @@ import com.puco.category.dao.DcategoryDTO;
 
 public class CourseGroupDAO {
 	private static SqlSessionFactory ssf;
-	
 	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("Config.xml");
@@ -22,14 +21,21 @@ public class CourseGroupDAO {
 		}
 	}
 	public static List<CourseGroupDTO> CourseGroupAllData(int no){
-		System.out.println("CourseGroupAllData method Work");
 		SqlSession session = ssf.openSession();
-		System.out.println("CourseGroupAllData SqlSession Work");
-		List<CourseGroupDTO> glist = session.selectList("CourseGroupAllData", no);
-		System.out.println("CourseGroupAllData selectList Work");
+		List<CourseGroupDTO> list = session.selectList("CourseGroupAllData", no);
 		session.close();
-		System.out.println("CourseGroupAllData session close Work");
-		System.out.println("glist " + glist);
+		return list;
+	}
+	public static CourseGroupDTO CourseGroupOneData(int gno){
+		SqlSession session = ssf.openSession();
+		CourseGroupDTO dto = session.selectOne("CourseGroupOneData", gno);
+		session.close();
+		return dto;
+	}
+	public static List<CourseGroupDTO> SameGroupAllData(int gno){
+		SqlSession session = ssf.openSession();
+		List<CourseGroupDTO> glist = session.selectList("SameGroupAllData", gno);
+		session.close();
 		return glist;
 	}
 }

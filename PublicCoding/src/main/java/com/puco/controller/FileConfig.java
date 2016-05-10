@@ -20,10 +20,8 @@ public class FileConfig {
 					}
 				}
 			}
-		}catch(Exception ex){}
-		
+		}catch(Exception ex){}		
 		return list;
-		
 	}
 	
 }

@@ -24,8 +24,23 @@ public class MemberDTO {
 	private int mpoint;
 	private int lno;
 	private Date logindate;
+	private String mtags;
+	private int boardhit;
 	
 	
+	
+	public int getBoardhit() {
+		return boardhit;
+	}
+	public void setBoardhit(int boardhit) {
+		this.boardhit = boardhit;
+	}
+	public String getMtags() {
+		return mtags;
+	}
+	public void setMtags(String mtags) {
+		this.mtags = mtags;
+	}
 	public Date getLogindate() {
 		return logindate;
 	}
