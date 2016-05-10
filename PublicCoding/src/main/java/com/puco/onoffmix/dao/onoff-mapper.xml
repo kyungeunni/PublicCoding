@@ -92,7 +92,7 @@
 	
 	<!-- 스터디목록(출력) -->
 	<select id="studyjoinAllData" resultType="StudyJoin" >
-		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
+		SELECT distinct MRI.groupno as groupno, meetdate, meettime, title, maxpeople ,poster, tname ,loc 
 		FROM meetupreginfo MRI
 		LEFT JOIN meetupinfo MI
 		ON MRI.meetno=MI.meetno
