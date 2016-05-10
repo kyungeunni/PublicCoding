@@ -128,8 +128,8 @@ $(function(){
 										<p>
 										<table class="table">
 											<tr>
-												<td width=70>강의</td>
-												<td width=100>${firstCname }</td>
+												<td class="lstep">강의</td>
+												<td class="lname">${firstCname }</td>
 												<td></td>
 											</tr>
 											<tr>
@@ -150,21 +150,12 @@ $(function(){
 							<div class="col-xs-10 col-sm-5 col-md-5" style="height:450px; overflow:auto">
 								<table class="table">
 									<c:forEach var="i" items="${clist }">
-										<tr>
-											<td><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-											<td>${i.cstep }강</td>
-											<td><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
+										<tr class="ltr">
+											<td class="licon"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+											<td class="lstep">${i.cstep }강</td>
+											<td class="lname"><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
 										</tr>
 									</c:forEach>
-							<!-- <tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a></td>
-									
-								</tr>
-								-->
-
 								</table>
 							</div>
 						</c:if>

@@ -53,21 +53,8 @@
 																<h4>
 																	강의명: <br>${g1.gname }<br>
 																</h4>
+																<h5>총강의수: ${g1.totalcno }</h5>
 															</div>
-														</div>
-														<div class="separator clear-left">
-															<p class="btn-add">
-																<i class="fa fa-shopping-cart"></i><a
-																	href="http://www.jquery2dotnet.com" class="hidden-sm">
-																	내강의 담기 </a>
-															</p>
-															<p class="btn-details">
-																<i class="fa fa-list"></i><a
-																	href="play.do?gno=${g1.gno }" class="hidden-sm">더
-																	알아보기</a>
-															</p>
-
-
 														</div>
 														<div class="clearfix"></div>
 													</div>
@@ -96,19 +83,8 @@
 																<h4>
 																	강의명: <br>${g1.gname }<br>
 																</h4>
+																<h5>총강의수: ${g1.totalcno }</h5>
 															</div>
-														</div>
-														<div class="separator clear-left">
-															<p class="btn-add">
-																<i class="fa fa-shopping-cart"></i><a
-																	href="http://www.jquery2dotnet.com" class="hidden-sm">
-																	내강의 담기 </a>
-															</p>
-															<p class="btn-details">
-																<i class="fa fa-list"></i><a
-																	href="play.do?gno=${g1.gno }" class="hidden-sm">더
-																	알아보기</a>
-															</p>
 														</div>
 														<div class="clearfix"></div>
 													</div>
@@ -129,7 +105,7 @@
 										<div class="col-sm-6">
 											<div class="col-item">
 												<div class="photo">
-													<a href="#"><img src="${g2.gimageurl}" alt=""></a>
+													<a href="play.do?gno=${g2.gno }"><img src="${g2.gimageurl}" alt=""></a>
 												</div>
 
 												<div class="info">
@@ -141,18 +117,6 @@
 															<h5>총강의수: ${g2.totalcno }</h5>
 														</div>
 													</div>
-													<div class="separator clear-left">
-														<p class="btn-add">
-															<i class="fa fa-shopping-cart"></i> <a
-																href="http://www.jquery2dotnet.com" class="hidden-sm">
-																내강의 담기 </a>
-														</p>
-														<p class="btn-details">
-															<i class="fa fa-list"></i><a
-																href="play.do?gno=${g1.gno }" class="hidden-sm">더
-																알아보기</a>
-														</p>
-													</div>
 													<div class="clearfix"></div>
 												</div>
 											</div>
@@ -163,8 +127,11 @@
 									<c:forEach var="g2" begin="3" end="4" items="${g2list}">
 										<div class="col-sm-6">
 											<div class="col-item">
+											
 												<div class="photo">
-													<a href="#"><img src="${g2.gimageurl}" alt=""></a>
+												<a href="play.do?gno=${g2.gno }">
+													<img src="${g2.gimageurl}" alt="">
+													</a>
 												</div>
 
 												<div class="info">
@@ -176,20 +143,9 @@
 															<h5>총강의수: ${g2.totalcno }</h5>
 														</div>
 													</div>
-													<div class="separator clear-left">
-														<p class="btn-add">
-															<i class="fa fa-shopping-cart"></i> <a
-																href="http://www.jquery2dotnet.com" class="hidden-sm">
-																내강의 담기 </a>
-														</p>
-														<p class="btn-details">
-															<i class="fa fa-list"></i><a
-																href="play.do?gno=${g1.gno }" class="hidden-sm">더
-																알아보기</a>
-														</p>
-													</div>
 													<div class="clearfix"></div>
 												</div>
+												
 											</div>
 											<br> <br>
 										</div>
@@ -281,13 +237,15 @@
 			</div>
 		</article>
 
+
 		<article>
 			<center>
 				<div class="h3m">
 					<h3 class="h3n">오프라인 스터디</h3>
 				</div>
 			</center>
-			<div id="qnaboard">
+			
+			<div id="sboard">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-9" id="col-line1"
@@ -295,17 +253,15 @@
 							<table class="table table-list-search">
 								<thead>
 									<tr>
-										<th class="no">No.</th>
-										<th class="title">제목</th>
-										<th class="id">글쓴이</th>
+										<th class="sname">스터디 이름</th>
+										<th class="tname">장소</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="q" items="${qlist }">
-										<tr>
-											<td class="no">${q.bno }</td>
-											<td class="title">${q.bsubject }</td>
-											<td class="id">${q.userid }</td>
+									<c:forEach var="s" items="${slist }">
+										<tr class="fbtr">
+											<td class="sname1">${s.title }</td>
+											<td class="tname1">${s.tname }</td>
 										</tr>
 									</c:forEach>
 							</table>

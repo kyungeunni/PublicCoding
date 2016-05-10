@@ -16,7 +16,6 @@ import com.puco.member.dao.ScoreVO;
 import com.puco.onoffmix.dao.OnoffmixDAO;
 import com.puco.onoffmix.dao.StudyJoinVO;
 
-
 @Controller("mc")
 public class MemberController {
 	@RequestMapping("signin.do")
