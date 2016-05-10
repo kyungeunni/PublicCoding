@@ -46,14 +46,21 @@
 
 	</select>
 	
+	<select id="getMeetnobyGN" resultType="int" parameterType="int">
+		SELECT mno FROM meetupreginfo
+		WHERE groupno=#{groupno}
+
+	</select>
+	
 	<select id="getMaxGn" resultType="int" >
 	SELECT NVL(MAX(groupno)+1,1) FROM meetupreginfo
 	</select>
 	<select id="getGroupNo" resultType="int" parameterType="java.util.Map">
-		SELECT groupno FROM meetupreginfo
+		SELECT distinct groupno FROM meetupreginfo
 		WHERE meetno =#{meetno }	
 		AND meetdate =#{meetdate}
 		AND meettime =#{meettime }
+		AND tno =#{tno}
 	</select>
 	
 		<!-- 추가(예약) -->
@@ -77,13 +84,24 @@
 	</select>
 	
 	<!-- 스터디목록(출력) -->
-	<select id="studyjoinAllData" resultType="StudyJoin" >
+	<select id="studyjoinAllData" resultType="StudyJoin">
 		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
 		FROM meetupreginfo MRI
 		LEFT JOIN meetupinfo MI
 		ON MRI.meetno=MI.meetno
 		LEFT JOIN locationInfo LI
 		ON MRI.tno=LI.tno
+	</select>
+
+	<!-- 특정스터디(출력) -->
+	<select id="studyjoinData" resultType="StudyJoin" parameterType="int">
+		SELECT distinct meetdate,meettime,MRI.meetno as meetno,title,maxpeople,poster, tname,loc,MRI.tno as tno
+		FROM meetupreginfo MRI
+		LEFT JOIN meetupinfo MI
+		ON MRI.meetno=MI.meetno
+		LEFT JOIN locationInfo LI
+		ON MRI.tno=LI.tno
+		where groupno=#{groupno}
 	</select>
 
  	<!-- 추가(예약) -->

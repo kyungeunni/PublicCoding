@@ -28,7 +28,7 @@ function timeInfo(){
 	if(httpRequest.readyState=4){
 		if(httpRequest.status==200){
 			$('#span_joined').html(httpRequest.responseText);
-			$('#resImg').attr("src","assets/img/reserve.jpg");
+			$('#resImg').attr("class","btn btn-success btn-block");
 			$('#resImg').css("cursor","pointer");
 		}
 	}

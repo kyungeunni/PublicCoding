@@ -63,7 +63,9 @@ function idcheck() {
 <!-- ////////////////////////////////////////////////////////////////////////////// -->
 </head>
 <body>
+<section>
 
+		<div class="container">
 	<center>
 		<legend class="sumain"></legend>
 
@@ -170,6 +172,8 @@ function idcheck() {
 			</div>
 		</div>
 	</center>
+	</div>
+	</section>
 
 
 </body>

@@ -104,7 +104,9 @@ public class OnoffmixDAO {
     
     public static List<StudyJoinVO> studyjoinAllData(){
     	SqlSession session = ssf.openSession();
+    	System.out.println("DAO 가동....");
     	List<StudyJoinVO> list = session.selectList("studyjoinAllData");
+    	System.out.println("listtttttttt"+list.size());
     	session.close();
     	return list;
     }
@@ -122,25 +124,13 @@ public class OnoffmixDAO {
     	session.close();
     	return list;
     }
-    /*    //예약
-    public static List<ReserveVO> reserveAdminAllData(){
+    
+    
+    public static StudyJoinVO studyjoinData(int groupno){
     	SqlSession session = ssf.openSession();
-    	List<ReserveVO> list = session.selectList("reserveAdminAllData");
+    	StudyJoinVO list = session.selectOne("studyjoinData",groupno);
     	session.close();
     	return list;
-    			
     }
-    
-    public static void reserveInsert(ReserveVO vo){
-    	SqlSession session = ssf.openSession(true);
-    	session.insert("reserveInsert",vo);
-    	session.close();
-    }
-    
-    public static void reserveOkUPdate(int no){
-    	SqlSession session = ssf.openSession(true);
-    	session.update("reserveOkUPdate",no);
-    	session.close();
-    }*/
     
 }

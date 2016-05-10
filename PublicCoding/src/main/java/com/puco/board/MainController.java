@@ -20,6 +20,8 @@ import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.lectures.dao.CourseReplyDAO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
+import com.puco.onoffmix.dao.OnoffmixDAO;
+import com.puco.onoffmix.dao.StudyJoinVO;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
@@ -33,8 +35,8 @@ public class MainController {
 		Map map = new HashMap();
 		map.put("start", 1);
 		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		req.setAttribute("flist", flist);
 		
@@ -45,15 +47,34 @@ public class MainController {
 		int no2 = 2;
 		List<CourseGroupDTO> g2list=CourseGroupDAO.CourseGroupAllData(no2);
 		req.setAttribute("g2list", g2list);
-		
-		// Dcategory 메뉴
-		/*
-		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		 * req.setAttribute("dlist", dlist);
-		 */
-		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
 
+		
+		List<StudyJoinVO> slist= OnoffmixDAO.studyjoinAllData();
+    	Map imgmapmap = new HashMap();
+    	Map mjoinedmap = new HashMap();
+    	Map jnummap = new HashMap();
+    	Map imgmap ;
+    	for(StudyJoinVO vo:slist){
+    		int gno=vo.getGroupno();
+    		List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(gno);
+    		imgmap = new HashMap();
+    		for(Integer m:mjoined){
+        		String temp= QBoardDAO.getimageUrl(m);
+        		imgmap.put(m, temp);  
+        	}
+    		imgmapmap.put(gno, imgmap);
+    		mjoinedmap.put(gno, mjoined);
+    		jnummap.put(gno, mjoined.size());
+    	}
+    	req.setAttribute("imgmapmap", imgmapmap);
+    	req.setAttribute("mjoinedmap", mjoinedmap);
+    	req.setAttribute("jnummap", jnummap);
+    	req.setAttribute("slist", slist);
+		
+		
+		
+		
 		return "common/main.jsp";// jsp파일이름
 
 
@@ -92,17 +113,25 @@ public class MainController {
 		}
 		
 		Map avgMap = new HashMap();
+		Map iavgMap = new HashMap();
 		////////////////////////////////////////////////
 		for(CourseGroupDTO vo:dto){
 			int gno = vo.getGno();
 			System.out.println("여기 "+gno);
 			double avg=CourseReplyDAO.replyPointAvg(gno);
-			System.out.println("CourseGroup Controller : "+avg);
-			avgMap.put(gno, avg);
+			String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+			System.out.println("CourseGroup Controller : "+avrg);
+			avgMap.put(gno, avrg);
+			System.out.println( "평균 반올림>>>>"+avg+"=>"+Math.floor(avg));
+			iavgMap.put(gno, (int)avg );		
 		}
+		
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
 		req.setAttribute("avgMap", avgMap);
+		req.setAttribute("iavgMap", iavgMap);
 		
 		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");

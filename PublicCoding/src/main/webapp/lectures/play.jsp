@@ -92,7 +92,7 @@ $(function(){
 		<div id="main">
 
 			<div class="container">
-				<div class="page-header" style="margin-top: 100px">
+				<div class="page-header" style="margin-top: 40px">
 					<h1 style="font: 20px 맑은 고딕">${firstCname }
 						<!-- <small>Subtext for header</small> -->
 					</h1>
@@ -128,8 +128,8 @@ $(function(){
 										<p>
 										<table class="table">
 											<tr>
-												<td width=50>강의</td>
-												<td width=300>${firstCname }</td>
+												<td class="lstep">강의</td>
+												<td class="lname">${firstCname }</td>
 												<td></td>
 											</tr>
 											<tr>
@@ -150,21 +150,12 @@ $(function(){
 							<div class="col-xs-10 col-sm-5 col-md-5" style="height:450px; overflow:auto">
 								<table class="table">
 									<c:forEach var="i" items="${clist }">
-										<tr>
-											<td width=20><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-											<td width=30>${i.cstep }강</td>
-											<td width=150><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
+										<tr class="ltr">
+											<td class="licon"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
+											<td class="lstep">${i.cstep }강</td>
+											<td class="lname"><a href="?gno=${gno}&cno=${i.cno}" target="_self">${i.cname }</a></td>
 										</tr>
 									</c:forEach>
-							<!-- <tr>
-									<td>
-									<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></td>
-									<td>2강 </td>
-									<td><a href="" target="_self">개발 환경 설정</a></td>
-									
-								</tr>
-								-->
-
 								</table>
 							</div>
 						</c:if>
@@ -430,8 +421,8 @@ $(function(){
 												<div class="row">
 													<div class="col-sm-3">
 														<img
-															src="http://dummyimage.com/60x60/666/ffffff&text=No+Image"
-															class="img-rounded">
+															src="resources/userprofiles/${imagemap[rvo.grename] }"
+															 width="60" height="60"  class="img-rounded">
 														<div class="review-block-name">
 															<a href="#">${rvo.grename }</a>
 														</div>

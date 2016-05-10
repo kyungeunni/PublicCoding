@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -177,5 +176,14 @@ public class MemberDAO {
 		List<ScoreVO> list=session.selectList("getAllPointData",mno);
 		session.close();
 		return list;		
+	}
+	
+	
+	public static String getUserDatabyName(String mid) {
+		SqlSession session = ssf.openSession();
+		System.out.println("userdata>>1");
+		String vo=session.selectOne("getUserDatabyName", mid);
+		session.close();
+		return vo;
 	}
 }

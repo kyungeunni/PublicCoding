@@ -14,6 +14,7 @@ import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.*;
+import com.puco.member.dao.MemberDAO;
 
 @Controller("vc")
 public class LectureController {
@@ -70,17 +71,25 @@ public class LectureController {
 		req.setAttribute("glist", glist);
 		
 		Map avgMap = new HashMap();
+		Map iavgMap = new HashMap();
 		////////////////////////////////////////////////
 		for(CourseGroupDTO vo:glist){
 			int gno = vo.getGno();
 			System.out.println("여기 "+gno);
 			double avg=CourseReplyDAO.replyPointAvg(gno);
-			System.out.println("CourseGroup Controller : "+avg);
-			avgMap.put(gno, avg);
+			String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+			System.out.println("CourseGroup Controller : "+avrg);
+			avgMap.put(gno, avrg);
+			System.out.println( "평균 반올림>>>>"+avg+"=>"+Math.floor(avg));
+			iavgMap.put(gno, (int)avg );		
 		}
+		
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
 		req.setAttribute("avgMap", avgMap);
+		req.setAttribute("iavgMap", iavgMap);
 		
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");		
 		return "common/main.jsp";
@@ -143,8 +152,8 @@ public class LectureController {
 		Map map = new HashMap();										// 강의 연관 게시물 검색
 		map.put("start", 1);
 		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist = FreeBoardDAO.MainFreeData(map);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		
 		
@@ -163,11 +172,23 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
-		   req.setAttribute("replyList", replyList);
+		  
 		   
+		   Map imagemap= new HashMap();
+		
+		   for(CourseReplyDTO dt:replyList){
+			   String mid=dt.getGrename();
+			   String mimge=MemberDAO.getUserDatabyName(mid);
+			   imagemap.put(mid, mimge);
+		   }
+		   req.setAttribute("replyList", replyList);
+		   req.setAttribute("imagemap", imagemap);
 		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
 		   System.out.println("replyPoint worked");
-		   req.setAttribute("grepointAvg", avg);
+		   String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+		   req.setAttribute("grepointAvg", avrg);
 		   
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";
