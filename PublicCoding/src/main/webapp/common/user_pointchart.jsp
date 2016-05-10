@@ -76,11 +76,10 @@
 </head>
 <body>
 	<div id="chart" style="width: 600px; height: 400px; margin-left:30px; float:left;" ></div>
-	<div id="point_table" style="overflow: auto; min-width: 400px; height: 400px; margin: 0; float:right; margin-right:50px;">
+	 <h3 >&nbsp;&nbsp;Á¡¼ö È¹µæ ³»¿ª</h3>
+	<div id="point_table" style="overflow: auto; min-width: 400px; height: 400px; margin: 0;  margin-right:50px; padding-left:20px">
 		<table>
-			<tr>
-			<th colspan="2"> <h3>Á¡¼ö È¹µæ ³»¿ª</h3></th>
-			</tr>
+			
 			<c:forEach var ="vo" items="${scorelist}">
 			<tr>
 				<td width=30%><fmt:formatDate value="${vo.sdate}" pattern=" MM¿ù ddÀÏ" /></td>
