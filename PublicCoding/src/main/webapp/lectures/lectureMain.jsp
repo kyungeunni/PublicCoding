@@ -90,11 +90,15 @@
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 text-center">
+                    <h3>∆Ú¡°</h3>
                         <h1 class="rating-num">${avgMap[g.gno]}</h1>
                         <div class="rating">
-                            <span class="glyphicon glyphicon-star"><i class="fa fa-star" aria-hidden="true"></i></span><span class="glyphicon glyphicon-star">
-                            </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
-                            </span><span class="glyphicon glyphicon-star-empty"></span>
+                        <c:forEach var="i" begin="1" end="${iavgMap[g.gno] }">
+                            <span><font color="yellow"><i class="fa fa-star" aria-hidden="true"></i></font></span>
+                            </c:forEach>
+                             <%-- <c:forEach var="i" begin="${iavgMap[g.gno] }" end ="4">
+                            <span><font color="yellow"><i class="fa fa-star-o" aria-hidden="true"></i></font></span>
+                            </c:forEach> --%>
                         </div>
                     </div>
                     

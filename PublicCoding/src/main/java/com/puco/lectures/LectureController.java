@@ -83,11 +83,13 @@ public class LectureController {
 			System.out.println("CourseGroup Controller : "+avrg);
 			avgMap.put(gno, avrg);
 			System.out.println( "Æò±Õ ¹Ý¿Ã¸²>>>>"+avg+"=>"+Math.floor(avg));
-			iavgMap.put(gno, Math.floor(avg));
+			iavgMap.put(gno, (int)avg );		
 		}
+		
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
 		req.setAttribute("avgMap", avgMap);
+		req.setAttribute("iavgMap", iavgMap);
 		
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");		
 		return "common/main.jsp";
@@ -170,6 +172,8 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
+		  
+		   
 		   Map imagemap= new HashMap();
 		
 		   for(CourseReplyDTO dt:replyList){

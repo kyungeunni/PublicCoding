@@ -113,6 +113,7 @@ public class MainController {
 		}
 		
 		Map avgMap = new HashMap();
+		Map iavgMap = new HashMap();
 		////////////////////////////////////////////////
 		for(CourseGroupDTO vo:dto){
 			int gno = vo.getGno();
@@ -123,10 +124,14 @@ public class MainController {
 			avrg=avrg.substring(0, avrg.indexOf('.')+2);
 			System.out.println("CourseGroup Controller : "+avrg);
 			avgMap.put(gno, avrg);
+			System.out.println( "Æò±Õ ¹Ý¿Ã¸²>>>>"+avg+"=>"+Math.floor(avg));
+			iavgMap.put(gno, (int)avg );		
 		}
+		
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
 		req.setAttribute("avgMap", avgMap);
+		req.setAttribute("iavgMap", iavgMap);
 		
 		req.setAttribute("glist", dto);
 		req.setAttribute("jsp", "../lectures/lectureMain.jsp");
