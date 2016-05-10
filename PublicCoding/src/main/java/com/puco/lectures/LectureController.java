@@ -76,8 +76,11 @@ public class LectureController {
 			int gno = vo.getGno();
 			System.out.println("여기 "+gno);
 			double avg=CourseReplyDAO.replyPointAvg(gno);
-			System.out.println("CourseGroup Controller : "+avg);
-			avgMap.put(gno, avg);
+			String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+			System.out.println("CourseGroup Controller : "+avrg);
+			avgMap.put(gno, avrg);
 		}
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
@@ -175,7 +178,10 @@ public class LectureController {
 		   req.setAttribute("imagemap", imagemap);
 		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
 		   System.out.println("replyPoint worked");
-		   req.setAttribute("grepointAvg", avg);
+		   String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+		   req.setAttribute("grepointAvg", avrg);
 		   
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";

@@ -63,6 +63,7 @@ public class MemberController {
 		List<String> tags = new ArrayList<String>();
 		while(st.hasMoreTokens()){
 			String t = st.nextToken();
+			System.out.println(t);
 			String tag = MemberDAO.getTagName(Integer.parseInt(t));
 			tags.add(tag);
 		}
@@ -130,7 +131,10 @@ public class MemberController {
 	    String mno=mr.getParameter("mno");
 	     System.out.println(mno);
 	    String tags= mr.getParameter("taglist");
-	    
+	    if(tags.equals("")){
+	    	tags="1";
+	    }
+	
 	    String filename=mr.getOriginalFileName("upload");
 	    MemberDTO info=MemberDAO.userdata(Integer.parseInt(mno));
 	    MemberDTO d=new MemberDTO();
