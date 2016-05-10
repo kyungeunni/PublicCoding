@@ -15,9 +15,9 @@
 <!-- <link href="assets/css/hyun/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/hyun/shop-homepage.css" rel="stylesheet"> -->
 </head>
-<body style="background-color: #1c1d26;height: 100%">
+<body style="background-color: #1c1d26; height: 100%">
 	<section>
-		<article style="background-color: #1c1d26;height: 100%;width: 350px">
+		<article style="background-color: #1c1d26; height: 100%; width: 350px">
 			<div class="container" style="width: 100%">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
@@ -26,9 +26,9 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion" href="#collapse${d.dno}">
-											<c:if test="${d.dno == 1 }">
-												<i class="fa fa-code"></i>${d.dname }</a>
+											<a data-toggle="collapse" data-parent="#accordion"
+												href="#collapse${d.dno}"> <c:if test="${d.dno == 1 }">
+													<i class="fa fa-code"></i>${d.dname }</a>
 											</c:if>
 											<c:if test="${d.dno == 2 }">
 												<i class="fa fa-database"></i>${d.dname }</a>
@@ -61,56 +61,61 @@
 			</div>
 		</article>
 
-		<article style="background-color: #1c1d26;height: 100%">
+		<article style="background-color: #1c1d26; height: 100%">
 			<div class="textte">
-				<span> <!-- 썸내일 시작 -->
-					<c:set var="celi" value="${fn:length(glist)/4}"></c:set>
-					<c:set var="celi_ok" value="${celi+(1-(celi%1))%1}"></c:set>
-					<c:forEach var="i" begin="1" end="${celi_ok}">
+				<span> <!-- 썸내일 시작 --> <c:set var="celi"
+						value="${fn:length(glist)/4}"></c:set> <c:set var="celi_ok"
+						value="${celi+(1-(celi%1))%1}"></c:set> <c:forEach var="i"
+						begin="1" end="${celi_ok}">
+
 						<div class="row">
-							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }" items="${glist}">
+							<c:forEach var="g" begin="${(i*4)-4}" end="${(i*4)-1 }"
+								items="${glist}">
 								<div class="col-sm-3 col-lg-3 col-md-3">
 									<div class="thumbnail hthumbnail">
 										<div class="tumbnailb">
+
 											<div>
-												<a href="play.do?gno=${g.gno }">
-												<img src="${g.gimageurl}" style="width: 90%;"></a>
+												<a href="play.do?gno=${g.gno }"> <img
+													src="${g.gimageurl}" style="width: 90%;"></a>
 											</div>
- 											
-  										</div>
+
+										</div>
 										<div class="caption">
 											<br> <br>
 											<h4 class="nowrap">
-												<a href="play.do?gno=${g.gno }" style="color: red;">강의명: ${g.gname }</a>
+												<a href="play.do?gno=${g.gno }" style="color: red;">강의명:
+													${g.gname }</a>
 											</h4>
 											<h5>총 강의수 : ${g.totalcno }강</h5>
 											</p>
-											<!-- rgb(171,164,234) -->
 										</div>
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-xs-12 col-md-6 text-center">
-                    <h3>평점</h3>
-                        <h1 class="rating-num">${avgMap[g.gno]}</h1>
-                        <div class="rating">
-                        <c:forEach var="i" begin="1" end="${iavgMap[g.gno] }">
-                            <span><font color="yellow"><i class="fa fa-star" aria-hidden="true"></i></font></span>
-                            </c:forEach>
-                             <%-- <c:forEach var="i" begin="${iavgMap[g.gno] }" end ="4">
-                            <span><font color="yellow"><i class="fa fa-star-o" aria-hidden="true"></i></font></span>
-                            </c:forEach> --%>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xs-12 col-md-6">
-                        <div class="row rating-desc">
-                        
-                            
-                        </div>
-                        <!-- end row -->
-                    </div>
-                </div>
-            </div>
+										<div class="well well-sm">
+											<div class="row">
+												<div class="col-xs-12 text-center">
+
+													<h3>평점</h3>
+
+													<h1 class="rating-num">${avgMap[g.gno]}</h1>
+													<div class="rating">
+														<c:forEach var="i" begin="1" end="${iavgMap[g.gno] }">
+															<span><font color="black"><i
+																	class="fa fa-star" aria-hidden="true"></i></font></span>
+														</c:forEach>
+
+														<c:forEach var="i" begin="${iavgMap[g.gno] }" end="4">
+															<span><font color="black"><i
+																	class="fa fa-star-o" aria-hidden="true"></i></font></span>
+														</c:forEach>
+													</div>
+												</div>
+
+												<div class="col-xs-12 col-md-6">
+													<div class="row rating-desc"></div>
+													<!-- end row -->
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</c:forEach>
