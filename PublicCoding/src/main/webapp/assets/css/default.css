@@ -16,8 +16,8 @@ article { float:left; height:auto;}
 article:nth-child(1) { width:55%; height:50vh; background:#ff0000;}
 article:nth-child(2) { width:45%; height:30vh; background:#ffffff}
 article:nth-child(3) { width:45%; height:30vh; background:#ff0080;}
-article:nth-child(4) { width:55%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:45%; height:30vh; background:#0000ff;}
+article:nth-child(4) { width:55%; height:30vh; }
+article:nth-child(5) { width:45%; height:30vh; }
 article:nth-child(6) { width:100%; height:8vh; background:#888;}
 
 

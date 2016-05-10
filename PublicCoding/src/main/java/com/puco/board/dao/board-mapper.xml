@@ -173,7 +173,6 @@
 		#{rcontent},#{bno}, #{mno})
 	</insert>
 
-	<!-- main -->
 	<select id="getMainQnaData" resultType="Qboard" >
 		SELECT bsubject,MB.Mno as mno, MT.mid as userid,T1.tgName as tag1,bno
 		FROM (SELECT bno,bsubject,mno,tgno1,num FROM
@@ -190,6 +189,7 @@
 		order by bno desc
 	</select>
 	
+
 		<select id="getMainFreeData" resultType="FBoard" >
 	  SELECT bsubject,MB.Mno as mno, MT.mid as userid,T1.tgName as tag1,bno
 		FROM (SELECT bno,bsubject,mno,tgno1,num FROM

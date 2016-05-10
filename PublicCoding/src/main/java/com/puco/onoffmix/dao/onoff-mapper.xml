@@ -56,7 +56,7 @@
 	SELECT NVL(MAX(groupno)+1,1) FROM meetupreginfo
 	</select>
 	<select id="getGroupNo" resultType="int" parameterType="java.util.Map">
-		SELECT groupno FROM meetupreginfo
+		SELECT distinct groupno FROM meetupreginfo
 		WHERE meetno =#{meetno }	
 		AND meetdate =#{meetdate}
 		AND meettime =#{meettime }
@@ -84,7 +84,7 @@
 	</select>
 	
 	<!-- 스터디목록(출력) -->
-	<select id="studyjoinAllData" resultType="StudyJoin" >
+	<select id="studyjoinAllData" resultType="StudyJoin">
 		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
 		FROM meetupreginfo MRI
 		LEFT JOIN meetupinfo MI

@@ -92,7 +92,7 @@ $(function(){
 		<div id="main">
 
 			<div class="container">
-				<div class="page-header" style="margin-top: 100px">
+				<div class="page-header" style="margin-top: 40px">
 					<h1 style="font: 20px 맑은 고딕">${firstCname }
 						<!-- <small>Subtext for header</small> -->
 					</h1>
@@ -431,8 +431,8 @@ $(function(){
 												<div class="row">
 													<div class="col-sm-3">
 														<img
-															src="http://dummyimage.com/60x60/666/ffffff&text=No+Image"
-															class="img-rounded">
+															src="resources/userprofiles/${imagemap[rvo.grename] }"
+															 width="60" height="60"  class="img-rounded">
 														<div class="review-block-name">
 															<a href="#">${rvo.grename }</a>
 														</div>

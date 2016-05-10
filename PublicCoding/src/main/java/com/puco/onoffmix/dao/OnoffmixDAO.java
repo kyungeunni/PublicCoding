@@ -104,7 +104,9 @@ public class OnoffmixDAO {
     
     public static List<StudyJoinVO> studyjoinAllData(){
     	SqlSession session = ssf.openSession();
+    	System.out.println("DAO °¡µ¿....");
     	List<StudyJoinVO> list = session.selectList("studyjoinAllData");
+    	System.out.println("listtttttttt"+list.size());
     	session.close();
     	return list;
     }

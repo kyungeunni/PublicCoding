@@ -95,8 +95,11 @@ public class MainController {
 			int gno = vo.getGno();
 			System.out.println("¿©±â "+gno);
 			double avg=CourseReplyDAO.replyPointAvg(gno);
-			System.out.println("CourseGroup Controller : "+avg);
-			avgMap.put(gno, avg);
+			String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+			System.out.println("CourseGroup Controller : "+avrg);
+			avgMap.put(gno, avrg);
 		}
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());

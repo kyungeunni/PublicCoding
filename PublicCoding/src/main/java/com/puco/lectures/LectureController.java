@@ -14,6 +14,7 @@ import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.*;
+import com.puco.member.dao.MemberDAO;
 
 @Controller("vc")
 public class LectureController {
@@ -75,8 +76,11 @@ public class LectureController {
 			int gno = vo.getGno();
 			System.out.println("여기 "+gno);
 			double avg=CourseReplyDAO.replyPointAvg(gno);
-			System.out.println("CourseGroup Controller : "+avg);
-			avgMap.put(gno, avg);
+			String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+			System.out.println("CourseGroup Controller : "+avrg);
+			avgMap.put(gno, avrg);
 		}
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());
@@ -163,11 +167,21 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
+		   Map imagemap= new HashMap();
+		
+		   for(CourseReplyDTO dt:replyList){
+			   String mid=dt.getGrename();
+			   String mimge=MemberDAO.getUserDatabyName(mid);
+			   imagemap.put(mid, mimge);
+		   }
 		   req.setAttribute("replyList", replyList);
-		   
+		   req.setAttribute("imagemap", imagemap);
 		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
 		   System.out.println("replyPoint worked");
-		   req.setAttribute("grepointAvg", avg);
+		   String avrg = String.valueOf(avg);
+			if(avrg.length()>4);
+			avrg=avrg.substring(0, avrg.indexOf('.')+2);
+		   req.setAttribute("grepointAvg", avrg);
 		   
 		req.setAttribute("jsp", "../lectures/play.jsp");
 		return "common/main.jsp";

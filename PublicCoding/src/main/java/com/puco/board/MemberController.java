@@ -64,6 +64,7 @@ public class MemberController {
 		List<String> tags = new ArrayList<String>();
 		while(st.hasMoreTokens()){
 			String t = st.nextToken();
+			System.out.println(t);
 			String tag = MemberDAO.getTagName(Integer.parseInt(t));
 			tags.add(tag);
 		}
