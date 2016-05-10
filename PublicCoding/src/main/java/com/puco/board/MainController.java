@@ -30,11 +30,9 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String Main(HttpServletRequest req) {
-		Map map = new HashMap();
-		map.put("start", 1);
-		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		req.setAttribute("flist", flist);
 		

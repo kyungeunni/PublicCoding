@@ -161,7 +161,9 @@ public class OnOffController {
         	map.put("meetdate",day);
         	map.put("meettime",time);
         	map.put("tno", tno);
+        	System.out.println("실행???");
         	int temp= OnoffmixDAO.getGroupNo(map);
+        	System.out.println("실행???2");
         	System.out.println(temp);
         	vo.setGroupno(temp);
     	}
@@ -170,8 +172,9 @@ public class OnOffController {
     	vo.setMeetdate(day);
     	vo.setTno(Integer.parseInt(tno));
     	vo.setMeetno(Integer.parseInt(meetno));
-    	System.out.println();
+    	System.out.println("ㅁㄴㅇㅁㅇㅁ");
     	OnoffmixDAO.studyjoin(vo);
+    	System.out.println("실행???4");
     	/*
     	//List<ReserveVO> list=MovieDAO.reserveUserAllData(id);
     	//req.setAttribute("list", list);

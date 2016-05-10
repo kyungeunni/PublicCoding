@@ -13,19 +13,26 @@ table { table-layout: fixed}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:100%; height:40vh; background:#a9d8be;}
-article:nth-child(2) { width:87%; height:10vh; background:#ffffff;  margin-left: 100px;}
+article:nth-child(1) { width:40%; height:87vh; background:#ffffff;}
+article:nth-child(2) { width:60%; height:11vh; background:#ffffff; margin-top: 49px;}
 article:nth-child(3) { width:19%; height:76vh; background:#ffffff; text-align: "center"; margin-bottom: 5px; margin-right: 5px;}
-article:nth-child(4) { width:19%; height:76vh; background:#ffffff; text-align: "center"; margin-bottom: 5px; margin-right: 5px;}article:nth-child(5) { width:30%; height:38vh; background:#ffffff; text-align: "center";}
-article:nth-child(6) { width:100%; height:8vh; background:#888;}
+article:nth-child(4) { width:19%; height:76vh; background:#ffffff; text-align: "center"; margin-bottom: 5px; margin-right: 5px;}
+article:nth-child(5) { width:19%; height:76vh; background:#ffffff; text-align: "center";  margin-bottom: 5px;}
+article:nth-child(6) { width:100%; height:4vh; background:#c0c0c0; text-align: "center";}
+.CodeMirror-simplescroll-vertical div {
+    background: #FB0000;
+}
 
-
+.btn-primary {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;}
 
 @keyframes scale {
 	0% { transform:scale(0); }	
 	100% { transform:scale(1); }
 }
-article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
+article>div { position:relative; width:100%; height:100%; overflow:hidden;}
 
 /* header 컨텐츠 */
 header h1 { width:400px; height:136px; background-size:contain; position:absolute; top:5px;	left:20px; font-size:20pt;}
@@ -46,27 +53,194 @@ header h1 a:hover{color:#e44b66; text-decoration: none}
 nav a:hover {color:#1c1d26;}
 nav a:nth-child(1) {	position:absolute; right:150px;}
 nav a:nth-child(2) {	position:absolute; right:10px;}
-article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
+article>div { position:relative; width:100%; height:100%; overflow:hidden; }
+
+.photo img{height:18vh;}
 
 /* login css */
 .joinok a{color:#ffffff;}
 .logininok a{color:#ffffff;}
 
+/* Main QnAboard */
+.h3m {background-color: black; color:#ffffff; height:4vh; margin-top: -6px;}
+.h3n {margin-top: -5px; padding-top: 7px;}
 
-/* board */
+#col-line1 {width:34%; text-align: left;}
+#table-size{margin-left: 20px;}
 
-#qnaboard th.no{width:10%;}
-#qnaboard th.title{width:20%;} 
-#qnaboard th.id{width:10%;}  
+#qnaboard thead{width:100%;}
+#qnaboard tbody{width:100%;}
+
+#qnaboard .qtr{width:100%;}
+#qnaboard .tag{width:20%;}
+#qnaboard .title{width:55%;}
+#qnaboard .id{width:25%;}  
+
+#qnaboard .qtr1{width:100%;}
+#qnaboard .tag1{width:20%; background: #1abc9c; border-radius: 2px; color: #f5f5f5; font-weight: bold;}
+#qnaboard .title1{width:55%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+#qnaboard .id1{width:30%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}  
+
+#qnaboard a{color:black;}
+#qnaboard .qtr a:HOVER{color:#1abc9c; text-decoration: none;}
+#qnaboard .qtr:HOVER{background-color: #black;}
+
+/* Main freeboard */
+#col-line2 {width:34%; text-align: left;}
+#fboard th{width:100%;}
+#fboard th.title2{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard th.id2{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+
+#fboard th.title3{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard th.id3{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+
+  
+#fboard a{color:black;}
+#fboard .ftr a:HOVER{color:#ffffff; text-decoration: none;}
+#fboard .ftr:HOVER{background-color:#1abc9c;}
 
 
 
 
 
+#mainc {width:80%; margin-top: 50px;}
+.caption h4{white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
+    
+.btn:hover{color:#e44b66;}
+
+.control-box {margin-top:10px;}
+.prev {margin-right: 30px;}
+
+.info h4{white-space: nowrap;
+    OVERFLOW: HIDDEN;
+    TEXT-OVERFLOW: ellipsis;
+    font: bold;}
+
+.form-control{ width:95%;}
+
+h3.h3class {
+    padding-top: 5px;
+}
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+    
+}
+
+.col-item:hover .info {
+    background-color: #337ab7;
+    color:#ffffff;
+}
+.col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.rating i:HOVER
+{
+    color: #ffffff;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
 
 
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
 
+.clear-left
+{
+    clear: left;
+}
 
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.controls
+{
+    margin-top: 20px;
+}
+[data-slide="prev"]
+{
+    margin-right: 10px;
+}
+.separator btn-add{color:black;}
+.separator btn-add:HOVER{color:#ffffff;}
+
+.separator btn-details{color:black;}
+.separator btn-details:HOVER{color:#ffffff;}
 
 @media screen and (min-width:1280px) {  
 	

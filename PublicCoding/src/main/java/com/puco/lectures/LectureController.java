@@ -143,8 +143,8 @@ public class LectureController {
 		Map map = new HashMap();										// 강의 연관 게시물 검색
 		map.put("start", 1);
 		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		
 		
