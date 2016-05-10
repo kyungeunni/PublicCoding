@@ -54,12 +54,12 @@
 			
 			//태그 값 저장
 			$('#taglist').val($("#tags").val());
-			alert("taglist>>"+$('#taglist').val());
+			
 			var title=$('#title').val();
 			if(title.trim()=="")
 			{
 				$('#title').focus();
-				alert("2");
+				
 				return;
 			}
 			alert(1);

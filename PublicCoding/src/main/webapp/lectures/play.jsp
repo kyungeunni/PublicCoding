@@ -44,7 +44,7 @@
 $(function(){
 	$('#replyBtn').click(function(){
 		var checkedValue=$("input[type=radio][name=grepoint]:checked").val();
-		alert(checkedValue);
+		
 		
 		var rd=$('#reply_data').val();
 		if(rd.trim()=="")
