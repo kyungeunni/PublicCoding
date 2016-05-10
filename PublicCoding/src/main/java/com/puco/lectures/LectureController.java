@@ -71,6 +71,7 @@ public class LectureController {
 		req.setAttribute("glist", glist);
 		
 		Map avgMap = new HashMap();
+		Map iavgMap = new HashMap();
 		////////////////////////////////////////////////
 		for(CourseGroupDTO vo:glist){
 			int gno = vo.getGno();
@@ -81,6 +82,8 @@ public class LectureController {
 			avrg=avrg.substring(0, avrg.indexOf('.')+2);
 			System.out.println("CourseGroup Controller : "+avrg);
 			avgMap.put(gno, avrg);
+			System.out.println( "Æò±Õ ¹Ý¿Ã¸²>>>>"+avg+"=>"+Math.floor(avg));
+			iavgMap.put(gno, Math.floor(avg));
 		}
 		////////////////////////////////////////////////
 		System.out.println(avgMap.size());

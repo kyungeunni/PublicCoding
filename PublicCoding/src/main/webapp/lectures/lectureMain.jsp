@@ -92,12 +92,9 @@
                     <div class="col-xs-12 col-md-6 text-center">
                         <h1 class="rating-num">${avgMap[g.gno]}</h1>
                         <div class="rating">
-                            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                            <span class="glyphicon glyphicon-star"><i class="fa fa-star" aria-hidden="true"></i></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
-                        <div>
-                            <span class="glyphicon glyphicon-user"></span>1,050,008 total
                         </div>
                     </div>
                     
