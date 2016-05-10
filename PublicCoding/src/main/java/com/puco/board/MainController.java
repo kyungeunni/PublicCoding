@@ -154,6 +154,8 @@ public class MainController {
 		for (QnaBoardVO v : list) {
 			reltmap.put(v.getBno(), p.format(v.getBdate()));
 		}
+		
+		
 		int totalpage = QBoardDAO.BoardTotalPage();
 		req.setAttribute("curpage", curpage);
 		req.setAttribute("list", list);
