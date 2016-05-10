@@ -132,7 +132,10 @@ public class MemberController {
 	    String mno=mr.getParameter("mno");
 	     System.out.println(mno);
 	    String tags= mr.getParameter("taglist");
-	    
+	    if(tags.equals("")){
+	    	tags="1";
+	    }
+	
 	    String filename=mr.getOriginalFileName("upload");
 	    MemberDTO info=MemberDAO.userdata(Integer.parseInt(mno));
 	    MemberDTO d=new MemberDTO();
