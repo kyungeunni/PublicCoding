@@ -183,6 +183,7 @@ public class OnOffController {
     public String studylist(HttpServletRequest req)
     {	System.out.println("...........start studylist");
     	List<StudyJoinVO> list= OnoffmixDAO.studyjoinAllData();
+    	System.out.println("...........start studylist2");
     	Map imgmapmap = new HashMap();
     	Map mjoinedmap = new HashMap();
     	Map jnummap = new HashMap();
