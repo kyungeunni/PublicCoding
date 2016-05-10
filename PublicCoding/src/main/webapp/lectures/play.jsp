@@ -199,9 +199,8 @@ $(function(){
 
 							<div role="tabpanel" class="tab-pane" id="profile">
 								<p>
-								<h5>강의 리뷰</h5>
-								</p>
-								<%-- <jsp:include page="${review.jsp }"></jsp:include> --%>
+								<h5>강의 평가</h5>
+							
 								<div class="container">
 
 									<div class="row">
@@ -428,7 +427,7 @@ $(function(){
 															<a href="#">${rvo.grename }</a>
 														</div>
 														<div class="review-block-date">
-															${rvo.gredate }<br />${rvo.dbday }
+															${rvo.gredate }<br/>${rvo.dbday }
 														</div>
 													</div>
 													
@@ -589,9 +588,9 @@ $(function(){
 										<p>
 										<table class="table">
 											<tr>
-												<th>사이트명</th>
-												<th>링크</th>
-												<th>종류</th>
+												<th width=100>사이트명</th>
+												<th width=200>링크</th>
+												<th width=200>종류</th>
 											</tr>
 											<tr>
 												<td>JSFiddle</td>
