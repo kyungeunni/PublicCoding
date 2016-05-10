@@ -17,54 +17,40 @@
 </head>
 <body>
 		<!-- Main -->
-
 		<div class="container">
 			<div class="major" id="boardlistmajor">
 				<div id="pucoof"><h2>PUCO Overflow</h2></div>
 				<div  id="btnqst">
-										<c:if test="${sessionScope.id!=null }">
-										<h5 ><a href="question.do" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
-										</c:if>
-										
-										<c:if test="${sessionScope.id==null }">
-										<h5 ><a href="#"  data-toggle="modal" data-target="#login"  id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
-										</c:if>
-								</div>
+					<c:if test="${sessionScope.id!=null }">
+					<h5 ><a href="question.do" id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+					</c:if>
+					<c:if test="${sessionScope.id==null }">
+					<h5 ><a href="#"  data-toggle="modal" data-target="#login"  id="asking"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>질문하기</a></h5>
+					</c:if>
+				</div>
 			</div>
-			
-
 			<!-- Content -->
 			<div id="content" class="snippet-hidden">
-
-
 				<!-- 추가 -->
 				<div id="mainbar" style="display: inline;">
 					<header class="subheader">
 						<h1 id="h-top-questions">Top Questions</h1>
 						<div id="tabs">
-							<a href="?order=1" data-nav-xhref=""
+							<a href="?order=1&value=${value}" data-nav-xhref=""
 								title="Questions that may be of interest to you based on your history and tag preference"
 								data-value="interesting"
-								<c:if test="${order==1}">class="youarehere"</c:if> > 최신등록</a> <a href="?order=2"
+								<c:if test="${order==1}">class="youarehere"</c:if> > 최신등록</a> <a href="?order=2&value=${value}"
 								data-nav-xhref="" title="Questions with an active bounty"
 								data-value="featured" <c:if test="${order==2}">class="youarehere"</c:if>> 
 								높은조회수
-							</a> <a href="?order=3" data-nav-xhref=""
+							</a> <a href="?order=3&value=${value}" data-nav-xhref=""
 								title="Questions with the most views, answers, and votes over the last few days"
 								data-value="week" <c:if test="${order==3}">class="youarehere"</c:if>>인기답변 </a> 
-
 						</div>
 					</header>
-
-
 					<div id="qlist-wrapper">
 						<div id="question-mini-list">
-
-
 							<c:forEach var="d" items="${ list }">
-
-
-
 								<div class="question-summary narrow">
 									<!-- 카운트,뷰,보트 영역 -->
 									<div
@@ -76,7 +62,6 @@
 											</div>
 											<div>votes</div>
 										</div>
-										
 										<div class="status  <c:if test="${d.answer>0}">answered</c:if>">
 											<div class="mini-counts">
 												<span title="${d.answer } answers">${d.answer }</span>
@@ -92,6 +77,7 @@
 									</div>
 
 									<!-- 질문과 시간영역 -->
+
 									<div class="summary">
 										<h3>
 											<a href="content.do?no=${d.bno }&page=${curpage}" class="question-hyperlink">${d.bsubject }
@@ -110,10 +96,7 @@
 											<a href="taglist.do?value=${d.tag3}" class="post-tag"
 												title="show questions tagged &#39;${d.tag3}&#39;" rel="tag">${d.tag3}</a>
 												</c:if>
-											
 										</div>
-
-										
 										<div class="started">
 											<a
 												href="content.do?no=${d.bno }"
@@ -129,11 +112,11 @@
 
 						</div>
 						<div class="col-sm-offset-3 col-sm-8">
-						
-							<a href="qnaboard.do?page=${curpage>1?curpage-1:curpage }&order=${order}"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
-			          ${curpage } page / ${totalpage } pages<a href="qnaboard.do?page=${curpage<totalpage?curpage+1:curpage }&order=${order}">
-			          <i class="fa fa-chevron-circle-right" aria-hidden="true">다음페이지</i></a><br>
+							<a href="taglist.do?page=${curpage>1?curpage-1:curpage }&order=${order}&value=${value}"><i class="fa fa-chevron-circle-left" aria-hidden="true">이전페이지</i></a>&nbsp;
+			          ${curpage } page / ${totalpage } pages<a href="taglist.do?page=${curpage<totalpage?curpage+1:curpage }&order=${order}&value=${value}">
+			          		<i class="fa fa-chevron-circle-right" aria-hidden="true">다음페이지</i></a><br>
 						</div>
+						
 					</div>
 				</div>
 				<div id="sidebar" style="width: 300px">
@@ -159,20 +142,10 @@
 							</li>
 							</c:forEach>
 						</ul>
-
-
 					</div>
 				</div>
-
 			</div>
-
-
 		</div>
-		
-
-
-
-
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/jquery.scrolly.min.js"></script>
 	<script src="../assets/js/jquery.dropotron.min.js"></script>
@@ -182,9 +155,6 @@
 	<script src="../assets/js/modal.js"></script>
 	<!-- 회원가입/로그인 팝업창 띄우기 -->
 	<script src="../assets/js/popup.js"></script>
-
-
-
 	<script type="text/javascript">
 		$(function() {
 			$(".dropdown").hover(function() {
@@ -209,8 +179,5 @@
 			});
 		});
 	</script>
-
-
-
 </body>
 </html>

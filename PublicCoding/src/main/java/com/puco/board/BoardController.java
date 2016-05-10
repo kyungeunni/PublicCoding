@@ -20,7 +20,54 @@ import java.util.*;
 
 @Controller("bc")
 public class BoardController {
+	@RequestMapping("taglist.do")
+	public String boardTagData(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		String value=req.getParameter("value");
+		String page = req.getParameter("page");
+		String order = req.getParameter("order");
+		PrettyTime p = new PrettyTime(new Locale("KO"));
+		Map reltmap = new HashMap();
+		if (page == null)
+			page = "1";
+		if (order == null)
+			order = "1";
+		
+		int tgno=QBoardDAO.boardTagNum(value);
+		int curpage = Integer.parseInt(page);
+		int rowSize = 10;
+		int start = (curpage * rowSize) - (rowSize - 1);
+		int end = curpage * rowSize;
+		Map map = new HashMap();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("tgno",tgno);
+		
+		List<QnaBoardVO> list = QBoardDAO.boardTagData(map, Integer.parseInt(order));
+		for (QnaBoardVO v : list) {
+			reltmap.put(v.getBno(), p.format(v.getBdate()));
+		}
+		List<DcategoryDTO> dlist = DcategoryDAO.DcategoryAllData();
 
+		int totalpage = QBoardDAO.tagRowCount(tgno);
+		req.setAttribute("value", value);
+		req.setAttribute("order", order);
+		req.setAttribute("dlist", dlist);
+		req.setAttribute("curpage", curpage);
+		req.setAttribute("list", list);
+		req.setAttribute("totalpage", totalpage);
+		req.setAttribute("rtime", reltmap);
+		req.setAttribute("jsp", "../board/boardtagmain.jsp");
+/////////////////////////NewsList추가//////////////////////////////
+		String title=req.getParameter("title");
+		if(title==null){
+		title="구글";
+		}
+		List<Item> newslist=NewsDAO.newsAllData(title);
+		req.setAttribute("newslist", newslist);
+		req.setAttribute("search", title);
+		return "common/main.jsp";
+	}
 	@RequestMapping("qnaboard.do")
 	public String boardListData(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
