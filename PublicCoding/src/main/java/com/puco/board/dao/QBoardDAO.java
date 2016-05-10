@@ -126,9 +126,9 @@ public class QBoardDAO {
 		
 	}
 
-	public static List<QnaBoardVO> MainAllData(Map map) {
+	public static List<QnaBoardVO> MainAllData() {
 		SqlSession session = ssf.openSession();
-		List<QnaBoardVO> list = session.selectList("getMainQnaData", map);		
+		List<QnaBoardVO> list = session.selectList("getMainQnaData");		
 		System.out.println(1);
 		session.close();
 		System.out.println(list.size());

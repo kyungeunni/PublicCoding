@@ -24,6 +24,14 @@
 		WHERE mno=#{mno}
 
 	</select>
+	
+		<select id="getUserDatabyName" resultType="String" parameterType="String">
+		SELECT mimageurl
+		FROM
+		pucoMember
+		WHERE mid=#{mid}
+
+	</select>
 
 	<select id="getUserSCore" resultType="int" parameterType="int">
 		SELECT

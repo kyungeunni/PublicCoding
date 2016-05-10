@@ -174,30 +174,34 @@
 	</insert>
 
 	<!-- main -->
-	<select id="getMainQnaData" resultType="Qboard" parameterType="java.util.Map">
-		SELECT bsubject,MB.Mno as mno, MT.mid as userid,bno
-		FROM (SELECT bno,bsubject,mno,num FROM
-		(SELECT bno,bsubject,mno,rownum as num
-		FROM(SELECT bno,bsubject,mno
+	<select id="getMainQnaData" resultType="Qboard" >
+		SELECT bsubject,MB.Mno as mno, MT.mid as userid,T1.tgName as tag1,bno
+		FROM (SELECT bno,bsubject,mno,tgno1,num FROM
+		(SELECT bno,bsubject,mno,tgno1,rownum as num
+		FROM(SELECT bno,bsubject,mno,tgno1
 		FROM mainboard
 		WHERE BTno=1
-		ORDER BY bno DESC))
-		WHERE num BETWEEN #{start} AND #{end}) MB
+		ORDER BY bno DESC))) MB
+		LEFT JOIN
+		tag t1
+		on T1.tgno = mb.tgno1
 		LEFT JOIN pucomember MT
 		on MT.mno =mb.mno
 		order by bno desc
-		
 	</select>
 	
-		<select id="getMainFreeData" resultType="FBoard" parameterType="java.util.Map">
-	  SELECT bno,bsubject,MB.Mno as mno,MT.mid as userid
-		FROM (SELECT bno,bsubject,mno,num FROM
-		(SELECT bno,bsubject,mno,rownum as num
-		FROM(SELECT bno,bsubject,mno
-		FROM mainboard 
+	
+		<select id="getMainFreeData" resultType="FBoard" >
+	  SELECT bsubject,MB.Mno as mno, MT.mid as userid,T1.tgName as tag1,bno
+		FROM (SELECT bno,bsubject,mno,tgno1,num FROM
+		(SELECT bno,bsubject,mno,tgno1,rownum as num
+		FROM(SELECT bno,bsubject,mno,tgno1
+		FROM mainboard
 		WHERE BTno=2
-		ORDER BY bno DESC))
-		WHERE num BETWEEN #{start} AND #{end}) MB
+		ORDER BY bno DESC))) MB
+		LEFT JOIN
+		tag t1
+		on T1.tgno = mb.tgno1
 		LEFT JOIN pucomember MT
 		on MT.mno =mb.mno
 		order by bno desc

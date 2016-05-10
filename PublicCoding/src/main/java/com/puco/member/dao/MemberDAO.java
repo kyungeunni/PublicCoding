@@ -178,4 +178,13 @@ public class MemberDAO {
 		session.close();
 		return list;		
 	}
+	
+	
+	public static String getUserDatabyName(String mid) {
+		SqlSession session = ssf.openSession();
+		System.out.println("userdata>>1");
+		String vo=session.selectOne("getUserDatabyName", mid);
+		session.close();
+		return vo;
+	}
 }

@@ -13,11 +13,11 @@ table { table-layout: fixed}
 header { position:fixed; width:15%; height:100%; background:#1c1d26; top:0px; left:0px;}
 section { width:85%; position:relative; margin-left:15%;}
 article { float:left; height:auto;}
-article:nth-child(1) { width:55%; height:60vh; background:#ff0000;}
+article:nth-child(1) { width:55%; height:50vh; background:#ff0000;}
 article:nth-child(2) { width:45%; height:30vh; background:#ffffff}
 article:nth-child(3) { width:45%; height:30vh; background:#ff0080;}
-article:nth-child(4) { width:55%; height:30vh; background:#ccc;}
-article:nth-child(5) { width:45%; height:30vh; background:#0000ff;}
+article:nth-child(4) { width:55%; height:30vh; }
+article:nth-child(5) { width:45%; height:30vh; }
 article:nth-child(6) { width:100%; height:8vh; background:#888;}
 
 
@@ -188,7 +188,4 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 	
 	article:nth-child(1) span { display:none;}
 }
-
-
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
+s

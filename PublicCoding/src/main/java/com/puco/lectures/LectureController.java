@@ -14,6 +14,7 @@ import com.puco.category.dao.*;
 import com.puco.controller.Controller;
 import com.puco.controller.RequestMapping;
 import com.puco.lectures.dao.*;
+import com.puco.member.dao.MemberDAO;
 
 @Controller("vc")
 public class LectureController {
@@ -143,8 +144,8 @@ public class LectureController {
 		Map map = new HashMap();										// 강의 연관 게시물 검색
 		map.put("start", 1);
 		map.put("end", 10);
-		List<QnaBoardVO> list = QBoardDAO.MainAllData(map);
-		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData(map);
+		List<QnaBoardVO> list = QBoardDAO.MainAllData();
+		List<FreeBoardVO> flist=FreeBoardDAO.MainFreeData();
 		req.setAttribute("qlist", list);
 		
 		
@@ -163,8 +164,15 @@ public class LectureController {
 		   remap.put("end", end);
 		   System.out.println("end in play.do " + end);
 		   List<CourseReplyDTO> replyList=CourseReplyDAO.replyAllData(remap);
+		   Map imagemap= new HashMap();
+		
+		   for(CourseReplyDTO dt:replyList){
+			   String mid=dt.getGrename();
+			   String mimge=MemberDAO.getUserDatabyName(mid);
+			   imagemap.put(mid, mimge);
+		   }
 		   req.setAttribute("replyList", replyList);
-		   
+		   req.setAttribute("imagemap", imagemap);
 		   double avg=CourseReplyDAO.replyPointAvg(gno);	// 별점 평균
 		   System.out.println("replyPoint worked");
 		   req.setAttribute("grepointAvg", avg);
