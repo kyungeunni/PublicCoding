@@ -161,9 +161,7 @@ public class OnOffController {
         	map.put("meetdate",day);
         	map.put("meettime",time);
         	map.put("tno", tno);
-
         	int temp= OnoffmixDAO.getGroupNo(map);
-
         	System.out.println(temp);
         	vo.setGroupno(temp);
     	}
@@ -172,29 +170,28 @@ public class OnOffController {
     	vo.setMeetdate(day);
     	vo.setTno(Integer.parseInt(tno));
     	vo.setMeetno(Integer.parseInt(meetno));
-
+    	System.out.println();
     	OnoffmixDAO.studyjoin(vo);
-
-
+    	/*
+    	//List<ReserveVO> list=MovieDAO.reserveUserAllData(id);
+    	//req.setAttribute("list", list);
+    	//req.setAttribute("jsp", "movie/mypage.jsp");*/
     	req.setAttribute("mno", mno);
     	return "onoffmix/reserve_ok.jsp";
     }
     @RequestMapping("studylist.do")
     public String studylist(HttpServletRequest req)
-    {	System.out.println("...........start studylist");
+    {	
     	List<StudyJoinVO> list= OnoffmixDAO.studyjoinAllData();
-    	System.out.println("...........start studylist2");
     	Map imgmapmap = new HashMap();
     	Map mjoinedmap = new HashMap();
     	Map jnummap = new HashMap();
     	Map imgmap ;
     	for(StudyJoinVO vo:list){
     		int gno=vo.getGroupno();
-    		System.out.println("...........start studylist1");
     		List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(gno);
     		imgmap = new HashMap();
     		for(Integer m:mjoined){
-    			System.out.println("...........start studylist2");
         		String temp= QBoardDAO.getimageUrl(m);
         		imgmap.put(m, temp);  
         		System.out.println(m+"¹ø url>>>"+temp);

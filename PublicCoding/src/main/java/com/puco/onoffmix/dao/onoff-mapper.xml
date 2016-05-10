@@ -56,19 +56,12 @@
 	SELECT NVL(MAX(groupno)+1,1) FROM meetupreginfo
 	</select>
 	<select id="getGroupNo" resultType="int" parameterType="java.util.Map">
-		SELECT distinct groupno FROM meetupreginfo
+		SELECT groupno FROM meetupreginfo
 		WHERE meetno =#{meetno }	
 		AND meetdate =#{meetdate}
 		AND meettime =#{meettime }
-		AND tno=#{tno}
+		AND tno =#{tno}
 	</select>
-	<!--  	System.out.println(meetno+"-"+day+"-"
-    			+time+"-"+tno+"-"+mno+"-"+jnum);
-    	SELECT distinct groupno FROM meetupreginfo
-		WHERE meetno =1
-		AND meetdate ='5월11일'
-		AND meettime ='08:30'
-		AND tno=1 -->
 	
 		<!-- 추가(예약) -->
 	<insert id="studyjoin" parameterType="StudyJoin"> 
@@ -92,7 +85,7 @@
 	
 	<!-- 스터디목록(출력) -->
 	<select id="studyjoinAllData" resultType="StudyJoin" >
-		SELECT distinct MRI.groupno as groupno, meetdate, meettime, title, maxpeople ,poster, tname ,loc 
+		SELECT distinct MRI.groupno as groupno,meetdate,meettime,title,maxpeople,poster, tname,loc 
 		FROM meetupreginfo MRI
 		LEFT JOIN meetupinfo MI
 		ON MRI.meetno=MI.meetno
@@ -102,7 +95,7 @@
 
 	<!-- 특정스터디(출력) -->
 	<select id="studyjoinData" resultType="StudyJoin" parameterType="int">
-		SELECT distinct meetdate,meettime,MRI.meetno as meetno,title,maxpeople,poster, tname,loc, MRI.tno as tno
+		SELECT distinct meetdate,meettime,MRI.meetno as meetno,title,maxpeople,poster, tname,loc,MRI.tno as tno
 		FROM meetupreginfo MRI
 		LEFT JOIN meetupinfo MI
 		ON MRI.meetno=MI.meetno

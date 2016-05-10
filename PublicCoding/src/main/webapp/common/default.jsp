@@ -235,8 +235,8 @@
 										<c:forEach var="q" items="${qlist }">
 											<tr class="qtr1">
 												<td class="tag1" style="text-align: center"><a
-													href="content.do?no=${q.bno }">${q.tag1 }</a></td>
-												<td class="title1"><a href="content.do?no=${q.bno }">${q.bsubject }</a></td>
+													href="content.do?no=${q.bno }&page=1">${q.tag1 }</a></td>
+												<td class="title1"><a href="content.do?no=${q.bno }&page=1">${q.bsubject }</a></td>
 												<td class="id1"><a href="userMain.do?mno=${q.mno }">${q.userid }</a></td>
 											</tr>
 										</c:forEach>
@@ -270,7 +270,7 @@
 								<tbody>
 									<c:forEach var="f" items="${flist }">
 										<tr class="ftr">
-											<td class="title3" style="text-align:left"><a	href="freeboard_content.do?no=${f.bno }">${f.bsubject }</a></td>
+											<td class="title3" style="text-align:left"><a	href="freeboard_content.do?no=${f.bno }&page=1">${f.bsubject }</a></td>
 											<td class="id3" style="text-align: left"><a href="userMain.do?mno=${f.mno }">${f.userid }</a></td>
 										</tr>
 									</c:forEach>

@@ -1,5 +1,6 @@
 package com.puco.onoffmix.dao;
 
+import java.util.Map;
 
 public class StudyJoinVO {
 	private int rno;
@@ -10,7 +11,6 @@ public class StudyJoinVO {
 	private String meettime;
 	private int tno;
 	private int groupno;
-	
 	//meetupinfo에서 추가
 	private String title;
 	private String poster;
@@ -19,6 +19,9 @@ public class StudyJoinVO {
 	private String tname;
 	private String loc;
     //수강인원
+	
+	
+	private String mnogroup;
 	
 	
 	public int getGroupno() {
@@ -57,7 +60,12 @@ public class StudyJoinVO {
 	public void setMaxpeople(int maxpeople) {
 		this.maxpeople = maxpeople;
 	}
-
+	public String getMnogroup() {
+		return mnogroup;
+	}
+	public void setMnogroup(String mnogroup) {
+		this.mnogroup = mnogroup;
+	}
 	public int getTno() {
 		return tno;
 	}
