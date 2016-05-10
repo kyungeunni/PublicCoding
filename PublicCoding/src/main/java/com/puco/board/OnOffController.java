@@ -183,7 +183,6 @@ public class OnOffController {
     public String studylist(HttpServletRequest req)
     {	
     	List<StudyJoinVO> list= OnoffmixDAO.studyjoinAllData();
-    	System.out.println("size>>>>>>"+list.size());
     	Map imgmapmap = new HashMap();
     	Map mjoinedmap = new HashMap();
     	Map jnummap = new HashMap();
@@ -195,7 +194,6 @@ public class OnOffController {
     		for(Integer m:mjoined){
         		String temp= QBoardDAO.getimageUrl(m);
         		imgmap.put(m, temp);  
-        		System.out.println(m+"¹ø url>>>"+temp);
         	}
     		imgmapmap.put(gno, imgmap);
     		mjoinedmap.put(gno, mjoined);

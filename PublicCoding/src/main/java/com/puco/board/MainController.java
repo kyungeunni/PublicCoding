@@ -20,6 +20,8 @@ import com.puco.lectures.dao.CourseGroupDTO;
 import com.puco.lectures.dao.CourseReplyDAO;
 import com.puco.member.dao.MemberDAO;
 import com.puco.member.dao.MemberDTO;
+import com.puco.onoffmix.dao.OnoffmixDAO;
+import com.puco.onoffmix.dao.StudyJoinVO;
 import com.puco.category.dao.DcategoryDAO;
 import com.puco.category.dao.DcategoryDTO;
 import com.puco.category.dao.ScategoryDAO;
@@ -45,15 +47,34 @@ public class MainController {
 		int no2 = 2;
 		List<CourseGroupDTO> g2list=CourseGroupDAO.CourseGroupAllData(no2);
 		req.setAttribute("g2list", g2list);
-		
-		// Dcategory 메뉴
-		/*
-		 * List<DcategoryDTO> dlist=DcategoryDAO.DcategoryAllData();
-		 * req.setAttribute("dlist", dlist);
-		 */
-		// Dcategory 메뉴 끝
 		req.setAttribute("jsp", "default.jsp");
 
+		
+		List<StudyJoinVO> slist= OnoffmixDAO.studyjoinAllData();
+    	Map imgmapmap = new HashMap();
+    	Map mjoinedmap = new HashMap();
+    	Map jnummap = new HashMap();
+    	Map imgmap ;
+    	for(StudyJoinVO vo:slist){
+    		int gno=vo.getGroupno();
+    		List<Integer> mjoined = OnoffmixDAO.getJoinedPeoplebyGN(gno);
+    		imgmap = new HashMap();
+    		for(Integer m:mjoined){
+        		String temp= QBoardDAO.getimageUrl(m);
+        		imgmap.put(m, temp);  
+        	}
+    		imgmapmap.put(gno, imgmap);
+    		mjoinedmap.put(gno, mjoined);
+    		jnummap.put(gno, mjoined.size());
+    	}
+    	req.setAttribute("imgmapmap", imgmapmap);
+    	req.setAttribute("mjoinedmap", mjoinedmap);
+    	req.setAttribute("jnummap", jnummap);
+    	req.setAttribute("slist", slist);
+		
+		
+		
+		
 		return "common/main.jsp";// jsp파일이름
 
 

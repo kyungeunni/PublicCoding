@@ -150,6 +150,7 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; curso
 	/*레이아웃*/
 	header { position:relative; width:100%; height:130px;}	
 	nav { display:none;}
+	
 	section { width:100%; margin-left:0px;}
 	article { height:150px;}		
 	article:nth-child(1) { width:100%; height:300px;}		

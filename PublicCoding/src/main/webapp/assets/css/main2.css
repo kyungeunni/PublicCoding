@@ -61,10 +61,11 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 .joinok a{color:#ffffff;}
 .logininok a{color:#ffffff;}
 
-/* Main QnAboard */
+/* Main Board */
 .h3m {background-color: black; color:#ffffff; height:4vh; margin-top: -6px;}
 .h3n {margin-top: -5px; padding-top: 7px;}
 
+/* Main QnAboard */
 #col-line1 {width:34%; text-align: left;}
 #table-size{margin-left: 20px;}
 
@@ -86,21 +87,32 @@ article>div { position:relative; width:100%; height:100%; overflow:hidden; }
 #qnaboard .qtr:HOVER{background-color: #black;}
 
 /* Main freeboard */
-#col-line2 {width:34%; text-align: left;}
-#fboard th{width:100%;}
-#fboard th.title2{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
-#fboard th.id2{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
 
-#fboard th.title3{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
-#fboard th.id3{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+#col-line2 {width:34%; text-align: left;}
+#fboard {width:100%;}
+#fboard .title2{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard .id2{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+
+#fboard .title3{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;} 
+#fboard .id3{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
 
   
 #fboard a{color:black;}
 #fboard .ftr a:HOVER{color:#ffffff; text-decoration: none;}
 #fboard .ftr:HOVER{background-color:#1abc9c;}
 
+/* Study*/
 
+#sboard {width:100%;}
+#sboard .sname{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+#sboard .tname{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
 
+#sboard .sname1{width:75%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+#sboard .tname1{width:25%; white-space: nowrap; OVERFLOW: HIDDEN; TEXT-OVERFLOW: ellipsis;}
+
+#sboard a{color:black;}
+#sboard .fbtr a:HOVER{color:#ffffff; text-decoration: none;}
+#sboard .fbtr:HOVER{background-color:#1abc9c;}
 
 
 #mainc {width:80%; margin-top: 50px;}
